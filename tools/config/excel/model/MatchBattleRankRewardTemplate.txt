@@ -1,0 +1,1 @@
+int rewardItemId; //奖励物品id

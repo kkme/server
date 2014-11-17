@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- 服务器打包脚本  by crazyjohn -->
+<project name="soul.build" basedir="." default="zip">
+	<!-- define all props -->
+	<tstamp>
+		<format property="build.time" pattern="yyyyMMddHHmmss"/>
+	</tstamp>
+	<property name="build.version" value="${build.time}"/>
+	<property name="root.dir" value="${basedir}"/>
+	<property name="build.dir" value="${root.dir}/build"/>
+	<property name="class.dir" value="${build.dir}/classes"/>
+	<property name="bin.dir" value="${build.dir}/bin"/>
+	<property name="config.dir" value="${bin.dir}"/>
+	<property name="lib.dir" value="${bin.dir}/lib"/>
+	<property name="resource.dir" value="${build.dir}/resources/scripts"/>
+	<property name="resourcei18n.dir" value="${build.dir}/resources/i18n/zh_CN"/>
+	<property name="proto.dir" location="${root.dir}/proto"/>
+	<property name="core.dir" value="${root.dir}/core"/>
+	<property name="ds.dir" value="${root.dir}/game_db"/>
+	<property name="ds.script.dir" value="${ds.dir}/sql"/>
+	<property name="gs.dir" value="${root.dir}/game_server"/>
+	<property name="ls.dir" value="${root.dir}/log_server"/>
+	<property name="ls.sql.dir" value="${root.dir}/log_server/sql"/>
+	<property name="tools.dir" value="${root.dir}/tools"/>
+	<property name="version.dir" value="F:/技术版本"/>
+	<property name="server.dir" value="F:/技术版本/server"/>
+	<property name="client.dir" value="F:/技术版本/client"/>
+	<property name="db.dir" value="F:/技术版本/db/sqlUpdate"/>
+	<property name="db.logserver.dir" value="F:/技术版本/db/logserver"/>
+	<!-- 日志Model -->
+	<property name="log.model.dir1" value="${root.dir}/core/src/com/hifun/soul/logserver/model/"/>
+	<property name="log.model.dir2" value="${class.dir}/com/hifun/soul/logserver/model/"/>
+	
+	<!-- path -->
+	<path id="libs">
+		<pathelement path="${java.class.path}"/>
+		<fileset id="proto_lib" dir="${proto.dir}/lib" includes="*.jar"/>
+		<fileset id="core_lib" dir="${core.dir}/lib" includes="*.jar,*.zip,*.dll,*.so"/>
+		<pathelement location="${bin.dir}/soul.jar"/>
+	</path>
+
+	<!-- 加密资源宏定义 -->
+	<macrodef name="resourceEncrypt">
+		<attribute name="xlsDir" />
+		<attribute name="outDir" />
+		<sequential>
+			<java classname="com.hifun.soul.core.encrypt.EncryptFileDirGenerator" 
+				classpathref="libs" 
+				failonerror="true">
+				<arg value="@{xlsDir}" />
+				<arg value="@{outDir}" />
+			</java>
+		</sequential>
+	</macrodef>
+	
+	<!-- java compile -->
+	<presetdef name="javac16">
+		<javac destdir="${class.dir}" classpathref="libs" nowarn="true" encoding="UTF-8" source="1.6" target="1.6" compiler="javac1.6"/>
+	</presetdef>
+	
+	<!-- reset all local dirs  -->
+	<target name="init">
+		<delete dir="${build.dir}" failonerror="false"/>
+		<mkdir dir="${build.dir}" />
+		<mkdir dir="${class.dir}"/>
+		<mkdir dir="${bin.dir}"/>
+		<mkdir dir="${config.dir}"/>
+		<mkdir dir="${resource.dir}"/>
+		<mkdir dir="${resourcei18n.dir}"/>
+	</target>
+	
+	<!-- comile all projects code to same dir -->
+	<target name="compile" depends="init" >
+		<!--<echo message="compiling, classpath:${java.class.path}"/>-->
+		<javac16>
+			<src path="${proto.dir}/src"/>
+			<src path="${core.dir}/src"/>
+			<src path="${ds.dir}/src"/>
+			<src path="${gs.dir}/src"/>
+			<src path="${ls.dir}/src"/>
+			<src path="${tools.dir}/src/com/hifun/soul/tools/i18n"/>
+		</javac16>
+		<delete file="${root.dir}/resources/i18n/zh_CN/sys_lang.xls" />
+		<!-- generate sysLang file -->
+		<java classname="com.hifun.soul.tools.i18n.SysLangGenerator" classpath="${class.dir}" classpathref="libs" fork="true">
+			<arg value="${root.dir}/resources/i18n/zh_CN/sys_lang.xls"/>
+		</java>
+		<!-- generate sysLang file
+		<java jar="SysLang.jar" classpathref="libs" fork="true" failonerror="true">
+			<arg value="${resourcei18n.dir}/sys_lang.xls"/>
+		</java> -->
+	</target>
+	
+	<!-- to jar  -->
+	<target name="pack" depends="compile">
+		<copy todir="${log.model.dir2}">
+			<fileset dir="${log.model.dir1}"/>
+		</copy>
+		<copy todir="${class.dir}">
+			<!--
+			<fileset dir="${core.dir}/config"/>
+			-->
+			<fileset dir="${core.dir}/config" excludes="*.js,*.tpl"/>
+			<fileset dir="${gs.dir}/config" excludes="*.js,*.tpl"/>
+			<fileset dir="${ls.dir}/config" excludes="*.js,*.tpl"/>
+		</copy>
+		<jar basedir="${class.dir}" jarfile="${bin.dir}/soul.jar"/>
+		<delete dir="${class.dir}" failonerror="false"/>
+	</target>
+	
+	<!-- copy jars and configs and resouces and launchScript to publish dir -->
+	<target name="copy" depends="pack">
+		<copy todir="${bin.dir}">
+			<fileset dir="${core.dir}/config" excludes="*.tpl,*.properties"/>
+			<fileset dir="${gs.dir}/config" includes="*.js"/>
+			<fileset dir="${ls.dir}/config" includes="*.js"/>
+			<fileset dir="${ds.dir}/config" includes="*.js"/>
+		</copy>
+		<copy todir="${lib.dir}">
+			<fileset refid="proto_lib"/>
+			<fileset refid="core_lib"/>
+		</copy>
+		<copy todir="${resource.dir}">
+			<fileset dir="${root.dir}/resources/scripts" excludes=".*,**/test/"/>
+		</copy>
+		
+		<copy todir="${resourcei18n.dir}">
+			<fileset dir="${root.dir}/resources/i18n/zh_CN" excludes=".*,**/test/"/>
+		</copy>
+		<!-- i18n -->
+		<copy todir="${bin.dir}" file="${root.dir}/launch.xml"/>
+		<echo message="ant -f bin\launch.xml" file="${build.dir}/runGameServer.bat"/>
+		<echo message="ant -f bin\launch.xml ls" file="${build.dir}/runLogServer.bat"/>
+	</target>
+	
+	<target name="encryptResource" depends="copy">
+		<!-- 加密 Excel 文件 -->
+		<resourceEncrypt xlsdir="${resource.dir}" outdir="${resource.dir}" />
+	</target>
+	
+		<!-- publish to shared dir -->
+	<target name="copy_shared" depends="encryptResource">
+		<mkdir dir="${server.dir}"/>
+		<copy todir="${server.dir}">
+			<fileset dir="${build.dir}"/>
+		</copy>
+	</target>
+	<!-- zip client and server -->
+	<target name="zip" depends="copy_shared">
+		<mkdir dir="${server.dir}"/>
+		<copy todir="${server.dir}">
+			<fileset dir="${build.dir}"/>
+		</copy>
+		<!-- index.html -->
+		<copy todir="${server.dir}" file="${client.dir}/index.html"/>
+		<copy todir="${db.dir}">
+			<fileset dir="${ds.script.dir}"/>
+		</copy>
+		<delete dir="${db.logserver.dir}"/>
+		<mkdir dir="${db.logserver.dir}"/>
+		<copy todir="${db.logserver.dir}">
+			<fileset dir="${ls.sql.dir}"/>
+		</copy>
+		<zip destfile="${version.dir}/soul_green_version_${build.version}.zip">
+			<zipfileset dir="${client.dir}" prefix="client"/>
+			<zipfileset dir="${server.dir}" prefix="server"/>
+		</zip>
+		<delete dir="${client.dir}"/>
+		<delete dir="${server.dir}"/>
+	</target>
+</project>

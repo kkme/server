@@ -1,0 +1,980 @@
+package com.hifun.soul.proto.services;
+
+option java_package = "com.hifun.soul.proto.services";
+option java_outer_classname = "Services";
+option java_generic_services = true;
+import "Entity.proto";
+import "EliteStage.proto";
+import "Mine.proto";
+import "Gift.proto";
+import "Refine.proto";
+import "Warrior.proto";
+
+message GetHumanByGuidRequest {
+	required int64 humanGuid = 1;
+}
+
+message GetHumanByGuidResponse {
+	required data.entity.Human human = 1;
+}
+// 登录请求
+message DoLoginRequest {
+	required string userName = 1;
+	required string password = 2;
+}
+
+// 登录响应
+message DoLoginResponse {
+	optional bool result = 1;
+	optional User user = 2;
+}
+
+// 后台用户
+message User {
+	required int32 id =1;
+	required string userName = 2;
+	required string password = 3;
+	required string permissions = 4;
+}
+
+// 请求用户列表
+message GetUserListRequest {
+	
+}
+
+// 用户列表响应
+message GetUserListResponse {
+	repeated User user = 1;
+}
+
+// 添加用户请求
+message AddUserRequest {
+	optional int32 id= 1;
+	required string userName = 2;
+	required string password = 3;
+	required string permissions = 4;
+}
+
+// 添加用户响应
+message AddUserResponse {
+	optional bool result = 1;
+}
+
+// 删除用户请求
+message DeleteUserRequest {
+	required int32 userId = 1;
+}
+
+// 删除用户响应
+message DeleteUserResponse {
+	required bool result = 1;
+}
+// 更新用户权限请求
+message UpdateUserPermissionRequest {
+	required int32 userId = 1;
+	required string permissions=2;
+}
+// 更新用户权限响应
+message UpdateUserPermissionResponse {
+	required bool result = 1;
+}
+// 用户更新密码请求
+message UpdateUserPasswordRequest {
+	required int32 userId = 1;
+	required string oldPassword=2;
+	required string newPassword=3;
+}
+// 用户更新密码响应
+message UpdateUserPasswordResponse {
+	required bool result = 1;
+}
+// 管理员更新用户密码请求
+message ManagerUpdateUserPasswordRequest {
+	required int32 userId = 1;	
+	required string newPassword=3;
+}
+// 管理员更新用户信息响应
+message ManagerUpdateUserPasswordResponse {
+	required bool result = 1;
+}
+// 根据用户ID获取用户请求
+message GetUserByIdRequest {
+	required int32 userId = 1;
+}
+// 根据用户ID获取用户响应
+message GetUserByIdResponse {
+	optional bool result = 1;
+	optional User user = 2;
+}
+// 获取服务器组信息请求
+message GetRealmInfoRequest {
+	
+}
+// 获取服务器组信息响应
+message GetRealmInfoResponse {
+	required bool open = 1;
+}
+// 开启对外服务请求
+message StartExternalServiceRequest {}
+
+// 开启对外服务响应
+message StartExternalServiceResponse {
+	optional bool state = 1;
+}
+
+// 关闭对外服务请求
+message StopExternalServiceRequest {}
+
+// 关闭对外服务响应
+message StopExternalServiceResponse {
+	optional bool state = 1;
+}
+
+//切换游戏服请求
+message ChangeGameServerRequest{
+	required int32 serverId=1;
+}
+
+//切换游戏服响应
+message ChangeGameServerResponse{
+	required bool result=1;
+}
+
+//游戏服务器信息
+message GameServerInfo{
+	required int32 serverId=1;
+	// 服务器名称
+	optional string serverName=2;
+	// 连接状态
+	optional bool connectionState=3;
+	// 运行状态
+	required bool runState=4;
+}
+
+//获取游戏服列表请求
+message GetGameServerListRequest{
+}
+
+//获取游戏服列表响应
+message GetGameServerListResponse{
+	repeated GameServerInfo gameServers = 1;
+}
+
+//DB实体操作计数器
+message DBEntityOperationCounter{
+	optional string className=1;
+	optional int32 updateCount=2;
+	optional int32 insertCount=3;
+	optional int32 deleteCount=4;
+	optional int32 getCount=5;
+	optional int32 queryCount=6;
+}
+//DB查询计数器
+message DBQueryCounter{
+	optional string queryName=1;
+	optional int32 count=2;
+}
+
+//获取游戏服DB操作情况请求
+message GetDBEntityOperationListRequest{
+}
+
+//获取游戏服DB操作情况响应
+message GetDBEntityOperationListResponse{
+	repeated DBEntityOperationCounter operationInfo = 1;
+	repeated DBQueryCounter queryCounter = 2;
+}
+
+
+
+// 根据账号名获取账号信息
+message GetAccountByNameRequest {
+	required string userName = 1;
+}
+
+message GetAccountByNameResponse {
+	optional bool result = 1;
+	optional data.entity.Account account = 2;
+}
+
+message GetAccountByIdRequest {
+	required int64 id = 1;
+}
+
+message GetAccountByIdResponse {
+	optional bool result = 1;
+	optional data.entity.Account account = 2;
+}
+
+message GetAccountListRequest {
+	required int32 start = 1;
+	required int32 maxResult = 2;
+}
+
+message GetAccountListResponse {
+	repeated data.entity.Account account = 1;
+	optional int64 totalCount=2;
+}
+
+// 锁定账号请求
+message LockAccountRequest {
+	required int64 passportId = 1;
+}
+
+message LockAccountResponse {
+	optional bool result = 1;
+}
+
+message UnlockAccountRequest {
+	required int64 passportId = 1;
+}
+
+message UnlockAccountResponse {
+	optional bool result = 1;
+}
+
+message UpdateAccountInfoRequest {
+	required data.entity.Account accountInfo = 1;
+}
+
+message UpdateAccountInfoResponse {
+	optional bool result = 1;
+}
+
+//获取角色列表请求
+message GetCharacterListRequest{	
+	required int32 start=1;
+	required int32 maxResult = 2;
+	optional string characterName =3;
+	optional int64 characterId=4;
+	optional string accountName=5;
+}
+
+message CharacterBaseInfo{
+	required data.entity.HumanBaseProperties baseProperties = 1;
+	required data.entity.HumanOtherProperties otherProperties = 2;
+}
+
+//获取角色列表的服务器响应
+message GetCharacterListResponse{
+	repeated CharacterBaseInfo baseInfo = 1;
+	optional int64 totalCount = 2;
+}
+
+//获取角色绑定的信息请求
+message GetHumanInfoRequest{	
+	required int64 humanGuid = 1;	
+}
+
+//获取角色物品列表的服务器响应
+message GetHumanItemsResponse{
+	repeated data.entity.HumanItem items = 1;
+}
+
+//获取角色科技列表的服务器响应
+message GetHumanTechnologyResponse{
+	repeated data.entity.HumanTechnology technology = 1;
+	optional data.entity.HumanMeditation meditation = 2;
+}
+
+//获取角色任务的服务器响应
+message GetHumanQuestResponse{
+	repeated data.entity.HumanQuestData quest = 1;
+	repeated data.entity.HumanQuestFinishData finishQuest=2;	
+	repeated data.entity.HumanDailyQuestRewardBox dailyRewardBox = 3;
+}
+
+//获取角色星运的服务器响应
+message GetHumanHoroscopeResponse{
+	repeated data.entity.HumanHoroscope horoscope = 1;
+	repeated data.entity.HumanStargazer stargazer = 2;
+}
+
+//获取角色星运的服务器响应
+message GetHumanStageResponse{	
+	// 角色地图状态信息
+	repeated data.entity.HumanStageMapState stageMapState = 1;	
+	// 精英副本
+	optional common.HumanEliteStageInfo eliteStageInfo=2;
+}
+
+//获取角色星运的服务器响应
+message GetHumanSkillResponse{	
+	// 角色携带的技能信息
+	repeated data.entity.HumanCarriedSkill skill = 1;
+}
+
+//获取角色星运的服务器响应
+message GetHumanMineResponse{
+	// 矿场相关信息
+	optional common.HumanMineInfo mine = 1;
+}
+
+message HumanFriendInfo{
+	// 玩家id 	
+	required int64 id=1;
+	// 玩家名称 
+	optional string humanName=2;
+	// 玩家等级 
+	optional int32 humanLevel=3;
+	// 玩家职业 
+	optional int32 humanOccupation=4;
+	// 好友列表
+	optional string friendIds=5;
+	// 给自己送体力的好友列表 
+	optional string sendEnergyToSelfFriendIds=6;
+	// 自己送出体力的好友列表  	
+	optional string sendEnergyToOtherFriendIds=7;
+	// 自己已经接收过体力的好友列表 	
+	optional string recievedEnergyFriendIds=8;
+	// 自己发出的好友请求
+	optional string selfSendFriendApplyIds=9;
+	// 别人向自己发送的好友申请	
+	optional string otherSendFriendApplyIds=10;
+}
+
+
+//获取角色好友的服务器响应
+message GetHumanFriendResponse{
+	// 好友相关信息
+	repeated HumanFriendInfo friend = 1;
+}
+
+//问答数据
+message HumanQuestionData{
+	// 角色id
+	required int64 humanId=1;
+	// 当前积分 
+	optional int32 totalScore=2;
+	// 可用免费祈福次数 
+	optional int32 usableBlessNum=3;
+	// 购买祈福次数
+	optional int32 buyBlessTimes=4;
+	// 题目序号
+	optional int32 questionIndex=5;
+	// 题目id 
+	optional int32 questionId=6;
+	// 积分兑换状态 
+	repeated int32  scoreExchangeState=7;
+	// 上次每日重置时间 
+	optional int64 lastDailyResetTime=8;
+	// 上次每周重置时间
+	optional int64 lastWeeklyResetTime=9;
+}
+
+//获取角色问答的服务器响应
+message GetHumanQuestionResponse{
+	// 问答信息
+	optional HumanQuestionData question = 1;
+}
+
+//获取角色消费提醒的服务器响应
+message GetHumanCostnotifyResponse{
+	// 角色消费提醒信息
+	repeated data.entity.HumanCostNotify costNotify = 1;
+}
+//获取角色cd的服务器响应
+message GetHumanCDResponse{
+	// 角色cd信息
+	repeated data.entity.HumanCd cd = 1;
+}
+
+//获取角色连续登陆奖励的服务器响应
+message GetHumanLoginRewardResponse{
+	// 连续登陆奖励
+	repeated data.entity.HumanLoginReward loginReward = 1;
+}
+	
+//获取角色主城相关信息的服务器响应
+message GetHumanStoneCollectResponse{
+	// 主城相关信息
+	optional data.entity.HumanMainCityInfo mainCityInfo = 1;
+}
+
+
+//踢人下线请求
+message KickOffCharacterRequest{
+	required int64 humanGuid=1;
+}
+
+//踢人下线服务器响应
+message KickOffCharacterResponse{
+	required bool result=1;
+}
+
+//查询当前在线人数请求
+message QueryCurrentOnlineNumRequest{
+}
+
+//查询当前在线人数服务器响应
+message QueryCurrentOnlineNumResponse{
+	required int32 onlineNum =1;
+}
+
+//检查玩家是否在线请求
+message CheckCharacterOnlineStateRequest{
+	required int64 humanGuid=1;
+}
+
+//检查玩家是否在线的服务器响应
+message CheckCharacterOnlineStateResponse{
+	required bool isOnline=1;
+}
+
+//玩家状态统计查询
+message QueryPlayerStateStatisticRequest{
+}
+//玩家状态统计服务器响应
+message QueryPlayerStateStatisticResponse{
+	//建立网络会话
+	optional int32 connectedCount=1;
+	//已认证
+	optional int32 authronizedCount=2;
+	//正在进入游戏中
+	optional int32 enteringCount=3;
+	//游戏中
+	optional int32 gameingCount=4;
+	//战斗中
+	optional int32 battlingCount=5;
+	//退出中
+	optional int32 exitingCount=6;
+	//其他未知状态
+	optional int32 otherCount=7;
+}
+
+
+//踢人下线请求
+message KickOffAllCharacterRequest{
+}
+
+//踢人下线服务器响应
+message KickOffAllCharacterResponse{
+	required bool result=1;
+}
+
+//公告
+message Bulletin{
+	required int32 id=1;
+	//公告类型
+	required int32 bulletinType=2;
+	//内容
+	required string content = 3;
+	//定义的发布时间
+	required int64 publishTime = 4;	
+	//客户端显示时长
+	optional int32 showTime = 5;
+	//公告级别
+	optional int32 level = 6;
+	//有效标识
+	required bool valid = 7;
+	//有效开始日期
+	optional int64 startDate =8;
+	//截止日期
+	optional int64 endDate =9;
+	//每日开始时间
+	optional int64 startTime=10;
+	//每日结束时间
+	optional int64 endTime=11;
+	//上一次发布时间
+	optional int64 lastPublishTime=12;
+	//发布间隔时间（单位s）
+	optional int32 publishInterval=13;
+	//公告创建时间
+	optional int64 createTime = 14;
+}
+
+//添加公告请求
+message AddBulletinRequest{
+	required Bulletin bulletin=1;
+	
+}
+
+//添加公告服务器响应
+message AddBulletinResponse{
+	required bool result=1;
+}
+
+
+//移除公告请求
+message RemoveBulletinRequest{
+	required int32 bulletinId=1;
+	
+}
+
+//移除公告服务器响应
+message RemoveBulletinResponse{
+	required bool result=1;
+}
+
+
+//更新公告请求
+message UpdateBulletinRequest{
+	required Bulletin bulletin=1;
+	
+}
+
+//更新公告服务器响应
+message UpdateBulletinResponse{
+	required bool result=1;
+}
+
+//获取公告列表的请求
+message GetBulletinListRequest{
+	required int32 start=1;
+	required int32 maxResult = 2;
+	required int32 validState=3;
+	optional int32 bulltinType=4;
+	optional string contentKey=5;
+	optional int64 beginDate=6;
+	optional int64 endDate=7;
+}
+//获取公告列表的响应
+message GetBulletinListResponse{
+	repeated Bulletin bulletins=1;
+	required int64 totalCount = 2;
+}
+
+//邮件信息
+message MailObject{
+	//邮件id
+	required int64 mailId=1;
+	//邮件类型
+	required int32 mailType=2;
+	//接收人id
+	required string receiveHumanIds=3;
+	//邮件主题
+	optional string theme=4;
+	//内容
+	optional string content=5;
+	//发件人id
+	required int64 sendHumanId=6;
+	//发件人姓名
+	optional string sendHumanName=7;
+	//邮件过期时间
+	optional int64 expireDate=8;
+	//附件
+	repeated int32 itemId=9;
+	//备注
+	optional string sendMemo=10;
+	//发送时间
+	optional int64 sendTime=11;	
+	//是否为定时发送邮件
+	optional bool isTimingMail=12;
+	//是否有效
+	optional bool valid=13;
+	//发送状态
+	optional int32 sendState=14;
+	//计划发送时间
+	optional int64 planSendTime=15;
+	//创建时间
+	optional int64 createTime=16;
+	//最后修改时间
+	optional int64 lastEditTime=17;
+	//附件物品数量
+	repeated int32 itemNum=18;
+}
+
+//查询邮件列表请求
+message QuerySendMailListRequest{
+	required int32 start=1;
+	required int32 maxResult = 2;
+	optional string theme=3;
+	optional string content=4;
+	optional string sendHumanName=5;
+	optional string receiveHumanId=6;
+	optional string sendMemo=7;
+	optional string receiveHumanName=8;
+}
+
+//查询邮件列表服务器响应
+message QuerySendMailListResponse{
+	repeated MailObject mails=1;
+	required int64 totalCount=2;
+}
+
+//发送邮件请求
+message SendMailRequest{
+	required MailObject mail=1;
+}
+
+//发送邮件服务器响应
+message SendMailResponse{
+	required bool result=1;
+}
+
+//查询定时邮件请求
+message QueryTimingMailListRequest{
+}
+//查询定时邮件响应
+message QueryTimingMailListResponse{
+	repeated MailObject mails=1;
+	required int64 totalCount=2;
+}
+//更新定时邮件请求
+message UpdateTimingMailRequest{
+	required MailObject mail=1;
+}
+//更新定时邮件响应
+message UpdateTimingMailResponse{
+	required bool result=1;
+}
+
+//取消定时发送的邮件请求
+message CancelTimingMailRequest{
+	required int64 mailId=1;
+}
+
+//取消定时发送的邮件服务器响应
+message CancelTimingMailResponse{
+	required bool result=1;
+}
+
+//检查连接状态请求
+message CheckConnectionRequest{
+}
+//检查连接状态的返回信息
+message CheckConnectionResponse{
+	//true 表示连接成功
+	optional bool state = 1 [default=false];
+}
+
+//根据角色名称查id请求
+message QueryHumanIdByNameRequest{
+	required string name=1;
+}
+//根据角色名称查id服务器响应
+message QueryHumanIdByNameResponse{
+	required int64 charId=1;
+}
+//查询角色天赋的响应
+message QueryHumanGiftResponse{
+	// 角色天赋信息
+	repeated common.Gift gift=1;
+}
+//查询角色试炼的响应
+message QueryHumanRefineResponse{
+	// 角色试炼地图信息
+	repeated common.RefineMapData refineMapData = 1;
+	// 角色试炼关卡信息
+	repeated common.RefineStageData refineStageData = 2;
+}
+//查询角色勇者之路的响应
+message QueryHumanWarriorInfoResponse{
+	optional common.HumanWarriorInfo warriorInfo=1;
+}
+//查询在线角色
+message QueryOnlineHumanRequest{
+	required int32 start=1;
+	required int32 maxResult = 2;
+}
+//查询在线角色的响应
+message QueryOnlineHumanResponse{
+	repeated CharacterBaseInfo baseInfo = 1;
+	optional int64 totalCount = 2;
+}
+
+message QueryLoginWallStateRequest{
+}
+
+message QueryLoginWallStateResponse{
+	optional bool enabled=1;
+}
+
+message UpdateLoginWallStateRequest{
+	optional bool enabled=1;
+}
+
+message StopGameServerRequest{
+	required int32 serverId=1;
+}
+
+message StopGameServerResponse{
+	optional bool result=1;
+}
+
+message GetGameServerStatusRequest{
+}
+
+message GetGameServerStatusResponse{
+	optional bool status=1;
+}
+
+
+// 角色RPC服务
+service HumanRpcService {
+	rpc getHumanByGuid (GetHumanByGuidRequest) returns (GetHumanByGuidResponse);
+}
+
+// 后台用户服务
+service UserRpcService {
+	// 登录
+	rpc doLogin(DoLoginRequest) returns(DoLoginResponse);
+	// 获取用户列表;
+	rpc getUserList(GetUserListRequest) returns(GetUserListResponse);
+	// 添加用户
+	rpc addUser(AddUserRequest) returns(AddUserResponse);
+	// 删除用户
+	rpc deleteUser(DeleteUserRequest) returns(DeleteUserResponse);
+	// 更新用户权限
+	rpc updateUserPermission(UpdateUserPermissionRequest) returns(UpdateUserPermissionResponse);
+	// 根据ID获取用户
+	rpc getUserById(GetUserByIdRequest) returns(GetUserByIdResponse);
+	// 用户更新密码
+	rpc updateUserPassword(UpdateUserPasswordRequest) returns(UpdateUserPasswordResponse);
+	// 管理员更新用户密码
+	rpc managerUpdateUserPassword(ManagerUpdateUserPasswordRequest) returns(ManagerUpdateUserPasswordResponse);
+	
+}
+
+// 运行时管理RPC服务
+service RuntimeRpcService {
+	// 获取服务器组信息
+	rpc getRealmInfo(GetRealmInfoRequest) returns(GetRealmInfoResponse);
+	// 打开对外服务开关
+	rpc startExternalService(StartExternalServiceRequest) returns(StartExternalServiceResponse);
+	// 关闭对外服务开关
+	rpc stopExternalService(StopExternalServiceRequest) returns(StopExternalServiceResponse);
+	// 切换连接的游戏服
+	rpc changeGameServer(ChangeGameServerRequest) returns(ChangeGameServerResponse);
+	// 获取服务器列表
+	rpc getGameServerList(GetGameServerListRequest) returns(GetGameServerListResponse);
+	// 获取游戏服务器DB操作情况
+	rpc getDBEntityOperationList(GetDBEntityOperationListRequest) returns(GetDBEntityOperationListResponse);
+	// 保持连接的请求
+	rpc checkConnection(CheckConnectionRequest) returns(CheckConnectionResponse);	
+	// 停服
+	rpc stopGameServer(StopGameServerRequest) returns(StopGameServerResponse);
+	// 查询登陆墙状态
+	rpc queryLoginWallState(QueryLoginWallStateRequest) returns(QueryLoginWallStateResponse);
+	// 更新登陆墙状态
+	rpc updateLoginWallState(UpdateLoginWallStateRequest) returns(QueryLoginWallStateResponse);
+	// 获取游戏服状态
+	rpc GetGameServerStatus(GetGameServerStatusRequest) returns(GetGameServerStatusResponse);
+}
+
+// 账号管理
+service AccountRpcService {
+	// 根据用户名获取账号
+	rpc getAccountByName(GetAccountByNameRequest) returns(GetAccountByNameResponse);
+	// 根据ID获取账号
+	rpc getAccountById(GetAccountByIdRequest) returns(GetAccountByIdResponse);
+	// 获取账号列表
+	rpc getAccountList(GetAccountListRequest) returns(GetAccountListResponse);
+	// 锁定账号
+	rpc lockAccount(LockAccountRequest) returns(LockAccountResponse);
+	// 解锁账号
+	rpc unlockAccount(UnlockAccountRequest) returns(UnlockAccountResponse);
+	//修改账号信息
+	rpc updateAccountInfo(UpdateAccountInfoRequest) returns(UpdateAccountInfoResponse);
+
+}
+
+//角色管理
+service CharacterRpcService{
+	//获取角色列表
+	rpc getCharacterList(GetCharacterListRequest) returns(GetCharacterListResponse);	
+	//踢人下线
+	rpc kickOffCharacter(KickOffCharacterRequest) returns(KickOffCharacterResponse);
+	//查询当前在线数量
+	rpc queryCurrentOnlineNum(QueryCurrentOnlineNumRequest) returns(QueryCurrentOnlineNumResponse);
+	//查询指定角色的在线状态
+	rpc checkCharacterOnlineState(CheckCharacterOnlineStateRequest) returns(CheckCharacterOnlineStateResponse);	
+	//踢所有人下线
+	rpc kickOffAllCharacter(KickOffAllCharacterRequest) returns(KickOffAllCharacterResponse);
+	//查询玩家的物品
+	rpc queryHumanItem(GetHumanInfoRequest) returns(GetHumanItemsResponse);
+	//查询玩家的科技
+	rpc queryHumanTechnology(GetHumanInfoRequest) returns(GetHumanTechnologyResponse);
+	//查询玩家的任务
+	rpc queryHumanQuest(GetHumanInfoRequest) returns(GetHumanQuestResponse);
+	//查询玩家的星运
+	rpc queryHumanHoroscope(GetHumanInfoRequest) returns(GetHumanHoroscopeResponse);
+	//查询玩家的关卡
+	rpc queryHumanStage(GetHumanInfoRequest) returns(GetHumanStageResponse);
+	//查询玩家的技能
+	rpc queryHumanSkill(GetHumanInfoRequest) returns(GetHumanSkillResponse);
+	//查询玩家的矿场
+	rpc queryHumanMine(GetHumanInfoRequest) returns(GetHumanMineResponse);
+	//查询玩家的好友
+	rpc queryHumanFriend(GetHumanInfoRequest) returns(GetHumanFriendResponse);
+	//查询玩家的问答数据
+	rpc queryHumanQuestion(GetHumanInfoRequest) returns(GetHumanQuestionResponse);
+	//查询玩家的消费提醒
+	rpc queryHumanCostnotify(GetHumanInfoRequest) returns(GetHumanCostnotifyResponse);
+	//查询玩家的CD
+	rpc queryHumanCD(GetHumanInfoRequest) returns(GetHumanCDResponse);
+	//查询玩家的连续登陆奖励
+	rpc queryHumanLoginReward(GetHumanInfoRequest) returns(GetHumanLoginRewardResponse);
+	//查询玩家的魔法石收集
+	rpc queryHumanStoneCollect(GetHumanInfoRequest) returns(GetHumanStoneCollectResponse);	
+	//根据角色名称查询角色id
+	rpc queryHumanIdByName(QueryHumanIdByNameRequest) returns(QueryHumanIdByNameResponse);
+	//查询玩家的天赋信息
+	rpc queryHumanGift(GetHumanInfoRequest) returns(QueryHumanGiftResponse);
+	//查询玩家的勇者之路相关信息
+	rpc queryHumanWarriorInfo(GetHumanInfoRequest) returns(QueryHumanWarriorInfoResponse);
+	//查询玩家的试炼相关信息
+	rpc queryHumanRefine(GetHumanInfoRequest) returns(QueryHumanRefineResponse);
+	//查询在线玩家信息
+	rpc queryOnlineHuman(QueryOnlineHumanRequest) returns(QueryOnlineHumanResponse);
+}
+
+//公告管理
+service BulletinRpcService{
+	rpc addBulletin(AddBulletinRequest) returns(AddBulletinResponse);
+	rpc updateBulletin(UpdateBulletinRequest) returns(UpdateBulletinResponse);
+	rpc removeBulletin(RemoveBulletinRequest) returns(RemoveBulletinResponse);
+	rpc getBulletinList(GetBulletinListRequest) returns(GetBulletinListResponse);
+}
+
+//系统邮件服务
+service MailRpcService{
+	//查询已发送邮件列表
+	rpc querySendMailList(QuerySendMailListRequest) returns(QuerySendMailListResponse);
+	//发送邮件
+	rpc sendMail(SendMailRequest) returns(SendMailResponse);	
+	//查询定时邮件列表
+	rpc queryTimingMailList(QueryTimingMailListRequest) returns(QueryTimingMailListResponse);
+	//取消发送定时邮件
+	rpc cancelTimingMail(CancelTimingMailRequest) returns(CancelTimingMailResponse);
+	//更新定时邮件
+	rpc updateTimingMail(UpdateTimingMailRequest) returns(UpdateTimingMailResponse);
+}
+
+message QuestionInfo{
+	required int32 id=1;	
+	required int64 questionId=2;	
+	required int32 questionType=3;
+	optional string content=4;
+	required int64 askerId=5;	
+	optional string askerName=6;	
+	optional int64 askTime=7;
+}
+
+//反馈列表查询请求
+message QueryQuestionListRequest{
+	required int32 start=1;
+	required int32 maxResult = 2;
+	optional int32 questionType=3;
+	optional string content=4;
+	optional string askerName=5;
+	optional bool unAnswered=6;
+}
+
+message QueryQuestionListResponse{
+	required int64 totalCount=1;
+	repeated QuestionInfo question=2;
+}
+
+message AnswerQuestionRequest{
+	required QuestionInfo questionInfo=1;
+}
+
+message AnswerQuestionResponse{
+}
+
+//玩家反馈
+service QuestionRpcService{
+	//查询玩家反馈信息列表
+	rpc queryQuestionList(QueryQuestionListRequest) returns(QueryQuestionListResponse);
+	//回复玩家反馈信息
+	rpc answerQuestion(AnswerQuestionRequest) returns(AnswerQuestionResponse);	
+}
+
+
+message QueryMarketActListRequest{
+	
+}
+
+message QueryMarketActListResponse{
+	repeated MarketActivitySetting settings=1;
+}
+
+message MarketActivitySetting{
+	optional int32 marketActType=1;
+	optional bool enable = 2;
+	optional int32 roleLevel = 3;
+	optional int32 vipLevel = 4;
+}
+
+message UpdateMarketActSettingRequest{
+	required int32 marketActType=1;
+	required bool enable = 2;
+	required int32 roleLevel = 3;
+	required int32 vipLevel = 4;
+}
+
+message UpdateMarketActSettingResponse{
+	optional bool result = 1;
+}
+
+//运营活动管理服务
+service MarketActRpcService{
+	rpc queryMarketActList(QueryMarketActListRequest) returns(QueryMarketActListResponse);
+	rpc updateMarketActSetting(UpdateMarketActSettingRequest) returns(UpdateMarketActSettingResponse);	
+}
+
+//职业分布计数器
+message OccupationCounter{
+	required int32 occupation=1;
+	optional int64 count=2;
+}
+
+//等级分布计数器
+message LevelCounter{
+	required int32 level=1;
+	optional int64 count=2;
+}
+
+//人数分布查询请求
+message QueryCharacterDistributeRequest{
+}
+//人数分布查询响应
+message QueryCharacterDistributeResponse{
+	repeated OccupationCounter occupationCount=1;
+	repeated LevelCounter levelCount=2;
+}
+
+//
+service CharacterStatisticRpcService{
+	//角色状态统计查询
+	rpc queryPlayerStateStatistic(QueryPlayerStateStatisticRequest) returns(QueryPlayerStateStatisticResponse);
+	//角色职业分布人数查询
+	rpc queryCharacterDistribute(QueryCharacterDistributeRequest) returns(QueryCharacterDistributeResponse);	
+}
+
+// 腾讯平台充值业务流水
+message QQRechargeFlow{
+	optional string id=1;
+	optional int64 humanId=2;
+	optional string openId=3;
+	optional string timeStamp=4;
+	optional string payItem=5;
+	optional string token=6;
+	optional string billno=7;
+	optional string amt=8;
+	optional string payamtCoins=9;
+	optional string pubacctPayamtCoins=10;
+	optional bool sended=11;
+	optional string jsonValue=12;
+}
+
+message QueryQQRechargeFlowRequest{
+	required int32 start=1;
+	required int32 maxResult = 2;
+	optional int64 beginTime=3;
+	optional int64 endTime=4;
+	optional string billno=5;
+	optional string openId=6;
+	optional int64 humanId=7;
+}
+
+message QueryQQRechargeFlowResponse{
+	repeated QQRechargeFlow rechargeFlow=1;
+	optional int64 totalCount=2;
+}
+// 充值相关查询服务
+service RechargeRpcService{
+	// 查询腾讯平台的充值业务
+	rpc queryQQRechargeFlow(QueryQQRechargeFlowRequest) returns(QueryQQRechargeFlowResponse);
+}

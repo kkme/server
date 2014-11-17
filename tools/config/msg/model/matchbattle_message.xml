@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="matchbattle">
+	<message type="CG_JOIN_MATCH_BATTLE_SCENE" comment="进入匹配战场景">
+	</message>
+	<message type="GC_JOIN_MATCH_BATTLE_SCENE" comment="进入匹配战场景">
+		<field type="com.hifun.soul.gameserver.matchbattle.msg.MatchBattleRoleInfo" name="roleInfo" comment="参战角色信息"  list="true"
+		 macro="MatchBattleRoleInfo" clientType="MatchBattleRoleInfo">
+		</field>
+		<field type="com.hifun.soul.gameserver.matchbattle.msg.MatchBattleRankRoleInfo" name="RankInfo" comment="连胜榜单"  list="true"
+			macro="MatchBattleRankRoleInfo" clientType="MatchBattleRankRoleInfo">
+			<field type="String" name="roleName" comment="角色名称"  />
+			<field type="Integer" name="consecutiveWinCount" comment="连胜场数"  />
+		</field>
+		<field type="Integer" name="remainTime" comment="活动剩余时间(单位秒)"/>
+		<field type="Integer"  name="consecutiveWinCount" comment="连胜次数"/>
+		<field type="Integer"  name="maxConsecutiveWinCount" comment="最大连胜次数"/>
+		<field type="Integer" name="winCount" comment="胜利次数"/>
+		<field type="Integer" name="loseCount" comment="失败次数"/>
+		<field type="Integer" name="encourageRate" comment="鼓舞百分比"/>
+		<field type="Integer" name="encourageCoinCost" comment="金币鼓舞消耗的金币"/>
+		<field type="Integer" name="encourageCrystalCost" comment="魔晶鼓舞消耗的魔晶"/>
+		<field type="Integer" name="encourageForgeStoneCost" comment="灵石鼓舞消耗的灵石"/>
+		<field type="Integer" name="honourReward" comment="奖励荣誉累计"/>
+		<field type="Integer" name="coinReward" comment="奖励金币累计"/>
+		<field type="Integer" name="waitCDTime" comment="匹配战准备CD时间"/>		
+	</message>
+	
+	<message type="CG_ENCOURAGE_MATCH_BATTLE" comment="鼓舞">
+		<field type="Integer" name="encourageType" comment="鼓舞类型(金币还是魔晶)"/>
+	</message>
+	
+	<message type="GC_ENCOURAGE_MATCH_BATTLE" comment="鼓舞">
+		<field type="Integer" name="encourageRate" comment="鼓舞百分比"/>
+		<field type="Boolean" name="ifFull" comment="是否已经鼓舞满"/>
+	</message>
+		
+	<message type="GC_BATTLE_REPORT" comment="发送战报">		
+		<field type="String" name="content" comment="战报内容"/>
+	</message>
+	
+	<message type="GC_UPDATE_MATCH_BATTLE_ROLE" comment="更新参战人员">
+		<field type="com.hifun.soul.gameserver.matchbattle.msg.MatchBattleRoleInfo" name="updateRoles" comment="状态更改的人员" list="true"
+			 macro="MatchBattleRoleInfo" clientType="MatchBattleRoleInfo">
+		</field>		
+	</message>
+	<message type="GC_ADD_MATCH_BATTLE_ROLE" comment="更新参战人员">
+		<field type="com.hifun.soul.gameserver.matchbattle.msg.MatchBattleRoleInfo" name="joinRoles" comment="新参加的人员" list="true"
+			 macro="MatchBattleRoleInfo" clientType="MatchBattleRoleInfo">
+		</field>
+	</message>
+	
+	<message type="GC_REMOVE_MATCH_BATTLE_ROLE" comment="人员离开">
+		<field type="Long" name="leaveRolesId" comment="离开的人员id" list="true">
+		</field>
+	</message>
+	
+	<message type="GC_UPDATE_MATCH_BATTLE_RANK" comment="更新排行">
+		<field type="com.hifun.soul.gameserver.matchbattle.msg.MatchBattleRankRoleInfo" name="RankInfo" comment="连胜榜单" list="true"
+		 	macro="MatchBattleRankRoleInfo" clientType="MatchBattleRankRoleInfo">
+		</field>
+	</message>
+	
+	<message type="CG_READY_FOR_MATCH_BATTLE" comment="参战">
+	</message>
+	
+	<message type="CG_CANCEL_READY_FOR_MATCH_BATTLE" comment="取消参战">
+	</message>
+	
+	<message type="CG_UPDATE_AUTO_MATCH_BATTLE_SETTING" comment="更新自动参战设置">
+		<field type="Boolean" name="isAutoJoinBattle" comment="是否自动参战"/>
+	</message>
+	
+	<message type="GC_UPDATE_AUTO_MATCH_BATTLE_SETTING" comment="更新自动参战设置">
+		<field type="Boolean" name="isAutoJoinBattle" comment="是否自动参战"/>
+	</message>
+	
+	<message type="GC_UPDATE_MATCH_BATTLE_RESULT" comment="战斗完或轮空进行更新个人的消息">		
+		<field type="String" name="content" comment="个人战报内容"/>
+		<field type="Integer"  name="consecutiveWinCount" comment="连胜次数"/>
+		<field type="Integer"  name="maxConsecutiveWinCount" comment="最大连胜次数"/>
+		<field type="Integer" name="winCount" comment="胜利次数"/>
+		<field type="Integer" name="loseCount" comment="失败次数"/>
+		<field type="Integer" name="honourReward" comment="奖励荣誉累计"/>
+		<field type="Integer" name="coinReward" comment="奖励金币累计"/>
+	</message>
+	
+	<message type="CG_LEAVE_MATCH_BATTLE_SCENE" comment="离开匹配战场景">		
+	</message>
+	
+	
+</messages>
+	
+	

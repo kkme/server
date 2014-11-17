@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="training">
+	<message type="CG_OPEN_TRAINING_PANEL" comment="打开训练面板">
+	</message>
+	<message type="GC_UPDATE_TRAINING_PANEL" comment="更新训练面板信息">
+		<field type="com.hifun.soul.gameserver.training.model.NormalTrainingInfo"
+			list="true" name="normalTrainings" comment="普通训练类型">
+			<field type="Integer" name="trainingId" comment="训练Id"></field>
+			<field type="String" name="trainingName" comment="训练名称"></field>
+			<field type="Integer" name="trainingType" comment="训练类型"></field>
+			<field type="Integer" name="costCoinNum" comment="训练所需金币"></field>
+			<field type="Integer" name="exp" comment="训练所得经验值"></field>
+			<field type="Integer" name="trainingState" comment="1:待训练，2:正在训练中,3:可收获训练经验"></field>
+		</field>
+		<field type="com.hifun.soul.gameserver.training.model.VipTrainingInfo"
+			list="true" name="vipTrainings" comment="vip训练类型">
+			<field type="Integer" name="trainingId" comment="训练Id"></field>
+			<field type="String" name="trainingName" comment="训练名称"></field>
+			<field type="Integer" name="trainingType" comment="训练类型"></field>
+			<field type="Integer" name="costCurrencyType" comment="训练花费的货币类型"></field>
+			<field type="Integer" name="costCurrencyNum" comment="训练所需货币数量"></field>
+			<field type="Integer" name="exp" comment="训练所得经验值"></field>
+			<field type="Integer" name="openVipLevel" comment="开启需要的vip等级"></field>
+		</field>
+		<field type="Integer" name="normalTrainingTimeRemain" comment="普通训练剩余分钟数" />
+		<field type="Integer" name="vipTrainingConsumableCrystalNum"
+			comment="vip训练剩余可消耗魔晶数" />
+		<field type="Integer" name="maxNormalTrainingTime" comment="每日普通训练分钟数限额" />
+		<field type="Integer" name="maxVipTrainingCrystalNum" comment="每日可用vip训练剩余可消耗魔晶数限额" />
+	</message>
+
+	<message type="CG_TRAINING_BEGIN" comment="发起训练"><!-- 普通训练返回的是一个CD ，vip训练返回收获经验消息 -->
+		<field type="Integer" name="trainingType" comment="训练大类：1普通训练,2vip训练" />
+		<field type="Integer" name="trainingDetailType" comment="训练小类型" />
+	</message>
+
+	<message type="GC_TRAINING_BEGIN_UPDATE" comment="发起训练后的更新消息"><!-- 普通训练返回的是一个CD ，vip训练返回收获经验消息 -->
+		<field type="Integer" name="trainingType" comment="训练大类：1普通训练,2vip训练" />
+		<field type="Integer" name="trainingDetailType" comment="训练小类型" />
+		<field type="Integer" name="normalTrainingTimeRemain" comment="普通训练剩余分钟数" />
+		<field type="Integer" name="vipTrainingConsumableCrystalNum"
+			comment="vip训练剩余可消耗魔晶数" />
+	</message>
+
+	<message type="CG_COLLECT_TRAINING_EXP" comment="请求领取训练的经验">
+		<field type="Integer" name="trainingType" comment="训练大类：1普通训练,2vip训练" />
+		<field type="Integer" name="trainingDetailType" comment="训练小类型" />
+	</message>
+
+	<message type="GC_COLLECT_TRAINING_EXP" comment="领取训练的经验"><!-- 同时应该还有角色经验更新的，有等级变化和新功能开启也要随即通知客户端 -->
+		<field type="Integer" name="trainingType" comment="训练大类：1普通训练,2vip训练" />
+		<field type="Integer" name="expNum" comment="训练获得的经验数" />
+	</message>
+
+	<message type="GC_UPDATE_TRAINING_STATE" comment="更新训练场状态">
+		<field type="Integer" name="trainingState" comment="训练场状态：1:待训练，2:正在训练中,3:可收获训练经验" />
+	</message>
+</messages>

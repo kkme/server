@@ -1,0 +1,6 @@
+message com.hifun.soul.logserver.model.ChatLog(
+	long destPassportId; 	// 目标账号id
+	String destRoleName; 	// 目标角色名称
+	int chatType;		 	// 聊天类型
+	String content;		 	// 聊天内容
+)

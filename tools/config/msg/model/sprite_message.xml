@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="sprite">
+
+	<message type="CG_OPEN_PUB_PANEL" comment="请求打开精灵酒馆面板 ">
+		<field type="Integer" name="pageId" comment="页面id(首次打开传-1)"></field>
+	</message>
+
+	<message type="GC_OPEN_PUB_PANEL" comment="打开精灵酒馆面板响应">
+		<field type="Integer" name="pageId" comment="页面id"></field>
+		<field type="com.hifun.soul.gameserver.sprite.model.SpritePubInfo"
+			clientType="SpritePubInfoData" name="spriteList" comment="精灵集合"
+			macro="SpritePubInfo" list="true">
+		</field>
+	</message>
+
+	<message type="CG_FINGER_GUESSING" comment="请求开始对酒">
+		<field type="Integer" name="pageId" comment="页面id"></field>
+		<field type="Integer" name="guessType" comment="对酒类型(普通或者高级)"></field>
+	</message>
+
+	<message type="GC_FINGER_GUESSING" comment="开始对酒响应">
+		<field type="Integer" name="currentIndex" comment="当前的对酒精灵索引"></field>
+		<field type="com.hifun.soul.gameserver.sprite.model.SpritePubInfo"
+			clientType="SpritePubInfoData" name="selectedList" comment="选取精灵集合"
+			macro="SpritePubInfo" list="true">
+		</field>
+		<field type="Boolean" name="isLastGuess" comment="是否是上次未完成的对酒"></field>
+		<field type="Integer" name="succeedCrystalCost" comment="必胜消耗的魔晶数量"></field>
+		<field type="Integer" name="remainSucceedNum" comment="剩余必胜次数"></field>
+	</message>
+
+	<message type="CG_GIVE_FINGER" comment="请求出拳">
+		<field type="Integer" name="fingerType" comment="出拳类型"></field>
+	</message>
+
+	<message type="GC_GIVE_FINGER" comment="出拳响应">
+		<field type="Integer" name="result" comment="本回合猜拳结果(胜利-平局-失败)" />
+		<field type="Integer" name="yourFingerType" comment="自己出拳类型"></field>
+		<field type="Integer" name="spriteFingerType" comment="精灵出拳类型"></field>
+		<field type="Boolean" name="isGuessOver" comment="对酒是否结束"></field>
+		<field type="Integer" name="rewardSoulType" comment="奖励精魂类型"></field>
+		<field type="Integer" name="rewardSoulNum" comment="奖励精魂数量"></field>
+		<field type="Integer" name="succeedCrystalCost" comment="必胜消耗的魔晶数量"></field>
+		<field type="Integer" name="remainSucceedNum" comment="剩余必胜次数"></field>
+		<field type="Integer" name="returnMoney" comment="返回金钱"></field>
+	</message>
+
+	<message type="GC_PUB_PAGE_INFO" comment="服务器下发的页签信息列表">
+		<field type="com.hifun.soul.gameserver.sprite.model.SpritePubPageInfo"
+			clientType="SpritePubPageInfoData" name="commonOperationInfo"
+			comment="普通对酒信息" macro="SpritePubPageInfo" list="true">
+		</field>
+		<field type="Integer" name="succeedCrystalCost" comment="必胜消耗的魔晶数量"></field>
+	</message>
+
+	<message type="CG_SUCCEED_FINGER" comment="请求必胜出拳">
+	</message>
+
+	<message type="CG_OPEN_RECRUIT_PANEL" comment="请求打开招募面板">
+		<field type="Integer" name="recruitType" comment="招募类型"></field>
+	</message>
+
+	<message type="GC_OPEN_RECRUIT_PANEL" comment="打开招募面板响应">
+		<field type="Integer" name="recruitType" comment="招募类型"></field>
+		<field type="com.hifun.soul.gameserver.sprite.model.SpritePubInfo"
+			clientType="SpritePubInfoData" name="spriteList" comment="精灵集合"
+			macro="SpritePubInfo" list="true">
+		</field>
+	</message>
+
+	<message type="CG_RECRUIT_SPRITE" comment="请求招募精灵">
+		<field type="Integer" name="recruitType" comment="招募类型"></field>
+		<field type="Integer" name="spriteId" comment="招募精灵的ID"></field>
+	</message>
+
+	<message type="GC_RECRUIT_SPRITE" comment="招募精灵响应 ">
+		<field type="Integer" name="recruitType" comment="招募类型"></field>
+		<field type="Integer" name="spriteId" comment="招募到的精灵id"></field>
+	</message>
+
+	<message type="GC_RECRUIT_CONFIG" comment="招募精灵配置">
+		<field
+			type="com.hifun.soul.gameserver.sprite.template.SpriteRecruitTemplate"
+			clientType="SpriteRecruitInfoData" name="configList" comment="招募配置列表"
+			macro="SpriteRecruitInfo" list="true">
+		</field>
+	</message>
+
+	<message type="CG_OPEN_SPRITE_PANEL" comment="请求打开精灵面板">
+	</message>
+
+	<message type="GC_OPEN_SPRITE_PANEL" comment="打开精灵面板响应">
+		<field type="com.hifun.soul.gameserver.sprite.model.SpriteInfo"
+			clientType="SpriteInfoData" name="spriteList" comment="精灵列表" macro="SpriteInfo"
+			list="true">
+		</field>
+		<field type="com.hifun.soul.gameserver.sprite.model.SpriteBagCellInfo"
+			clientType="SpriteBagCellInfoData" name="spriteBagCellList" comment="精灵背包格子列表"
+			macro="SpriteBagCellInfo" list="true">
+		</field>
+		<field type="com.hifun.soul.gameserver.sprite.model.SpriteEuqipSlotInfo"
+			clientType="SpriteEuqipSlotInfoData" name="equipSlotList" comment="出战装备位列表"
+			macro="SpriteEuqipSlotInfo" list="true">
+		</field>
+		<field type="com.hifun.soul.gameserver.sprite.model.SpriteBuffInfo"
+			clientType="SpriteBuffInfoData" name="buffList" comment="buff列表"
+			macro="SpriteBuffInfo" list="true">
+		</field>
+		<field type="Integer" name="oneCellCrystalCost" comment="开启单个格子的魔晶消耗"></field>
+	</message>
+
+	<message type="CG_BUY_SPRITE_CELL" comment="请求购买精灵格子">
+		<field type="Integer" name="openIndex" comment="开启索引"></field>
+	</message>
+
+	<message type="GC_BUY_SPRITE_CELL" comment="购买精灵格子响应 ">
+		<field type="Integer" name="openIndex" comment="开启索引"></field>
+	</message>
+
+	<message type="CG_EQUIP_SPRITE" comment="请求装备精灵">
+		<field type="String" name="spriteUUID" comment="精灵UUID"></field>
+	</message>
+
+	<message type="CG_UNEQUIP_SPRITE" comment="请求卸下精灵">
+		<field type="String" name="spriteUUID" comment="精灵UUID"></field>
+	</message>
+
+	<message type="GC_SPRITE_EQUIP_STATE" comment="精灵装备状态">
+		<field type="String" name="spriteUUID" comment="精灵UUID"></field>
+		<field type="Boolean" name="isEquip" comment="是否已经装备"></field>
+	</message>
+
+	<message type="CG_SPRITE_LEVELUP" comment="请求精灵升级">
+		<field type="String" name="spriteUUID" comment="精灵UUID"></field>
+	</message>
+
+	<message type="GC_UPDATE_SPRITE" comment="精灵升级后信息更新 ">
+		<field type="com.hifun.soul.gameserver.sprite.model.SpriteInfo"
+			clientType="SpriteInfoData" name="sprite" comment="精灵信息" macro="SpriteInfo">
+		</field>
+	</message>
+
+	<message type="CG_DROP_SPRITE" comment="请求丢弃精灵">
+		<field type="String" name="spriteUUID" comment="精灵UUID"></field>
+	</message>
+
+	<message type="GC_DROP_SPRITE" comment="丢弃精灵响应 ">
+		<field type="String" name="spriteUUID" comment="精灵UUID"></field>
+	</message>
+
+	<message type="GC_ACTIVATE_BUFF" comment="激活指定的buff ">
+		<field type="Integer" name="buffId" comment="激活的buffId"></field>
+	</message>
+
+</messages>

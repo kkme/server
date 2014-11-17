@@ -1,0 +1,18 @@
+int createLegionNeedLevel; //创建军团所需等级
+int createLegionNeedCoin; //创建军团所需金币
+int legionNameMaxLength; //军团名称最大长度
+int legionNoticeMaxLength; // 军团公告最大长度
+int canApplyLegionNum; //一次可申请军团数
+int respondApplyHour; //响应申请时长
+int honorToContributionParam;[notNull=false;minValue=0] //荣誉贡献值参数
+int contributeTechContribution;[notNull=false;minValue=0]//捐献科技获得贡献
+int contributeTechMedal;//捐献科技获得勋章
+int contributeTechLegionCoin;[notNull=false;minValue=0]//捐献科技获得军团资金
+int contributeTechCostCoin;//捐献科技单次消耗金币
+int refreshTaskCostCrystal;//刷新任务消耗魔晶
+String systemRefreshTaskTime;//系统刷新时间点
+int sameThemeMultiple;//与系统主题一致收益倍数
+int donateGetLegionExp;//捐献1魔晶获得军团经验		
+int donateGetSelfContri;//捐献1魔晶获得个人贡献
+int donateGetMedal;[notNull=false;minValue=0]//捐献1魔晶获得军团勋章
+int donateNeedVip;[notNull=false;minValue=0]//捐献魔晶获得VIP等级

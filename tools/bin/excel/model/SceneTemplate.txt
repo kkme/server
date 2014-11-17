@@ -1,0 +1,2 @@
+int regionId; // 区域类型 ID
+String regionName; // 区域名称

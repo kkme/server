@@ -1,0 +1,5 @@
+message com.hifun.soul.logserver.model.MoneyLog(
+	int currencyType;		// 变化货币类型
+	int currencyNum;		// 变化货币数量
+	int afterNum;			// 变化之后数量
+)

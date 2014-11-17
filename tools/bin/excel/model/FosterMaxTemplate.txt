@@ -1,0 +1,3 @@
+int level1Property; //一级属性
+int humanLevel; //角色等级
+int maxFosterNum;[notNull=false;minValue=0] //培养上限

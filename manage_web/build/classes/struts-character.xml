@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="struts-character" extends="manage-base-package">
+		<!-- 挑战到角色查询页面 -->
+		<action name="queryCharacterListForward"
+			class="com.hifun.soul.manageweb.character.action.CharacterAction"
+			method="queryCharacterListForward">
+			<result name="success">/character/characterQuery.jsp</result>			
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<!-- 查询角色列表 -->
+		<action name="queryCharacterList"
+			class="com.hifun.soul.manageweb.character.action.CharacterAction"
+			method="queryCharacterList">
+			<result name="characterList">/character/characterList.jsp</result>
+			<interceptor-ref name="permission"></interceptor-ref>
+			<interceptor-ref name="defaultStack" />
+		</action>
+		<!-- 角色属性信息 -->
+		<action name="showCharacterPropertyInfo"
+			class="com.hifun.soul.manageweb.character.action.CharacterAction"
+			method="showCharacterPropertyInfo">
+			<result name="success">/character/characterList.jsp</result>
+			<interceptor-ref name="permission"></interceptor-ref>
+		</action>
+		<!-- 角色物品信息 -->
+		<action name="showCharacterItemInfo"
+			class="com.hifun.soul.manageweb.character.action.CharacterAction"
+			method="showCharacterItemInfo">
+			<result name="success">/character/characterList.jsp</result>
+			<interceptor-ref name="permission"></interceptor-ref>
+		</action>
+		<!-- 角色好友信息 -->
+		<action name="showCharacterFriendInfo"
+			class="com.hifun.soul.manageweb.character.action.CharacterAction"
+			method="showCharacterFriendInfo">
+			<result name="success">/character/characterList.jsp</result>
+			<interceptor-ref name="permission"></interceptor-ref>
+		</action>
+		<!-- 角色任务信息 -->
+		<action name="showCharacterQuestInfo"
+			class="com.hifun.soul.manageweb.character.action.CharacterAction"
+			method="showCharacterQuestInfo">
+			<result name="success">/character/characterList.jsp</result>
+			<interceptor-ref name="permission"></interceptor-ref>
+		</action>
+		<!-- 角色星运信息 -->
+		<action name="showCharacterHoroscopeInfo"
+			class="com.hifun.soul.manageweb.character.action.CharacterAction"
+			method="showCharacterHoroscopeInfo">
+			<result name="success">/character/characterList.jsp</result>
+			<interceptor-ref name="permission"></interceptor-ref>
+		</action>
+		<!-- 角色科技信息 -->
+		<action name="showCharacterTechnologyInfo"
+			class="com.hifun.soul.manageweb.character.action.CharacterAction"
+			method="showCharacterTechnologyInfo">
+			<result name="success">/character/characterList.jsp</result>
+			<interceptor-ref name="permission"></interceptor-ref>
+		</action>
+		<!-- 角色关卡信息 -->
+		<action name="showStageInfo"
+			class="com.hifun.soul.manageweb.character.action.CharacterAction"
+			method="showStageInfo">
+			<result name="success">/character/characterList.jsp</result>
+			<interceptor-ref name="permission"></interceptor-ref>
+		</action>
+		<!-- 角色技能信息 -->
+		<action name="showCharacterSkillInfo"
+			class="com.hifun.soul.manageweb.character.action.CharacterAction"
+			method="showCharacterSkillInfo">
+			<result name="success">/character/characterList.jsp</result>
+			<interceptor-ref name="permission"></interceptor-ref>
+		</action>
+		<!-- 角色矿场信息 -->
+		<action name="showCharacterMineInfo"
+			class="com.hifun.soul.manageweb.character.action.CharacterAction"
+			method="showCharacterMineInfo">
+			<result name="success">/character/characterList.jsp</result>
+			<interceptor-ref name="permission"></interceptor-ref>
+		</action>
+		<!-- 角色奇遇答题信息 -->
+		<action name="showCharacterQuestionInfo"
+			class="com.hifun.soul.manageweb.character.action.CharacterAction"
+			method="showCharacterQuestionInfo">
+			<result name="success">/character/characterList.jsp</result>
+			<interceptor-ref name="permission"></interceptor-ref>
+		</action>
+		<!-- 角色主城宝石收集信息 -->
+		<action name="showStoneCollectInfo"
+			class="com.hifun.soul.manageweb.character.action.CharacterAction"
+			method="showStoneCollectInfo">
+			<result name="success">/character/characterList.jsp</result>
+			<interceptor-ref name="permission"></interceptor-ref>
+		</action>
+		<!-- 角色连续登陆奖励信息 -->
+		<action name="showLoginRewardInfo"
+			class="com.hifun.soul.manageweb.character.action.CharacterAction"
+			method="showLoginRewardInfo">
+			<result name="success">/character/characterList.jsp</result>
+			<interceptor-ref name="permission"></interceptor-ref>
+		</action>
+		<!-- 角色消费提醒信息 -->
+		<action name="showCostnotifyInfo"
+			class="com.hifun.soul.manageweb.character.action.CharacterAction"
+			method="showCostnotifyInfo">
+			<result name="success">/character/characterList.jsp</result>
+			<interceptor-ref name="permission"></interceptor-ref>
+		</action>
+		<!-- 角色天赋信息 -->
+		<action name="showGiftInfo"
+			class="com.hifun.soul.manageweb.character.action.CharacterAction"
+			method="showGiftInfo">
+			<result name="success">/character/characterList.jsp</result>
+			<interceptor-ref name="permission"></interceptor-ref>
+		</action>
+		<!-- 角色勇士之路信息 -->
+		<action name="showWarriorInfo"
+			class="com.hifun.soul.manageweb.character.action.CharacterAction"
+			method="showWarriorInfo">
+			<result name="success">/character/characterList.jsp</result>
+			<interceptor-ref name="permission"></interceptor-ref>
+		</action>
+		<!-- 角色试炼信息 -->
+		<action name="showRefineInfo"
+			class="com.hifun.soul.manageweb.character.action.CharacterAction"
+			method="showRefineInfo">
+			<result name="success">/character/characterList.jsp</result>
+			<interceptor-ref name="permission"></interceptor-ref>
+		</action>
+		<!-- 将指定角色踢下线 -->
+		<action name="kickOffCharacter"
+			class="com.hifun.soul.manageweb.character.action.CharacterAction"
+			method="kickOffCharacter">
+			<result name="success">/character/characterList.jsp</result>
+			<result name="failed">/character/characterList.jsp</result>
+			<interceptor-ref name="permission"></interceptor-ref>
+		</action>
+
+		<!-- 查询在线人数 -->
+		<action name="queryCurrentOnlineNum"
+			class="com.hifun.soul.manageweb.character.action.CharacterAction"
+			method="queryCurrentOnlineNum">
+			<result name="success" type="json">
+				<param name="contentType">text/html</param>
+				<param name="includeProperties">
+					onlineNum
+				</param>
+			</result>
+			<interceptor-ref name="jsonStack" />
+			<interceptor-ref name="permission"></interceptor-ref>
+		</action>
+		<!-- 查询角色在线状态 -->
+		<action name="checkOnlineState"
+			class="com.hifun.soul.manageweb.character.action.CharacterAction"
+			method="checkOnlineState">
+			<result name="success" type="json">
+				<param name="contentType">text/html</param>
+				<param name="includeProperties">
+					isOnline
+				</param>
+			</result>
+			<interceptor-ref name="jsonStack" />
+			<interceptor-ref name="permission"></interceptor-ref>
+		</action>
+		<!-- 查询玩家状态统计信息 -->
+		<action name="queryPlayerStateStatistic"
+			class="com.hifun.soul.manageweb.character.action.PlayerStateStatisticAction"
+			method="queryPlayerStateStatistic">
+			<result name="success">/character/onlinePlayerStatistic.jsp</result>
+			<interceptor-ref name="defaultStack" />
+			<interceptor-ref name="permission" />
+		</action>
+		<!-- 将所有玩家踢下线 -->
+		<action name="kickOffAllCharacter"
+			class="com.hifun.soul.manageweb.character.action.KickOffAllCharacterAction"
+			method="kickOffAllCharacter">
+			<result name="success" type="chain">queryPlayerStateStatistic</result>
+			<interceptor-ref name="defaultStack" />
+			<interceptor-ref name="permission" />
+		</action>
+		<!-- 根据角色名称查询角色id -->
+		<action name="queryCharacterIdByName"
+			class="com.hifun.soul.manageweb.character.action.QueryCharacterIdAction"
+			method="queryCharacterIdByName">
+			<result name="success" type="json">
+				<param name="contentType">text/html</param>
+				<param name="includeProperties">
+					charId,charName
+				</param>
+			</result>
+			<interceptor-ref name="jsonStack" />			
+		</action>
+		<!-- 根据角色名称查询角色id -->
+		<action name="queryCharacterDistribute"
+			class="com.hifun.soul.manageweb.character.action.CharacterDistributeAction"
+			method="queryCharacterDistribute">
+			<result name="success">/character/characterDistribute.jsp</result>
+			<interceptor-ref name="defaultStack" />
+			<interceptor-ref name="permission" />
+		</action>
+		
+	</package>
+</struts>

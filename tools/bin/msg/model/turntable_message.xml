@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 	
+	xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="turntable">	
+	
+	<message type="CG_SHOW_TURNTABLE_PANEL" comment="打开转盘面板">
+	</message>
+	
+	<message type="GC_SHOW_TURNTABLE_PANEL" comment="打开转盘面板">
+		<field type="Integer" name="warriorHeartCost" comment="抽奖消耗的勇者之心数"/>
+		<field type="Integer" name="crystalLotteryRemainTimes" comment="魔晶抽奖次数"/>
+		<field type="Integer" name="crystalCost" comment="抽奖消耗的魔晶数"/>
+		<field type="com.hifun.soul.gameserver.item.assist.CommonItem"
+			list="true" name="items" comment="物品列表" macro="CommonItem" clientType="CommonItemData">
+		</field>		
+		<field type="com.hifun.soul.gameserver.turntable.msg.TurntableRewardInfo"
+			list="true" name="rewards" comment="抽取的奖品信息" macro="TurntableRewardInfo" clientType="TurntableRewardInfoData">
+		</field>
+	</message>
+	
+	<message type="CG_LOTTERY" comment="转盘抽奖">
+	</message>
+	
+	<message type="GC_LOTTERY" comment="转盘抽奖">
+		<field type="Integer" name="crystalLotteryRemainTimes" comment="魔晶抽奖次数"/>
+		<field type="Integer" name="crystalCost" comment="抽奖消耗的魔晶数"/>
+		<field type="Integer" name="selectIndex" comment="选中的物品"/>
+		<field type="com.hifun.soul.gameserver.turntable.msg.TurntableRewardInfo"
+			list="true" name="rewards" comment="抽取的奖品信息" macro="TurntableRewardInfo" clientType="TurntableRewardInfoData">
+		</field>
+	</message>
+	
+</messages>

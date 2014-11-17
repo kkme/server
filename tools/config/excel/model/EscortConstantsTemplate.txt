@@ -1,0 +1,22 @@
+int maxEscortNum;//最大押运次数
+int maxRobNum;//最大拦截次数
+int maxHelpNum;//最大协助次数
+int maxBeRobbedNum;//每次押运最大被拦截次数
+int robCdTime;//拦截CD时间
+int callVipLevel;//召唤最高品质怪物vip开启等级
+int callCost;//召唤最高品质怪物消费
+int encourageAttackRate;//鼓舞攻击力加成
+int encourageHpRate;//鼓舞生命值加成
+int encourageCost;//鼓舞消费
+int encourageAmendMethod;//鼓舞加成方式
+String revenueAmendTime;// 押运收益加成固定时间段
+int someTimeRevenueRate;//固定时间段收益加成
+int legionPrayVipLevel;//军团祈福vip开启等级
+int legionPrayCost;//军团祈福消费
+int maxLegionPrayNum;//最大祈福次数
+int legionPrayRate;//祈福加成
+int legionPrayMinutes;//祈福时长
+int legionPrayContribution;//祈福增加军团贡献
+int pageMonsterSize;//每页显示怪物数量
+int pageRoadNum;//每页显示跑道数量
+int agreeValidTime;//邀请同意有效时间

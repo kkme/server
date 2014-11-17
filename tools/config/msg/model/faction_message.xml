@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="faction">
+
+	<message type="CG_OPEN_FACTION_PANEL" comment="请求打开阵营面板 ">
+	</message>
+
+	<message type="GC_OPEN_FACTION_PANEL" comment="响应打开阵营面板">
+	</message>
+	
+	<message type="GC_OPEN_SELECT_FACTION_PANEL" comment="响应打开选择阵营面板">
+		<field type="com.hifun.soul.gameserver.faction.model.FactionSimpleInfo"
+			clientType="FactionSimpleInfoData" name="brightInfo" comment="光明阵营信息"
+			macro="FactionSimpleInfo">
+		</field>
+		<field type="com.hifun.soul.gameserver.faction.model.FactionSimpleInfo"
+			clientType="FactionSimpleInfoData" name="darkInfo" comment="黑暗阵营信息"
+			macro="FactionSimpleInfo">
+		</field>
+		<field type="Integer" name="randomRewardCoin" comment="随机加入阵营金币奖励数目"></field>
+	</message>
+
+	<message type="CG_SELECT_FACTION" comment="请求选择阵营">
+		<field type="Integer" name="factionType" comment="选择的阵营类型"></field>
+	</message>
+
+
+	<message type="GC_SELECT_FACTION" comment="响应选择阵营结果">
+		<field type="Integer" name="factionType" comment="选择的阵营类型"></field>
+	</message>
+	
+	<message type="CG_RANDOM_SELECT_FACTION" comment="请求随机加入阵营">
+	</message>
+	
+</messages>

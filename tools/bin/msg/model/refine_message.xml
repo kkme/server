@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 	xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="refine">	
+	<message type="CG_OPEN_REFINE_PANEL" comment="打开某个试炼副本">
+		<field type="Integer" name="refineType" comment="试炼副本id" />
+	</message>
+	
+	<message type="GC_OPEN_REFINE_PANEL" comment="打开某个试炼副本">
+		<field type="Integer" name="freeTimes" comment="免费次数" />
+		<field type="Integer" name="bestStageId" comment="攻打关卡的最高纪录" />
+		<field type="Integer" name="autoBattleCrystal" comment="自动攻打单轮消耗魔晶数量" />
+		<field type="Integer" name="refreshCrystal" comment="下次刷新副本消耗魔晶数量" />
+		<field type="Integer" name="attackAllCrystal" comment="一键扫荡消耗的数量" />
+		<field type="Integer" name="crystalTimes" comment="魔晶刷新次数" />
+		<field type="com.hifun.soul.gameserver.refine.RefineStageInfo" name="refineStageInfo" comment="当前试炼关卡信息" macro="RefineStageInfo" clientType="RefineStageInfo">
+		</field>
+		<field type="com.hifun.soul.gameserver.refine.RefineMapInfo" name="refineMapInfos" comment="试炼地图的信息" macro="RefineMapInfo" clientType="RefineMapInfo" list="true">
+		</field>
+	</message>
+	
+	<message type="GC_UPDATE_REFINE_PANEL" comment="更新某个试炼副本">
+		<field type="Integer" name="freeTimes" comment="免费次数" />
+		<field type="Integer" name="bestStageId" comment="攻打关卡的最高纪录" />
+		<field type="Integer" name="autoBattleCrystal" comment="自动攻打单轮消耗魔晶数量" />
+		<field type="Integer" name="refreshCrystal" comment="下次刷新副本消耗魔晶数量" />
+		<field type="Integer" name="attackAllCrystal" comment="一键扫荡消耗的数量" />
+		<field type="Integer" name="crystalTimes" comment="魔晶刷新次数" />
+		<field type="com.hifun.soul.gameserver.refine.RefineStageInfo" name="refineStageInfo" comment="当前试炼关卡信息" macro="RefineStageInfo" clientType="RefineStageInfo">
+		</field>
+		<field type="com.hifun.soul.gameserver.refine.RefineMapInfo" name="refineMapInfos" comment="试炼地图的信息" macro="RefineMapInfo" clientType="RefineMapInfo" list="true">
+		</field>
+	</message>
+	
+	<message type="CG_ATTACK_REFINE_STAGE" comment="攻打试炼关卡">
+		<field type="Integer" name="refineType" comment="试炼副本id" />
+	</message>
+	
+	<message type="CG_AUTO_ATTACK_REFINE_STAGE" comment="自动攻打试炼关卡">
+		<field type="Integer" name="refineType" comment="试炼副本id" />
+	</message>
+	
+	<message type="CG_ATTACK_ALL_REFINE_STAGE" comment="一键扫荡试炼关卡">
+		<field type="Integer" name="refineType" comment="试炼副本id" />
+	</message>
+	
+	<message type="CG_REFRESH_REFINE_MAP" comment="刷新试炼副本">
+		<field type="Integer" name="refineType" comment="试炼副本id" />
+	</message>
+	
+	<message type="GC_ATTACK_REFINE_STAGE" comment="攻打关卡奖励信息">
+		<field type="Integer" name="refineType" comment="试炼副本id" />
+		<field type="Boolean" name="win" comment="攻打关卡结果" />
+		<field type="Integer" name="stageId" comment="攻打关卡id" />
+		<field type="String" name="monsterName" comment="怪物名称" />
+		<field type="com.hifun.soul.gameserver.item.assist.CommonItem" name="reward" comment="试炼奖励" macro="CommonItem" clientType="CommonItemData">
+		</field>
+		<field type="Integer" name="rewardNum" comment="奖励数量" />
+	</message>
+	
+	<message type="GC_ATTACK_REFINE_STAGE_FIRST" comment="首次攻打关卡奖励信息">
+		<field type="Integer" name="refineType" comment="试炼副本id" />
+		<field type="Integer" name="stageId" comment="攻打关卡id" />
+		<field type="String" name="monsterName" comment="怪物名称" />
+		<field type="com.hifun.soul.gameserver.item.assist.CommonItem" name="reward" comment="试炼奖励" macro="CommonItem" clientType="CommonItemData">
+		</field>
+		<field type="Integer" name="rewardNum" comment="奖励数量" />
+	</message>
+	
+	<message type="GC_REFINE_BAG_FULL" comment="背包满的提示">
+	</message>
+	
+</messages>

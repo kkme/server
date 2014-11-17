@@ -1,0 +1,1 @@
+int crystal;[notNull=false;minValue=0] // 刷新神秘商店花费的魔晶数

@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="legion">
+	
+	<message type="CG_OPEN_LEGION_PANEL" comment="请求打开军团面板">
+	</message>
+	<message type="GC_OPEN_LEGION_PANEL" comment="响应打开军团面板">
+		<field type="com.hifun.soul.gameserver.legion.msg.LegionListInfo" list="true"
+			clientType="LegionInfoData" name="legions" comment="军团列表 " macro="LegionInfo">
+		</field>
+		<field type="Boolean" name="canEditNotice" comment="能否编辑公告" />
+		<field type="com.hifun.soul.gameserver.legion.Legion"
+			clientType="OwnLegionInfoData" name="ownLegion" comment="所在军团信息 " macro="OwnLegionInfo">
+		</field>
+		<field type="com.hifun.soul.gameserver.legion.msg.LegionMemberListInfo" list="true"
+			clientType="LegionMemberInfoData" name="legionMembers" comment="军团成员列表 " macro="LegionMemberInfo">
+		</field>
+		<field type="Integer" name="createLegionNeedCoin" comment="创建军团需要金币" />
+		<field type="Integer" name="createLegionNeedLevel" comment="创建军团需要等级" />
+		<field type="com.hifun.soul.gameserver.legion.info.LegionFuncInfo" list="true"
+			clientType="LegionFuncInfoData" name="funcInfos" comment="军团功能开启列表 " macro="LegionFuncInfo">
+		</field>
+		<field type="Integer" name="donateNeedVip" comment="捐赠需要VIP等级" />
+	</message>
+	<message type="CG_SHOW_LEGION_LIST_TAB" comment="请求展示军团列表标签页">
+	</message>
+	<message type="GC_SHOW_LEGION_LIST_TAB" comment="响应展示军团列表标签页">
+		<field type="com.hifun.soul.gameserver.legion.msg.LegionListInfo" list="true"
+			clientType="LegionInfoData" name="legions" comment="军团列表 " macro="LegionInfo">
+		</field>
+	</message>
+	<message type="CG_SHOW_LEGION_INFO_TAB" comment="请求展示所在军团信息标签页">
+	</message>
+	<message type="GC_SHOW_LEGION_INFO_TAB" comment="响应展示所在军团信息标签页">
+		<field type="Boolean" name="canEditNotice" comment="能否编辑公告" />
+		<field type="com.hifun.soul.gameserver.legion.Legion"
+			clientType="OwnLegionInfoData" name="ownLegion" comment="所在军团信息 " macro="OwnLegionInfo">
+		</field>
+	</message>
+	<message type="CG_SHOW_LEGION_MEMBER_TAB" comment="请求展示军团成员标签页">
+	</message>
+	<message type="GC_SHOW_LEGION_MEMBER_TAB" comment="响应展示军团成员标签页">
+		<field type="com.hifun.soul.gameserver.legion.msg.LegionMemberListInfo" list="true"
+			clientType="LegionMemberInfoData" name="legionMembers" comment="军团成员列表 " macro="LegionMemberInfo">
+		</field>
+	</message>
+	<message type="CG_SHOW_LEGION_LOG_TAB" comment="请求展示军团日志标签页">
+	</message>
+	<message type="GC_SHOW_LEGION_LOG_TAB" comment="响应展示军团日志标签页">
+		<field type="com.hifun.soul.gameserver.legion.LegionLog" list="true"
+			clientType="LegionLogInfoData" name="legionLogs" comment="军团列表 " macro="LegionLogInfo">
+		</field>
+	</message>
+	<message type="CG_SHOW_LEGION_APPLY_TAB" comment="请求展示军团申请标签页">
+	</message>
+	<message type="GC_SHOW_LEGION_APPLY_TAB" comment="响应展示军团申请标签页">
+		<field type="com.hifun.soul.gameserver.legion.msg.LegionApplyListInfo" list="true"
+			clientType="LegionApplyInfoData" name="legionApplies" comment="军团申请列表 " macro="LegionApplyInfo">
+		</field>
+	</message>
+	<message type="CG_CREATE_LEGION" comment="请求创建军团">
+		<field type="String" name="legionName" comment="军团名称" />
+	</message>
+	<message type="GC_CREATE_LEGION" comment="响应创建军团">
+		<field type="String" name="legionName" comment="军团名称" />
+		<field type="String" name="commanderName" comment="团长名称" />
+		<field type="Integer" name="legionLevel" comment="军团等级" />
+		<field type="Integer" name="memberLimit" comment="军团人数限制" />
+		<field type="Integer" name="memberNum" comment="军团当前人数" />
+		<field type="Integer" name="experience" comment="经验值" />
+	</message>
+	<message type="CG_APPLY_JOIN_LEGION" comment="请求申请加入军团">
+		<field type="Long" name="joinLegionId" comment="加入军团ID" />
+	</message>
+	<message type="GC_APPLY_JOIN_LEGION" comment="响应申请加入军团">
+		<field type="Long" name="joinLegionId" comment="加入军团ID" />
+		<field type="Integer" name="applyButtonStatus" comment="申请按钮状态" />
+	</message>
+	<message type="CG_AGREE_JOIN_LEGION" comment="同意加入军团">
+		<field type="Long" name="joinHumanGuid" comment="加入角色ID" />
+	</message>
+	<message type="GC_AGREE_JOIN_LEGION" comment="响应同意加入军团">
+		<field type="Integer" name="result" comment="成功与否" />
+		<field type="String" name="reason" comment="原因" />
+	</message>
+	<message type="CG_REJECT_JOIN_LEGION" comment="拒绝加入军团">
+		<field type="Long" name="joinHumanGuid" comment="加入角色ID" />
+	</message>
+	<message type="GC_REJECT_JOIN_LEGION" comment="响应拒绝加入军团">
+	</message>
+	<message type="CG_QUIT_LEGION" comment="请求退出军团">
+	</message>
+	<message type="GC_QUIT_LEGION" comment="响应退出军团">
+		<field type="Integer" name="result" comment="成功与否" />
+	</message>
+	<message type="CG_REMOVE_LEGION_MEMBER" comment="请求删除军团成员">
+		<field type="Long" name="removeHumanGuid" comment="删除角色ID" />
+	</message>
+	<message type="GC_REMOVE_LEGION_MEMBER" comment="响应删除军团成员">
+	</message>
+	<message type="CG_APPLY_LEGION_COMMANDER" comment="请求晋升团长">
+	</message>
+	<message type="GC_APPLY_LEGION_COMMANDER" comment="响应晋升团长">
+	</message>
+	<message type="CG_SEARCH_LEGION" comment="请求搜索军团">
+		<field type="String" name="legionName" comment="军团名称" />
+	</message>
+	<message type="GC_SEARCH_LEGION" comment="响应搜索军团">
+		<field type="com.hifun.soul.gameserver.legion.msg.LegionListInfo" list="true"
+			clientType="LegionInfoData" name="legions" comment="军团列表 " macro="LegionInfo">
+		</field>
+	</message>
+	<message type="CG_TRANSFER_LEGION" comment="请求转让军团 ">
+		<field type="Long" name="transferHumanGuid" comment="转让角色ID" />
+	</message>
+	<message type="GC_TRANSFER_LEGION" comment="响应转让军团">
+	</message>
+	<message type="CG_DISSOLVE_LEGION" comment="请求解散军团 ">
+	</message>
+	<message type="GC_DISSOLVE_LEGION" comment="响应解散军团">
+	</message>
+	<message type="CG_ADD_LEGION_NOTICE" comment="请求添加公告">
+		<field type="String" name="legionNotice" comment="军团公告" />
+	</message>
+	<message type="GC_ADD_LEGION_NOTICE" comment="响应添加公告 ">
+		<field type="String" name="legionNotice" comment="军团公告" />
+	</message>
+	<message type="GC_UPDATE_HUMAN_LEGION_INFO" comment="更新角色所在军团信息">
+		<field type="Boolean" name="joinedLegion" comment="是否加入军团" />
+		<field type="Long" name="legionId" comment="军团ID" />
+		<field type="String" name="legionName" comment="军团名称" />
+	</message>
+	<message type="CG_UPGRADE_LEGION_BUILDING" comment="请求升级军团建筑">
+		<field type="Integer" name="buildingType" comment="建筑类型" />
+	</message>
+	<message type="GC_UPGRADE_LEGION_BUILDING" comment="响应升级军团建筑 ">
+		<field type="Integer" name="buildingType" comment="建筑类型" />
+	</message>
+	<message type="CG_SHOW_LEGION_MEDITATION_TAB" comment="请求展示冥想殿标签">
+	</message>
+	<message type="GC_SHOW_LEGION_MEDITATION_TAB" comment="响应展示冥想殿标签 ">
+		<field type="com.hifun.soul.gameserver.legion.info.LegionBuildingInfo" macro="LegionBuildingInfo"
+			clientType="LegionBuildingInfoData" name="legionBuildingInfo" comment="军团建筑信息">
+		</field>
+		<field type="Boolean" name="isMeditationed" comment="是否已冥想" />
+		<field type="com.hifun.soul.gameserver.legion.info.LegionMeditationInfo" macro="LegionMeditationInfo"
+			clientType="LegionMeditationInfoData" name="meditationInfos" list="true" comment="军团冥想殿信息">
+		</field>
+		<field type="String" name="meditationLogs" list="true" comment="军团冥想日志信息" />
+	</message>
+	<message type="CG_LEGION_MEDITATION" comment="请求军团冥想">
+		<field type="Integer" name="meditationType" comment="冥想类型" />
+	</message>
+	<message type="GC_LEGION_MEDITATION" comment="响应军团冥想">
+		<field type="Boolean" name="isMeditationed" comment="是否已冥想" />
+		<field type="String" name="meditationLogs" list="true" comment="军团冥想日志信息" />
+	</message>
+	<message type="CG_SHOW_LEGION_SHOP_TAB" comment="请求展示军团商店标签">
+	</message>
+	<message type="GC_SHOW_LEGION_SHOP_TAB" comment="响应展示军团商店标签 ">
+		<field type="com.hifun.soul.gameserver.legion.info.LegionBuildingInfo" macro="LegionBuildingInfo"
+			clientType="LegionBuildingInfoData" name="legionBuildingInfo" comment="军团建筑信息">
+		</field>
+		<field type="com.hifun.soul.gameserver.legion.info.LegionShopItemInfo" macro="LegionShopItemInfo"
+			clientType="LegionShopItemInfoData" name="itemInfos" list="true" comment="军团商品信息">
+		</field>
+		<field type="Integer" name="selfMedal" comment="个人勋章" />
+	</message>
+	<message type="CG_SHOW_LEGION_SHOP_ITEMS" comment="请求展示军团某一类型商品">
+		<field type="Integer" name="itemType" comment="商品标签类型" />
+	</message>
+	<message type="GC_SHOW_LEGION_SHOP_ITEMS" comment="响应展示军团某一类型商品 ">
+		<field type="com.hifun.soul.gameserver.legion.info.LegionShopItemInfo" macro="LegionShopItemInfo"
+			clientType="LegionShopItemInfoData" name="itemInfos" list="true" comment="军团商品信息">
+		</field>
+	</message>
+	<message type="CG_BUY_LEGION_SHOP_ITEM" comment="请求购买军团商品">
+		<field type="Integer" name="itemId" comment="商品ID" />
+		<field type="Integer" name="num" comment="商品数量" />
+	</message>
+	<message type="GC_BUY_LEGION_SHOP_ITEM" comment="响应购买军团商品">
+		<field type="Integer" name="itemId" comment="商品ID" />
+		<field type="Integer" name="itemRemainNum" comment="商品剩余数量" />
+		<field type="Integer" name="selfMedal" comment="个人勋章" />
+	</message>
+	<message type="CG_SHOW_LEGION_HONOR_TAB" comment="请求展示军团荣誉堂标签">
+	</message>
+	<message type="GC_SHOW_LEGION_HONOR_TAB" comment="响应展示军团荣誉堂标签 ">
+		<field type="com.hifun.soul.gameserver.legion.info.LegionBuildingInfo" macro="LegionBuildingInfo"
+			clientType="LegionBuildingInfoData" name="legionBuildingInfo" comment="军团建筑信息">
+		</field>
+		<field type="com.hifun.soul.gameserver.legion.info.LegionTitleInfo" macro="LegionTitleInfo"
+			clientType="LegionTitleInfoData" name="titleInfos" list="true" comment="军团头衔信息">
+		</field>
+		<field type="Integer" name="selfMedal" comment="个人勋章" />
+	</message>
+	<message type="CG_EXCHANGE_LEGION_TITLE" comment="请求兑换军团头衔">
+		<field type="Integer" name="titleId" comment="头衔ID" />
+	</message>
+	<message type="GC_EXCHANGE_LEGION_TITLE" comment="响应兑换军团头衔 ">
+		<field type="com.hifun.soul.gameserver.legion.info.LegionTitleInfo" macro="LegionTitleInfo"
+			clientType="LegionTitleInfoData" name="legionTitleInfo" comment="军团头衔信息">
+		</field>
+		<field type="Integer" name="selfMedal" comment="个人勋章" />
+	</message>
+	<message type="CG_SHOW_LEGION_TECHNOLOGY_TAB" comment="请求展示军团科技厅标签">
+	</message>
+	<message type="GC_SHOW_LEGION_TECHNOLOGY_TAB" comment="响应展示军团科技厅标签 ">
+		<field type="com.hifun.soul.gameserver.legion.info.LegionBuildingInfo" macro="LegionBuildingInfo"
+			clientType="LegionBuildingInfoData" name="legionBuildingInfo" comment="军团建筑信息">
+		</field>
+		<field type="Integer" name="contributeCostCoin" comment="贡献消费金币" />
+		<field type="com.hifun.soul.gameserver.legion.info.LegionTechnologyInfo" macro="LegionTechnologyInfo"
+			clientType="LegionTechnologyInfoData" name="technologyInfos" list="true" comment="军团科技信息">
+		</field>
+		<field type="Integer" name="selfMedal" comment="个人勋章" />
+	</message>
+	<message type="CG_CONTRIBUTE_LEGION_TECHNOLOGY" comment="请求捐献军团科技">
+		<field type="Integer" name="technologyType" comment="科技类型" />
+	</message>
+	<message type="GC_CONTRIBUTE_LEGION_TECHNOLOGY" comment="响应捐献军团科技 ">
+		<field type="com.hifun.soul.gameserver.legion.info.LegionTechnologyInfo" macro="LegionTechnologyInfo"
+			clientType="LegionTechnologyInfoData" name="technologyInfo" comment="军团科技信息">
+		</field>
+		<field type="Integer" name="selfMedal" comment="个人勋章" />
+	</message>
+	<message type="CG_SHOW_LEGION_TASK_TAB" comment="请求展示军团悬赏令标签">
+	</message>
+	<message type="GC_SHOW_LEGION_TASK_TAB" comment="响应展示军团悬赏令标签 ">
+		<field type="com.hifun.soul.gameserver.legion.info.LegionBuildingInfo" macro="LegionBuildingInfo"
+			clientType="LegionBuildingInfoData" name="legionBuildingInfo" comment="军团建筑信息">
+		</field>
+		<field type="String" name="systemRefreshTime" comment="系统刷新时间" />
+		<field type="Integer" name="refreshCost" comment="刷新消费" />
+		<field type="String" name="systemTheme" comment="系统主题" />
+		<field type="Integer" name="todayScore" comment="今日积分" />
+		<field type="Boolean" name="hasRankReward" comment="是否有排名奖励" />
+		<field type="Integer" name="maxTaskNum" comment="最大任务数量" />
+		<field type="Integer" name="remainTaskNum" comment="剩余任务数量" />
+		<field type="com.hifun.soul.gameserver.legion.info.LegionTaskInfo" macro="LegionTaskInfo"
+			clientType="LegionTaskInfoData" name="taskInfos" list="true" comment="军团任务信息">
+		</field>
+	</message>
+	<message type="CG_REFRESH_LEGION_TASK_LIST" comment="请求刷新军团任务列表">
+	</message>
+	<message type="GC_REFRESH_LEGION_TASK_LIST" comment="响应刷新军团任务列表 ">
+		<field type="com.hifun.soul.gameserver.legion.info.LegionTaskInfo" macro="LegionTaskInfo"
+			clientType="LegionTaskInfoData" name="taskInfos" list="true" comment="军团任务信息">
+		</field>
+	</message>
+	<message type="CG_START_LEGION_TASK" comment="请求接受军团任务">
+		<field type="Integer" name="taskId" comment="任务ID" />
+	</message>
+	<message type="GC_START_LEGION_TASK" comment="响应接受军团任务 ">
+		<field type="com.hifun.soul.gameserver.legion.info.LegionTaskInfo" macro="LegionTaskInfo"
+			clientType="LegionTaskInfoData" name="taskInfo" comment="军团任务信息">
+		</field>
+	</message>
+	<message type="CG_ABORT_LEGION_TASK" comment="请求取消军团任务">
+		<field type="Integer" name="taskId" comment="任务ID" />
+	</message>
+	<message type="GC_ABORT_LEGION_TASK" comment="响应取消军团任务 ">
+		<field type="com.hifun.soul.gameserver.legion.info.LegionTaskInfo" macro="LegionTaskInfo"
+			clientType="LegionTaskInfoData" name="taskInfo" comment="军团任务信息">
+		</field>
+	</message>
+	<message type="CG_COMPLETE_LEGION_TASK" comment="请求立即完成军团任务">
+		<field type="Integer" name="taskId" comment="任务ID" />
+	</message>
+	<message type="GC_COMPLETE_LEGION_TASK" comment="响应立即完成军团任务 ">
+		<field type="com.hifun.soul.gameserver.legion.info.LegionTaskInfo" macro="LegionTaskInfo"
+			clientType="LegionTaskInfoData" name="taskInfo" comment="军团任务信息">
+		</field>
+	</message>
+	<message type="CG_APPLY_COMPLETE_LEGION_TASK" comment="申请立即完成军团任务">
+		<field type="Integer" name="taskId" comment="任务ID" />
+	</message>
+	<message type="GC_APPLY_COMPLETE_LEGION_TASK" comment="响应申请立即完成军团任务 ">
+		<field type="Integer" name="taskId" comment="任务ID" />
+		<field type="Integer" name="costCrystal" comment="消耗魔晶" />
+	</message>
+	<message type="CG_GET_LEGION_TASK_REWARD" comment="请求获得军团任务奖励">
+		<field type="Integer" name="taskId" comment="任务ID" />
+	</message>
+	<message type="GC_GET_LEGION_TASK_REWARD" comment="响应获得军团任务奖励 ">
+		<field type="Integer" name="remainTaskNum" comment="剩余任务数量" />
+		<field type="com.hifun.soul.gameserver.legion.info.LegionTaskInfo" macro="LegionTaskInfo"
+			clientType="LegionTaskInfoData" name="taskInfo" comment="军团任务信息">
+		</field>
+		<field type="Integer" name="todayTaskScore" comment="今日积分" />
+		<field type="Integer" name="legionCoin" comment="军团资金" />
+	</message>
+	<message type="CG_SHOW_LEGION_TASK_RANK" comment="请求展示军团任务排行">
+	</message>
+	<message type="GC_SHOW_LEGION_TASK_RANK" comment="响应展示军团任务排行 ">
+		<field type="com.hifun.soul.gameserver.legion.info.LegionTaskRankInfo" macro="LegionTaskRankInfo"
+			clientType="LegionTaskRankInfoData" list="true" name="rankInfos" comment="军团任务信息">
+		</field>
+	</message>
+	<message type="CG_GET_LEGION_TASK_RANK_REWARD" comment="请求获得军团任务排行奖励">
+	</message>
+	<message type="GC_GET_LEGION_TASK_RANK_REWARD" comment="响应获得军团任务排行奖励 ">
+		<field type="Boolean" name="hasRankReward" comment="是否有排名奖励" />
+	</message>
+	<message type="GC_SEND_HUMAN_LEGION_TITLE_INFO" comment="下发角色军团头衔信息">
+		<field type="com.hifun.soul.gameserver.legion.info.HumanLegionTitleInfo" macro="HumanLegionTitleInfo"
+			clientType="HumanLegionTitleInfoData" name="humanLegionTitleInfo" comment="角色军团头衔信息">
+		</field>
+	</message>
+	<message type="CG_SHOW_LEGION_MINE_TAB" comment="请求展示军团矿战标签">
+	</message>
+	<message type="GC_SHOW_LEGION_MINE_TAB" comment="响应展示军团矿战标签">
+		<field type="Integer" name="warState" comment="矿战状态" />
+		<field type="String" name="bossWarTime" comment="boss战开启时间" />
+		<field type="String" name="mineWarTime" comment="矿战开启时间" />
+		<field type="String" name="firstLegionName" comment="第一军团名称" />
+		<field type="String" name="secondLegionName" comment="第二军团名称" />
+		<field type="Boolean" name="hasMineWarRight" comment="是否有矿战资格" />
+	</message>
+	<message type="CG_DONATE_LEGION_CRYSTAL" comment="请求捐献军团魔晶">
+		<field type="Integer" name="donateCrystal" comment="捐献魔晶" />
+	</message>
+	<message type="GC_DONATE_LEGION_CRYSTAL" comment="响应捐献军团魔晶">
+		<field type="Integer" name="legionExperience" comment="军团经验" />
+		<field type="Integer" name="selfContribution" comment="个人贡献" />
+		<field type="Integer" name="legionMedal" comment="军团勋章" />
+	</message>
+</messages>
+
+

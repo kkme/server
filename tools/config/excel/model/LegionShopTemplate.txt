@@ -1,0 +1,5 @@
+int itemId;//物品ID
+int costMedal;//消耗勋章
+int dayNum;//每日限量
+int itemType;//物品类型
+int needBuildingLevel;[notNull=false;minValue=0]//需要建筑等级

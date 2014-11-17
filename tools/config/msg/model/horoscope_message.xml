@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="horoscope">
+
+	<message type="CG_HOROSCOPE_GAMBLE" comment="星运占星">
+		<field type="Integer" name="stargazerId" comment="占星类型" />
+	</message>
+	
+	<message type="GC_HOROSCOPE_GAMBLE" comment="星运占星">
+		<field type="com.hifun.soul.gameserver.horoscope.StargazerInfo" 
+			clientType="StargazerInfoData" name="stargazerInfos" list="true" comment="占星师状态" macro="StargazerInfo">
+		</field>
+		<field type="com.hifun.soul.gameserver.horoscope.msg.HoroscopeInfo" 
+			clientType="HoroscopeInfoData" name="horoscopeInfo" comment="包中星运列表" macro="HoroscopeInfo">
+		</field>
+		<field type="Integer" name="freeTimes" comment="免费占星次数" />
+	</message>
+	
+	<message type="CG_HOROSCOPE_GAMBLE_AUTO" comment="一键星运占星">
+	</message>
+	
+	<message type="GC_HOROSCOPE_GAMBLE_AUTO" comment="一键星运占星">
+		<field type="com.hifun.soul.gameserver.horoscope.StargazerInfo" 
+			clientType="StargazerInfoData" name="stargazerInfos" list="true" comment="占星师状态" macro="StargazerInfo">
+		</field>
+		<field type="com.hifun.soul.gameserver.horoscope.msg.HoroscopeInfo" 
+			clientType="HoroscopeInfoData" name="mainBagHoroscopeInfos" list="true" comment="包中星运列表" macro="HoroscopeInfo">
+		</field>
+	</message>
+	
+	<message type="CG_HOROSCOPE_COMPOUND_CONFIRM" comment="星运合成">
+		<field type="Integer" name="fromBagType" comment="from背包类型" />
+		<field type="Integer" name="fromBagIndex" comment="from背包位置" />
+		<field type="Integer" name="toBagType" comment="to背包类型" />
+		<field type="Integer" name="toBagIndex" comment="to背包位置" />
+	</message>
+	
+	<message type="GC_HOROSCOPE_COMPOUND" comment="星运合成确认框">
+		<field type="Integer" name="fromBagType" comment="from背包类型" />
+		<field type="Integer" name="fromBagIndex" comment="from背包位置" />
+		<field type="Integer" name="toBagType" comment="to背包类型" />
+		<field type="Integer" name="toBagIndex" comment="to背包位置" />
+		<field type="String" name="desc" comment="合成描述" />
+	</message>
+	
+	<message type="CG_HOROSCOPE_COMPOUND_AUTO" comment="一键星运合成">
+	</message>
+	
+	<message type="GC_HOROSCOPE_COMPOUND_AUTO" comment="一键星运合成">
+		<field type="com.hifun.soul.gameserver.horoscope.msg.HoroscopeInfo" 
+			clientType="HoroscopeInfoData" name="mainBagHoroscopeInfos" list="true" comment="包中星运列表" macro="HoroscopeInfo">
+		</field>
+	</message>
+	
+	<message type="CG_HOROSCOPE_ON" comment="装备星运">
+		<field type="Integer" name="bagType" comment="装备星运所在的背包" />
+		<field type="Integer" name="index" comment="装备星运所在背包中的位置" />
+	</message>
+	
+	<message type="CG_HOROSCOPE_OFF" comment="卸下星运">
+		<field type="Integer" name="index" comment="卸下星运所在装备位上的位置" />
+	</message>
+	
+	<message type="CG_HOROSCOPE_SWAP" comment="星运移动">
+		<field type="Integer" name="fromBagType" comment="from背包类型" />
+		<field type="Integer" name="fromBagIndex" comment="from背包位置" />
+		<field type="Integer" name="toBagType" comment="to背包类型" />
+		<field type="Integer" name="toBagIndex" comment="to背包位置" />
+	</message>
+	
+	<message type="CG_HOROSCOPE_PICK_UP" comment="拾取主背包星运">
+		<field type="Integer" name="fromBagIndex" comment="from背包位置" />
+	</message>
+	
+	
+	
+	<message type="GC_HOROSCOPE_UPDATE_AND_REMOVE" comment="更新星运">
+		<field type="com.hifun.soul.gameserver.horoscope.msg.HoroscopeInfo" 
+			clientType="HoroscopeInfoData" name="horoscopeInfo" comment="更新星运" macro="HoroscopeInfo">
+		</field>
+		<field type="Integer" name="removeBagType" comment="移除星运的背包类型" />
+		<field type="Integer" name="removeBagIndex" comment="移除星运的背包位置" />
+	</message>
+	
+	<message type="GC_UPDATE_STARGAZERS" comment="更新占星师状态">
+		<field type="com.hifun.soul.gameserver.horoscope.StargazerInfo" 
+			clientType="StargazerInfoData" name="stargazerInfos" list="true" comment="占星师状态" macro="StargazerInfo">
+		</field>
+	</message>
+	
+	<message type="CG_HOROSCOPE_INTRODUCE" comment="星运介绍">
+	</message>
+	
+	<message type="GC_HOROSCOPE_INTRODUCE" comment="星运介绍">
+		<field type="com.hifun.soul.gameserver.horoscope.msg.HoroscopeInfo" clientType="HoroscopeInfoData" name="horoscopeInfo" comment="卸下星运" list="true">
+				<field type="Integer" name="horoscopeId" comment="星运id" />
+				<field type="String" name="name" comment="星运名字" />
+				<field type="String" name="desc" comment="星运说明" />
+				<field type="Integer" name="color" comment="颜色" />
+		</field>
+	</message>
+	
+	<message type="CG_HOROSCOPE_STORAGE_UPGRADE_PRICE" comment="星运背包开格子价格询问">
+		<field type="Integer" name="openSize" comment="新开启数量" />
+	</message>
+	
+	<message type="GC_HOROSCOPE_STORAGE_UPGRADE_PRICE" comment="星运背包开格子价格询问">
+		<field type="Short" name="currencyType" comment="货币类型" />
+		<field type="Integer" name="currencyNum" comment="货币数量" />
+		<field type="Integer" name="openSize" comment="新开启数量" />
+	</message>
+
+	<message type="CG_HOROSCOPE_STORAGE_UPGRADE" comment="星运背包开格子">
+		<field type="Integer" name="openSize" comment="新开启数量" />
+	</message>
+	
+	<message type="GC_HOROSCOPE_STORAGE_UPGRADE" comment="星运背包开格子">
+		<field type="Integer" name="openSize" comment="仓库格子开启的个数" />
+	</message>
+	
+	<message type="CG_SHOW_HOROSCOPE_PANEL" comment="打开星运面板">
+	</message>
+
+	<message type="GC_SHOW_HOROSCOPE_PANEL" comment="打开星运面板">
+		<field type="com.hifun.soul.gameserver.horoscope.StargazerInfo" 
+			clientType="StargazerInfoData" name="stargazerInfos" list="true" comment="占星师状态" macro="StargazerInfo">
+		</field>
+		<field type="com.hifun.soul.gameserver.horoscope.msg.HoroscopeInfo" 
+			clientType="HoroscopeInfoData" name="mainBagHoroscopeInfos" list="true" comment="包中星运列表" macro="HoroscopeInfo">
+		</field>
+		<field type="com.hifun.soul.gameserver.horoscope.msg.HoroscopeInfo" 
+			clientType="HoroscopeInfoData" name="equipBagHoroscopeInfos" list="true" comment="装备位置上星运列表" macro="HoroscopeInfo">
+		</field>
+		<field type="com.hifun.soul.gameserver.horoscope.msg.HoroscopeInfo" 
+			clientType="HoroscopeInfoData" name="storageBagHoroscopeInfos" list="true" comment="仓库中星运列表" macro="HoroscopeInfo">
+		</field>
+		<field type="com.hifun.soul.common.model.human.CharacterInfo"
+			clientType="CharacterInfoData" name="characterInfo" comment="角色信息" macro="CharacterInfo">
+		</field>
+		<field type="com.hifun.soul.gameserver.horoscope.HoroscopeSoulInfo" 
+			clientType="HoroscopeSoulInfoData" name="horoscopeSoulInfos" list="true" comment="星运装备位开启状态" macro="HoroscopeSoulInfo">
+		</field>
+		<field type="Integer" name="freeTimes" comment="免费占星次数" />
+		<field type="Integer" name="openSize" comment="仓库格子开启的个数" />
+	</message>
+	
+	<message type="GC_EQUIP_HOROSCOPE_INFOS" comment="已装备星运的信息">
+		<field type="com.hifun.soul.gameserver.horoscope.msg.HoroscopeInfo" 
+			clientType="HoroscopeInfoData" name="equipBagHoroscopeInfos" list="true" comment="装备位置上星运列表" macro="HoroscopeInfo">
+		</field>
+	</message>
+</messages>

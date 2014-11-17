@@ -1,0 +1,4 @@
+String bufName;//名称
+int mineNum;//军团拥有矿位小于等于个数
+int effect;//攻防加成
+int bufIcon;//buf图标

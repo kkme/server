@@ -1,0 +1,2 @@
+int equipBitType; //装备位类型
+int amendValue; //加成比例

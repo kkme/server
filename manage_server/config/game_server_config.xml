@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<servers>
+	<defualtGameServer>2</defualtGameServer>	
+	<gameServer>
+		<serverId>2</serverId>
+		<serverName>s2</serverName>
+		<host>0.0.0.0</host>
+		<port>8008</port>
+		<dbConfig>
+			<dbServiceType>hibernate</dbServiceType>
+			<dbConfigName>game_server_hibernate.cfg.xml</dbConfigName>
+			<url>jdbc:mysql://localhost:3306/sevensoul?useUnicode=true&amp;characterEncoding=utf-8&amp;useServerPrepStmts=true</url>
+			<userName>root</userName>
+			<password></password>
+		</dbConfig>
+	</gameServer>
+</servers>

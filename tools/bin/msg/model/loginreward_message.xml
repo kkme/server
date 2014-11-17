@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="loginreward">
+
+	<message type="CG_SHOW_LOGIN_REWARD_PANEL" comment="请求打开连续登陆面板">
+	</message>
+	
+	<message type="GC_SHOW_LOGIN_REWARD_PANEL" comment="打开连续登陆面板">
+		<field type="Integer" name="days" comment="连续登陆天数"></field>
+		<field type="Integer" name="leftTimes" comment="剩余领取次数"></field>
+		<field type="Integer" name="totalTimes" comment="总共领取次数"></field>
+		<field type="com.hifun.soul.gameserver.loginreward.LoginRewardTimeInfo"
+			list="true" name="loginRewardTimeInfos" comment="登陆天数和奖励次数的对应关系" macro="LoginRewardTimeInfo" clientType="LoginRewardTimeInfoData">
+		</field>
+		<field type="com.hifun.soul.gameserver.loginreward.LoginRewardInfo"
+			list="true" name="selectItems" comment="选中的奖品" macro="LoginRewardInfo" clientType="LoginRewardInfoData">
+		</field>
+		<field type="com.hifun.soul.gameserver.loginreward.SpecialLoginRewardInfo"
+			list="true" name="specialLoginRewardInfos" comment="特殊奖品的信息" macro="SpecialLoginRewardInfo" clientType="SpecialLoginRewardInfoData">
+		</field>
+	</message>
+	
+	<message type="CG_GET_SPECIAL_REWARD" comment="领取特殊奖励">
+		<field type="Integer" name="specialRewardType" comment="特殊奖励类型"></field>
+	</message>
+	
+	<message type="GC_GET_SPECIAL_REWARD" comment="领取特殊奖励">
+		<field type="Integer" name="specialRewardType" comment="特殊奖励类型"></field>
+		<field type="Integer" name="state" comment="奖励状态"></field>
+	</message>
+	
+	<message type="CG_GET_REWARD" comment="领取奖励">
+		<field type="Integer" name="index" comment="领取奖励"></field>
+	</message>
+	
+	<message type="GC_GET_REWARD" comment="领取奖励">
+		<field type="Integer" name="times" comment="次数"></field>
+		<field type="com.hifun.soul.gameserver.loginreward.LoginRewardInfo"
+			name="selectItem" comment="选中的奖品" macro="LoginRewardInfo" clientType="LoginRewardInfoData">
+		</field>
+	</message>
+	
+	<message type="GC_HAS_LOGIN_REWARD" comment="是否有可领取的奖励">
+		<field type="Boolean" name="hasReward" comment="是否有可领取的奖励"></field>
+	</message>
+</messages>

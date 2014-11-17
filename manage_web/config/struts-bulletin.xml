@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="struts-bulletin" extends="manage-base-package">
+		<!-- 公告列表 -->
+		<action name="queryBulletinList"
+			class="com.hifun.soul.manageweb.bulletin.action.BulletinAction"
+			method="queryBulletinList">
+			<result name="success">/bulletin/bulletinList.jsp</result>
+			<interceptor-ref name="defaultStack" />
+			<interceptor-ref name="permission"></interceptor-ref>
+		</action>
+		<!-- 添加公告转向 -->
+		<action name="addBulletinForward"
+			class="com.hifun.soul.manageweb.bulletin.action.BulletinAction"
+			method="addBulletinForward">
+			<result name="success">/bulletin/bulletinEdit.jsp</result>
+			<interceptor-ref name="permission"></interceptor-ref>
+		</action>
+		<!-- 添加公告 -->
+		<action name="addBulletin"
+			class="com.hifun.soul.manageweb.bulletin.action.BulletinAction"
+			method="addBulletin">
+			<result name="success" type="chain">queryBulletinList</result>
+			<result name="input">/bulletin/bulletinEdit.jsp</result>
+			<result name="failed">/bulletin/bulletinEdit.jsp</result>
+			<interceptor-ref name="defaultStack" />
+			<interceptor-ref name="permission"></interceptor-ref>
+		</action>
+		<!-- 将公告置为无效 -->
+		<action name="removeBulletin"
+			class="com.hifun.soul.manageweb.bulletin.action.BulletinAction"
+			method="removeBulletin">
+			<result name="success" type="chain">queryBulletinList</result>
+			<interceptor-ref name="defaultStack" />
+			<interceptor-ref name="permission"></interceptor-ref>
+		</action>
+		<!-- 复制公告内容 -->
+		<action name="copyBulletin"
+			class="com.hifun.soul.manageweb.bulletin.action.BulletinAction"
+			method="copyBulletin">
+			<result name="success">/bulletin/bulletinEdit.jsp</result>
+			<result name="failed">/bulletin/bulletinEdit.jsp</result>
+			<interceptor-ref name="defaultStack" />
+			<interceptor-ref name="permission"></interceptor-ref>
+		</action>
+		<!-- 编辑公告 -->
+		<action name="editBulletin"
+			class="com.hifun.soul.manageweb.bulletin.action.BulletinAction"
+			method="editBulletin">
+			<result name="success">/bulletin/bulletinEdit.jsp</result>
+			<result name="failed">/bulletin/bulletinEdit.jsp</result>
+			<interceptor-ref name="defaultStack" />
+			<interceptor-ref name="permission"></interceptor-ref>
+		</action>		
+	</package>
+</struts>

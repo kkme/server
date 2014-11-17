@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="legionboss">
+	
+	<message type="CG_ENTER_LEGION_BOSS_WAR" comment="请求进入军团boss战">
+	</message>
+	
+	<message type="GC_JOIN_LEGION_BOSS_WAR" comment="参与军团boss战">
+		<field type="com.hifun.soul.gameserver.legionboss.LegionBossInfo" name="bossInfo" 
+			comment="军团boss信息" macro="LegionBossInfo" clientType="LegionBossInfoData">
+		</field>
+		<field type="Integer" name="encourageRate" comment="鼓舞百分比"/>
+		<field type="Boolean" name="encouragedIsFull" comment="鼓舞是否已经满"/>
+		<field type="Integer" name="chargedstrikeRate" comment="充能百分比"/>
+		<field type="Boolean" name="chargedIsFull" comment="充能是否已经满"/>
+		<field type="Integer" name="remainTime" comment="剩余时间(单位秒)"/>
+		<field type="String"  name="selfDamageDesc" comment="自己对boss造成的伤害值描述"/>
+		<field type="String"  name="legionDamageDesc" comment="自己军团对boss造成的伤害值描述"/>
+		<field type="String"  list="true" name="memberDamageRankings" comment="军团成员伤害排行榜"/>
+		<field type="String"  list="true" name="legionDamageRankings" comment="军团伤害排行榜"/>
+		<field type="Integer" name="crystal" comment="魔晶鼓舞消耗的魔晶"/>
+		<field type="Integer" name="meditation" comment="冥想鼓舞消耗的冥想力"/>
+		<field type="String" name="bossWarDesc" comment="军团boss战活动描述"/>
+		<field type="Integer" name="bossState" comment="boss状态"/>
+		<field type="Integer" name="waitCDTime" comment="军团boss战准备CD时间"/>
+	</message>
+	
+	<message type="CG_ENCOURAGE_LEGION_BOSS_WAR" comment="鼓舞">
+		<field type="Integer" name="encourageType" comment="鼓舞类型(冥想力还是魔晶)"/>
+	</message>
+	
+	<message type="GC_ENCOURAGE_LEGION_BOSS_WAR" comment="鼓舞">
+		<field type="Integer" name="encourageRate" comment="鼓舞百分比"/>
+		<field type="Boolean" name="isFull" comment="是否已经鼓舞满"/>
+	</message>
+	
+	<message type="CG_CHARGED_LEGION_BOSS_WAR" comment="充能">
+	</message>
+	
+	<message type="GC_CHARGED_LEGION_BOSS_WAR" comment="充能">
+		<field type="Integer" name="chargedstrikeRate" comment="充能百分比"/>
+		<field type="Boolean" name="isFull" comment="是否已经充能满"/>
+	</message>
+	
+	<message type="CG_CHARGED_LEGION_BOSS" comment="用充能攻击">
+	</message>
+	
+	<message type="GC_CHARGED_LEGION_BOSS" comment="用充能攻击">
+		<field type="Integer" name="damage" comment="充能打击造成的伤害"/>
+	</message>
+	
+	<message type="CG_ATTACK_LEGION_BOSS" comment="攻击boss">
+	</message>
+	
+	<message type="GC_HAS_LEGION_BOSS_REWARD" comment="是否有军团boss战奖励">
+	</message>
+</messages>

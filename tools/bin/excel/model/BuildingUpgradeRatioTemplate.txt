@@ -1,0 +1,5 @@
+float costRatio; // 金钱系数
+float woodRatio; // 木材系数
+float mineRatio; // 矿石系数
+float gemRatio; // 宝石系数
+float cdRatio; // cd系数

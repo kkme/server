@@ -1,0 +1,2 @@
+int buyMineFieldCostType; ///购买矿坑花费货币类型
+int buyMineFieldCostNum; //购买矿坑花费货币数量

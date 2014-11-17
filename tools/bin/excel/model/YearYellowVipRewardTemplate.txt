@@ -1,0 +1,4 @@
+int itemId1; //物品1id
+int itemCount1; //物品1数量
+int itemId2; //物品2id
+int itemCount2; //物品2数量

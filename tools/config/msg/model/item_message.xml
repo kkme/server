@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 	xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="item">	
+	
+	<message type="GC_SHOW_GEM_EMBED_PANEL" comment="打开宝石镶嵌面板">
+	</message>
+	
+	<message type="CG_PUT_EQUIP" comment="装备放到宝石镶嵌面板">
+		<field type="Integer" name="equipBagType" comment="选中装备所在的背包类型"/>
+		<field type="Integer" name="equipBagIndex" comment="选中装备所在的背包中的位置"/>
+	</message>
+	
+	<message type="GC_PUT_EQUIP" comment="装备放到宝石镶嵌面板">
+		<field type="com.hifun.soul.gameserver.item.assist.CommonItem" name="item" comment="装备的信息" macro="CommonItem" clientType="CommonItemData">
+		</field>
+		<field type="com.hifun.soul.gameserver.item.assist.EmbedGemInfo" name="gems" comment="装备上的宝石信息" macro="EmbedGemInfo" clientType="EmbedGemInfoData" list="true">
+		</field>
+	</message>
+	
+	<message type="CG_GEM_EMBED" comment="请求镶嵌宝石">
+		<field type="Integer" name="equipBagType" comment="选中装备所在的背包类型"/>
+		<field type="Integer" name="equipBagIndex" comment="选中装备所在的背包中的位置"/>
+		<field type="Integer" name="gemBagType" comment="选中宝石所在的背包类型"/>
+		<field type="Integer" name="gemBagIndex" comment="选中宝石所在的背包中的位置"/>
+		<field type="Short" name="index" comment="要镶嵌的位置"/>
+	</message>
+	
+	<message type="GC_GEM_EMBED" comment="装备镶嵌成功">
+		<field type="Integer" name="index" comment="位置"/>
+		<field type="com.hifun.soul.gameserver.item.assist.CommonItem" name="item" comment="某个位置宝石信息" macro="CommonItem" clientType="CommonItemData">
+		</field>
+	</message>
+	
+	<message type="CG_GEM_EXTRACT" comment="请求卸下某个位置的宝石">
+		<field type="Integer" name="equipBagType" comment="选中装备所在的背包类型"/>
+		<field type="Integer" name="equipBagIndex" comment="选中装备所在的背包中的位置"/>
+		<field type="Short" name="gemIndex" comment="宝石在孔的位置"/>
+	</message>
+	
+	<message type="GC_GEM_EXTRACT" comment="宝石成功卸下">
+		<field type="Short" name="gemIndex" comment="宝石在孔的位置"/>
+	</message>
+	
+	<message type="CG_GEM_PUNCH" comment="请求宝石打孔">
+		<field type="Integer" name="equipBagType" comment="选中装备所在的背包类型"/>
+		<field type="Integer" name="equipBagIndex" comment="选中装备所在的背包中的位置"/>
+	</message>
+	
+	<message type="GC_GEM_PUNCH" comment="打孔成功">
+	</message>
+	
+	<message type="GC_SHOW_EQUIP_UPGRADE_PANEL" comment="打开装备强化面板">
+	</message>
+	
+	<message type="CG_SELECT_EQUIP" comment="选中要强化的装备">
+		<field type="Integer" name="equipBagType" comment="选中装备所在的背包类型"/>
+		<field type="Integer" name="equipBagIndex" comment="选中装备所在的背包位置"/>
+	</message>
+	
+	<message type="GC_SELECT_EQUIP" comment="选中要强化的装备">
+		<field type="Integer" name="rate" comment="成功的概率"/>
+		<field type="Short" name="currencyType" comment="花费货币类型"/>
+		<field type="Integer" name="currencyNum" comment="花费货币数量"/>
+		<field type="com.hifun.soul.core.util.KeyValuePair&lt;Integer,Integer&gt;"
+			clientType="KeyValuePairIntData" name="upgradeAttributes" list="true"
+			comment="强化属性">
+			<field type="Integer" name="key" comment="属性索引" />
+			<field type="Integer" name="value" comment="属性值" />
+		</field>
+		<field type="Integer" name="needUpgradeStoneNum" comment="需要强化石的数量"/>
+		<field type="com.hifun.soul.gameserver.item.assist.CommonItem" name="upgradeStone" comment="强化石" macro="CommonItem" clientType="CommonItemData">
+		</field>
+	</message>
+	
+	<message type="GC_ITEM_QUICK_BUY_INFO" comment="可快捷购买的物品消息">
+		<field type="com.hifun.soul.gameserver.item.assist.CommonItem" name="quickBuyItems" comment="铁匠铺用于显示的物品"
+		 	macro="CommonItem" list="true" clientType="CommonItemData">
+		</field>
+		<field type="Integer" name="quickBuyItemIds" list="true" comment="可快捷购买的物品id"/>
+	</message>
+	
+	<message type="CG_EQUIP_UPGRADE" comment="请求装备强化">
+		<field type="Integer" name="equipBagType" comment="选中装备所在的背包类型"/>
+		<field type="Integer" name="equipBagIndex" comment="选中装备所在的背包位置"/>
+		<field type="Integer" name="guardStoneId" comment="守护石id"/>
+		<field type="Integer" name="fortuneStoneId" comment="幸运石id"/>
+	</message>
+	
+	<message type="GC_EQUIP_UPGRADE" comment="装备强化完成">
+	</message>
+	
+	<message type="CG_SELECT_EQUIP_PAPER_TO_MAKE" comment="选择装备图纸用于打造装备">
+		<field type="Integer" name="bagIndex" comment="装备图纸所在背包索引" />
+	</message>
+	
+	<message type="GC_UPDATE_EQUIP_MAKE_PANEL" comment="更新打造装备的面板信息">
+		<field type="com.hifun.soul.gameserver.item.assist.CommonItem"
+			list="true" name="materialItem" comment="所需材料物品列表" macro="CommonItem" clientType="CommonItemData">
+		</field>
+		<field type="Integer" name="needMaterialNums" list="true" comment="所需材料对应的所需数量"/>
+		<field type="Integer" name="hasMaterialNums" list="true" comment="已有材料数量"/>
+		<field type="Integer" name="currencyType" comment="消耗货币类型" />
+		<field type="Integer" name="costMoney" comment="消耗的货币数量" />
+		<field type="Boolean" name="isMoneyEnough" comment="当前拥有的货币数量是否足够" />
+		<field type="com.hifun.soul.gameserver.item.assist.CommonItem" name="equip" comment="所需装备" macro="CommonItem" clientType="CommonItemData" />
+		<field type="Integer" name="equipNum" comment="拥有所需装备的数量" />
+		<field type="String" name="guides" list="true" comment="引导关卡名称" />
+		<field type="Integer" name="needPaperNum" comment="需要图纸数量" />
+		<field type="Integer" name="hasPaperNum" comment="已有图纸数量" />
+	</message>
+	
+	<message type="CG_MATERIAL_GUIDE" comment="材料引导">
+		<field type="Integer" name="itemId" comment="材料id" />
+	</message>
+	
+	<message type="GC_MATERIAL_GUIDE" comment="材料引导">
+		<field type="String" name="guide" comment="材料引导" />
+	</message>
+	
+	<message type="CG_EQUIP_MAKE" comment="请求打造装备">
+		<field type="Integer" name="paperBagType" comment="图纸所在背包类型" />
+		<field type="Integer" name="paperBagIndex" comment="图纸所在背包索引" />
+		<field type="Integer" name="equipBagType" comment="装备所在背包类型" />
+		<field type="Integer" name="equipBagIndex" comment="装备所在背包索引" />
+	</message>
+	
+	<message type="GC_EQUIP_MAKE" comment="请求打造装备">
+		<field type="Boolean" name="makeResult" comment="装备打造结果：false失败，true成功" />
+		<field type="com.hifun.soul.gameserver.item.assist.CommonItem"
+			list="true" name="item" comment="物品列表" macro="CommonItem" clientType="CommonItemData">
+		</field>
+	</message>
+	
+	<message type="CG_SHOW_SOMETHING" comment="请求展示">
+		<field type="Long" name="humanGuid" comment="物品归属人id" />
+		<field type="Integer" name="linkType" comment="链接类型(角色：1,通用物品：2,含特殊属性的物品：3)" />
+		<field type="String" name="key" comment="key(key的意义跟lingType不同而不同，为1时，可以不传;为2时传物品的itemId;为3时传物品的uuid)" />		
+	</message>
+	
+	<message type="GC_SHOW_ITEM" comment="服务器返回物品展示结果">
+		<field type="com.hifun.soul.gameserver.item.assist.CommonItem"
+			name="item" comment="物品" macro="CommonItem" clientType="CommonItemData">
+		</field>
+	</message>
+	
+	<message type="CG_GEM_PUNCH_CONFIRM" comment="装备打孔花费确认">
+		<field type="Integer" name="equipBagType" comment="选中装备所在的背包类型"/>
+		<field type="Integer" name="equipBagIndex" comment="选中装备所在的背包中的位置"/>
+	</message>
+	
+	<message type="GC_GEM_PUNCH_CONFIRM" comment="装备打孔花费确认">
+		<field type="String" name="itemName" comment="消耗道具名称"/>
+		<field type="Integer" name="itemNum" comment="消耗道具数量"/>
+	</message>
+	
+	<message type="CG_CHECK_EQUIP_MAKE" comment="判断装备上否可以升级">
+	</message>
+	
+	<message type="GC_CHECK_EQUIP_MAKE" comment="判断装备上否可以升级">
+		<field type="Boolean" name="weapon" comment="武器"/>
+		<field type="Boolean" name="necklace" comment="饰品"/>
+		<field type="Boolean" name="hat" comment="头盔"/>
+		<field type="Boolean" name="cloth" comment="衣服"/>
+		<field type="Boolean" name="shoes" comment="鞋子"/>
+	</message>
+	
+	<message type="CG_SELECT_EQUIP_TO_MAKE" comment="选中装备去装备制作">
+		<field type="Integer" name="equipBagType" comment="选中装备所在的背包类型"/>
+		<field type="Integer" name="equipBagIndex" comment="选中装备所在的背包中的位置"/>
+	</message>
+	
+	<message type="GC_SELECT_EQUIP_TO_MAKE" comment="选中装备去装备制作">
+		<field type="com.hifun.soul.gameserver.item.assist.CommonItem"
+			list="true" name="materialItem" comment="所需材料物品列表" macro="CommonItem" clientType="CommonItemData">
+		</field>
+		<field type="Integer" name="needMaterialNums" list="true" comment="所需材料对应的所需数量"/>
+		<field type="Integer" name="hasMaterialNums" list="true" comment="已有材料数量"/>
+		<field type="Integer" name="currencyType" comment="消耗货币类型" />
+		<field type="Integer" name="costMoney" comment="消耗的货币数量" />
+		<field type="Boolean" name="isMoneyEnough" comment="当前拥有的货币数量是否足够" />
+		<field type="com.hifun.soul.gameserver.item.assist.CommonItem" name="equip" comment="所需装备" macro="CommonItem" clientType="CommonItemData" />
+		<field type="Integer" name="equipNum" comment="拥有所需装备的数量" />
+		<field type="String" name="guides" list="true" comment="引导关卡名称" />
+		<field type="com.hifun.soul.gameserver.item.assist.CommonItem" name="paper" comment="所需图纸" macro="CommonItem" clientType="CommonItemData" />
+	</message>
+	
+	<message type="CG_SELECT_EQUIP_TO_FORGE" comment="选中装备去洗炼">
+		<field type="Integer" name="equipBagType" comment="选中装备所在的背包类型"/>
+		<field type="Integer" name="equipBagIndex" comment="选中装备所在的背包中的位置"/>
+	</message>
+	
+	<message type="GC_SELECT_EQUIP_TO_FORGE" comment="选中装备去洗炼">
+		<field type="com.hifun.soul.core.util.KeyValuePair&lt;Integer,Integer&gt;"
+			clientType="KeyValuePairIntData" name="equipSpecialAttributes" list="true"
+			comment="装备身上带的特殊属性">
+			<field type="Integer" name="key" comment="属性索引" />
+			<field type="Integer" name="value" comment="属性值" />
+		</field>
+		<field type="com.hifun.soul.core.util.KeyValuePair&lt;Integer,Integer&gt;"
+			clientType="KeyValuePairIntData" name="newEquipSpecialAttributes" list="true"
+			comment="装备身上带的特殊属性">
+			<field type="Integer" name="key" comment="属性索引" />
+			<field type="Integer" name="value" comment="属性值" />
+		</field>
+		<field type="com.hifun.soul.gameserver.item.template.GemAttribute" name="attributes" comment="随机属性区间" list="true" macro="GemAttribute" clientType="GemAttributeData" />
+		<field type="Integer" name="forgeType" comment="洗炼模式(1:免费洗炼;2:灵石洗炼)" />
+		<field type="Integer" name="freeTimes" comment="免费次数" />
+		<field type="Integer" name="stoneIcon" comment="灵石洗炼需要灵石图标" />
+		<field type="String" name="stoneName" comment="灵石洗炼需要灵石名称" />
+		<field type="Integer" name="stoneNum" comment="灵石洗炼需要灵石数量" />
+		<field type="Integer" name="stoneId" comment="灵石洗炼需要灵石id" />
+	</message>
+	
+	<message type="CG_EQUIP_FORGE_TO_LOCK" comment="装备洗炼锁定">
+		<field type="Integer" name="equipBagType" comment="选中装备所在的背包类型"/>
+		<field type="Integer" name="equipBagIndex" comment="选中装备所在的背包中的位置"/>
+		<field type="Integer" name="lockNum" comment="锁定随机属性的数量"/>
+	</message>
+	
+	<message type="GC_EQUIP_FORGE_TO_LOCK" comment="装备洗炼锁定">
+		<field type="Integer" name="stoneIcon" comment="灵石洗炼需要灵石图标" />
+		<field type="String" name="stoneName" comment="灵石洗炼需要灵石名称" />
+		<field type="Integer" name="stoneNum" comment="灵石洗炼需要灵石数量" />
+		<field type="Integer" name="crystalNum" comment="锁定需要魔晶数量" />
+		<field type="Integer" name="stoneId" comment="灵石洗炼需要灵石id" />
+		<field type="Integer" name="forgeType" comment="洗炼模式(1:免费洗炼;2:灵石洗炼)" />
+	</message>
+	
+	<message type="CG_EQUIP_FORGE" comment="装备洗炼">
+		<field type="Integer" name="equipBagType" comment="选中装备所在的背包类型"/>
+		<field type="Integer" name="equipBagIndex" comment="选中装备所在的背包中的位置"/>
+		<field type="Integer" name="locks" list="true" comment="锁定随机属性的位置"/>
+	</message>
+	
+	<message type="GC_UPDATE_EQUIP_FORGE_PANEL" comment="更新洗炼面板">
+		<field type="com.hifun.soul.core.util.KeyValuePair&lt;Integer,Integer&gt;"
+			clientType="KeyValuePairIntData" name="equipSpecialAttributes" list="true"
+			comment="装备身上带的特殊属性">
+			<field type="Integer" name="key" comment="属性索引" />
+			<field type="Integer" name="value" comment="属性值" />
+		</field>
+		<field type="com.hifun.soul.core.util.KeyValuePair&lt;Integer,Integer&gt;"
+			clientType="KeyValuePairIntData" name="newEquipSpecialAttributes" list="true"
+			comment="装备身上带的特殊属性">
+			<field type="Integer" name="key" comment="属性索引" />
+			<field type="Integer" name="value" comment="属性值" />
+		</field>
+		<field type="Integer" name="forgeType" comment="洗炼模式(1:免费洗炼;2:灵石洗炼)" />
+		<field type="Integer" name="freeTimes" comment="免费次数" />
+		<field type="Integer" name="stoneIcon" comment="灵石洗炼需要灵石图标" />
+		<field type="String" name="stoneName" comment="灵石洗炼需要灵石名称" />
+		<field type="Integer" name="stoneNum" comment="灵石洗炼需要灵石数量" />
+		<field type="Integer" name="crystalNum" comment="魔晶洗炼需要魔晶数量" />
+		<field type="Integer" name="stoneId" comment="灵石洗炼需要灵石id" />
+	</message>
+	
+	<message type="CG_EQUIP_FORGE_REPLACE" comment="装备洗炼替换">
+		<field type="Integer" name="equipBagType" comment="选中装备所在的背包类型"/>
+		<field type="Integer" name="equipBagIndex" comment="选中装备所在的背包中的位置"/>
+		<field type="Integer" name="locks" list="true" comment="锁定随机属性的位置"/>
+	</message>
+	
+	<message type="GC_EQUIP_FORGE_REPLACE" comment="装备洗炼替换">
+		<field type="com.hifun.soul.core.util.KeyValuePair&lt;Integer,Integer&gt;"
+			clientType="KeyValuePairIntData" name="equipSpecialAttributes" list="true"
+			comment="装备身上带的特殊属性">
+			<field type="Integer" name="key" comment="属性索引" />
+			<field type="Integer" name="value" comment="属性值" />
+		</field>
+	</message>
+	
+	<message type="CG_EQUIP_FORGE_CANCEL" comment="装备洗炼取消">
+		<field type="Integer" name="equipBagType" comment="选中装备所在的背包类型"/>
+		<field type="Integer" name="equipBagIndex" comment="选中装备所在的背包中的位置"/>
+		<field type="Integer" name="locks" list="true" comment="锁定随机属性的位置"/>
+	</message>
+	
+	<message type="GC_EQUIP_FORGE_CANCEL" comment="装备洗炼取消">
+	</message>
+	
+	<message type="GC_USE_NOSTRUM" comment="响应使用秘药">
+	</message>
+	
+</messages>

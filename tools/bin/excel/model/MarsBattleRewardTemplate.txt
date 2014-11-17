@@ -1,0 +1,4 @@
+int starSoul;//星魂
+int coin;//金币
+int acceptWinHonor;//接受战斗胜利奖励荣誉
+int acceptLoseHonor;//接受战斗失败奖励荣誉

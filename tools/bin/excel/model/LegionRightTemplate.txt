@@ -1,0 +1,4 @@
+int transferLegion;[notNull=false;minValue=0] //转让军团
+int checkApply;[notNull=false;minValue=0] //审核申请
+int removeMember;[notNull=false;minValue=0] //剔除成员
+int editNotice;[notNull=false;minValue=0] //编辑公告

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 	
+xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="helper">	
+	
+	<message type="CG_SHOW_HELP_INFOS" comment="请求小助手信息">
+		<field type="Boolean" name="isNeedOpen" comment="是否需要打开板子"/>
+	</message>
+	
+	<message type="GC_SHOW_HELP_INFOS" comment="返回小助手信息">
+		<field type="com.hifun.soul.gameserver.helper.HelpInfo" clientType="HelpInfoData" name="helpInfoList"
+				macro="HelpInfo" list="true" comment="小助手信息">	
+		</field>
+		<field type="Boolean" name="isNeedOpen" comment="是否需要打开板子"/>
+	</message>
+</messages>

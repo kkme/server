@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="target">
+
+	<message type="CG_OPEN_TARGET_PANEL" comment="请求打开个人目标面板">
+	</message>
+	<message type="GC_OPEN_TARGET_PANEL" comment="响应打开个人目标面板">
+		<field type="com.hifun.soul.gameserver.target.msg.info.TargetInfo" list="true"
+			clientType="TargetInfoData" name="targetInfos" comment="目标信息 " macro="TargetInfo">
+		</field>
+	</message>
+	<message type="CG_GET_TARGET_REWARD" comment="请求领取个人目标奖励">
+		<field type="Integer" name="targetId" comment="目标ID" />
+	</message>
+	<message type="GC_GET_TARGET_REWARD" comment="响应领取个人目标奖励">
+		<field type="Integer" name="targetId" comment="目标ID" />
+		<field type="Integer" name="rewardState" comment="领奖状态" />
+		<field type="Boolean" name="isCompletedAll" comment="是否完成全部目标" />
+	</message>
+	<message type="GC_UPDATE_TARGET_PANEL" comment="更新个人目标面板">
+	</message>
+</messages>
+
+

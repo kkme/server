@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 	
+xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="functionhelper">	
+	
+	<message type="CG_OPEN_FUNC_HELP_PANEL" comment="打开功能助手面板请求">		
+	</message>
+	
+	<message type="GC_OPEN_FUNC_HELP_PANEL" comment="返回功能助手信息">
+		<field type="com.hifun.soul.gameserver.functionhelper.FuncCategory" clientType="FuncCategoryData" name="funcCategoryList"
+				list="true" comment="功能分类列表">
+				<field type="Integer" name="id" comment="分类id" />
+				<field type="String" name="name" comment="分类名称" />
+		</field>
+		<field type="com.hifun.soul.gameserver.functionhelper.FuncHelperInfo" clientType="FuncHelperInfoData" name="funcInfoList"
+				list="true" comment="功能列表">
+				<field type="Integer" name="id" comment="功能id" />
+				<field type="String" name="name" comment="功能名称" />
+				<field type="String" name="desc" comment="功能描述" />
+				<field type="Integer" name="icon" comment="图标id" />
+				<field type="Integer" name="openLevel" comment="功能开启等级" />
+				<field type="Boolean" name="openState" comment="功能开启状态" />
+				<field type="com.hifun.soul.gameserver.functionhelper.FuncRevenue" clientType="FuncRevenueData" name="funcRevenues"
+				list="true" comment="功能收益">
+					<field type="String" name="name" comment="名称" />
+					<field type="Integer" name="star" comment="星星数" />
+				</field>
+		</field>
+	</message>
+	
+	<message type="CG_SHOW_FUNC_HELP_INFOS" comment="请求功能助手信息">	
+		<field type="Integer" name="id" comment="分类id" />	
+	</message>
+	
+	<message type="GC_SHOW_FUNC_HELP_INFOS" comment="请求功能助手信息">
+		<field type="com.hifun.soul.gameserver.functionhelper.FuncHelperInfo" clientType="FuncHelperInfoData" name="funcInfoList"
+				list="true" comment="功能列表">
+				<field type="Integer" name="id" comment="功能id" />
+				<field type="String" name="name" comment="功能名称" />
+				<field type="String" name="desc" comment="功能描述" />
+				<field type="Integer" name="icon" comment="图标id" />
+				<field type="Integer" name="openLevel" comment="功能开启等级" />
+				<field type="Boolean" name="openState" comment="功能开启状态" />
+				<field type="com.hifun.soul.gameserver.functionhelper.FuncRevenue" clientType="FuncRevenueData" name="funcRevenues"
+				list="true" comment="功能收益">
+					<field type="String" name="name" comment="名称" />
+					<field type="Integer" name="star" comment="星星数" />
+				</field>
+		</field>		
+	</message>
+</messages>

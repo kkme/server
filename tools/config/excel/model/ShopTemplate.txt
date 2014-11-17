@@ -1,0 +1,5 @@
+int itemId; // 道具ID
+short currencyType; // 购买货币类型
+int num; // 购买货币数量
+int levelLimit;[notNull=false;minValue=0] // 等级限制
+int occupationLimit;[notNull=false;minValue=0] // 职业限制 

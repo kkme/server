@@ -1,0 +1,1 @@
+List<Integer> rewards;[collection(9,1)] // 奖励物品

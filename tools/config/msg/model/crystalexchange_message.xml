@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="crystalexchange">
+	
+	<message type="CG_SHOW_CRYSTAL_EXCHANGE_PANEL" comment="请求打开魔晶兑换面板">
+	</message>
+
+	<message type="GC_SHOW_CRYSTAL_EXCHANGE_PANEL" comment="打开魔晶兑换面板">
+		<field type="Integer" name="totalTimes" comment="当天总共次数" />
+		<field type="Integer" name="useTimes" comment="当天使用次数" />
+		<field type="Integer" name="crystal" comment="消耗魔晶" />
+		<field type="Integer" name="coin" comment="获得的金币" />
+	</message>
+
+	<message type="CG_CRYSTAL_EXCHANGE" comment="魔晶兑换">
+	</message>
+	
+	<message type="GC_CRYSTAL_EXCHANGE_TIMES" comment="登录时候发送今天剩余的兑换次数">
+		<field type="Integer" name="leftTimes" comment="当天剩余次数" />
+	</message>
+	
+</messages>

@@ -1,0 +1,5 @@
+String VipTrainingTypeName; //训练模式名称
+int nameLangId;[notNull=false;minValue=0] //多语言名称
+int costCurrencyType; //消耗货币类型
+int costCurrencyNum; //消耗货币数量
+int vipLevel;[notNull=false;minValue=0] //开启训练模式所需的VIP等级

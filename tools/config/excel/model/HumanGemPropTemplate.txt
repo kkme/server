@@ -1,0 +1,3 @@
+int initValue;[notNull=false;minValue=0] // 初始值
+int maxValue;[notNull=false;minValue=0] // 上限
+int eliminateBonus;[notNull=false;minValue=0] // 每个宝石消除能量

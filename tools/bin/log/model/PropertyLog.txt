@@ -1,0 +1,4 @@
+message com.hifun.soul.logserver.model.PropertyLog(
+	int propertyKey;	// key
+	String propertyChange;	// 属性变化
+)

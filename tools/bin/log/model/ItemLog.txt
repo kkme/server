@@ -1,0 +1,7 @@
+message com.hifun.soul.logserver.model.ItemLog(
+    int bagType;		// 包裹id
+    int bagIndex;		// 在包裹中的位置索引
+    int templateId;		// 道具模板ID
+    String itemUUID;	// 道具实例ID
+    int count;			// 操作后的最终叠加数
+)

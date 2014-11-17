@@ -1,0 +1,13 @@
+int beginWaitTime; //开始准备参战时长(s)
+int matchTurnTime; //匹配间隔时长(s)
+int waitMatchQueneSize; //匹配等待队列长度
+int matchLevelSpan; //匹配等级段大小
+int rankSize; //排行榜排行长度
+int maxEncourageDamage;[notNull=false;minValue=0]// 鼓舞加成攻击力上限
+int encourageDamage;[notNull=false;minValue=0] // 每次鼓舞加成攻击力
+int encourageCoinCost;[notNull=false;minValue=0] // 金币鼓舞消耗
+int coinEncourageRate;[notNull=false;minValue=0] // 金币鼓舞概率(基数10000)
+int encourageCrystalCost;[notNull=false;minValue=0] // 魔晶鼓舞消耗
+int crystalEncourageRate;[notNull=false;minValue=0] // 魔晶鼓舞概率(基数10000)
+int forgeStoneEncourageCost;[notNull=false;minValue=0] // 灵石鼓舞消耗
+int forgeStoneEncourageRate;[notNull=false;minValue=0] // 灵石鼓舞概率(基数10000)

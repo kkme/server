@@ -1,0 +1,1 @@
+int openLegionLevel;//开启所需军团等级

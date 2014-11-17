@@ -1,0 +1,1 @@
+int rewardNum;[notNull=true;minValue=1] // 抽奖次数

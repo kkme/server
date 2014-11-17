@@ -1,0 +1,1 @@
+int techPoint; //获得的科技点数

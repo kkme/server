@@ -1,0 +1,3 @@
+int visibleLevel;//可见等级
+int minLevel;//等级下限
+int maxLevel;//等级上限

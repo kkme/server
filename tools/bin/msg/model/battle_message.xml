@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="battle">
+
+	<message type="GC_START_BATTLE_INFO" comment="服务器下发开始战斗面板的信息">
+		<field type="Integer" name="battleBgId" comment="战斗背景ID" />
+		<field type="Long" name="guid1" comment="玩家1唯一标示" />
+		<field type="Integer" name="level1" comment="玩家1等级" />
+		<field type="Integer" name="roleType1" comment="玩家1角色类型" />
+		<field type="Integer" name="occupation1" comment="玩家1职业类型" />
+		<field type="String" name="name1" comment="玩家1名称" />
+		<field type="Integer" name="resourceId1" comment="玩家1资源ID（模型id）" />
+		<field type="Integer" name="headId1" comment="玩家1头像（头像id）" />
+		<field type="com.hifun.soul.gameserver.skill.template.SkillInfo"
+			list="true" name="battleUnit1Skills" comment="战斗单元1携带的技能" macro="SkillInfo"
+			clientType="SkillInfoData">
+		</field>
+		<field type="com.hifun.soul.gameserver.battle.gem.MagicSlotInfo"
+			list="true" name="battleUnit1MagicSlots" comment="战斗单元1的魔法槽信息" macro="MagicSlotInfo"
+			clientType="MagicSlotInfoData">
+		</field>
+		<field type="Integer" name="battleUnit1Hp" comment="战斗单元1血量" />
+		<field type="Integer" name="firstAttack1" comment="战斗单元1先攻" />
+		<field type="Long" name="guid2" comment="玩家2唯一标示" />
+		<field type="Integer" name="level2" comment="玩家2等级" />
+		<field type="Integer" name="roleType2" comment="玩家2角色类型 "/>
+		<field type="Integer" name="occupation2" comment="玩家2职业类型" />
+		<field type="String" name="name2" comment="玩家2名称" />
+		<field type="Integer" name="resourceId2" comment="玩家2资源ID" />
+		<field type="Integer" name="headId2" comment="玩家2头像（头像id）" />
+		<field type="com.hifun.soul.gameserver.skill.template.SkillInfo"
+			list="true" name="battleUnit2Skills" comment="战斗单元2携带的技能" macro="SkillInfo"
+			clientType="SkillInfoData">
+		</field>
+		<field type="com.hifun.soul.gameserver.battle.gem.MagicSlotInfo"
+			list="true" name="battleUnit2MagicSlots" comment="战斗单元2的魔法槽信息" macro="MagicSlotInfo"
+			clientType="MagicSlotInfoData">
+		</field>
+		<field type="Integer" name="battleUnit2Hp" comment="战斗单元2血量" />
+		<field type="Integer" name="firstAttack2" comment="战斗单元2先攻" />
+		<field type="Integer" name="battleBuffTypes" comment="本次战斗需要加载的buff类型集合" list = "true" />
+		<field type="com.hifun.soul.gameserver.battle.gem.ColNewGems"
+			list="true" name="chessBoardCols" comment="棋盘信息, 按照列发送" macro="ColNewGems"
+			clientType="ColNewGemsData">
+		</field>
+		<field type="Boolean" name="guide" comment="是否需要加载引导资源" />
+		<field type="Integer" name="defaultSelfActionId" comment="自己默认的动作ID" />
+		<field type="Integer" name="defaultOtherActionId" comment="被攻击方的默认动作ID" />
+	</message>
+
+	<message type="CG_START_BATTLE_WITH_MONSTER" comment="客户端请求和地图怪开始战斗">
+		<field type="Integer" name="monsterId" comment="怪物模版ID" />
+	</message>
+	
+	<message type="CG_START_BATTLE_WITH_FRIEND" comment="客户端请求和指定好友角色开始战斗">
+		<field type="Long" name="humanGuid" comment="角色GUID" />
+	</message>
+
+	<message type="CG_NORMAL_ATTACK" comment="客户端请求普通攻击(交换宝石)">
+		<field type="Integer" name="row1" comment="初始位置行数" />
+		<field type="Integer" name="col1" comment="初始位置列数" />
+		<field type="Integer" name="row2" comment="目标位置行数" />
+		<field type="Integer" name="col2" comment="目标位置列数" />
+	</message>
+
+	<message type="GC_START_BATTLE_ACTION" comment="服务器通知玩家可以开始行动了">
+		<field type="Long" name="guid" comment="行动的角色GUID" />
+	</message>
+
+	<message type="GC_NORMAL_ATTACK" comment="服务器通知客户端普通攻击(移动宝石)">
+		<field type="Integer" name="row1" comment="初始位置行数" />
+		<field type="Integer" name="col1" comment="初始位置列数" />
+		<field type="Integer" name="row2" comment="目标位置行数" />
+		<field type="Integer" name="col2" comment="目标位置列数" />
+	</message>
+
+	<message type="GC_UPDATE_CHESS_BOARD" comment="服务器通知客户端更新棋盘">
+		<field type="com.hifun.soul.gameserver.battle.msg.ChessBoardSnap"
+			list="true" name="chessBoardSnaps" comment="棋盘快照" macro="ChessBoardSnap"
+			clientType="ChessBoardSnapData">
+		</field>
+		<field type="Boolean" name="isTriggerByClientMove" comment="是否由client的移动触发" />
+	</message>
+
+	<message type="GC_START_ACTION_TIMER" comment="服务器通知客户端开始行动计时">
+		<field type="Integer" name="timeout" comment="倒计时时间" />
+	</message>
+
+	<message type="GC_CHOOSE_ACTION_TIMEOUT" comment="服务器通知客户端行动超时">
+		<field type="Long" name="actionUnitGuid" comment="行动单元GUID" />
+		<field type="Integer" name="changeHp" comment="超时被扣除的血量" />
+	</message>
+
+	<message type="CG_ANIMATION_OVER" comment="客户端通知服务器动画播放完了">
+	</message>
+	
+	<message type="CG_RESET_CHESSBOARD_ANIMATION_OVER" comment="客户端通知服务器动重置棋盘画播放完了">
+	</message>
+	
+	<message type="CG_BATTLE_RESOURCE_LOADED" comment="客户端通知服务端战斗资源加载完毕">
+	</message>
+	<message type="GC_CHANGE_GEMS_COLOR" comment="服务端通知客户端转换宝石颜色">
+		<field type="com.hifun.soul.gameserver.battle.gem.GemPosition"
+			list="true" name="changedGems" comment="改变后的宝石集合" macro="GemPosition"
+			clientType="GemPositionData">
+		</field>
+	</message>
+
+	<message type="GC_EXIT_BATTLE" comment="服务端通知退出战斗">
+		<field type="Integer" name="gameSceneType" comment="退出战斗后,回到哪个场景" />
+		<field type="Long" name="winnerGuid" comment="战斗胜利者的guid" />
+	</message>
+	
+	<message type="GC_BATTLE_UNIT_DEAD" comment="服务端通知战斗单元死亡">
+		<field type="Long" name="deadBattileUnitGuid" comment="死亡的战斗单元GUID" />
+	</message>
+	
+	<message type="GC_BATTLE_NEW_ROUND" comment="服务端通知新的战斗回合">
+		<field type="Integer" name="currentRound" comment="当前的回合数" />
+	</message>
+	
+	<message type="GC_JOIN_BATTLE_REQUEST" comment="服务器通知有战斗邀请">
+		<field type="Long" name="challengerGuid" comment="挑战者GUID" />
+		<field type="String" name="challengerName" comment="挑战者名称" />
+		<field type="String" name="content" comment="挑战内容" />
+	</message>
+	
+	<message type="CG_JOIN_BATTLE_RESPONSE" comment="客户端响应战斗邀请">
+		<field type="Long" name="challengerGuid" comment="挑战者GUID" />
+		<field type="Boolean" name="isAgree" comment="是否同意战斗" />
+	</message>
+	
+	<message type="GC_ADD_BATTLE_ACTION_TIME" comment="通知客户端额外回合">
+		<field type="Long" name="unitGuid" comment="GUID" />
+		
+	</message>
+	
+	<message type="GC_CHESS_BOARD_INFO" comment="服务器通知客户端棋盘信息">
+		<field type="com.hifun.soul.gameserver.battle.gem.ColNewGems"
+			list="true" name="chessBoardCols" comment="棋盘信息, 按照列发送" macro="ColNewGems"
+			clientType="ColNewGemsData">
+		</field>
+		
+	</message>
+	
+	<message type="GC_DEBUG_CHESSBOARD_SYNC_ERROR" comment="服务器通知调试战斗棋盘不同步">
+	</message>
+	
+	<message type="GC_UPDATE_BLACK_GEM_ATTACK_ADD_RATE" comment="服务器通知更新黑宝石攻击加成">
+	    <field type="Long" name="targetGuid" comment="加成单元GUID" />
+		<field type="Integer" name="currentAddRate" comment="是否同意战斗" />
+	</message>
+	
+	<message type="GC_BATTLE_WAITING_OTHER_UNIT_READY" comment="服务器通知等待对方准备好">
+	</message>
+
+    <message type="GC_BAD_NET_ENVIRONMENT" comment="服务器通知网络环境太差, 请重试 ">
+    	<field type="Long" name="badGuid" comment="网络环境差的单元GUID" />
+	</message>
+	
+	<message type="CG_BATTLE_CHAT" comment="请求战斗聊天信息">
+		<field type="Long" name="senderGuid" comment="请求者GUID" />
+		<field type="String" name="content" comment="发送内容" />
+	</message>
+	
+	<message type="GC_BATTLE_CHAT" comment="服务器广播战斗聊天信息 ">
+		<field type="Long" name="senderGuid" comment="请求者GUID" />
+		<field type="String" name="content" comment="发送内容" />
+	</message>
+	
+	<message type="CG_REQUEST_HOSTING_BATTLE" comment="客户端请求托管战斗">
+	</message>
+	
+	<message type="GC_START_HOSTING_BATTLE" comment="服务器通知托管战斗开始">
+		<field type="Long" name="beHostedGuid" comment="被托管者GUID" />
+	</message>
+	
+	<message type="CG_REQUEST_BATTLE_GIVE_UP" comment="客户端请求投降战斗">
+	</message>
+	
+	<message type="GC_BATTLE_GIVE_UP" comment="服务器通知战斗投降 ">
+		<field type="Long" name="losserGuid" comment="投降者GUID" />
+	</message>
+	
+	<message type="CG_ALREADY_LEAVE_BATTLE_SCENE" comment="客户端已经离开了战斗场景通知 ">
+		<field type="Integer" name="clientSceneType" comment="战斗返回的场景类型" />
+	</message>
+	
+	<message type="CG_REQUEST_CANCEL_HOSTING_BATTLE" comment="客户端请求取消托管">
+	</message>
+	
+	<message type="GC_CANCEL_HOSTING_BATTLE_SUCCEED" comment="服务器通知取消托管成功">
+		<field type="Long" name="beHostedGuid" comment="被托管者GUID" />
+	</message>
+	
+	<message type="GC_WAITTING_BATTLE_RESPONSE" comment="通知等待对方接受战斗邀请">
+	</message>
+
+</messages>
+
+

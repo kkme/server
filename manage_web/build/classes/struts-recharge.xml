@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="struts-recharge" extends="manage-base-package">
+		<!-- 充值业务流水列表 -->
+		<action name="queryRechargeFlow"
+			class="com.hifun.soul.manageweb.recharge.action.RechargeAction"
+			method="queryRechargeFlow">
+			<result name="success">/recharge/qqRechargeFlow.jsp</result>
+			<interceptor-ref name="defaultStack" />
+			<interceptor-ref name="permission"></interceptor-ref>
+		</action>	
+		<!-- 充值业务流水查询跳转 -->
+		<action name="queryRechargeFlowForward"
+			class="com.hifun.soul.manageweb.recharge.action.RechargeAction"
+			method="queryRechargeFlowForward">
+			<result name="success">/recharge/queryQQRechargeFlow.jsp</result>
+			<interceptor-ref name="defaultStack" />			
+		</action>		
+	</package>
+</struts>

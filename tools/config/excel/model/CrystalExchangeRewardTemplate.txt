@@ -1,0 +1,2 @@
+Short currencyType;[notNull=true;minValue=1] // 单次兑换获得货币类型
+int currencyNum;[notNull=true;minValue=1] // 单次兑换金币数量

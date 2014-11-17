@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 	
+xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="gift">	
+	
+	<message type="CG_SHOW_GIFT_PANEL" comment="请求打开天赋面板">		
+	</message>
+	<message type="GC_SHOW_GIFT_PANEL" comment="请求打开天赋面板">
+		<field type="Integer" name="giftPointRemain" comment="可用的天赋点" />
+		<field type="Integer" name="giftPointTotal" comment="天赋点总数" />	
+		<field type="com.hifun.soul.gameserver.gift.model.GiftProperty"
+				clientType="GiftPropertyData" name="giftAttributes" list="true"
+				comment="天赋属性">
+				<field type="Integer" name="property" comment="属性索引" />
+				<field type="Integer" name="propertyValue" comment="属性值" />
+				<field type="Integer" name="propertyValueType" comment="属性加成方式" />
+		</field>
+		<field type="com.hifun.soul.gameserver.gift.model.GiftInfo" name="gifts" list="true" macro="GiftInfo"
+			clientType="GiftData" comment="天赋信息"	/>
+	</message>
+	
+	<message type="CG_ACTIVE_GIFT" comment="请求激活天赋">
+		<field type="Integer" name="giftId" comment="天赋id" />
+	</message>
+	<message type="GC_UPDATE_GIFT_STATE" comment="更新天赋状态">
+		<field type="com.hifun.soul.gameserver.gift.model.GiftInfo" name="changedGift" list="true" macro="GiftInfo"
+			clientType="GiftData" comment="状态改变的天赋"	/>
+		<field type="com.hifun.soul.gameserver.gift.model.GiftProperty"
+				clientType="GiftPropertyData" name="giftAttributes" list="true"
+				comment="天赋属性">
+				<field type="Integer" name="property" comment="属性索引" />
+				<field type="Integer" name="propertyValue" comment="属性值" />
+				<field type="Integer" name="propertyValueType" comment="属性加成方式" />
+		</field>
+		<field type="Integer" name="giftPointRemain" comment="可用的天赋点" />
+	</message>
+	
+	<message type="CG_RESET_GIFT" comment="请求重置天赋">		
+	</message>	
+	
+	<message type="GC_UPDATE_GIFT_ACTIVE_NOTICE_STATE" comment="更新激活天赋的提醒状态">	
+		<field type="Boolean" name="noticeState" comment="提示状态" />	
+	</message>
+	
+	<message type="CG_UPGRADE_GIFT" comment="请求升级天赋">
+		<field type="Integer" name="giftId" comment="天赋id" />
+	</message>
+</messages>

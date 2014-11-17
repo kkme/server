@@ -1,0 +1,7 @@
+package com.hifun.proto.common;
+option java_package = "com.hifun.soul.proto.common";
+option java_outer_classname = "CommonDefinition";
+
+message VoidRequest {}
+
+message VoidResponse {}

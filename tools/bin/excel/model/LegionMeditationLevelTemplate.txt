@@ -1,0 +1,3 @@
+int littleThinkMeditation;//小思获得冥想力
+int deepThinkMeditation;//深思获得冥想力
+int weightThinkMeditation;//沉思获得冥想力

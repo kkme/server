@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="shop">
+	
+	<message type="CG_SHOW_SHOP_ITEM_LIST" comment="显示商店道具列表">
+		<field type="Short" name="pageIndex" comment="页面索引" />
+	</message>
+
+	<message type="GC_SHOW_SHOP_ITEM_LIST" comment="显示商城道具列表">
+		<field type="Short" name="pageIndex" comment="当前页面索引" />
+		<field type="Short" name="pageCount" comment="总页数" />
+		<field type="com.hifun.soul.gameserver.item.assist.CommonItem" clientType="CommonItemData"
+			name="shopItemList" list="true" macro="CommonItem" comment="商店道具列表">
+		</field>
+	</message>
+
+	<message type="CG_BUY_SHOP_ITEM" comment="购买选中道具">
+		<field type="Integer" name="itemId" comment="商品 Id" />
+		<field type="Integer" name="num" comment="购买数量" />
+	</message>
+	
+	<message type="CG_SELL_SHOP_ITEM" comment="出售选中道具">
+		<field type="Integer" name="bagType" comment="物品背包类型" />
+		<field type="Integer" name="bagIndex" comment="物品背包索引" />
+		<field type="Integer" name="num" comment="出售数量" />
+	</message>
+	
+	<message type="CG_SHOW_SPECIAL_SHOP_PANEL" comment="打开神秘商店面板">
+	</message>
+	
+	<message type="GC_SHOW_SPECIAL_SHOP_PANEL" comment="打开神秘商店面板">
+		<field type="com.hifun.soul.gameserver.shop.SpecialShopItem" clientType="SpecialShopItemData"
+			name="specialShopItemList" list="true" macro="SpecialShopItem" comment="神秘商店道具列表">
+		</field>
+		<field type="com.hifun.soul.gameserver.shop.SpecialShopNotify" clientType="SpecialShopNotifyData"
+			name="specialShopNotifyList" list="true" macro="SpecialShopNotify" comment="奖品列表">
+		</field>
+		<field type="Integer" name="crystal" comment="刷新神秘商店花费魔晶数" />
+		<field type="Integer" name="refreshTime" comment="剩余神秘商店刷新次数" />
+		<field type="String" name="refreshHours" list="true" comment="刷新时间点" />
+	</message>
+	
+	<message type="CG_BUY_SPECIAL_SHOP_ITEM" comment="购买神秘商店物品">
+		<field type="Integer" name="specialShopItemId" comment="神秘商品id" />
+	</message>
+	
+	<message type="GC_BUY_SPECIAL_SHOP_ITEM" comment="购买神秘商店物品">
+		<field type="Integer" name="specialShopItemId" comment="神秘商品id" />
+		<field type="Boolean" name="isBuy" comment="是否已经购买" />
+		<field type="com.hifun.soul.gameserver.shop.SpecialShopNotify" clientType="SpecialShopNotifyData"
+			name="specialShopNotifyList" list="true" macro="SpecialShopNotify" comment="奖品列表">
+		</field>
+	</message>
+	
+	<message type="CG_REFRESH_SPECIAL_SHOP" comment="刷新神秘商店物品">
+	</message>
+	
+</messages>

@@ -1,0 +1,4 @@
+String name; // 星图名称
+int nameLangId;[notNull=false;minValue=0] // 多语言名称id
+int openLevel;[notNull=false;minValue=0] // 开启星图需要的玩家等级
+int nextStarMapId;[notNull=false;minValue=0] // 下一张星图id

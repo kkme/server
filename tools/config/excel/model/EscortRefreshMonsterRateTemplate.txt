@@ -1,0 +1,3 @@
+int upRate;[notNull=false;minValue=0]//升一级概率
+int holdRate;[notNull=false;minValue=0]//不变概率
+int downRate;[notNull=false;minValue=0]//降一级概率

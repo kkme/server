@@ -1,0 +1,6 @@
+int nameLangId;[notNull=false;minValue=0] // 科技名称多语言
+String name; // 科技名称
+int descLangId;[notNull=false;minValue=0] // 属性多语言
+String desc; // 属性名称
+int icon;[notNull=false;minValue=0] // 图标id
+int openLevel;[notNull=false;minValue=0] // 科技开放等级

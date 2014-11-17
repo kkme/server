@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<servers>
+	<!-- 默认连接的管理服务器id -->
+	<defualtManageServer>1</defualtManageServer>
+	<!-- gm管理服务器1 -->
+	<manageServer>
+		<serverId>1</serverId>
+		<serverName>localhost</serverName>		
+		<host>0.0.0.0</host><!-- s2.app100690415.qqopenapp.com -->
+		<port>8003</port>		
+	</manageServer>
+	<!-- gm管理服务器2 -->
+	<manageServer>
+		<serverId>2</serverId>
+		<serverName>测试二区</serverName>
+		<host>s3.app100690415.qqopenapp.com</host>
+		<port>8003</port>		
+	</manageServer>
+</servers>

@@ -1,0 +1,21 @@
+int bossId;[notNull=false;minValue=0] // bossId
+int totalContribution;[notNull=false;minValue=0] // 奖励军团贡献总值
+int totalHonour;[notNull=false;minValue=0] // 奖励荣誉总值
+int giftId;[notNull=false;minValue=0] // 击杀奖励id
+int maxEncourageDamage;[notNull=false;minValue=0]// 鼓舞加成攻击力上限
+int encourageDamage;[notNull=false;minValue=0] // 每次鼓舞加成攻击力
+int meditation;[notNull=false;minValue=0] // 冥想力鼓舞消耗
+int meditationRate;[notNull=false;minValue=0] // 冥想力鼓舞概率(基数10000)
+int crystal;[notNull=false;minValue=0] // 魔晶鼓舞消耗
+int crystalRate;[notNull=false;minValue=0] // 魔晶鼓舞概率(基数10000)
+int cd;[notNull=false;minValue=0]// cd(分钟)
+int chargedRate;[notNull=false;minValue=0] // 每次充能量(基数10000)
+int maxChargedRate;[notNull=false;minValue=0] // 能量上限(基数10000)
+int chargedDamage;[notNull=false;minValue=0] // 每1%能量对应的伤害值
+int maxChargedDamage;[notNull=false;minValue=0] // 充能满之后对应的伤害值
+int maxCoinRate;[notNull=true;minValue=1] // 伤害奖励金币值上限系数
+int maxHonorRate;[notNull=false;minValue=0] // 伤害奖励荣誉值上限系数
+int maxTotalStageReward; // 阶段奖励总上限
+int maxSingleStageReward;// 每次阶段奖励上限
+int minSingleStageReward;// 每次阶段奖励下限
+boolean hasDamageReward;// 是否有累计伤害奖励

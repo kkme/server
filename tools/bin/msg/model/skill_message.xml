@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="skill">
+	<message type="CG_SHOW_SKILL_PANEL" comment="打开技能面板">
+	</message>
+	
+	<message type="CG_USE_SKILL" comment="客户端请求释放技能">
+		<field type="Integer" name="skillId" comment="技能ID" />
+		<field type="Integer" name="assignRow" comment="选中的宝石的行" />
+		<field type="Integer" name="assignCol" comment="选中的宝石的列" />
+	</message>
+
+	<message type="GC_USE_SKILL" comment="服务端通知客户端使用技能">
+		<field type="Integer" name="skillId" comment="技能ID" />
+		<field type="Long" name="attackerId" comment="攻击者ID" />
+		<field type="Long" name="targetId" comment="目标ID" />
+	</message>
+
+	<message type="GC_EFFECT_MISS" comment="服务器通知客户端技能未命中">
+		<field type="Integer" name="skillId" comment="技能ID" />
+		<field type="Long" name="attackerId" comment="攻击者ID" />
+		<field type="Long" name="targetId" comment="目标ID" />
+	</message>
+
+	<message type="GC_EFFECT_DIRECT" comment="服务器通知技能效果直接作用">
+		<field type="Long" name="attackerId" comment="攻击者ID" />
+		<field type="Long" name="targetId" comment="目标ID" />
+		<field type="Integer" name="skillId" comment="技能ID" />
+		<field type="Integer" name="combo" comment="连击次数" />
+		<field type="Boolean" name="crit" comment="是否暴击" />
+		<field type="Boolean" name="parry" comment="是否被格挡" />
+	</message>
+
+	<message type="GC_START_BUFF_EFFECT" comment="服务器通知buff效果开始">
+		<field type="com.hifun.soul.gameserver.skill.buff.BuffInfo" name="buffInfo" comment="buff信息" macro="BuffInfo"
+			clientType="BuffInfoData"/>
+		<field type="Long" name="targetId" comment="目标ID" />
+	</message>
+
+	<message type="GC_STOP_BUFF_EFFECT" comment="服务器通知buff效果结束">
+		<field type="Integer" name="buffType" comment="buff类型" />
+		<field type="Long" name="targetId" comment="目标ID" />
+		<field type="Integer" name="buffId" comment="buffID" />
+	</message>
+	
+	<message type="GC_UPDATE_BUFF_STATE" comment="服务器通知更新buff效果">
+		<field type="Integer" name="buffType" comment="buff类型" />
+		<field type="Integer" name="buffId" comment="buffID" />
+		<field type="Long" name="targetId" comment="目标ID" />
+	</message>
+
+	<message type="GC_UPDATE_SKILL_STATE" comment="服务器通知更新技能冷却状态">
+		<field type="Long" name="ownerId" comment="所有者ID" />
+		<field type="Boolean" name="isCooldown" comment="是否已经冷却" />
+	</message>
+
+	<message type="GC_ALL_SKILLS" comment="服务器发送所有玩家的技能">
+		<field type="com.hifun.soul.gameserver.skill.template.SkillInfo"
+			list="true" name="defaultSkills" comment="默认技能" macro="SkillInfo"
+			clientType="SkillInfoData">
+		</field>
+		<field type="com.hifun.soul.gameserver.skill.template.SkillInfo"
+			list="true" name="gemSkills" comment="宝石技能" macro="SkillInfo"
+			clientType="SkillInfoData">
+		</field>
+				<field type="com.hifun.soul.gameserver.skill.template.SkillInfo"
+			list="true" name="energySkills" comment="能量技能" macro="SkillInfo"
+			clientType="SkillInfoData">
+		</field>
+				<field type="com.hifun.soul.gameserver.skill.template.SkillInfo"
+			list="true" name="assistSkills" comment="辅助技能" macro="SkillInfo"
+			clientType="SkillInfoData">
+		</field>
+		<field type="Integer" name="skillPoints" comment="技能点" />
+		<field type="Integer" name="crystal" comment="魔晶数量" />
+		<field type="com.hifun.soul.gameserver.skill.template.SkillDevelopInfo"
+			list="true" name="skillDevelopInfos" comment="技能发展类型信息" macro="SkillDevelopInfo"
+			clientType="SkillDevelopInfoData">
+		</field>
+	</message>
+
+	<message type="GC_BATTLE_CARRIED_SKILLS" comment="服务器通知客户端战斗携带的技能">
+		<field type="com.hifun.soul.gameserver.skill.template.SkillInfo"
+			list="true" name="skills" comment="玩家战斗携带的技能" macro="SkillInfo"
+			clientType="SkillInfoData">
+		</field>
+	</message>
+
+	<message type="CG_EQUIP_SKILL" comment="客户端请求装备技能">
+		<field type="Integer" name="skillId" comment="技能ID" />
+	</message>
+
+	<message type="CG_UNEQUIP_SKILL" comment="客户端请求卸下技能">
+		<field type="Integer" name="skillId" comment="技能ID" />
+	</message>
+
+	<message type="GC_UPDATE_SKILL_EQUIP_STATE" comment="服务端通知更新技能的装备状态">
+		<field type="Integer" name="skillId" comment="技能ID" />
+		<field type="Boolean" name="carried" comment="是否装备上" />
+		<field type="Integer" name="slotIndex" comment="装备上的栏位索引" />
+	</message>
+
+	<message type="GC_BATTLE_HP_CHANGED" comment=" 服务器通知血量变化">
+		<field type="Integer" name="changeType" comment="血量变化类型(受击或者其它)" />
+		<field type="Long" name="targetId" comment="目标ID" />
+		<field type="Integer" name="changeHp" comment="血量变化" />
+	</message>
+
+	<message type="GC_BATTLE_MAGIC_CHANGED" comment="服务器通知魔变化">
+		<field type="Long" name="targetId" comment="目标ID" />
+		<field type="com.hifun.soul.gameserver.skill.msg.MagicChange"
+			name="targetMagicChange" comment="魔法变化" macro="MagicChangeData"
+			clientType="MagicChangeData">
+		</field>
+	</message>
+	
+	<message type="CG_GET_SKILL_SLOTS_INFO" comment="请求技能栏的状态">
+	</message>
+	
+	<message type="GC_SKILL_SLOTS_INFO" comment="服务器返回技能栏的状态">
+		<field type="com.hifun.soul.gameserver.skill.slot.SkillSlot"
+			name="slots" comment="技能栏数据" macro="SkillSlot" list="true"
+			clientType="SkillSlotData">
+		</field>
+	</message>
+	
+	<message type="CG_GET_SKILL_SLOT_TIP" comment="客户端获取技能栏tips">
+	</message>
+	
+	<message type="GC_SKILL_SLOT_INFO" comment="服务器返回技能栏tips">
+		<field type="Integer" name="humanLevel" comment="角色等级要求" />
+		<field type="Integer" name="coin" comment="等级满足消耗金币" />
+		<field type="Integer" name="crystal" comment="等级不满足消耗魔晶" />
+	</message>
+	
+	<message type="CG_OPEN_SKILL_SLOT" comment="客户端请求购买技能栏">
+		<field type="Integer" name="slotIndex" comment="技能栏索引" />
+	</message>
+	
+	<message type="CG_DIRECT_OPEN_SKILL_SLOT" comment="客户端请求直接购买技能栏">
+		<field type="Integer" name="slotIndex" comment="技能栏索引" />
+	</message>
+	
+	<message type="GC_OPEN_SKILL_SLOT_RESULT" comment="服务器返回购买技能栏结果">
+		<field type="Integer" name="slotIndex" comment="技能栏索引" />
+		<field type="Boolean" name="result" comment="开启结果是否成功" />
+	</message>
+	
+	<message type="CG_STUDY_SKILL" comment="学习技能">
+		<field type="Integer" name="skillId" comment="技能ID" />
+	</message>
+	
+	<message type="CG_RESET_SKILLS" comment="重置所有技能">
+	</message>
+	
+	<message type="GC_REPLACE_OLD_BUFF" comment="服务器通知替换旧的buff效果">
+		<field type="com.hifun.soul.gameserver.skill.buff.BuffInfo" name="newBuff" comment="新的buff信息" macro="BuffInfo"
+			clientType="BuffInfoData"/>
+		<field type="Long" name="targetGuid" comment="目标ID" />
+		<field type="Integer" name="oldBuffId" comment="需要替换的buffId" />
+	</message>
+	
+	<message type="GC_CLEAR_BUFF" comment="服务器通知清除buff效果">
+		<field type="Long" name="targetGuid" comment="目标ID" />
+		<field type="Integer" name="clearType" comment="清除类型" />
+	</message>
+
+</messages>
+
+

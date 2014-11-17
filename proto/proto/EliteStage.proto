@@ -1,0 +1,27 @@
+package com.hifun.soul.proto.common;
+
+option java_package = "com.hifun.soul.proto.common";
+option java_outer_classname = "EliteStage";
+
+//精英副本信息
+message HumanEliteStageInfo {
+	required int64 humanGuid=1;
+	//开启的副本类型id
+	repeated int32 openedStageTypeIds=2;
+	//副本状态
+	repeated EliteStageState stageState=3;
+	//今日刷新副本的次数
+	optional int32 refreshStageStateNum=4;
+}
+
+//精英副本状态
+message EliteStageState{
+	//副本id
+	required int32 stageId=1;
+	//在该副本是否取得过胜利
+	required bool conquerState=2;
+	//今日挑战状态
+	required bool challengeState=3;
+	//星级
+	required int32 stageStar=4;
+}

@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="friend">
+	
+	<message type="CG_SHOW_LUCK_FRIENDS" comment="系统推荐好友">
+	</message>
+	
+	<message type="GC_SHOW_LUCK_FRIENDS" comment="显示系统推荐好友">
+		<field type="com.hifun.soul.gameserver.friend.FriendInfo"
+			clientType="FriendInfoData" name="friendInfos" comment="玩家" macro="FriendInfo" list="true">
+		</field>
+	</message>
+	
+	<message type="CG_ADD_FRIENDS" comment="请求添加多个推荐好友">
+		<field type="Long" name="roleIds" comment="角色列表" list="true">
+		</field>
+	</message>
+	
+	<message type="CG_ADD_FRIEND" comment="请求添加好友">
+		<field type="String" name="name" comment="角色名称">
+		</field>
+	</message>
+	
+	<message type="CG_REMOVE_FRIEND" comment="请求删除好友">
+		<field type="Long" name="roleId" comment="好友id" />
+	</message>
+	
+	<message type="GC_REMOVE_FRIEND" comment="删除好友">
+		<field type="Long" name="roleId" comment="好友id" />
+	</message>
+	
+	<message type="CG_SHOW_FRIENDS" comment="请求显示好友列表">
+	</message>
+	
+	<message type="GC_SHOW_FRIENDS" comment="返回好友列表">
+		<field type="Integer" name="maxFriendNum" comment="好友上限" />
+		<field type="Integer" name="maxRewardNum" comment="接收体力次数上限" />
+		<field type="Integer" name="leftRewardNum" comment="剩余接收次数" />
+		<field type="com.hifun.soul.gameserver.friend.FriendInfo"
+			clientType="FriendInfoData" name="friendInfos" comment="玩家" macro="FriendInfo" list="true">
+		</field>
+	</message>
+	
+	<message type="GC_LEFT_FRIEND_REWARD_TIMES" comment="剩余好友体力领取次数">
+		<field type="Integer" name="leftTimes" comment="剩余领取次数" />
+	</message>
+	
+	<message type="CG_FRIEND_CHAT" comment="请求好友留言">
+		<field type="Long" name="destRoleId" comment="角色id" />
+		<field type="String" name="destRoleName" comment="角色名称" />
+		<field type="String" name="content" comment="留言内容" />
+	</message>
+	
+	<message type="GC_FRIEND_CHAT" comment="接收好友留言">
+		<field type="Long" name="fromRoleId" comment="角色id" />
+		<field type="String" name="fromRoleName" comment="角色名称" />
+		<field type="Integer" name="fromRoleLevel" comment="角色等级" />
+		<field type="Integer" name="fromRoleOccupation" comment="角色职业" />
+		<field type="String" name="chatTime" comment="聊天时间间隔" />
+		<field type="String" name="content" comment="留言内容" />
+	</message>
+	
+	<message type="GC_FRIEND_OFFLINE" comment="某玩家不在线，用于私聊的特殊显示">
+		<field type="Long" name="roleId" comment="角色id" />
+		<field type="String" name="roleName" comment="角色名称" />
+	</message>
+	
+	<message type="CG_SHOW_LATEST_FRIENDS" comment="显示最近联系人">
+	</message>
+	
+	<message type="GC_SHOW_LATEST_FRIENDS" comment="显示最近联系人">
+		<field type="com.hifun.soul.gameserver.friend.FriendInfo"
+			clientType="FriendInfoData" name="friendInfos" comment="玩家" macro="FriendInfo" list="true">
+		</field>
+	</message>
+	
+	<message type="CG_SHOW_FRIEND_APPLY_LIST" comment="查看好友申请列表">
+	</message>
+	
+	<message type="GC_SHOW_FRIEND_APPLY_LIST" comment="返回好友申请列表">
+		<field type="com.hifun.soul.gameserver.friend.FriendInfo"
+			clientType="FriendInfoData" name="applyList" comment="玩家" macro="FriendInfo" list="true">
+		</field>
+	</message>
+	
+	<message type="CG_SHOW_SELF_APPLY_LIST" comment="查看自己发送出的好友申请">
+	</message>
+	
+	<message type="GC_SHOW_SELF_APPLY_LIST" comment="返回自己发送出的好友申请">
+		<field type="com.hifun.soul.gameserver.friend.FriendInfo"
+			clientType="FriendInfoData" name="applyList" comment="玩家" macro="FriendInfo" list="true">
+		</field>
+	</message>
+	
+	<message type="CG_ADD_FRIEND_AGREE" comment="同意好友申请">
+		<field type="Long" name="fromRoleId" comment="角色id" />
+	</message>
+	
+	<message type="CG_ADD_FRIEND_REFUSE" comment="拒绝好友申请">
+		<field type="Long" name="fromRoleId" comment="角色id" />
+	</message>
+	
+	<message type="CG_GIVE_ENERGY" comment="赠送好友体力">
+		<field type="Long" name="toRoleId" comment="角色id" />
+	</message>
+	
+	<message type="GC_GIVE_ENERGY" comment="好友赠送体力的通知">
+		<field type="com.hifun.soul.gameserver.friend.FriendInfo"
+			clientType="FriendInfoData" name="friendInfo" comment="玩家" macro="FriendInfo">
+		</field>
+		<field type="Integer" name="energy" comment="体力数量" />
+	</message>
+	
+	<message type="CG_GET_ENERGY" comment="领取好友赠送的体力">
+		<field type="Long" name="fromRoleId" comment="角色id" />
+	</message>
+	
+	<message type="GC_UPDATE_FRIEND_INFO" comment="更新好友信息">
+		<field type="com.hifun.soul.gameserver.friend.FriendInfo"
+			clientType="FriendInfoData" name="friendInfo" comment="玩家" macro="FriendInfo">
+		</field>
+	</message>
+	
+	<message type="GC_ADD_FRIEND_INFO" comment="添加好友成功">
+		<field type="com.hifun.soul.gameserver.friend.FriendInfo"
+			clientType="FriendInfoData" name="friendInfo" comment="玩家" macro="FriendInfo">
+		</field>
+	</message>
+	
+	<message type="GC_FRIEND_APPLY" comment="A请求添加好友B,如果B在线将A的信息发给B">
+		<field type="com.hifun.soul.gameserver.friend.FriendInfo"
+			clientType="FriendInfoData" name="applyer" comment="申请人" macro="FriendInfo">
+		</field>
+	</message>
+	
+	<message type="GC_REMOVE_APPLY" comment="好友申请列表里面某个记录删除(同意或者取消时发)">
+		<field type="Long" name="fromRoleId" comment="角色id" />
+	</message>
+	
+	<message type="CG_CANCEL_APPLY_FRIEND" comment="取消自己发出的好友申请">
+		<field type="Long" name="toRoleId" comment="角色id" />
+	</message>
+	
+	<message type="CG_SHOW_FRIEND_BATTLEINFOS" comment="显示好友切磋信息">
+	</message>
+	
+	<message type="GC_SHOW_FRIEND_BATTLEINFOS" comment="显示好友切磋信息">
+		<field type="com.hifun.soul.gameserver.friend.FriendBattleInfo"
+			clientType="FriendBattleInfoData" name="friendBattleInfos" comment="好友切磋信息" macro="FriendBattleInfo" list="true">
+		</field>
+	</message>
+	
+	<message type="GC_ADD_FRIEND_BATTLEINFO" comment="新增好友切磋信息">
+		<field type="com.hifun.soul.gameserver.friend.FriendBattleInfo"
+			clientType="FriendBattleInfoData" name="friendBattleInfo" comment="好友切磋信息" macro="FriendBattleInfo">
+		</field>
+	</message>
+	
+	<message type="GC_RECOMMEND_FRIEND_ADD_INFO" comment="推荐添加好友">
+		<field type="Long" name="roleId" comment="角色id" />
+		<field type="String" name="roleName" comment="角色名称" />
+	</message>
+	
+	<message type="CG_OPEN_PRIVATE_CHAT_PANEL" comment="打开私聊面板">
+		<field type="Long" name="roleId" comment="角色id" />
+	</message>
+	<message type="GC_OPEN_PRIVATE_CHAT_PANEL" comment="打开私聊面板">
+		<field type="com.hifun.soul.common.model.human.CharacterInfo"
+			clientType="CharacterInfoData" name="characterInfo" comment="私聊玩家信息" macro="CharacterInfo">
+		</field>
+	</message>
+	<message type="GC_FRIEND_BATTLE_RESULT" comment="好友切磋结果">
+		<field type="Boolean" name="battleResult" comment="战斗结果（胜利或失败）" />
+		<field type="String" name="friendOpenId" comment="好友的openId" />
+	</message>
+</messages>

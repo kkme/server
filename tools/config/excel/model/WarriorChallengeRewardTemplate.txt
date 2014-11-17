@@ -1,0 +1,5 @@
+int coinBase; //金币基数
+int expBase; //经验基数
+int techPointBase; //科技点基数
+int otherWinCoin;[notNull=false;minValue=0] //接受挑战胜利金币奖励
+int otherLoseCoin;[notNull=false;minValue=0] //接受挑战失败金币奖励

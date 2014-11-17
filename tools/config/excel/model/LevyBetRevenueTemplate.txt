@@ -1,0 +1,1 @@
+int trainCoin;//押注胜利获得训练币

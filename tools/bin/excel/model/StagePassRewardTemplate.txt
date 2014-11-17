@@ -1,0 +1,6 @@
+int item1Id; // 奖励物品1id
+int item1Num; // 奖励物品1数量
+int item2Id; // 奖励物品2id
+int item2Num; // 奖励物品2数量
+int coin; // 金币数量
+List<com.hifun.soul.gameserver.item.template.RewardItemData> perfectRewardItemList; [collection(3,2);notNull=false] // 完美通关奖励物品列表

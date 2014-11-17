@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="prison">
+	<message type="CG_OPEN_PRISON_PANEL" comment="请求打开战俘营面板">
+	</message>
+	<message type="GC_OPEN_PRISON_PANEL" comment="响应打开战俘营面板">
+		<field type="Integer" name="identityType" comment="身份类型" />
+	</message>
+	<message type="CG_SHOW_PRISON_LOG_TAB" comment="请求展示战俘营日志标签页">
+	</message>
+	<message type="GC_SHOW_PRISON_LOG_TAB" comment="响应展示战俘营日志标签页">
+		<field type="com.hifun.soul.gameserver.prison.msg.PrisonLogInfo"
+			list="true" clientType="PrisonLogInfoData" name="prisonLogInfoList"
+			comment="日志列表 " macro="PrisonLogInfo">
+		</field>
+	</message>
+	<message type="CG_SHOW_ARREST_TAB" comment="展示抓捕页面">
+	</message>
+	<message type="GC_SHOW_ARREST_TAB" comment="响应展示抓捕页面">
+		<field type="Integer" name="remainArrestNum" comment="剩余抓捕次数" />
+		<field type="Integer" name="remainRescueNum" comment="剩余解救次数" />
+		<field type="Integer" name="buyArrestNumCost" comment="购买抓捕次数需要魔晶数" />
+		<field type="Integer" name="remainInteractNum" comment="剩余互动次数" />
+		<field type="Integer" name="currentExperience" comment="当前经验" />
+		<field type="Integer" name="experienceLimit" comment="经验限制" />
+		<field type="com.hifun.soul.gameserver.prison.msg.PrisonerInfo"
+			list="true" clientType="PrisonerInfoData" name="loosers"
+			comment="手下败将 " macro="PrisonerInfo">
+		</field>
+	</message>
+	<message type="CG_SHOW_LOOSER_TAB" comment="展示手下败将标签页">
+	</message>
+	<message type="GC_SHOW_LOOSER_TAB" comment="响应展示解救标签页">
+		<field type="com.hifun.soul.gameserver.prison.msg.PrisonerInfo"
+			list="true" clientType="PrisonerInfoData" name="loosers"
+			comment="手下败将列表 " macro="PrisonerInfo">
+		</field>
+	</message>
+	<message type="CG_SHOW_ENEMY_TAB" comment="展示夺俘之敌标签页">
+	</message>
+	<message type="GC_SHOW_ENEMY_TAB" comment="响应展示夺俘之敌标签页">
+		<field type="com.hifun.soul.gameserver.prison.msg.PrisonerInfo"
+			list="true" clientType="PrisonerInfoData" name="enemies"
+			comment="夺俘之敌列表 " macro="PrisonerInfo">
+		</field>
+	</message>
+	<message type="CG_APPLY_ARREST" comment="申请抓捕">
+		<field type="Long" name="arrestHumanId" comment="要逮捕的角色ID" />
+	</message>
+	<message type="GC_APPLY_ARREST" comment="响应申请抓捕">
+	</message>
+	<message type="CG_BUY_ARREST_NUM" comment="购买抓捕次数">
+	</message>
+	<message type="GC_BUY_ARREST_NUM" comment="响应购买抓捕次数">
+		<field type="Integer" name="remainArrestNum" comment="剩余抓捕次数" />
+		<field type="Integer" name="nextBuyCost" comment="下次购买需要魔晶数" />
+	</message>
+	<message type="CG_SHOW_RESCUE_TAB" comment="展示解救标签页">
+	</message>
+	<message type="GC_SHOW_RESCUE_TAB" comment="响应展示解救标签页">
+		<field type="Integer" name="result" comment="结果" />
+		<field type="com.hifun.soul.gameserver.prison.msg.PrisonerInfo"
+			list="true" clientType="PrisonerInfoData" name="toRescueList"
+			comment="解救列表 " macro="PrisonerInfo">
+		</field>
+	</message>
+	<message type="CG_APPLY_RESCUE" comment="申请解救">
+		<field type="Long" name="rescueHumanId" comment="要解救的角色ID" />
+	</message>
+	<message type="GC_APPLY_RESCUE" comment="响应申请解救">
+	</message>
+	<message type="CG_SLAVE_SHOW_MASTER_TAB" comment="奴隶展示主人标签页 ">
+	</message>
+	<message type="GC_SLAVE_SHOW_MASTER_TAB" comment="响应奴隶展示主人标签页 ">
+		<field type="Integer" name="remainInteractNum" comment="剩余互动次数" />
+		<field type="Integer" name="remainRevoltNum" comment="剩余反抗次数" />
+		<field type="Integer" name="remainSosNum" comment="剩余求救次数" />
+		<field type="com.hifun.soul.gameserver.prison.msg.MasterInfo"
+			clientType="MasterInfoData" name="master" comment="主人信息 " macro="MasterInfo">
+		</field>
+	</message>
+	<message type="CG_SLAVE_INTERACT" comment="奴隶与主人互动 ">
+		<field type="Integer" name="interactedType" comment="互动类型" />
+	</message>
+	<message type="GC_SLAVE_INTERACT" comment="响应奴隶与主人互动 ">
+		<field type="Integer" name="remainInteractNum" comment="剩余互动次数" />
+	</message>
+	<message type="CG_SLAVE_REVOLT" comment="奴隶反抗主人">
+	</message>
+	<message type="GC_SLAVE_REVOLT" comment="响应奴隶反抗主人">
+	</message>
+	<message type="CG_SLAVE_SHOW_SOS_TAB" comment="奴隶展示求救标签页">
+	</message>
+	<message type="GC_SLAVE_SHOW_SOS_TAB" comment="响应奴隶展示求救标签页">
+		<field type="Integer" name="result" comment="结果" />
+		<field type="com.hifun.soul.gameserver.prison.msg.HelperInfo"
+			list="true" clientType="HelperInfoData" name="helperInfoList" comment="求救列表 "
+			macro="HelperInfo">
+		</field>
+	</message>
+	<message type="CG_SLAVE_FOR_HELP" comment="奴隶求救">
+		<field type="Long" name="helperHumanId" comment="要求救的角色ID" />
+	</message>
+	<message type="GC_SLAVE_FOR_HELP" comment="响应奴隶求救">
+		<field type="Integer" name="remainSosNum" comment="剩余求救次数" />
+	</message>
+	<message type="GC_SLAVE_FOR_HELPED" comment="给被求救的角色发求救消息">
+		<field type="com.hifun.soul.gameserver.prison.msg.PrisonerInfo"
+			clientType="PrisonerInfoData" name="toRescuer"
+			comment="需要解救者信息 " macro="PrisonerInfo">
+		</field>
+	</message>
+	<message type="CG_MASTER_GET_SLAVE_LIST" comment="主人获取奴隶列表">
+	</message>
+	<message type="GC_MASTER_GET_SLAVE_LIST" comment="响应主人获取奴隶列表">
+		<field type="com.hifun.soul.gameserver.prison.msg.SlaveInfo"
+			list="true" clientType="SlaveInfoData" name="SlaveInfoList" comment="奴隶列表 "
+			macro="SlaveInfo">
+		</field>
+	</message>
+	<message type="CG_SHOW_PRESS_TAB" comment="主人展示压榨奴隶页面">
+		<field type="Long" name="slaveHumanId" comment="要提取的奴隶角色ID" />
+	</message>
+	<message type="GC_SHOW_PRESS_TAB" comment="响应主人展示压榨奴隶页面">
+		<field type="Integer" name="remainWorkTime" comment="剩余劳作时间" />
+		<field type="Integer" name="currentExperience" comment="当前劳作经验" />
+		<field type="Integer" name="expPerMinute" comment="每分钟产经验值" />
+		<field type="Integer" name="oneHourCost" comment="提取1小时经验花费" />
+	</message>
+	<message type="CG_MASTER_APPLY_EXTRACT_EXPERIENCE" comment="主人申请提取奴隶经验">
+		<field type="Long" name="slaveHumanId" comment="要提取的奴隶角色ID" />
+		<field type="Integer" name="extractType" comment="提取类型" />
+	</message>
+	<message type="GC_MASTER_APPLY_EXTRACT_EXPERIENCE" comment="响应主人申请提取奴隶经验">
+		<field type="Integer" name="extractExperience" comment="提取经验" />
+		<field type="Integer" name="extracExperienceCost" comment="提取经验花费" />
+	</message>
+	<message type="CG_MASTER_EXTRACT_EXPERIENCE" comment="主人提取奴隶经验">
+		<field type="Long" name="slaveHumanId" comment="要提取的奴隶角色ID" />
+		<field type="Integer" name="extractType" comment="提取类型" />
+	</message>
+	<message type="GC_MASTER_EXTRACT_EXPERIENCE" comment="响应主人提取奴隶经验">
+		<field type="Integer" name="extractType" comment="提取类型" />
+	</message>
+	<message type="CG_MASTER_RELEASE" comment="主人释放奴隶">
+		<field type="Long" name="slaveHumanId" comment="释放的奴隶角色ID" />
+	</message>
+	<message type="GC_MASTER_RELEASE" comment="响应主人释放奴隶">
+	</message>
+	<message type="CG_MASTER_INTERACT" comment="主人与奴隶互动">
+		<field type="Long" name="slaveHumanId" comment="互动的奴隶角色ID" />
+		<field type="Integer" name="interactedType" comment="互动类型" />
+	</message>
+	<message type="GC_MASTER_INTERACT" comment="响应主人与奴隶互动">
+		<field type="Integer" name="remainInteractNum" comment="剩余互动次数" />
+	</message>
+	<message type="GC_PRISON_IDENTITY_CHANGED" comment="身份变更通知客户端更新面板">
+		<field type="Integer" name="identityType" comment="身份类型" />
+	</message>
+</messages>
+
+

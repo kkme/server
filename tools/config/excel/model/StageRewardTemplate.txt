@@ -1,0 +1,1 @@
+List<com.hifun.soul.gameserver.turntable.template.ItemRateData> rewardItemList; [collection(10,2);notNull=false] // 奖励物品列表

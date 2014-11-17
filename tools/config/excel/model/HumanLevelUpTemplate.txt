@@ -1,0 +1,6 @@
+int experience;[notNull=true;minValue=0] // 升级所需经验
+int level1propCount;[notNull=false;minValue=0] //升级下发的一级属性自由点
+int hp;[notNull=false;minValue=0] // 处于该等级的初始hp
+int harvestGemNum; //宝石产量
+int levyRevenue; //税收产量
+int skillPoint; //技能属性点

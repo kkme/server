@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="rechargetx">
+	<message type="CG_SHOW_RECHARGE_PANEL" comment="打开充值面板">
+	</message>
+	<message type="GC_SHOW_RECHARGE_PANEL" comment="打开充值面板">
+		<field type="Integer" name="vipLevel" comment="当前vip等级" />
+		<field type="Integer" name="rechargeNum" comment="当前充值金额" />
+		<field type="Integer" name="nextVipLevel" comment="下一个vip等级" />
+		<field type="Integer" name="needRechargeNum" comment="达到下一个vip等级需要再充值的金额" />
+		<field type="com.hifun.soul.gameserver.rechargetx.RechargeInfo" name="rechargeInfos" clientType="TXRechargeInfo" comment="充值档位信息" list="true">
+			<field type="Integer" name="id" comment="充值档位" />
+			<field type="String" name="name" comment="充值档位名称" />
+			<field type="String" name="desc" comment="充值档位描述" />
+			<field type="Integer" name="icon" comment="图标" />
+			<field type="Integer" name="crystal" comment="可以获取的魔晶数量" />
+			<field type="Integer" name="price" comment="价格(Q点)" />
+		</field>
+		<field type="com.hifun.soul.gameserver.rechargetx.VipInfo" name="vipInfos" clientType="TXVipInfo" comment="充值面板显示的vip信息" list="true">
+			<field type="Integer" name="vipId" comment="vipId(无实际意义)" />
+			<field type="Integer" name="vipLevel" comment="vip等级" />
+			<field type="Integer" name="vipNeedreChargeNum" comment="vip需要充值金额" />
+		</field>
+	</message>
+	<message type="CG_RECHARGE" comment="充值">
+		<field type="Integer" name="id" comment="充值档位" />
+		<field type="String" name="jsonInfo" comment="平台发给客户端的相关的信息" />
+	</message>
+	<message type="GC_RECHARGE" comment="充值">
+		<field type="Integer" name="id" comment="充值档位" />
+		<field type="Boolean" name="canGoOn" comment="是否可以继续充值(大于0就可以)" />
+		<field type="String" name="urlParams" comment="腾讯服务器发过来的url参数，客户端用" />
+	</message>
+	<message type="GC_RECHARGE_FINISHED" comment="充值是否已经结束">
+		<field type="Boolean" name="success" comment="是否已经成功(大于0充值成功)" />
+		<field type="String" name="desc" comment="充值成功或者错误信息" />
+	</message>
+</messages>

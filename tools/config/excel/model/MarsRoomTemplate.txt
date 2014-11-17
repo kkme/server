@@ -1,0 +1,5 @@
+String roomName;//房间名称
+int killValue;//杀戮值
+int lowestLevelParam;[notNull=false]//对手等级下限参数
+int highestLevelParam;[notNull=false]//对手等级上限参数
+int legionContribution;[notNull=false;minValue=0]//军团贡献值

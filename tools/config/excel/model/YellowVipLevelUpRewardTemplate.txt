@@ -1,0 +1,3 @@
+int coin; //金币数
+int itemId; //物品id
+int itemCount; //物品数量

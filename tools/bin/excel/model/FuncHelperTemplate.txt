@@ -1,0 +1,6 @@
+String name; //名称
+int nameLangId; //名称多语言id
+String desc; //描述
+int descLangId; //描述多语言id
+int icon;[notNull=false;minValue=0] //图标id
+int functionId;[notNull=false;minValue=0] //关联的功能id

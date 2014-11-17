@@ -1,0 +1,5 @@
+int openLevel; //可用金币开启的等级限制
+int costCoinNum; //金币花费
+int costCrystalNum; //花费魔晶数量
+int applyNum; //发出的申请数
+int assistRate; //协助收益比例

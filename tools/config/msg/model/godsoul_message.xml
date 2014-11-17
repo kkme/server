@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="godsoul">
+
+	<message type="CG_OPEN_GODSOUL_PANEL" comment="请求打开神魄面板">
+	</message>
+	<message type="GC_OPEN_GODSOUL_PANEL" comment="响应打开神魄面板">
+		<field type="com.hifun.soul.gameserver.godsoul.msg.EquipBitInfo" list="true"
+			clientType="EquipBitInfoData" name="equipBitInfos " comment="装备位列表 " macro="EquipBitInfo">
+		</field>
+		<field type="com.hifun.soul.gameserver.godsoul.info.GodsoulBuffInfo" list="true"
+			clientType="GodsoulBuffInfoData" name="godsoulBuffInfos " comment="神魄buff信息 " macro="GodsoulBuffInfo">
+		</field>
+	</message>
+	<message type="CG_UPGRADE_EQUIP_BIT" comment="请求强化装备位">
+		<field type="Integer" name="equipBitType" comment="装备位类型" />
+		<field type="Boolean" name="isSelectedCrystal" comment="是否使用魔晶" />
+	</message>
+	<message type="GC_UPGRADE_EQUIP_BIT" comment="响应强化装备位">
+		<field type="com.hifun.soul.gameserver.godsoul.msg.EquipBitInfo" 
+			clientType="EquipBitInfoData" name="equipBitInfo" comment="强化后装备位信息" macro="EquipBitInfo"/>
+		<field type="com.hifun.soul.gameserver.godsoul.info.GodsoulBuffInfo" list="true"
+			clientType="GodsoulBuffInfoData" name="godsoulBuffInfos " comment="神魄buff信息 " macro="GodsoulBuffInfo">
+		</field>
+	</message>
+	<message type="CG_SHOW_MAGIC_PAPER_TAB" comment="请求展示灵图标签页">
+	</message>
+	<message type="GC_SHOW_MAGIC_PAPER_TAB" comment="响应展示灵图标签页">
+		<field type="com.hifun.soul.gameserver.godsoul.info.MagicPaperInfo" list="true"
+			clientType="MagicPaperInfoData" name="magicPaperInfos " comment="灵图列表 " macro="MagicPaperInfo">
+		</field>
+		<field type="com.hifun.soul.gameserver.godsoul.info.GodsoulBuffInfo" list="true"
+			clientType="GodsoulBuffInfoData" name="godsoulBuffInfos " comment="神魄buff信息 " macro="GodsoulBuffInfo">
+		</field>
+	</message>
+	<message type="CG_UPGRADE_MAGIC_PAPER" comment="请求升级灵图">
+		<field type="Integer" name="paperId" comment="灵图ID" />
+	</message>
+	<message type="GC_UPGRADE_MAGIC_PAPER" comment="响应升级灵图">
+		<field type="com.hifun.soul.gameserver.godsoul.info.MagicPaperInfo"
+			clientType="MagicPaperInfoData" name="magicPaperInfo " comment="灵图信息 " macro="MagicPaperInfo">
+		</field>
+		<field type="com.hifun.soul.gameserver.godsoul.info.GodsoulBuffInfo" list="true"
+			clientType="GodsoulBuffInfoData" name="godsoulBuffInfos " comment="神魄buff信息 " macro="GodsoulBuffInfo">
+		</field>
+	</message>
+</messages>
+
+

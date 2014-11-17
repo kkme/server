@@ -1,0 +1,11 @@
+package com.hifun.soul.proto.common;
+option java_package = "com.hifun.soul.proto.common";
+option java_outer_classname = "CostNotifyDatas";
+
+// 消费提醒信息
+message CostNotifyData {
+	// 消费提醒类型
+	required int32 costNotifyType = 1;
+	// 开启状态
+	required bool open = 2;
+}

@@ -1,0 +1,13 @@
+String titleName;//头衔名称
+int iconId;//图标ID
+int colorId;//品质颜色ID
+int needBuildingLevle;//需要建筑等级
+int needPosition;//可兑换最低职位
+String needPositionName;//可兑换最低职位名称
+int maxNum;//人数上限
+int costMedal;//消耗勋章
+boolean allProperty;//是否是全属性加成
+int propertyId;//加成属性ID
+int amendEffect;//加成效果
+int amendMethod;//加成方式
+int validDays;//有效天数

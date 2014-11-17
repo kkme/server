@@ -1,0 +1,1 @@
+List<com.hifun.soul.gameserver.turntable.template.ItemRateData> itemRateDatas;[collection(16,2)] // 物品获取的概率

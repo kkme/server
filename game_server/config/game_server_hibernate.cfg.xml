@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration
+    PUBLIC "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.dialect"> org.hibernate.dialect.MySQL5InnoDBDialect 
+		</property>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<!-- c3p0连接池的配置;适当配置可以解决mysql8小时超时问题 -->
+		<property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
+		<property name="hibernate.c3p0.min_size">5</property>
+		<property name="hibernate.c3p0.max_size">20</property>
+		<property name="hibernate.c3p0.timeout">1800</property>
+		<property name="hibernate.c3p0.max_statements">50</property>
+		<property name="hibernate.c3p0.testConnectionOnCheckout">true</property>
+		<property name="hibernate.connection.useUnicode">true</property>
+		<property name="hibernate.connection.characterEncoding">UTF-8</property>
+		<property name="hibernate.show_sql">false</property>			
+		<mapping class="com.hifun.soul.gamedb.entity.HumanEntity" />
+		<mapping class="com.hifun.soul.gamedb.entity.AccountEntity" />
+		<mapping class="com.hifun.soul.gamedb.entity.RankEntity" />
+		<mapping class="com.hifun.soul.gamedb.entity.TitleRankEntity" />
+		<mapping class="com.hifun.soul.gamedb.entity.HonorRankEntity" />
+		<mapping class="com.hifun.soul.gamedb.entity.VipRankEntity" />
+		<mapping class="com.hifun.soul.gamedb.entity.ReceivedMailEntity" />
+		<mapping class="com.hifun.soul.gamedb.entity.SentMailEntity" />
+		<mapping class="com.hifun.soul.gamedb.entity.BulletinEntity" />
+		<mapping class="com.hifun.soul.gamedb.entity.RechargeEntity" />
+		<mapping class="com.hifun.soul.gamedb.entity.HumanQuestionEntity" />
+		<mapping class="com.hifun.soul.gamedb.entity.TurntableEntity" />
+		<mapping class="com.hifun.soul.gamedb.entity.ArenaMemberEntity" />
+		<mapping class="com.hifun.soul.gamedb.entity.ArenaNoticeEntity" />
+		<mapping class="com.hifun.soul.gamedb.entity.GlobalKeyValueEntity" />
+		<mapping class="com.hifun.soul.gamedb.entity.BossEntity" />
+		<mapping class="com.hifun.soul.gamedb.entity.BossRoleEntity" />
+		<mapping class="com.hifun.soul.gamedb.entity.ActivityEntity" />
+		<mapping class="com.hifun.soul.gamedb.entity.QuestionEntity" />
+		<mapping class="com.hifun.soul.gamedb.entity.SpecialShopNotifyEntity" />
+		<mapping class="com.hifun.soul.gamedb.entity.MarketActivitySettingEntity" />
+		<mapping class="com.hifun.soul.gamedb.entity.FriendEntity" />
+		<mapping class="com.hifun.soul.gamedb.entity.FriendBattleEntity" />
+		<mapping class="com.hifun.soul.gamedb.entity.HumanMatchBattleEntity" />
+		<mapping class="com.hifun.soul.gamedb.entity.TencentUserInfoEntity" />
+		<mapping class="com.hifun.soul.gamedb.entity.MailDraftEntity" />
+		<mapping class="com.hifun.soul.gamedb.entity.QQRechargeEntity" />
+		<mapping class="com.hifun.soul.gamedb.entity.LegionEntity" />
+		<mapping class="com.hifun.soul.gamedb.entity.LegionMemberEntity" />
+		<mapping class="com.hifun.soul.gamedb.entity.LegionApplyEntity" />
+		<mapping class="com.hifun.soul.gamedb.entity.LegionLogEntity" />
+		<mapping class="com.hifun.soul.gamedb.entity.PrisonerEntity" />
+		<mapping class="com.hifun.soul.gamedb.entity.PrisonLogEntity" />
+		<mapping class="com.hifun.soul.gamedb.entity.AbattoirRoomEntity" />
+		<mapping class="com.hifun.soul.gamedb.entity.AbattoirLogEntity" />
+		<mapping class="com.hifun.soul.gamedb.entity.HumanAbattoirPrestigeEntity" />
+		<mapping class="com.hifun.soul.gamedb.entity.BloodTempleRoomEntity" />
+		<mapping class="com.hifun.soul.gamedb.entity.BloodTempleLogEntity" />
+		<mapping class="com.hifun.soul.gamedb.entity.HumanBloodTemplePrestigeEntity" />
+		<mapping class="com.hifun.soul.gamedb.entity.FactionMemberEntity" />
+		<mapping class="com.hifun.soul.gamedb.entity.MarsMemberEntity" />
+		<mapping class="com.hifun.soul.gamedb.entity.LegionBossEntity" />
+		<mapping class="com.hifun.soul.gamedb.entity.LegionBossRoleEntity" />
+		<mapping class="com.hifun.soul.gamedb.entity.LegionMineMemberEntity" />
+		<mapping class="com.hifun.soul.gamedb.entity.LegionMineEntity" />
+		<mapping class="com.hifun.soul.gamedb.entity.EscortEntity" />
+		<mapping class="com.hifun.soul.gamedb.entity.EscortInviteEntity" />
+		<mapping class="com.hifun.soul.gamedb.entity.EscortLogEntity" />
+		<mapping class="com.hifun.soul.gamedb.entity.EscortRobRankEntity" />
+		<mapping class="com.hifun.soul.gamedb.entity.EscortLegionPrayEntity" />
+		<mapping class="com.hifun.soul.gamedb.entity.EscortHelpEntity" />
+		<mapping class="com.hifun.soul.gamedb.entity.LegionBuildingEntity" />
+		<mapping class="com.hifun.soul.gamedb.entity.LegionMeditationLogEntity" />
+		<mapping class="com.hifun.soul.gamedb.entity.LegionShopEntity" />
+		<mapping class="com.hifun.soul.gamedb.entity.LegionTechnologyEntity" />
+		<mapping class="com.hifun.soul.gamedb.entity.LegionHonorEntity" />
+		<mapping resource="game_server_hibernate_query.xml"/>
+	</session-factory>
+</hibernate-configuration>

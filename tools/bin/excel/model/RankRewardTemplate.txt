@@ -1,0 +1,4 @@
+int rankId; //排行榜ID
+int rankingPositionBegin; //排名起始
+int rankingPositionEnd; //排名结束
+int giftId;[notNull=false;minValue=0] //奖品

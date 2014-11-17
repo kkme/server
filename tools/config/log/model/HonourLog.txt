@@ -1,0 +1,4 @@
+message com.hifun.soul.logserver.model.HonourLog(
+	int changeNum;	// 变化数量
+	int afterChangeNum;	// 变化后的值
+)

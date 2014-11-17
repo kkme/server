@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="gmquestion">
+	<message type="CG_SUBMIT_QUESTION" comment="提交问题">
+		<field type="Integer" name="questionType" comment="问题类型" />
+		<field type="String" name="content" comment="问题内容" />
+	</message>
+	
+	<message type="CG_SHOW_QUESTIONS" comment="显示提问信息">
+	</message>
+	
+	<message type="GC_SHOW_QUESTIONS" comment="显示提问信息">
+		<field type="com.hifun.soul.gameserver.gmquestion.GmQuestionInfo" name="questions" list="true" comment="问答列表" macro="GmQuestionInfo" clientType="GmQuestionInfoData">
+		</field>
+	</message>
+</messages>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="soul.launch" basedir="." default="ms">
+	
+	<tstamp>
+		<format property="launch.time" pattern="yyyyMMddhhmmss"/>
+	</tstamp>
+	<path id="cp">
+		<pathelement location="${basedir}/manage.jar"/>
+		<fileset dir="${basedir}/lib" includes="*.jar,*.zip"/>
+	</path>
+	
+	
+	 <presetdef name="java16">
+		<java classpathref="cp" fork="true">
+			<jvmarg value="-XX:+HeapDumpOnOutOfMemoryError"/>
+			<jvmarg value="-XX:+UseConcMarkSweepGC"/>
+			<jvmarg value="-Xloggc:gc_${launch.time}.log"/>
+		</java>
+	 </presetdef>
+	
+	<target name="ms">
+		<java16 classname="com.hifun.soul.manageserver.ManagementServer">
+			<jvmarg value="-Xms1024M"/>
+			<jvmarg value="-Xmx1024M"/>
+			<jvmarg value="-Xss2M"/>
+			<jvmarg value="-XX:MaxTenuringThreshold=20"/>
+			<jvmarg value="-XX:SurvivorRatio=4"/>
+		</java16>
+	</target>
+	
+</project>

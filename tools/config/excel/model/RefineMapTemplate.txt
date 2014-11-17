@@ -1,0 +1,3 @@
+String name; // 试炼地图名称
+int nameLangId;[notNull=true;minValue=1] // 试炼地图名称多语言
+int openLevel;[notNull=false;minValue=0] // 开放等级

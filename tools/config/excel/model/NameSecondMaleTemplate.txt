@@ -1,0 +1,2 @@
+int langId; //多语言id
+String secondName; //男性玩家名字

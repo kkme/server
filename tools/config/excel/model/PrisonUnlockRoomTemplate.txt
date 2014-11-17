@@ -1,0 +1,3 @@
+int currencyType; //消费货币类型
+int costNum; //消耗数量
+	

@@ -1,0 +1,3 @@
+int minRank;[notNull=true;minValue=0] // 排名下限
+int maxRank;[notNull=true;minValue=0] // 排名上限
+int giftId;[notNull=true;minValue=0] // 礼包id

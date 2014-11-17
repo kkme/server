@@ -1,0 +1,4 @@
+int experienceLimit;[notNull=false;minValue=0] //单日经验上限
+int interactExperience;[notNull=false;minValue=0] //互动单次经验
+int expPerMinute;[notNull=false;minValue=0] //每分钟产出经验
+	

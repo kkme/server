@@ -1,0 +1,7 @@
+int needNum; //所需数量
+int successRate;[notNull=false;minValue=0] //成功率
+int successMagicPaperItemId; //成功升级后的新灵图id
+int faildRate;[notNull=false;minValue=0] //合成失败降级概率
+int faildMagicPaperItemId; //升级失败后的新灵图id
+int currencyType; //升级花费的货币类型
+int costNum; //花费的货币数量

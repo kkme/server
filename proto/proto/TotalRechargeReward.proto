@@ -1,0 +1,14 @@
+package com.hifun.soul.proto.common;
+option java_package = "com.hifun.soul.proto.common";
+option java_outer_classname = "TotalRechargeRewards";
+
+
+// 累计充值奖励实体
+message TotalRechargeReward {
+	// 充值档位ID
+	required int32 gradeId = 1;
+	// 剩余领奖次数
+	required int32 remainRewardNum = 2;
+	// 领奖状态
+	required int32 rewardState = 3;
+}

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<!-- 玩家对游戏的反馈相关 -->
+<struts>
+	<package name="struts-feedback" extends="manage-base-package">		
+		<!-- 回复玩家反馈跳转 -->
+		<action name="answerQuestionForward"
+			class="com.hifun.soul.manageweb.question.action.AnswerQuestionAction"
+			method="answerQuestionForward">
+			<result name="success">/question/answerQuestion.jsp</result>
+			<interceptor-ref name="defaultStack" />
+			<interceptor-ref name="permission"></interceptor-ref>
+		</action>
+		<!-- 回复玩家反馈 -->
+		<action name="answerQuestion"
+			class="com.hifun.soul.manageweb.question.action.AnswerQuestionAction"
+			method="answerQuestion">
+			<result type="redirect" name="success">queryQuestionList</result>
+			<result name="input">/question/answerQuestion.jsp</result>
+			<interceptor-ref name="defaultStack" />
+			<interceptor-ref name="permission"></interceptor-ref>
+		</action>
+		<!-- 查询玩家反馈列表 -->
+		<action name="queryQuestionList"
+			class="com.hifun.soul.manageweb.question.action.QuestionListAction"
+			method="queryQuestionList">
+			<result name="success">/question/questionList.jsp</result>
+			<interceptor-ref name="defaultStack" />
+			<interceptor-ref name="permission" />
+		</action>
+	</package>
+</struts>

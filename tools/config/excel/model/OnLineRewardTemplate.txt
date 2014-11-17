@@ -1,0 +1,4 @@
+int times;[notNull=false;minValue=0] // 次数
+int occupation;[notNull=false;minValue=0] // 职业
+int cd;[notNull=false;minValue=0] // CD时间(分)
+int itemId;[notNull=true;minValue=1] // 奖励物品id

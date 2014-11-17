@@ -1,0 +1,6 @@
+int nameSysLang;//名称多语言
+String techName;//科技名称
+int iconId;//图标
+int descSysLang;//描述多语言
+String techDesc;//科技效果描述
+int needBuildingLevel;//需要建筑等级

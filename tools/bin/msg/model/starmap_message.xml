@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="sign">
+
+	<message type="CG_OPEN_STAR_MAP_PANEL" comment="请求打开星图面板 ">
+	</message>
+
+	<message type="GC_OPEN_STAR_MAP_PANEL" comment="响应打开星图面板">
+		<field type="Integer" name="starMapId" comment="星图id"></field>
+		<field type="Integer" name="starSoul" comment="当前星魂值"></field>
+		<field type="com.hifun.soul.gameserver.sprite.model.SpriteStarMapInfo"
+			clientType="SpriteStarMapInfoData" name="starMapList" comment="星图列表"
+			macro="SpriteStarMapInfo" list="true">
+		</field>
+		<field type="com.hifun.soul.gameserver.sprite.model.SpriteSignInfo"
+			clientType="SpriteSignInfoData" name="signList" comment="星座列表"
+			macro="SpriteSignInfo" list="true">
+		</field>
+	</message>
+	
+	<message type="CG_GET_SIGN_LIST" comment="请求星座列表 ">
+		<field type="Integer" name="starMapId" comment="星图id"></field>
+	</message>
+	
+	<message type="GC_GET_SIGN_LIST" comment="返回星座列表 ">
+		<field type="Integer" name="starMapId" comment="星图id"></field>
+		<field type="com.hifun.soul.gameserver.sprite.model.SpriteSignInfo"
+			clientType="SpriteSignInfoData" name="signList" comment="星座列表"
+			macro="SpriteSignInfo" list="true">
+		</field>
+	</message>
+
+	<message type="CG_ACTIVATE_SIGN" comment="激活指定星座 ">
+		<field type="Integer" name="signId" comment="星座id"></field>
+	</message>
+	
+	<message type="GC_ACTIVATE_SIGN" comment="响应激活星座 ">
+		<field type="Integer" name="signId" comment="星座id"></field>
+		<field type="Integer" name="remainStarSoul" comment="剩余星魂"></field>
+	</message>
+	
+	<message type="GC_ACTIVATE_NEW_STAR_MAP" comment="服务器通知激活下一张星图 ">
+		<field type="Integer" name="starMapId" comment="星图id"></field>
+	</message>
+	
+</messages>

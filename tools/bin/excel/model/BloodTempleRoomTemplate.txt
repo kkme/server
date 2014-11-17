@@ -1,0 +1,7 @@
+int language; //多语言
+int pageIndex;//房间分页ID
+String roomName;//房间名称
+String currentType;//货币类型
+int revenue;//单次时间收益(分钟)
+int npcLevel;//推荐npc等级
+int protectTime;[notNull=false]//保护时间

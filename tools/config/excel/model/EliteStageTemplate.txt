@@ -1,0 +1,16 @@
+int type; //副本类型
+int monsterId; //怪物id
+int openLevel;[notNull=false;minValue=0] //开启等级
+int nextStageId; //后置副本id
+int dailyChallengeNum;[notNull=false;minValue=0] //每日挑战次数
+int coinNum;[notNull=false;minValue=0] //奖励金币数量
+int exp;[notNull=false;minValue=0] //奖励经验
+int techPoint;[notNull=false,minValue=0] //奖励科技点
+int rewardItemRate;[notNull=false,minValue=0] // 奖励物品概率
+String itemIds;[notNull=false] //奖励物品（多个‘,’分隔，随机取一个）
+String itemRates;[notNull=false] //奖励物品概率（多个‘,’分隔，随机取一个）
+int occupation; //职业
+int addStarOne; //加星条件1(剩余血量下限)
+int addStarTwo; //加星条件2(剩余血量下限)
+int addStarThree; //加星条件3(剩余血量下限)
+int addStarFour; //加星条件4(剩余血量下限)

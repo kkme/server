@@ -1,0 +1,16 @@
+package com.hifun.soul.proto.common;
+option java_package = "com.hifun.soul.proto.common";
+option java_outer_classname = "Nostrums";
+
+
+// 角色秘药实体
+message Nostrum {
+	// 属性ID
+	required int32 propertyId = 1;
+	// 到期时间
+	required int64 endTime = 2;
+	// 属性加成比例
+	required int32 propertyAmendRate = 3;
+	// 属性加成方式
+	required int32 propertyAmendMethod = 4;
+}

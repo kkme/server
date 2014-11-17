@@ -1,0 +1,6 @@
+short currencyType; // 货币类型
+int num;[minValue=0] // 货币数量
+int wood;[minValue=0] // 木材数量
+int mine;[minValue=0] // 矿石数量
+int gem;[minValue=0] // 宝石数量
+int cd;[minValue=0] // cd时间

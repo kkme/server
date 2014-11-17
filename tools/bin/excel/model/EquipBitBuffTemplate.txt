@@ -1,0 +1,4 @@
+int needEquipBitLevel;//需要装备位同时强化等级
+int propertyId;//属性ID
+int amendEffect;//加成效果
+int amendMethod;//加成方式

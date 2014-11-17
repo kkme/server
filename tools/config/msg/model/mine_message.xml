@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="mine">
+	
+	<message type="CG_UPDATE_MINE_PANNEL" comment="更新采矿面板消息">
+	</message>
+	
+	<message type="GC_UPDATE_MINE_PANNEL" comment="更新采矿面板消息">		
+		<field type="Integer" name="remainMineNum" comment="剩余开采次数" />
+		<field type="Integer" name="canBuyNum" comment="还可购买的开采次数" />
+		<field type="Integer" name="buyMineTimeCostType" comment="购买开采次数消耗货币类型" />
+		<field type="Integer" name="buyMineTimeCostNum" comment="购买开采次数消耗货币数量" />	
+		<field type="Integer" name="resetMineCostType" comment="重置矿坑消耗货币类型" />
+		<field type="Integer" name="resetMineCostNum" comment="重置矿坑消耗货币数量" />	
+	</message>
+	
+	<message type="GC_MINE_FIELD_LIST" comment="发送矿坑列表信息">
+		<field type="com.hifun.soul.gameserver.mine.MineFieldInfo" macro="MineFieldInfo" 
+				list="true" clientType="MineFieldData" name="mineFields" comment="矿坑列表" />
+	</message>
+	
+	<message type="CG_OPEN_MINE_FIELD" comment="开启矿坑">
+		<field type="Integer" name="index" comment="矿坑位置索引" />		
+	</message>
+	
+	<message type="GC_OPEN_MINE_FIELD_BATTLE_REQUEST" comment="开启矿坑战斗请求">
+		<field type="String" name="monsterName" comment="怪物名称" />
+		<field type="Integer" name="monsterLevel" comment="怪物等级" />
+		<field type="String" name="mineFieldName" comment="矿坑类型名称" />	
+		<field type="Integer" name="buyMineTimeCostType" comment="购买开采次数消耗货币类型" />
+		<field type="Integer" name="buyMineTimeCostNum" comment="购买开采次数消耗货币数量" />	
+	</message>
+	
+	<message type="CG_OPEN_MINE_FIELD_BATTLE_RESPONSE" comment="开启矿坑战斗客户端回复">
+		<field type="Boolean" name="challenge" comment="是否挑战" />
+	</message>
+	
+	<message type="GC_OPEN_MINE_FIELD" comment="开启矿坑结果">
+		<field type="Boolean" name="challenge" comment="是否挑战" />
+		<field type="Boolean" name="challengeResult" comment="挑战结果" />
+		<field type="com.hifun.soul.gameserver.mine.MineFieldInfo" macro="MineFieldInfo" 
+				 clientType="MineFieldData" name="mineField" comment="矿坑信息" />
+		<field type="Integer" name="buyMineTimeCostType" comment="购买开采次数消耗货币类型" />
+		<field type="Integer" name="buyMineTimeCostNum" comment="购买开采次数消耗货币数量" />
+		<field type="Integer" name="canBuyNum" comment="还可购买的开采次数" />			
+	</message>
+	
+	<message type="CG_MINE_HARVEST" comment="矿坑收获请求">
+		<field type="Integer" name="index" comment="矿坑位置索引" />			
+	</message>
+	
+	<message type="GC_MINE_HARVEST" comment="矿坑收获结果">
+		<field type="Integer" name="index" comment="矿坑位置索引" />
+		<field type="String" name="itemName" comment="收获的物品名称" />
+		<field type="Integer" name="itemIcon" comment="收获的物品图标id" />
+		<field type="Integer" name="itemCount" comment="产出数量" />
+	</message>
+	
+	<message type="CG_BUY_MINE_TIMES" comment="购买矿坑开采权次数">				
+	</message>
+	
+	<message type="GC_BUY_MINE_TIMES" comment="购买矿坑开采权返回结果">
+		<field type="Integer" name="remainMineNum" comment="剩余开采次数" />
+		<field type="Integer" name="canBuyNum" comment="还可购买的开采次数" />
+		<field type="Integer" name="buyMineTimeCostType" comment="购买开采次数消耗货币类型" />
+		<field type="Integer" name="buyMineTimeCostNum" comment="购买开采次数消耗货币数量" />		
+	</message>
+	
+	<message type="CG_RESET_MINE_FIELD" comment="重置矿坑请求">
+		<field type="Integer" name="index" comment="矿坑位置索引" />			
+	</message>
+	
+	<message type="GC_RESET_MINE_FIELD" comment="重置矿坑结果">	
+		<field type="Integer" name="index" comment="矿坑位置索引" />		
+		<field type="Integer" name="resetMineCostType" comment="重置矿坑消耗货币类型" />
+		<field type="Integer" name="resetMineCostNum" comment="重置矿坑消耗货币数量" />	
+	</message>
+	
+	<message type="CG_REMOVE_ALL_MINE_CD" comment="请求清除所有矿坑cd需要的花费">
+	</message>
+	
+	<message type="GC_REMOVE_ALL_MINE_CD" comment="请求清除所有矿坑cd需要的花费">
+		<field type="Integer" name="costType" comment="消耗货币类型" />
+		<field type="Integer" name="costNum" comment="消耗货币数量" />	
+	</message>
+	
+	<message type="CG_REMOVE_ALL_MINE_CD_CONFIRM" comment="清除所有矿坑cd">
+	</message>
+	
+	<message type="CG_ALL_MINE_HARVEST" comment="收获所有矿坑">
+	</message>
+	
+</messages>

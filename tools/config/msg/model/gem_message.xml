@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="gem">	
+	<message type="CG_SELECT_GEM_TO_SYNTHESIS" comment="选择需要合成的宝石">
+		<field type="Integer" name="bagType" comment="主宝石所在背包类型" />
+		<field type="Integer" name="mainGemBagIndex" comment="主宝石所在背包索引" />
+	</message>
+	
+	<message type="GC_UPDATE_GEM_SYNTHESIS_PANEL" comment="更新合成宝石的面板信息">
+		<field type="Boolean" name="reachMaxGrade" comment="是否达到最大等级" />
+		<field type="Float" name="baseSuccessRate" comment="基础成功率" />
+		<field type="Integer" name="currencyType" comment="消耗货币类型" />
+		<field type="Integer" name="costMoney" comment="消耗的货币数量" />
+		<field type="com.hifun.soul.core.util.KeyValuePair&lt;Integer,Integer&gt;" 
+			   clientType="KeyValuePairIntData"
+			name="currentyProperties" list="true" comment="当前的属性">
+			<field type="Integer" name="key" comment="属性索引" />
+			<field type="Integer" name="value" comment="属性值" />
+		</field>
+		<field type="com.hifun.soul.core.util.KeyValuePair&lt;Integer,Integer&gt;" 
+			   clientType="KeyValuePairIntData"
+			name="upgradeProperties" list="true" comment="强化后的属性">
+			<field type="Integer" name="key" comment="属性索引" />
+			<field type="Integer" name="value" comment="属性值" />
+		</field>
+		<field type="com.hifun.soul.gameserver.item.assist.CommonItem"
+			name="materialItem" comment="合成所需材料物品" macro="CommonItem" clientType="CommonItemData">
+		</field>
+		<field type="Integer" name="needMaterialNum" comment="合成所需材料数量"/>
+		<field type="Integer" name="hasMaterialNum" comment="已有材料数量"/>
+		<field type="Boolean" name="isMallBuy" comment="商城是否出售"/>
+		<field type="com.hifun.soul.gameserver.item.assist.CommonItem"
+			name="upgradeItem" comment="合成后物品" macro="CommonItem" clientType="CommonItemData">
+		</field>
+	</message>
+
+	<message type="CG_GEM_SYNTHESIS" comment="宝石合成">
+		<field type="Integer" name="gemItemBagIndex" comment="宝石所在背包位置" />
+		<field type="Integer" name="guardStoneId" comment="守护石id(-1表示未使用)" />
+		<field type="Integer" name="fortuneStoneId" comment="星运石id(-1表示未使用)" />
+	</message>
+
+	<message type="GC_GEM_SYNTHESIS" comment="宝石合成">
+		<field type="com.hifun.soul.gameserver.item.assist.CommonItem"
+			list="true" name="item" comment="物品列表" macro="CommonItem" clientType="CommonItemData">
+		</field>
+	</message>
+</messages>

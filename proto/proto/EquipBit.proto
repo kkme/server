@@ -1,0 +1,12 @@
+package com.hifun.soul.proto.common;
+option java_package = "com.hifun.soul.proto.common";
+option java_outer_classname = "EquipBits";
+
+
+// 神魄装备位实体
+message EquipBit {
+	// 装备位类型
+	required int32 equipBitType = 1;
+	// 装备位等级
+	required int32 currentLevel = 2;
+}

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="autobattle">
+
+	<message type="CG_SHOW_ELITE_STAGE_AUTO_BATTLE_PANEL" comment="打开精英副本扫荡面板">
+		<field type="Integer" name="eliteStageType" comment="精英副本类型"/>
+	</message>
+	
+	<message type="GC_SHOW_ELITE_STAGE_AUTO_BATTLE_PANEL" comment="打开精英副本扫荡面板">
+		<field type="String" list="true" name="monsters" comment="可扫荡的怪物列表">
+		</field>
+		<field type="Integer" name="energys" comment="需要的体力"/>
+		<field type="Integer" name="time" comment="需要的时间"/>
+		<field type="Integer" name="starTimeReduce" comment="评星减少的时间"/>
+		<field type="Integer" name="vipTimeReduce" comment="vip减少的时间"/>
+	</message>
+	
+	<message type="CG_START_ELITE_AUTO_BATTLE" comment="精英副本开始扫荡">
+		<field type="Integer" name="eliteStageType" comment="精英副本类型"/>
+	</message>
+	
+	<message type="CG_CANCEL_ELITE_AUTO_BATTLE" comment="精英副本取消扫荡">
+	</message>
+
+	<message type="GC_ELITE_AUTO_BATTLE_RESULT" comment="精英副本扫荡结果">
+		<field type="Integer" name="exp" comment="经验"/>
+		<field type="Integer" name="coin" comment="金币"/>
+		<field type="Integer" name="techPoint" comment="科技点"/>
+		<field type="String" list="true" name="items" comment="奖励物品列表">
+		</field>
+	</message>
+	
+	<message type="CG_SHOW_STAGE_AUTO_BATTLE_PANEL" comment="打开关卡扫荡面板">
+		<field type="Integer" name="stageId" comment="关卡id"/>
+	</message>
+	
+	<message type="GC_SHOW_STAGE_AUTO_BATTLE_PANEL" comment="返回关卡单轮扫荡需要的时间和体力">
+		<field type="Integer" name="energy" comment="需要的体力"/>
+		<field type="Integer" name="time" comment="需要的时间"/>
+		<field type="Integer" name="starTimeReduce" comment="评星减少的时间"/>
+		<field type="Integer" name="vipTimeReduce" comment="vip减少的时间"/>
+	</message>
+	
+	<message type="CG_START_STAGE_AUTO_BATTLE" comment="关卡开始扫荡">
+		<field type="Integer" name="stageId" comment="关卡id"/>
+		<field type="Integer" name="times" comment="次数"/>
+	</message>
+	
+	<message type="CG_CANCEL_STAGE_AUTO_BATTLE" comment="关卡取消扫荡">
+	</message>
+	
+	<message type="GC_STAGE_AUTO_BATTLE_STATE" comment="关卡扫荡状态">
+		<field type="Integer" name="state" comment="扫荡状态"/>
+	</message>
+	
+	<message type="GC_STAGE_AUTO_BATTLE_RESULT" comment="关卡扫荡结果">
+		<field type="Integer" name="exp" comment="经验"/>
+		<field type="Integer" name="coin" comment="金币"/>
+		<field type="String" list="true" name="items" comment="奖励物品列表">
+		</field>
+	</message>
+	
+</messages>
+
+

@@ -1,0 +1,9 @@
+int paperId; //图纸Id
+int needPaperNum; //所需图纸数量
+String materialItemIds;[notNull=false] //所需材料Id(多种材料用逗号“,”分隔)
+String materialItemNum;[notNull=false] //所需材料数量(与材料Id对应，多种材料用逗号“,”分隔)
+int currencyType; //所需货币类型
+int costMomey;[notNull=false;minValue=0] //所需货币数量
+float successRate; //成功率
+int equipItemId; //打造成功后的装备Id
+int needEquipId; //所需装备id

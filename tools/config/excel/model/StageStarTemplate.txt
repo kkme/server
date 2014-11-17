@@ -1,0 +1,8 @@
+int autoBattleMinStageStar; // 扫荡评级条件
+int fiveStarRate; // 五星经验金币百分比
+int fourStarRate; // 四星经验金币百分比
+int threeStarRate; // 三星经验金币百分比
+int twoStarRate; // 二星经验金币百分比
+int oneStarRate; // 一星经验金币百分比
+int failRate; // 失败经验金币百分比
+

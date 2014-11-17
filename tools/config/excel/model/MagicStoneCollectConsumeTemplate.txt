@@ -1,0 +1,1 @@
+int costCrystalNum; //消费的魔晶

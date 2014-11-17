@@ -1,0 +1,4 @@
+int minLevel;//玩家等级下限
+int itemId;[notNull=false;mainValue=0]//物品ID
+int itemNum;[notNull=false;mainValue=0]//物品数量
+int rewardRate;[notNull=false;mainValue=0]//概率

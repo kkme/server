@@ -1,0 +1,3 @@
+int honour; [notNull=false;minValue=0] //连胜荣誉奖励
+int finishOhterStreakWinHonour; [notNull=false;minValue=0] //终结他人连胜获得荣誉
+int coin; [notNull=false;minValue=0] //连胜金币奖励

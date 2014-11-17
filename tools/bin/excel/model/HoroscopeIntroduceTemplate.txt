@@ -1,0 +1,5 @@
+int nameLangId; //多语言id
+String name; //名称
+int color; //品质
+int descLangId; //多语言id
+String desc; //描述

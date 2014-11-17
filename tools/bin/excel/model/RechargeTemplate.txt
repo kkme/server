@@ -1,0 +1,2 @@
+int rechargeNum; //充值的魔晶数
+int rewardNum;[notNull=false;minValue=0]	//奖励魔晶数

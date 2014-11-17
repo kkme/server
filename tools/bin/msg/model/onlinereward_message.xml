@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="onlinereward">
+	
+	<message type="GC_SHOW_ONLINE_REWARD" comment="在线奖励">
+		<field type="Integer" name="seconds" comment="秒数"></field>
+		<field type="com.hifun.soul.gameserver.item.assist.SimpleCommonItem" list="true" name="reward" comment="奖品" macro="SimpleCommonItem" clientType="SimpleCommonItemData">
+		</field>
+	</message>
+	
+	<message type="CG_GET_ONLINE_REWARD" comment="领取在线奖励">
+	</message>
+	
+	<message type="GC_ONLINE_REWARD_END" comment="在线奖励领取完">
+	</message>
+	
+</messages>

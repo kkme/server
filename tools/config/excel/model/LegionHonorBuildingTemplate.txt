@@ -1,0 +1,3 @@
+int needLegionLevel;[notNull=false;minValue=0]//升至下级需要军团等级
+int needLegionCoin;[notNull=false;minValue=0]//升至下级需要军团资金
+int exchangeNum;//可兑换头衔数

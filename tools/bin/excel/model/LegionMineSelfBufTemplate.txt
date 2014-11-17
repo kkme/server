@@ -1,0 +1,5 @@
+String bufName;//指令名称
+String useGuide;//使用方法
+String cancelMethod;[notNull=false]//取消方法
+String functionDesc;//功能描述
+int bufIcon;//图标

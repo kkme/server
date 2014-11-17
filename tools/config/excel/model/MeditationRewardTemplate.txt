@@ -1,0 +1,1 @@
+List<com.hifun.soul.gameserver.meditation.template.MeditationInfo> meditationInfo;[collection(4,4)] // 冥想时长模式

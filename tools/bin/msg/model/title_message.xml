@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="title">
+
+	<message type="CG_OPEN_TITLE_PANEL" comment="请求打开军衔面板">
+	</message>
+	<message type="GC_OPEN_TITLE_PANEL" comment="响应打开军衔面板">
+		<field type="Integer" name="currentTitleId" comment="当前军衔id"></field>
+		<field type="Integer" name="currentPrestige" comment="当前威望"></field>
+		<field type="Boolean" name="isGotTitleSalary" comment="当日俸禄是否领取"></field>
+		<field type="com.hifun.soul.gameserver.title.HumanTitle" list="true"
+			clientType="TitleInfoData" name="titleList" comment="军衔列表 " macro="TitleInfo">
+		</field>
+		<field type="Integer" name="defaultMaxHonor" comment="默认荣誉上限"></field>
+	</message>
+	<message type="CG_TITLE_LEVEL_UP" comment="请求升级军衔">
+	</message>
+	<message type="GC_TITLE_LEVEL_UP" comment="响应升级军衔">
+		<field type="Integer" name="currentTitleId" comment="当前军衔id" />
+		<field type="Boolean" name="isGotTitleSalary" comment="当日俸禄是否领取"></field>
+	</message>
+	<message type="CG_GET_TITLE_SALARY" comment="请求领取当日军衔俸禄">
+	</message>
+	<message type="GC_GET_TITLE_SALARY" comment="响应领取当日军衔俸禄">
+		<field type="Boolean" name="isGotTitleSalary" comment="当日俸禄是否领取"></field>
+	</message>
+</messages>
+
+

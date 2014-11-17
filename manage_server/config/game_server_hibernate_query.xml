@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.mop.webzt.db.model">
+	<!-- 根据用户名查询账户信息 -->
+	<query name="queryAccountByName">
+	<![CDATA[
+		from AccountEntity where userName = :userName
+	]]>
+	</query>
+
+	<!-- 根据用户名查询账户信息 -->
+	<query name="queryAccountList">
+	<![CDATA[
+		from AccountEntity
+	]]>
+	</query>
+	
+	<!-- 根据用户名查询账户信息 -->
+	<query name="queryAccountCount">
+	<![CDATA[
+		select count(id) from AccountEntity
+	]]>
+	</query>
+
+	<!-- 更新账号锁定状态 -->
+	<query name="updateAccountState">
+	<![CDATA[
+		update AccountEntity set state = :state where id = :id
+	]]>
+	</query>
+
+	<!-- 查询角色列表 -->
+	<query name="queryCharacterListByCondition">
+	<![CDATA[
+		from HumanEntity where name like :name
+	]]>
+	</query>
+
+	<!-- 查询角色列表总数 -->
+	<query name="queryCharacterCountByCondition">
+	<![CDATA[
+		select count(id) from HumanEntity where name like :name
+	]]>
+	</query>
+
+	<!-- 根据角色id查询角色实体 -->
+	<query name="queryHumanById">
+		from HumanEntity where id = :id
+	</query>
+
+	<!-- 根据条件查询公告列表 -->
+	<query name="queryBulletinListByCondition">
+		from BulletinEntity as entity where
+		entity.valid=:valid and entity.content
+		like :content order by publishTime desc
+	</query>
+	<!-- 根据条件查询公告数量 -->
+	<query name="queryBulletinCountByCondition">
+		select count(entity.id) from BulletinEntity as entity
+		where entity.valid=:valid and entity.content like :content
+	</query>
+	<!-- 根据条件查询公告列表 -->
+	<query name="queryAllBulletinListByCondition">
+		from BulletinEntity as entity where entity.content
+		like :content order by valid desc, publishTime desc
+	</query>
+	<!-- 根据条件查询公告数量 -->
+	<query name="queryAllBulletinCountByCondition">
+		select count(entity.id) from BulletinEntity as entity
+		where entity.content like :content
+	</query>
+	<!-- 根据条件查询已发送邮件列表 -->
+	<query name="querySentMailListByCondition">
+		from SentMailEntity as entity where entity.theme like
+		:theme and entity.content like :content and entity.sendHumanName like
+		:sendHumanName and entity.sendMemo like :sendMemo and
+		entity.receiveHumanId like :receiveHumanId order by entity.sendTime
+		desc
+	</query>
+	<!-- 根据条件查询已发送邮件数量 -->
+	<query name="querySentMailCountByCondition">
+		select count(entity.id) from SentMailEntity as entity
+		where entity.theme like :theme and entity.content like :content and
+		entity.sendHumanName like :sendHumanName and entity.sendMemo like
+		:sendMemo and entity.receiveHumanId like :receiveHumanId
+	</query>
+	<!-- 根据条件查询玩家问题反馈 -->
+	<query name="queryQuestionByType">
+		from QuestionEntity as entity where
+		entity.questionType like :questionType and entity.content like
+		:content and entity.askerName like :askerName order by entity.askTime
+		desc
+	</query>
+	<!-- 根据条件查询玩家问题反馈记录总数 -->
+	<query name="queryQuestionCountByType">
+		select count(entity.id) from QuestionEntity as entity
+		where entity.questionType like :questionType and entity.content like
+		:content and entity.askerName like :askerName
+	</query>
+
+	<!-- 根据条件查询玩家问题反馈 -->
+	<query name="queryQuestion">
+		from QuestionEntity as entity where entity.content
+		like :content and entity.askerName like :askerName order by
+		entity.askTime desc
+	</query>
+
+	<!-- 根据条件查询玩家问题反馈记录总数 -->
+	<query name="queryQuestionCount">
+		select count(entity.id) from QuestionEntity as entity
+		where entity.content like :content and entity.askerName like
+		:askerName
+	</query>
+
+	<!-- 查询未答复的问题反馈 -->
+	<query name="queryUnAnsweredQuestion">
+		from QuestionEntity as entity group by
+		entity.questionId having count(entity.id)=1
+	</query>
+
+	<!-- 查询未答复的问题反馈 -->
+	<query name="queryUnAnsweredQuestionCount">
+		select count(entity.id) from QuestionEntity as entity
+		group by entity.questionId having count(entity.id)=1
+	</query>
+
+	<!-- 根据passportId查询角色Id -->
+	<query name="queryHumanGuidByPassportId">
+		select id from HumanEntity where passportId =
+		:passportId
+	</query>
+	<!-- 查询所有运营活动的设置 -->
+	<query name="queryMarketActivitySetting">
+		from MarketActivitySettingEntity
+	</query>
+	<!-- 根据角色id查询该角色的问答活动数据 -->
+	<query name="queryQuestionInfoByHumanId">
+	<![CDATA[
+		from HumanQuestionEntity where humanId = :humanId
+	]]>
+	</query>
+	<!-- 查询好友信息 -->
+	<query name="queryFriendByHumanId">
+	<![CDATA[
+		from FriendEntity where id =:humanId
+	]]>
+	</query>
+	<!-- 根据账户名称获取角色信息 -->
+	<query name="queryCharacterInfoByAccountName">
+	<![CDATA[
+		select human from HumanEntity human,AccountEntity account
+		where human.passportId = account.id and account.userName = :accountName
+	]]>
+	</query>	
+	<!-- 根据角色名称查询角色id -->
+	<query name="queryCharacterIdByName">
+	<![CDATA[
+		select id from HumanEntity where name = :name
+	]]>
+	</query>
+	
+	<!-- 查询定时发送邮件 -->
+	<query name="queryValidTimingMailList">
+	<![CDATA[
+		from MailDraftEntity where valid = true and sendState=1
+	]]>
+	</query>
+	
+	<!-- 角色职业人数分布统计 -->
+	<query name="queryCharacterOccupationStatistic">
+	<![CDATA[
+		select occupation,count(occupation) as occupationCount from RankEntity group by occupation
+	]]>
+	</query>
+	<!-- 角色等级人数分布统计 -->
+	<query name="queryCharacterLevelStatistic">
+	<![CDATA[
+		select level,count(level) as levelCount from RankEntity group by level
+	]]>
+	</query>
+	<!-- 根据日期查询充值业务流水 -->
+	<query name="queryQQRechargeByDate">
+	<![CDATA[
+		from QQRechargeEntity where ts>=:timeBegin and ts<:timeEnd
+	]]>
+	</query>
+	<!-- 根据openId查询充值业务流水 -->
+	<query name="queryQQRechargeByOpenId">
+	<![CDATA[
+		from QQRechargeEntity where ts>=:timeBegin and ts<:timeEnd and openId like:openId
+	]]>
+	</query>
+	<!-- 根据humanId查询充值业务流水 -->
+	<query name="queryQQRechargeByHumanId">
+	<![CDATA[
+		from QQRechargeEntity where ts>=:timeBegin and ts<:timeEnd and humanId =:humanId
+	]]>
+	</query>
+	<!-- 根据业务流水号查询充值业务 -->
+	<query name="queryQQRechargeByBillNO">
+	<![CDATA[
+		from QQRechargeEntity where billno=:billno
+	]]>
+	</query>
+</hibernate-mapping>

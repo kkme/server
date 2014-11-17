@@ -1,0 +1,43 @@
+package com.hifun.soul.proto.common;
+option java_package = "com.hifun.soul.proto.common";
+option java_outer_classname = "Mars";
+
+// 战神之巅房间实体
+message MarsRoom {
+	// 房间类型
+	required int32 roomType = 1;
+	// 房主类型
+	required int32 ownerType = 2;
+	// 是否锁定
+	required int32 isLocked = 3;
+	// 房主ID
+	required int64 ownerId = 4;
+	// 房主名称
+	required string ownerName = 5;
+	// 房主职业类型
+	required int32 ownerOccupation = 6;
+	// 房主等级
+	required int32 ownerLevel = 7;
+	// 房主今日杀戮值
+	optional int32 todayKillValue = 8;
+}
+
+// 战神之巅遭遇的玩家实体(原来是手下败将)
+message MarsLoser {
+	// 玩家ID
+	required int64 loserId = 1;
+	// 玩家名称
+	required string loserName = 2;
+	// 玩家职业类型
+	required int32 loserOccupation = 3;
+	// 玩家等级
+	required int32 loserLevel = 4;
+	// 玩家今日杀戮值
+	optional int32 todayKillValue = 5;
+	// 是否是手下败将
+	optional int32 isLoser = 6;
+	// 玩家类型(NPC或PLAYER)
+	required int32 playerType = 7;
+	// 打败时间
+	optional int64 killTime = 8;
+}

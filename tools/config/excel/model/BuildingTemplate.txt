@@ -1,0 +1,6 @@
+int nameLangId;[notNull=false;minValue=0] // 建筑名称多语言
+String name; // 建筑名称
+int descLangId;[notNull=false;minValue=0] // 建筑描述多语言
+String desc; // 建筑描述
+int icon;[notNull=false;minValue=0] // 建筑图标
+boolean upgrade; // 是否可以升级

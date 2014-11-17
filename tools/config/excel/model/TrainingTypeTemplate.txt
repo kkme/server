@@ -1,0 +1,4 @@
+String trainingTypeName; //训练模式名称
+int nameLangId;[notNull=false;minValue=0] //多语言名称
+int trainingTime;	//训练时长（分钟）
+int expRate;	//收益比率

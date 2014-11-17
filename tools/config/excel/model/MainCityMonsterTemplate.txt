@@ -1,0 +1,4 @@
+int monsterId;//怪物ID
+int monsterNum;//怪物数量
+int rewardExperience;//奖励经验
+int rewardCoin;//奖励金币

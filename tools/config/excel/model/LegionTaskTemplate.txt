@@ -1,0 +1,12 @@
+int shemeType;//主题类型
+String shemeName;//主题名称
+int iconId;//图标ID
+int quantityId;//品质ID
+int rewardContribution;//奖励贡献
+int rewardMedal;//奖励勋章
+int rewardTaskScore;//奖励积分
+int rewardLegionExperience;//奖励军团经验
+int rewardLegionCoin;//奖励军团资金
+int taskTime;//任务时间
+int systemRefreshWeight;//系统刷新权重
+int crystalRefreshWeight;//魔晶刷新权重

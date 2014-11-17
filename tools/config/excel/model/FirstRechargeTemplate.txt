@@ -1,0 +1,2 @@
+int itemId; //物品ID
+int itemNum; //物品数量

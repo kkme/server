@@ -1,0 +1,3 @@
+int rewardCoin;//奖励金币
+int rewardHonor;[notNull=false;minValue=0]//奖励声望
+int rescortTime;//押运时长

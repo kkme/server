@@ -1,0 +1,3 @@
+int categoryId; //分类id
+int funcHelperId; //功能id
+int star; //推荐星星数

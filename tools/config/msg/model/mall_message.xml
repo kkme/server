@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="mall">
+	
+	<message type="CG_SHOW_MALL_ITEM_LIST" comment="显示商城道具列表">
+		<field type="Integer" name="mallItemType" comment="商城道具种类" />
+		<field type="Short" name="pageIndex" comment="页面索引" />
+	</message>
+
+	<message type="GC_SHOW_MALL_ITEM_LIST" comment="显示商城道具列表">
+		<field type="Integer" name="mallItemType" comment="商城道具种类" />
+		<field type="Short" name="pageIndex" comment="当前页面索引" />
+		<field type="Short" name="pageCount" comment="总页数" />
+		<field type="com.hifun.soul.gameserver.mall.msg.MallItemInfo" clientType="MallItemInfoData"
+			name="mallItemList" macro="MallItem" list="true" comment="商城道具列表">
+		</field>
+	</message>
+
+	<message type="CG_SHOW_MALL_ITEM" comment="显示选中道具">
+		<field type="Integer" name="itemId" comment="商品 Id" />
+	</message>
+
+	<message type="GC_SHOW_MALL_ITEM" comment="显示选中道具">
+		<field type="com.hifun.soul.gameserver.mall.msg.MallItemInfo" clientType="MallItemInfoData"
+			name="mallItem" macro="MallItem" comment="商城道具信息">
+		</field>
+	</message>
+
+	<message type="CG_BUY_MALL_ITEM" comment="购买选中道具">
+		<field type="Integer" name="itemId" comment="商品 Id" />
+		<field type="Integer" name="num" comment="购买数量" />
+	</message>
+	
+	<message type="GC_BUY_MALL_ITEM" comment="购买选中道具结果">
+		<field type="Boolean" name="success" comment="购买结果" />
+	</message>
+	
+	<message type="CG_ASK_MALL_ITEM" comment="购买选中道具">
+		<field type="Integer" name="itemId" comment="商品 Id" />
+	</message>
+	
+	<message type="GC_ASK_MALL_ITEM" comment="购买选中道具结果">
+		<field type="Short" name="currencyType" comment="货币类型"></field>
+		<field type="Integer" name="currencyNum" comment="货币数量"></field>
+	</message>
+	
+	<message type="GC_ASK_MALL_ITEM_INFO" comment="购买选中道具信息">
+		<field type="com.hifun.soul.gameserver.item.assist.CommonItem"
+			name="commonItem" comment="物品的基础属性信息" macro="CommonItem">
+		</field>
+		<field type="Short" name="currencyType" comment="货币类型"></field>
+		<field type="Integer" name="currencyNum" comment="货币数量"></field>
+	</message>
+
+</messages>

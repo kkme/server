@@ -1,0 +1,4 @@
+String name; //冥想模式名称
+int rate; //收益倍率(万分制)
+int currencyType; //所需货币类型
+int currencyNum;[notNull=true;minValue=0] //所需货币数量

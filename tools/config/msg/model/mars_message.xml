@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="mars">
+
+	<message type="CG_OPEN_MARS_PANEL" comment="请求打开战神之巅面板">
+	</message>
+	<message type="GC_OPEN_MARS_PANEL" comment="响应打开战神之巅面板">
+		<field type="com.hifun.soul.gameserver.mars.msg.info.MarsFieldInfo"
+			clientType="MarsFieldInfoData" name="fieldInfo" comment="场别信息 " macro="MarsFieldInfo">
+		</field>
+		<field type="com.hifun.soul.gameserver.mars.msg.info.MarsRoomInfo" list="true"
+			clientType="MarsRoomInfoData" name="roomInfos" comment="战神之巅房间列表 " macro="MarsRoomInfo">
+		</field>
+		<field type="Integer" name="refreshCostNum" comment="刷新房间花费" />
+		<field type="Integer" name="unlockCostNum" comment="解锁房间花费" />
+		<field type="com.hifun.soul.gameserver.mars.msg.info.MarsSelfInfo"
+			clientType="MarsSelfInfoData" name="selfInfo" comment="个人信息 " macro="MarsSelfInfo">
+		</field>
+		<field type="com.hifun.soul.gameserver.mars.msg.info.MarsPlayerInfo" list="true"
+			clientType="MarsPlayerInfoData" name="loserInfos" comment="手下败将列表 " macro="MarsPlayerInfo">
+		</field>
+		<field type="Integer" name="maxAcceptRewardNum" comment="最大接受挑战奖励次数" />
+		<field type="Integer" name="remainAcceptRewardNum" comment="剩余接受挑战奖励次数" />
+	</message>
+	<message type="CG_RFRESH_MARS_ROOM" comment="请求刷新战神之巅房间">
+		<field type="Integer" name="roomType" comment="房间类型" />
+	</message>
+	<message type="GC_RFRESH_MARS_ROOM" comment="响应刷新战神之巅房间">
+		<field type="Integer" name="roomType" comment="房间类型" />
+		<field type="com.hifun.soul.gameserver.mars.msg.info.MarsPlayerInfo"
+			clientType="MarsPlayerInfoData" name="ownerInfo" comment="房主信息 " macro="MarsPlayerInfo">
+		</field>
+	</message>
+	<message type="CG_KILL_MARS_PLAYER" comment="请求击杀战神之巅玩家">
+		<field type="Integer" name="roomType" comment="房间类型" />
+		<field type="Integer" name="multiple" comment="下注倍数" />
+	</message>
+	<message type="GC_KILL_MARS_PLAYER" comment="响应击杀战神之巅玩家">
+	</message>
+	<message type="CG_UNLOCK_MARS_ROOM" comment="请求解锁战神之巅房间">
+		<field type="Integer" name="roomType" comment="房间类型" />
+	</message>
+	<message type="GC_UNLOCK_MARS_ROOM" comment="响应解锁战神之巅房间">
+		<field type="Integer" name="roomType" comment="房间类型" />
+		<field type="Integer" name="isLocked" comment="是否锁定" />
+	</message>
+	<message type="CG_BUY_MARS_MULTIPLE_NUM" comment="请求购买加倍次数">
+	</message>
+	<message type="GC_BUY_MARS_MULTIPLE_NUM" comment="响应购买加倍次数">
+		<field type="Integer" name="remainMultipleNum" comment="剩余加倍次数" />
+		<field type="Integer" name="buyMultipleNumCost" comment="购买加倍次数花费" />
+	</message>
+	<message type="CG_OPEN_MARS_RANK_PANEL" comment="请求打开战神之巅排行榜面板">
+	</message>
+	<message type="GC_OPEN_MARS_RANK_PANEL" comment="响应打开战神之巅排行榜面板">
+		<field type="Integer" name="brightTodayKillValue" comment="光明阵营今日杀戮" />
+		<field type="Integer" name="darkTodayKillValue" comment="黑暗阵营今日杀戮" />
+		<field type="com.hifun.soul.gameserver.mars.msg.info.MarsPlayerInfo" list="true"
+			clientType="MarsPlayerInfoData" name="marsBrightPlayerInfos" comment="光明阵营列表 " macro="MarsPlayerInfo">
+		</field>
+		<field type="com.hifun.soul.gameserver.mars.msg.info.MarsPlayerInfo" list="true"
+			clientType="MarsPlayerInfoData" name="marsDarkPlayerInfos" comment="黑暗阵营列表 " macro="MarsPlayerInfo">
+		</field>
+	</message>
+	<message type="CG_GET_MARS_KILL_REWARD" comment="领取战神之巅击杀奖励">
+	</message>
+	<message type="GC_GET_MARS_KILL_REWARD" comment="响应领取战神之巅击杀奖励">
+		<field type="Integer" name="rewardState" comment="奖励领取状态"/>
+	</message>
+</messages>
+
+

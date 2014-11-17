@@ -1,0 +1,3 @@
+String surroundStateDesc;//包围状态描述
+double surroundRate;//被包围比例
+int effect;//攻防增加

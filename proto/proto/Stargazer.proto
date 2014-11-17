@@ -1,0 +1,12 @@
+package com.hifun.soul.proto.common;
+option java_package = "com.hifun.soul.proto.common";
+option java_outer_classname = "Stargazers";
+
+
+// 占星师状态
+message Stargazer {
+	// key
+	required int32 stargazerId = 1;
+	// 开启章台
+	required bool open = 2;
+}

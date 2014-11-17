@@ -1,0 +1,40 @@
+package com.hifun.soul.proto.common;
+option java_package = "com.hifun.soul.proto.common";
+option java_outer_classname = "Quests";
+
+// 任务完成数据
+message QuestFinishData {
+	// 任务ID
+	required int32 questId = 1;
+}
+
+
+
+// 任务数据
+message QuestStateData {
+	// 任务ID
+	required int32 questId = 1;
+	// 任务详细数据组
+	repeated QuestAimCounterData aimCounter = 2;
+	// 任务状态枚举
+	optional int32 state = 3;
+	// 任务结束时间
+	optional int64 endTime = 4;
+}
+
+// 任务计数器数据
+message QuestAimCounterData {
+	// 任务目标Index
+	required int32 aimIndex = 1;
+	// 目标当前值
+	required int32 value = 2;
+	// 目标计数器类型
+	optional int32 aimType = 3;
+}
+
+// 日常任务宝箱
+message DailyQuestRewardBox {
+	required int32 boxId = 1;
+	// 宝箱状态
+	required int32 state = 2;
+}

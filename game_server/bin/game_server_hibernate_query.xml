@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.mop.webzt.db.model">
+	<!-- 根据用户名和密码查询账户信息 -->
+	<query name="queryAccountByNameAndPwd">
+	<![CDATA[
+		from AccountEntity where userName = :userName and password = :password
+	]]>
+	</query>
+	
+	<!-- 根据用户名查询账户信息 -->
+	<query name="queryAccountByName">
+	<![CDATA[
+		from AccountEntity where userName = :userName
+	]]>
+	</query>
+
+	<query name="queryUUID_HUMAN">
+	<![CDATA[
+	    select max(id) from HumanEntity where id >=:minId and id <= :maxId
+	]]>
+	</query>
+	<query name="queryUUID_ACCOUNT">
+	<![CDATA[
+	    select max(id) from AccountEntity where id >=:minId and id <= :maxId
+	]]>
+	</query>
+	<query name="queryUUID_SENTMAIL">
+	<![CDATA[
+	    select max(id) from SentMailEntity where id >=:minId and id <= :maxId
+	]]>
+	</query>
+	<query name="queryUUID_RECEIVEDMAIL">
+	<![CDATA[
+	    select max(id) from ReceivedMailEntity where id >=:minId and id <= :maxId
+	]]>
+	</query>
+	<query name="queryUUID_GMQUESTION">
+	<![CDATA[
+	    select max(questionId) from QuestionEntity where questionId >=:minId and questionId <= :maxId
+	]]>
+	</query>
+	<query name="queryUUID_MAILDRAFT">
+	<![CDATA[
+	    select max(id) from MailDraftEntity where id >=:minId and id <= :maxId
+	]]>
+	</query>
+	<!-- 查询数据库是否有指定的角色名 -->
+	<query name="queryHumanByName">
+		select id from HumanEntity where name = :name
+	</query>
+
+	<!-- 根据角色id查询角色名称 -->
+	<query name="queryHumanNameById">
+		select name from HumanEntity where id = :id
+	</query>
+		
+	<!-- 根据角色id查询角色 -->
+	<query name="queryHumanById">
+		from HumanEntity where id = :id
+	</query>
+
+	<!-- 根据PassportId查询所有HumanBaseProperties -->
+	<query name="queryChars">
+		select baseProperties from HumanEntity where
+		passportId = :passportId
+	</query>
+
+	<!-- 查询玩家等级排行榜数据 -->
+	<query name="queryHumanLevelRank">
+		from RankEntity where isValid=1 order by level
+		desc,humanName asc
+	</query>
+	
+	<!-- 查询玩家军衔排行榜数据 -->
+	<query name="queryHumanTitleRank">
+		from TitleRankEntity where isValid=1 order by title
+		desc,humanName asc
+	</query>
+	
+	<!-- 查询玩家荣誉排行榜数据 -->
+	<query name="queryHumanHonorRank">
+		from HonorRankEntity where isValid=1 order by honor
+		desc,humanName asc
+	</query>
+	
+	<!-- 查询玩家荣誉排行榜数据 -->
+	<query name="queryHumanVipRank">
+		from VipRankEntity where isValid=1 order by vipLevel
+		desc,humanName asc
+	</query>
+
+	<!-- 根据角色id查询排名数据实体 -->
+	<query name="queryLevelRankByHumanId">
+		from RankEntity where id= :id
+	</query>
+
+	<!-- 根据接收人Id查询所有HumanMail -->
+	<query name="queryMailListByHumanId">
+		select sent,received from
+		SentMailEntity sent,ReceivedMailEntity received where sent.id =
+		received.mailId and received.receiveHumanId = :receiveHumanId order by sent.sendTime desc limit 40
+	</query>
+	
+	<!-- 根据邮件Id和接收人id删除接收邮件列表中的记录 -->
+	<query name="deleteReceivedMailByMailIdAndHumanId">
+		delete from ReceivedMailEntity r where r.mailId=:mailId and receiveHumanId = :receiveHumanId
+	</query>
+		
+	<!-- 查询所有有效的公告 -->
+	<query name="queryValidBullet">
+		from BulletinEntity where valid=1
+	</query>	
+	<!-- 查询所有有效的公告 -->
+	<query name="queryAllHumanId">
+		select id from HumanEntity
+	</query>		
+	<!-- 根据角色id查询该角色的问答活动数据 -->
+	<query name="queryQuestionInfoByHumanId">
+		from HumanQuestionEntity where humanId = :humanId
+	</query>
+	
+	<!-- 查询大转盘奖励信息(最新20条) -->
+	<query name="queryTurntableReward">
+		select id,roleName,rewardName
+		from TurntableEntity turntable
+		order by turntable.id desc
+	</query>
+	<!-- 根据角色id查询物品信息 -->
+	<query name="queryItemsByHumanId">
+		select humanItems from HumanEntity where id =:humanGuid
+	</query>
+	<!-- 根据角色id查询属性、物品和星运信息 -->
+	<query name="queryPropertyAndItemByHumanId">
+		select baseProperties,otherProperties,humanItems,humanHoroscope from HumanEntity where id =:humanGuid
+	</query>
+	<!-- 根据角色id查询属性和技能信息 -->
+	<query name="queryPropertyAndSkills">
+		select name, baseProperties,otherProperties,humanCarriedSkills,humanItems,humanHoroscope,humanTechnology,
+		humanNostrum,humanGodsoul,humanMagicPaper,humanGift,humanStarMap,humanSign,humanSprite,humanSpriteBuff
+		from HumanEntity where id =:humanGuid
+	</query>
+	
+	<!-- 查询竞技场所有玩家信息 -->
+	<query name="queryAllArenaMember">
+		from ArenaMemberEntity
+		order by rank asc
+	</query>
+	
+	<!-- 查询某个玩家的竞技场提示信息 -->
+	<query name="queryArenaNoticeByHumanGuid">
+		from ArenaNoticeEntity
+		where roleId =:roleId
+		order by id desc
+	</query>
+	
+	<!-- 查询数据库中不与单独玩家绑定的全部数据 -->
+	<query name="queryGlobalKeyValue">
+		from GlobalKeyValueEntity
+	</query>
+	
+	<!-- 查询角色基础信息 -->
+	<query name="queryBasePorpertyByHumanId">
+		select baseProperties from HumanEntity where
+		id = :humanGuid
+	</query>
+	
+	<!-- 查询boss信息 -->
+	<query name="queryBossInfo">
+		from BossEntity
+		where id =:id
+	</query>
+	
+	<!-- 查询参与boss战玩家的信息 -->
+	<query name="queryBossRoleInfo">
+		from BossRoleEntity
+		order by rank asc
+	</query>
+	
+	<!-- 查询某个玩家的gm问答信息 -->
+	<query name="queryGmQuestionsById">
+		from QuestionEntity
+		where askerId =:askerId
+	</query>
+	
+	<!-- 查询全局活动状态信息 -->
+	<query name="queryActivityState">
+		from ActivityEntity
+	</query>
+	
+	<!-- 查询神秘商店信息(最新20条) -->
+	<query name="querySpecialShopBuyInfo">
+		select id,roleName,rewardName,specialShopItemId,itemId,itemNum
+		from SpecialShopNotifyEntity
+		order by id desc
+	</query>
+	
+	<!-- 查询所有运营活动的设置 -->
+	<query name="queryMarketActivitySetting">
+		from MarketActivitySettingEntity
+	</query>
+	
+	<!-- 查询所有的好友信息 -->
+	<query name="queryAllFriend">
+	<![CDATA[
+		from FriendEntity
+	]]>
+	</query>
+	
+	<!-- 查询某个玩家的好友战斗提示信息 -->
+	<query name="queryFriendBattleByHumanGuid">
+		from FriendBattleEntity
+		where roleId =:roleId
+		order by id desc
+	</query>
+	
+	<!-- 查询某个玩家的好友战斗提示信息 -->
+	<query name="queryMatchBattleRoleByHumanId">
+		from HumanMatchBattleEntity
+		where id =:humanId		
+	</query>
+	
+	<!-- 查询所有腾讯用户信息 -->
+	<query name="queryAllTencentUserInfo">
+	<![CDATA[
+		from TencentUserInfoEntity
+	]]>
+	</query>
+		
+	<!-- 查询定时发送邮件 -->
+	<query name="queryValidTimingMailList">
+	<![CDATA[
+		from MailDraftEntity where valid = true and sendState=1
+	]]>
+	</query>
+	
+	<!-- 查询是否有该笔充值信息 -->
+	<query name="queryRechargeByOpenIdAndBillno">
+	<![CDATA[
+		from QQRechargeEntity where openId =:openId and billno =:billno
+	]]>
+	</query>
+	
+	<!-- 查询还没有完成的充值信息-->
+	<query name="queryUnRechargedByHumanId">
+	<![CDATA[
+		from QQRechargeEntity where humanId =:humanId and sended = false
+	]]>
+	</query>
+	<!-- 查询所有的军团信息 -->
+	<query name="queryAllLegion">
+	<![CDATA[
+		from LegionEntity order by legionLevel desc
+	]]>
+	</query>
+	<!-- 查出所有军团成员信息 -->
+	<query name="queryAllLegionMember">
+	<![CDATA[
+		from LegionMemberEntity 
+		order by position asc, totalContribution desc
+	]]>
+	</query>
+	<!-- 查出所有军团申请信息 -->
+	<query name="queryAllLegionApply">
+	<![CDATA[
+		from LegionApplyEntity 
+		order by applyTime asc
+	]]>
+	</query>
+	<!-- 获取所有军团日志 -->
+	<query name="queryAllLegionLog">
+	<![CDATA[
+		from LegionLogEntity 
+		order by id desc
+	]]>
+	</query>
+	<!-- 获取所有军团冥想日志 -->
+	<query name="queryAllLegionMeditationLog">
+	<![CDATA[
+		from LegionMeditationLogEntity 
+		order by id desc
+	]]>
+	</query>
+	<!-- 获取所有军团建筑等级 -->
+	<query name="queryAllLegionBuilding">
+	<![CDATA[
+		from LegionBuildingEntity
+	]]>
+	</query>
+	<!-- 获取所有军团商品信息 -->
+	<query name="queryAllLegionShop">
+	<![CDATA[
+		from LegionShopEntity
+	]]>
+	</query>
+	<!-- 获取所有军团科技信息 -->
+	<query name="queryAllLegionTechnology">
+	<![CDATA[
+		from LegionTechnologyEntity
+	]]>
+	</query>
+	<!-- 获取所有军团头衔信息 -->
+	<query name="queryAllLegionHonor">
+	<![CDATA[
+		from LegionHonorEntity
+	]]>
+	</query>
+	<!-- 查询所有的战俘营角色 -->
+	<query name="queryAllPrisoner">
+	<![CDATA[
+		from PrisonerEntity
+	]]>
+	</query>
+	<!-- 查询所有的战俘营日志 -->
+	<query name="queryAllPrisonLog">
+	<![CDATA[
+		from PrisonLogEntity order by operateTime desc
+	]]>
+	</query>
+	<!-- 查询所有角斗场房间信息 -->
+	<query name="queryAllAbattoirRoom">
+	<![CDATA[
+		from AbattoirRoomEntity order by id
+	]]>
+	</query>
+	<!-- 查询出角色相关的角斗场日志 -->
+	<query name="queryAbattoirLogByHumanId">
+	<![CDATA[
+		from AbattoirLogEntity where secondId =:secondId 
+		order by lootTime desc
+	]]>
+	</query>
+	<!-- 查询出所有角色的角斗场荣誉 -->
+	<query name="queryAllAbattoirPrestige">
+	<![CDATA[
+		from HumanAbattoirPrestigeEntity
+	]]>
+	</query>
+	<!-- 查询所有嗜血神殿房间信息 -->
+	<query name="queryAllBloodTempleRoom">
+	<![CDATA[
+		from BloodTempleRoomEntity order by id
+	]]>
+	</query>
+	<!-- 查询出角色相关的嗜血神殿日志 -->
+	<query name="queryBloodTempleLogByHumanId">
+	<![CDATA[
+		from BloodTempleLogEntity where secondId =:secondId 
+		order by lootTime desc
+	]]>
+	</query>
+	<!-- 查询出所有角色的嗜血神殿荣誉 -->
+	<query name="queryAllBloodTemplePrestige">
+	<![CDATA[
+		from HumanBloodTemplePrestigeEntity
+	]]>
+	</query>
+	<!-- 查询出所有阵营成员信息 -->
+	<query name="queryAllFactionMember">
+	<![CDATA[
+		from FactionMemberEntity
+	]]>
+	</query>
+	<!-- 查询出所有战神之巅玩家信息 -->
+	<query name="queryAllMarsMember">
+	<![CDATA[
+		from MarsMemberEntity
+	]]>
+	</query>
+	<!-- 查询军团boss信息 -->
+	<query name="queryLegionBossInfo">
+		from LegionBossEntity
+		where id =:id
+	</query>
+	<!-- 查询参与军团boss战玩家的信息 -->
+	<query name="queryLegionBossRoleInfo">
+		from LegionBossRoleEntity
+		order by rank asc
+	</query>
+	<!-- 查询参与军团矿战玩家的信息 -->
+	<query name="queryAllLegionMineMember">
+		from LegionMineMemberEntity
+	</query>
+	<!-- 查询军团矿战矿堆的信息 -->
+	<query name="queryAllLegionMine">
+		from LegionMineEntity
+	</query>
+	<!-- 查询所有押运信息 -->
+	<query name="queryAllEscort">
+		from EscortEntity
+	</query>
+	<!-- 查询所有押运邀请信息 -->
+	<query name="queryAllEscortInvite">
+		from EscortInviteEntity
+	</query>
+	<!-- 查询押运拦截排行信息 -->
+	<query name="queryEscortRobRank">
+		from EscortRobRankEntity
+	</query>
+	<!-- 查询所有押运军团祈福信息 -->
+	<query name="queryAllEscortLegionPray">
+		from EscortLegionPrayEntity
+	</query>
+	<!-- 查询押运拦截日志信息 -->
+	<query name="queryAllEscortLog">
+		from EscortLogEntity order by insertTime desc
+	</query>
+	<!-- 查询押运协助信息 -->
+	<query name="queryAllEscortHelp">
+		from EscortHelpEntity
+	</query>
+</hibernate-mapping>

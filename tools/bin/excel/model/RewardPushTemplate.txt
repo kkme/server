@@ -1,0 +1,2 @@
+String name; //奖励名称
+int iconId; //图标id

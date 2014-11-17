@@ -1,0 +1,26 @@
+int itemCount; //礼包id
+int coinNum;[notNull=false;minValue=0] //金币数量
+int coinWeight;[notNull=false;minValue=0] //金币出现的权重
+int crystalNum;[notNull=false;minValue=0] //魔晶数量
+int crystalWeight;[notNull=false;minValue=0] //魔晶出现的权重
+List<com.hifun.soul.gameserver.item.template.SpreeItemInfo> items;[collection(5,3)] // 所含物品
+int expNum;[notNull=false;minValue=0] //经验数量
+int expWeight;[notNull=false;minValue=0] //经验的权重
+int honourNum;[notNull=false;minValue=0] //荣誉数量
+int honourWeight;[notNull=false;minValue=0] //荣誉的权重
+int skillPointNum;[notNull=false;minValue=0] //技能点数量
+int skillPointWeight;[notNull=false;minValue=0] //技能点的权重
+int techPointNum;[notNull=false;minValue=0] //科技点数量
+int techPointWeight;[notNull=false;minValue=0] //科技点的权重
+String horoscopeIds;[notNull=false] //星运id
+String horoscopeNums;[notNull=false] //星运数量
+int horoscopeWeight;[notNull=false;minValue=0] //星运的权重
+String spriteIds;[notNull=false] //精灵id
+String spriteNums;[notNull=false] //精灵数量
+int spriteWeight;[notNull=false;minValue=0] //精灵的权重
+int trainCoinNum;[notNull=false;minValue=0] //培养币数量
+int trainCoinWeight;[notNull=false;minValue=0] //培养币出现的权重
+int auraNum;[notNull=false;minValue=0] //灵气值数量
+int auraWeight;[notNull=false;minValue=0] //灵气值出现的权重
+int starSoulNum;[notNull=false;minValue=0] //星魂数量
+int starSoulWeight;[notNull=false;minValue=0] //星魂出现的权重

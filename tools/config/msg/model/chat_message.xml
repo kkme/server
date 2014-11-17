@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="chat">
+	
+	<message type="CG_CHAT_MSG" comment="聊天">
+		<field type="Integer" name="chatType" comment="聊天类型"></field>
+		<field type="String" name="content" comment="聊天内容"></field>
+		<field type="Long" name="destPassportId" comment="目标账号id"></field>
+		<field type="String" name="destRoleName" comment="目标角色名称"></field>
+		<field type="Long" name="fromPassportId" comment="账号id"></field>
+		<field type="String" name="fromRoleName" comment="角色名称 "></field>
+	</message>
+	
+	<message type="GC_CHAT_MSG" comment="聊天">
+		<field type="Integer" name="chatType" comment="聊天类型"></field>
+		<field type="String" name="content" comment="聊天内容"></field>
+		<field type="Long" name="destPassportId" comment="目标账号id"></field>
+		<field type="String" name="destRoleName" comment="目标角色名称"></field>
+		<field type="Long" name="fromPassportId" comment="账号id"></field>
+		<field type="String" name="fromRoleName" comment="角色名称 "></field>
+	</message>
+	
+</messages>

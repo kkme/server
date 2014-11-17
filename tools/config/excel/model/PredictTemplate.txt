@@ -1,0 +1,6 @@
+int needLevel;//激活需要等级
+int pageIndex;//页码
+List<com.hifun.soul.gameserver.predict.template.PredictAttribute> attributes;[collection(5,2)] //加成属性
+int amendType;//加成方式
+int x;//x坐标
+int y;//y坐标

@@ -1,0 +1,1471 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<macros xmlns="http://com.hifun.soul.message">
+
+
+	<macro id="StageUnPerfect" comment="没有满分的关卡信息">
+		<field type="Integer" name="stageId" comment="关卡id"></field>
+		<field type="Integer" name="star" comment="关卡评分"></field>
+		<field type="String" name="stageName" comment="关卡名字"></field>
+		<field type="Boolean" name="pass" comment="是否通过" />
+	</macro>
+	
+	<macro id="FactionSimpleInfo" comment="阵营简单信息">
+		<field type="Integer" name="factionType" comment="阵营类型"></field>
+		<field type="String" name="factionDesc" comment="阵营描述"></field>
+		<field type="Integer" name="factionIconId" comment="阵营图标id"></field>
+	</macro>
+
+	<macro id="SpriteStarMapInfo" comment="星图信息">
+		<field type="Integer" name="starMapId" comment="星图id"></field>
+		<field type="String" name="name" comment="星图名称"></field>
+		<field type="Integer" name="openLevel" comment="开启星图需要的玩家等级"></field>
+		<field type="Boolean" name="activated" comment="星图是否激活" />
+	</macro>
+
+	<macro id="SpriteBagCellInfo" comment="精灵背包格子信息">
+		<field type="Integer" name="index" comment="精灵背包格子索引"></field>
+		<field type="Boolean" name="open" comment="背包格子是否有开启" />
+		<field type="Boolean" name="equip" comment="背包格子是否有精灵" />
+		<field type="String" name="spriteUUID" comment="背包格子精灵uuid"></field>
+	</macro>
+
+	<macro id="SpriteEuqipSlotInfo" comment="精灵装备位信息">
+		<field type="Integer" name="index" comment="装备位索引"></field>
+		<field type="Boolean" name="equip" comment="装备位是否有装备" />
+		<field type="String" name="spriteUUID" comment="装备的精灵uuid"></field>
+	</macro>
+
+	<macro id="SpriteBuffInfo" comment="精灵buff信息">
+		<field type="Integer" name="buffId" comment="buffId"></field>
+		<field type="String" name="name" comment="buff名称"></field>
+		<field type="Integer" name="propId" comment="属性id"></field>
+		<field type="Integer" name="propValue" comment="属性值"></field>
+		<field type="Integer" name="amendType" comment="属性加成类型 "></field>
+		<field type="Integer" name="activateQuality" comment="激活buff需要的套装品质类型"></field>
+		<field type="Boolean" name="activated" comment="是否激活" />
+	</macro>
+
+	<macro id="SpriteSignInfo" comment="星座信息">
+		<field type="Integer" name="starMapId" comment="星图id"></field>
+		<field type="Integer" name="signId" comment="星座id"></field>
+		<field type="String" name="name" comment="星座名称"></field>
+		<field type="Integer" name="costStarSoul" comment="点亮消耗的星魂数量"></field>
+		<field type="Integer" name="propId" comment="属性id"></field>
+		<field type="Integer" name="propValue" comment="属性值"></field>
+		<field type="Integer" name="amendType" comment="属性加成类型 "></field>
+		<field type="Boolean" name="light" comment="是否已经点亮" />
+		<field type="Integer" name="x" comment="x坐标 "></field>
+		<field type="Integer" name="y" comment="y坐标"></field>
+	</macro>
+
+	<macro id="SpritePubInfo" comment="酒馆精灵信息">
+		<field type="Integer" name="spriteId" comment="精灵id"></field>
+		<field type="Integer" name="iconId" comment="精灵图标id"></field>
+		<field type="String" name="name" comment="精灵名称"></field>
+		<field type="Integer" name="quality" comment="精灵品质"></field>
+		<field type="Integer" name="soulType" comment="魂类型"></field>
+		<field type="Integer" name="soulNum" comment="魂数量"></field>
+		<field type="Boolean" name="win" comment="是否已经猜拳赢了当前精灵(只在对酒界面有用)" />
+		<field type="Integer" name="propId" comment="基础属性id"></field>
+		<field type="Integer" name="propValue" comment="基础属性值"></field>
+	</macro>
+
+	<macro id="SpriteInfo" comment="精灵的信息">
+		<field type="String" name="uuid" comment="uuid"></field>
+		<field type="Integer" name="spriteId" comment="精灵id"></field>
+		<field type="Integer" name="iconId" comment="精灵图标id"></field>
+		<field type="Integer" name="level" comment="精灵當前等級"></field>
+		<field type="String" name="name" comment="精灵名称"></field>
+		<field type="Integer" name="quality" comment="精灵品质"></field>
+		<field type="Integer" name="spriteType" comment="精灵类型"></field>
+		<field type="Integer" name="levelUpAura" comment="升级需要的灵气值"></field>
+		<field type="Integer" name="propId" comment="属性id"></field>
+		<field type="Integer" name="propValue" comment="属性值"></field>
+		<field type="Boolean" name="isEquip" comment="是否出战" />
+		<field type="Integer" name="dropReturnAura" comment="放弃该等级精灵返还灵气值" />
+	</macro>
+
+	<macro id="SpriteRecruitInfo" comment="精灵招募的配置信息">
+		<field type="Integer" name="id" comment="招募类型"></field>
+		<field type="Integer" name="soulType" comment="消耗精魂类型"></field>
+		<field type="Integer" name="soulNum" comment="消耗精魂数量"></field>
+		<field type="Integer" name="openLevel" comment="开启角色等级"></field>
+	</macro>
+
+	<macro id="SpritePubPageInfo" comment="精灵对酒操作信息">
+		<field type="Integer" name="pageId" comment="页签id"></field>
+		<field type="Integer" name="pageOpenLevel" comment="页签开启等级"></field>
+		<field type="Integer" name="commonCostType" comment="普通对酒消耗货币类型"></field>
+		<field type="Integer" name="commonCostNum" comment="普通对酒消耗货币数量"></field>
+		<field type="Integer" name="superCostType" comment="高级对酒消耗货币类型"></field>
+		<field type="Integer" name="superCostNum" comment="高级对酒消耗货币数量"></field>
+		<field type="Integer" name="superFingerGuessOpenLevel" comment="高级对酒功能开启等级"></field>
+		<field type="Integer" name="superFingerGuessVipOpenLevel"
+			comment="高级对酒功能开启vip等级"></field>
+	</macro>
+
+	<macro id="CommonItem" comment="道具信息">
+		<field type="String" name="UUID"
+			comment="道具实例uuid，目前用于客户端实现快捷栏，不可以放入快捷栏的和道具此属性为空"></field>
+		<field type="Integer" name="itemId" comment="道具Id"></field>
+		<field type="String" name="name" comment="道具名称"></field>
+		<field type="String" name="desc" comment="道具描述"></field>
+		<field type="Integer" name="type" comment="道具小类"></field>
+		<field type="Integer" name="icon" comment="道具的图标"></field>
+		<field type="Integer" name="rarity" comment="道具品质"></field>
+		<field type="Integer" name="bind" comment="道具绑定模式"></field>
+		<field type="Integer" name="overlapNum" comment="道具堆叠数量"></field>
+		<field type="Integer" name="bagType" comment="所在背包类型"></field>
+		<field type="Integer" name="bagIndex" comment="所在背包位置索引"></field>
+		<field type="Short" name="sellCurrencyType" comment="出售获取货币类型"></field>
+		<field type="Integer" name="sellNum" comment="出售获取货币数量"></field>
+		<field type="Integer" name="position" comment="装备位置"></field>
+		<field type="Integer" name="endure" comment="道具耐久"></field>
+		<field type="Short" name="equipHole" comment="装备的孔数"></field>
+
+		<field type="Short" name="embedCurrencyType" comment="镶嵌花费货币类型"></field>
+		<field type="Integer" name="embedCurrencyNum" comment="镶嵌花费货币数量"></field>
+		<field type="Short" name="extractCurrencyType" comment="拆除花费货币类型"></field>
+		<field type="Integer" name="extractCurrencyNum" comment="拆除花费货币数量"></field>
+
+		<field type="Short" name="shopCurrencyType" comment="商店购买货币类型"></field>
+		<field type="Integer" name="shopCurrencyNum" comment="商店购买货币数量"></field>
+
+		<field type="com.hifun.soul.core.util.KeyValuePair&lt;Integer,Integer&gt;"
+			clientType="KeyValuePairIntData" name="equipBaseAttributes" list="true"
+			comment="装备身上带的基础属性">
+			<field type="Integer" name="key" comment="属性索引" />
+			<field type="Integer" name="value" comment="属性值" />
+		</field>
+
+		<field type="com.hifun.soul.core.util.KeyValuePair&lt;Integer,Integer&gt;"
+			clientType="KeyValuePairIntData" name="equipSpecialAttributes" list="true"
+			comment="装备身上带的特殊属性">
+			<field type="Integer" name="key" comment="属性索引" />
+			<field type="Integer" name="value" comment="属性值" />
+		</field>
+
+		<field type="com.hifun.soul.core.util.KeyValuePair&lt;Integer,Integer&gt;"
+			clientType="KeyValuePairIntData" name="gemAttributes" list="true"
+			comment="宝石属性">
+			<field type="Integer" name="key" comment="属性索引" />
+			<field type="Integer" name="value" comment="属性值" />
+		</field>
+
+		<field type="com.hifun.soul.gameserver.item.assist.GemItemInfo"
+			clientType="GemItemInfoData" name="equipGemItemInfos" list="true"
+			comment="装备上宝石信息">
+			<field type="Integer" name="itemId" comment="宝石的id" />
+			<field type="Integer" name="index" comment="宝石的位置" />
+			<field type="Integer" name="rarity" comment="宝石的品质" />
+			<field type="com.hifun.soul.core.util.KeyValuePair&lt;Integer,Integer&gt;"
+				clientType="KeyValuePairIntData" name="equipGemAttributes" list="true"
+				comment="装备上宝石属性">
+				<field type="Integer" name="key" comment="属性索引" />
+				<field type="Integer" name="value" comment="属性值" />
+			</field>
+		</field>
+
+		<field type="com.hifun.soul.core.util.KeyValuePair&lt;Integer,Integer&gt;"
+			clientType="KeyValuePairIntData" name="equipUpgradeAttributes" list="true"
+			comment="装备身上带的强化属性">
+			<field type="Integer" name="key" comment="属性索引" />
+			<field type="Integer" name="value" comment="属性值" />
+		</field>
+		<field type="Float" name="extraSuccessRate" comment="幸运石的成功率加成值" />
+		<field type="Integer" name="upgradeLevel" comment="装备强化等级" />
+		<field type="Integer" name="limitLevel" comment="等级限制" />
+		<field type="Integer" name="limitOccupation" comment="职业限制" />
+		<field type="Integer" name="maxEquipHole" comment="装备最大可以开的孔数" />
+		<field type="com.hifun.soul.core.util.KeyValuePair&lt;String,Integer&gt;"
+			clientType="KeyValuePairStringIntData" name="materialsOfEquipPaper"
+			list="true" comment="制作装备需要的材料列表(装备图纸特有属性)">
+			<field type="String" name="key" comment="材料名称" />
+			<field type="Integer" name="value" comment="所需数量" />
+		</field>
+		<field type="Integer" name="maxOverlap" comment="最大可叠加数" />
+		<field type="Boolean" name="isEquiped" comment="是否已装备" />
+		<field type="Boolean" name="canSell" comment="是否可以出售" />
+	</macro>
+
+	<macro id="SimpleCommonItem" comment="道具简单信息">
+		<field type="String" name="UUID"
+			comment="道具实例uuid，目前用于客户端实现快捷栏，不可以放入快捷栏的和道具此属性为空"></field>
+		<field type="Integer" name="itemId" comment="道具Id"></field>
+		<field type="String" name="name" comment="道具名称"></field>
+		<field type="String" name="desc" comment="道具描述"></field>
+		<field type="Integer" name="icon" comment="道具的图标"></field>
+	</macro>
+
+	<macro id="LoginChar" comment="角色登陆信息">
+		<field type="Long" name="humanGuid" comment="角色的guid"></field>
+		<field type="String" name="name" comment="角色名称"></field>
+		<field type="Integer" name="occupation" comment="职业"></field>
+		<field type="Integer" name="level" comment="角色等级"></field>
+		<field type="Long" name="energy" comment="当前精力值"></field>
+		<field type="Integer" name="homeLevel" comment="角色主城等级"></field>
+		<field type="Long" name="coins" comment="角色当前金币数量"></field>
+	</macro>
+
+	<macro id="CharacterOccupationTemplate" comment="玩家角色职业模版">
+		<field type="Integer" name="occupationType"
+			comment="职业类型(1 = 战士; 2 = 游侠;
+			3
+			= 法师)"></field>
+		<field type="Integer" name="nameIcon" comment="职业名称"></field>
+		<field type="String" name="feature" comment="职业特色"></field>
+		<field type="String" name="classes" comment="职业系别"></field>
+		<field type="Integer" name="giftIcon1" comment="天赋1图标id"></field>
+		<field type="String" name="giftName1" comment="天赋1名称"></field>
+		<field type="String" name="giftDesc1" comment="天赋1详细文字说明"></field>
+		<field type="Integer" name="giftIcon2" comment="天赋2图标id"></field>
+		<field type="String" name="giftName2" comment="天赋2名称"></field>
+		<field type="String" name="giftDesc2" comment="天赋2详细文字说明"></field>
+		<field type="Integer" name="giftIcon3" comment="天赋3图标id"></field>
+		<field type="String" name="giftName3" comment="天赋3名称"></field>
+		<field type="String" name="giftDesc3" comment="天赋3详细文字说明"></field>
+	</macro>
+
+	<macro id="CharacterInfo" comment="玩家角色详细信息">
+		<field type="Long" name="guid" comment="人物角色guid"></field>
+		<field type="String" name="name" comment="名字"></field>
+		<field type="Integer" name="level" comment="等级"></field>
+		<field type="Integer" name="occupation" comment="职业"></field>
+		<field type="Long" name="legionId" comment="军团ID"></field>
+		<field type="String" name="legionName" comment="军团名称"></field>
+		<field type="String" name="titleName" comment="军衔名称"></field>
+	</macro>
+
+	<macro id="CommonBulletin" comment="公告">
+		<field type="Integer" name="id" comment="公告id"></field>
+		<field type="String" name="content" comment="公告内容"></field>
+		<field type="Integer" name="showTime" comment="客户端显示时长（单位：秒）"></field>
+		<field type="Integer" name="level" comment="公告级别"></field>
+	</macro>
+
+	<macro id="MallItem" comment="商城道具信息">
+		<field type="Integer" name="itemId" comment="道具Id"></field>
+		<field type="Short" name="currencyType" comment="货币类型"></field>
+		<field type="Integer" name="num" comment="货币数量"></field>
+		<field type="Boolean" name="discount" comment="是否打折"></field>
+		<field type="Float" name="discountRate" comment="打折折扣"></field>
+		<field type="Integer" name="mallItemType" comment="商品类型"></field>
+		<field type="com.hifun.soul.gameserver.item.assist.CommonItem"
+			name="commonItem" comment="物品的基础属性信息" macro="CommonItem">
+		</field>
+	</macro>
+
+	<macro id="HonourShopItemInfo" comment="荣誉商店物品信息">
+		<field type="Integer" name="itemId" comment="道具Id"></field>
+		<field type="Integer" name="needHonour" comment="购买需要荣誉"></field>
+		<field type="com.hifun.soul.gameserver.item.assist.CommonItem"
+			name="commonItem" comment="物品" macro="CommonItem">
+		</field>
+		<field type="Integer" name="itemType" comment="标签类型"></field>		
+	</macro>
+
+	<macro id="QuestInfo" comment="任务数据">
+		<field type="Integer" name="questId" comment="任务ID"></field>
+		<field type="Integer" name="questType" comment="任务类型"></field>
+		<field type="Integer" name="npcIcon" comment="任务npc头像"></field>
+		<field type="Integer" name="questIcon" comment="任务引导图标"></field>
+		<field type="String" name="questName" comment="任务名称"></field>
+		<field type="Integer" name="questState" comment="任务状态"></field>
+		<field type="String" name="questDesc" comment="任务描述"></field>
+		<field type="String" name="questAimDesc" comment="任务目标描述"></field>
+		<field type="Integer" name="minLevel" comment="接受任务最小等级"></field>
+		<field type="Integer" name="rewardExp" comment="任务完成奖励经验"></field>
+		<field type="Integer" name="rewardMoney" comment="任务完成奖励金币"></field>
+		<field type="Integer" name="rewardStore" comment="任务完成奖励积分"></field>
+		<field type="com.hifun.soul.gameserver.human.quest.QuestAimInfo"
+			name="questAims" list="true" comment="任务目标" clientType="QuestAimInfoData"
+			macro="QuestAimInfo">
+		</field>
+		<field type="String" name="stageGuideInfo" comment="任务引导信息 "></field>
+		<field type="com.hifun.soul.gameserver.item.assist.SimpleCommonItem"
+			list="true" name="questItems" comment="物品" macro="SimpleCommonItem">
+		</field>
+		<field type="Integer" name="remainTime" comment="剩余时间"></field>
+		<field type="Integer" name="quantity" comment="任务质量"></field>
+		<field type="Integer" name="gameFuncId" comment="功能ID"></field>
+	</macro>
+
+	<macro id="QuestItemInfo" comment="任务物品信息">
+		<field type="Integer" name="itemId" comment="奖励物品ID"></field>
+		<field type="Integer" name="itemIcon" comment="物品图标"></field>
+	</macro>
+
+	<macro id="QuestAimInfo" comment="任务目标信息">
+		<field type="Integer" name="aimType" comment="目标类型"></field>
+		<field type="Integer" name="aimIndex" comment="索引"></field>
+		<field type="Integer" name="aimValue" comment="目标值"></field>
+		<field type="Integer" name="currentValue" comment="当前值"></field>
+		<field type="String" name="desc" comment="目标描述"></field>
+	</macro>
+
+	<macro id="FriendInfo" comment="好友基本信息">
+		<field type="Long" name="roleId" comment="角色id"></field>
+		<field type="String" name="roleName" comment="角色名字"></field>
+		<field type="Integer" name="level" comment="角色等级"></field>
+		<field type="Integer" name="occupation" comment="职业"></field>
+		<field type="Boolean" name="sendState" comment="是否送出体力"></field>
+		<field type="Integer" name="getState" comment="领取体力状态"></field>
+		<field type="Boolean" name="isOnLine" comment="是否在线"></field>
+		<field type="Integer" name="yellowVipLevel" comment="黄钻等级"></field>
+		<field type="Boolean" name="isYearYellowVip" comment="是否为年费黄钻会员"></field>
+		<field type="Boolean" name="isYellowHighVip" comment="是否为豪华黄钻会员"></field>
+	</macro>
+
+	<macro id="BuildingInfo" comment="建筑信息">
+		<field type="Integer" name="buildingId" comment="建筑 Id" />
+		<field type="String" name="name" comment="建筑名称" />
+		<field type="String" name="desc" comment="建筑说明" />
+		<field type="Integer" name="icon" comment="建筑图标" />
+		<field type="Integer" name="level" comment="建筑等级" />
+		<field type="Boolean" name="upgrade" comment="是否可以升级" />
+	</macro>
+
+	<macro id="LevelRankInfo" comment="等级排行榜数据信息">
+		<field type="Long" name="humanGuid" comment="角色id" />
+		<field type="Integer" name="rankPosition" comment="排名" />
+		<field type="String" name="humanName" comment="角色名称" />
+		<field type="Integer" name="occupation" comment="角色职业" />
+		<field type="Integer" name="level" comment="角色等级" />
+		<field type="String" name="titleName" comment="军衔名称" />
+		<field type="Long" name="legionId" comment="军团ID" />
+		<field type="String" name="legionName" comment="军团名称" />
+		<field type="Integer" name="yellowVipLevel" comment="黄钻等级"></field>
+		<field type="Boolean" name="isYearYellowVip" comment="是否为年费黄钻用户"></field>
+		<field type="Boolean" name="isYellowHighVip" comment="是否为豪华黄钻用户"></field>
+	</macro>
+
+	<macro id="TitleRankInfo" comment="军衔排行榜数据信息">
+		<field type="Long" name="humanGuid" comment="角色id" />
+		<field type="Integer" name="rankPosition" comment="排名" />
+		<field type="String" name="humanName" comment="角色名称" />
+		<field type="Integer" name="occupation" comment="角色职业" />
+		<field type="String" name="titleName" comment="军衔名称" />
+		<field type="Integer" name="level" comment="角色等级" />
+		<field type="Long" name="legionId" comment="军团ID" />
+		<field type="String" name="legionName" comment="军团名称" />
+		<field type="Integer" name="yellowVipLevel" comment="黄钻等级"></field>
+		<field type="Boolean" name="isYearYellowVip" comment="是否为年费黄钻用户"></field>
+		<field type="Boolean" name="isYellowHighVip" comment="是否为豪华黄钻用户"></field>
+	</macro>
+
+	<macro id="HonorRankInfo" comment="荣誉排行榜数据信息">
+		<field type="Long" name="humanGuid" comment="角色id" />
+		<field type="Integer" name="rankPosition" comment="排名" />
+		<field type="String" name="humanName" comment="角色名称" />
+		<field type="Integer" name="occupation" comment="角色职业" />
+		<field type="String" name="titleName" comment="军衔名称" />
+		<field type="Long" name="legionId" comment="军团ID" />
+		<field type="String" name="legionName" comment="军团名称" />
+		<field type="Integer" name="level" comment="角色等级" />
+		<field type="Integer" name="yellowVipLevel" comment="黄钻等级"></field>
+		<field type="Boolean" name="isYearYellowVip" comment="是否为年费黄钻用户"></field>
+		<field type="Boolean" name="isYellowHighVip" comment="是否为豪华黄钻用户"></field>
+	</macro>
+
+	<macro id="VipRankInfo" comment="VIP排行榜数据信息">
+		<field type="Long" name="humanGuid" comment="角色id" />
+		<field type="Integer" name="rankPosition" comment="排名" />
+		<field type="String" name="humanName" comment="角色名称" />
+		<field type="Integer" name="occupation" comment="角色职业" />
+		<field type="Integer" name="vipLevel" comment="角色VIP等级" />
+		<field type="Integer" name="level" comment="角色等级" />
+		<field type="Long" name="legionId" comment="军团ID" />
+		<field type="String" name="legionName" comment="军团名称" />
+		<field type="Integer" name="yellowVipLevel" comment="黄钻等级"></field>
+		<field type="Boolean" name="isYearYellowVip" comment="是否为年费黄钻用户"></field>
+		<field type="Boolean" name="isYellowHighVip" comment="是否为豪华黄钻用户"></field>
+	</macro>
+
+	<macro id="LegionLevelRankInfo" comment="军团等级排行榜数据信息">
+		<field type="Integer" name="rankPosition" comment="排名" />
+		<field type="Long" name="legionId" comment="军团ID" />
+		<field type="String" name="legionName" comment="军团名称" />
+		<field type="String" name="commanderName" comment="团长名称" />
+		<field type="Integer" name="legionLevel" comment="军团等级" />
+		<field type="Integer" name="memberNum" comment="成员数量" />
+	</macro>
+
+	<macro id="LegionMemberRankInfo" comment="军团人数排行榜数据信息">
+		<field type="Integer" name="rankPosition" comment="排名" />
+		<field type="Long" name="legionId" comment="军团ID" />
+		<field type="String" name="legionName" comment="军团名称" />
+		<field type="String" name="commanderName" comment="团长名称" />
+		<field type="Integer" name="legionLevel" comment="军团等级" />
+		<field type="Integer" name="memberNum" comment="成员数量" />
+	</macro>
+
+	<macro id="MailListItemInfo" comment="邮件列表数据信息">
+		<field type="Long" name="mailId" comment="邮件Id" />
+		<field type="Integer" name="mailType" comment="邮件类型（系统，玩家）" />
+		<field type="String" name="theme" comment="邮件主题" />
+		<field type="String" name="sendHumanName" comment="发件人姓名" />
+		<field type="Boolean" name="isRead" comment="是否已读取" />
+		<field type="Boolean" name="isAttachment" comment="是否含附件" />
+		<field type="Boolean" name="isPickUp" comment="是否已拾取附件物品" />
+		<field type="Integer" name="expireDays" comment="过期天数（仅在邮件含有奖励物品时有效,0表示已过期）" />
+		<field type="Boolean" name="checked" comment="是否选中（仅用于客户端绑定）" />
+		<field type="String" name="sendTime" comment="发送时间" />
+	</macro>
+
+	<macro id="HoroscopeInfo" comment="星运信息">
+		<field type="Integer" name="horoscopeBag" comment="星运所在包" />
+		<field type="Integer" name="index" comment="星运所在包中的位置" />
+		<field type="Integer" name="horoscopeId" comment="星运id" />
+		<field type="String" name="name" comment="星运名字" />
+		<field type="String" name="desc" comment="星运说明" />
+		<field type="Integer" name="color" comment="颜色" />
+		<field type="Integer" name="level" comment="星运等级" />
+		<field type="Integer" name="experience" comment="当前经验" />
+		<field type="Integer" name="maxExperience" comment="升级需要的经验" />
+		<field type="Integer" name="key" comment="星运效果" />
+		<field type="Integer" name="value" comment="效果值" />
+		<field type="Integer" name="icon" comment="星运所在包" />
+		<field type="Integer" name="nextHoroscopeId" comment="下一级星运id" />
+		<field type="Integer" name="propertyAddType" comment="属性加成方式(1=+;2=*)" />
+	</macro>
+
+	<macro id="TechnologyInfo" comment="科技基本信息">
+		<field type="Integer" name="technologyId" comment="科技id" />
+		<field type="String" name="name" comment="科技名称" />
+		<field type="Integer" name="level" comment="科技等级" />
+		<field type="Integer" name="icon" comment="科技图标" />
+		<field type="Boolean" name="maxLevelReached" comment="是否达到满级" />
+		<field type="Integer" name="costTechPointNum" comment="升级需要的科技点" />
+		<field type="Integer" name="roleLevel" comment="角色等级限制" />
+	</macro>
+
+	<macro id="TechnologyDetailInfo" comment="科技详细信息">
+		<field type="Integer" name="technologyId" comment="科技id" />
+		<field type="String" name="name" comment="科技名称" />
+		<field type="Integer" name="level" comment="科技等级" />
+		<field type="Integer" name="icon" comment="科技图标" />
+		<field type="Integer" name="propAddValue" comment="每级增加值" />
+		<field type="String" name="propName" comment="属性名名称" />
+		<field type="Integer" name="costValue" comment="升级消耗的科技点数" />
+		<field type="Integer" name="roleLevel" comment="角色等级" />
+		<field type="Integer" name="nextPropAddValue" comment="下一级科技效果值" />
+	</macro>
+
+	<macro id="DailyQuestRewardItem" comment="日常任务奖励物品信息">
+		<field type="Integer" name="itemId" comment="奖励物品ID"></field>
+		<field type="Integer" name="itemCount" comment="数量"></field>
+	</macro>
+
+	<macro id="DailyQuestReward" comment="日常任务奖励">
+		<field type="Integer" name="boxId" comment="箱子ID" />
+		<field type="Integer" name="state" comment="箱子状态" />
+		<field type="Integer" name="scoreLimit" comment="积分限制" />
+		<field type="Integer" name="rewardMoney" comment="奖励金币" />
+		<field type="String" name="tip" comment="宝箱tip" />
+		<field type="com.hifun.soul.gameserver.human.quest.daily.DailyItemReward"
+			name="dailyRewardItems" list="true" comment="日常任务物品奖励"
+			clientType="DailyQuestRewardItemData" macro="DailyQuestRewardItem">
+		</field>
+	</macro>
+
+	<macro id="GemPosition" comment="棋盘的位置">
+		<field type="Integer" name="row" comment="原始行号"></field>
+		<field type="Integer" name="col" comment="原始列号"></field>
+		<field type="Integer" name="type" comment="宝石类型"></field>
+	</macro>
+
+	<macro id="ColNewGems" comment="新生成的宝石列集合">
+		<field type="Integer" name="col" comment="列号"></field>
+		<field type="Integer" name="gems" comment="本列新生成的宝石" list="true"></field>
+	</macro>
+
+	<macro id="ChessBoardSnap" comment="棋盘的快照">
+		<field type="com.hifun.soul.gameserver.battle.gem.GemPosition"
+			name="erasableGems" comment="需要消除的宝石" list="true" macro="GemPosition"></field>
+		<field type="com.hifun.soul.gameserver.battle.gem.
+		ColNewGems"
+			name="generatedGems" comment="新生成的宝石" list="true" macro="ColNewGems"></field>
+		<field type="Integer" name="eraseCount" comment="本次回合中消除的个数"></field>
+		<field type="Boolean" name="triggerNewRound" comment="是否触发新回合(触发四连消)"></field>
+	</macro>
+
+	<macro id="SkillInfo" comment="技能信息">
+		<field type="Integer" name="skillId" comment="奖励物品ID"></field>
+		<field type="String" name="skillName" comment="技能名称"></field>
+		<field type="String" name="skillDesc" comment="技能描述"></field>
+		<field type="Integer" name="skillActionId" comment="技能动作id"></field>
+		<field type="Integer" name="flyEffectId" comment="飞行特效ID"></field>
+		<field type="Integer" name="beHitedEffectId" comment="受击特效ID"></field>
+		<field type="Integer" name="enemyBeHitedEffectId" comment="敌方受击特效ID"></field>
+		<field type="Integer" name="cooldownRound" comment="技能冷却回合"></field>
+		<field type="Integer" name="attackType" comment="攻击类型,近身或者远程"></field>
+		<field type="Integer" name="skillType" comment="技能类型(普通攻击,combo攻击, 其它技能)"></field>
+		<field type="Boolean" name="needSelectGem" comment="是否需要点选宝石"></field>
+		<field type="Integer" name="rangeType" comment="点选宝石类型"></field>
+		<field type="Boolean" name="useRoundOver" comment="使用技能后;回合是否结束"></field>
+		<field type="Integer" name="redCost" comment="红消耗"></field>
+		<field type="Integer" name="yellowCost" comment="黄消耗"></field>
+		<field type="Integer" name="greenCost" comment="绿消耗"></field>
+		<field type="Integer" name="blueCost" comment="蓝消耗"></field>
+		<field type="Integer" name="purpleCost" comment="紫消耗"></field>
+		<field type="Boolean" name="isCarried" comment="是否在战斗中携带"></field>
+		<field type="Integer" name="skillSound" comment="技能音效"></field>
+		<field type="Integer" name="skillIcon" comment="技能图标ID"></field>
+		<field type="Integer" name="slotIndex" comment="技能栏位置, 只有装备了的技能才有此属性"></field>
+		<field type="Integer" name="skillState" comment="技能状态"></field>
+		<field type="Integer" name="skillDevelopType" comment="技能发展类型"></field>
+		<field type="Integer" name="needLevel" comment="需要等级"></field>
+		<field type="Integer" name="needSkillPoints" comment="需要技能点"></field>
+		<field type="String" name="skillScrollName" comment="卷轴名称"></field>
+		<field type="Boolean" name="isNeedSkillScroll" comment="是否需要卷轴"></field>
+		<field type="String" name="preSkillName" comment="前置技能名称"></field>
+		<field type="Boolean" name="preSkillIsOpen" comment="前置技能是否已经开启"></field>
+		<field type="Boolean" name="hasSkillScroll" comment="是否有技能卷轴"></field>
+		<field type="Boolean" name="skillPointsIsEnough" comment="技能点是否足够"></field>
+	</macro>
+
+	<macro id="MagicSlotInfo" comment="魔法槽信息">
+		<field type="Integer" name="currentSize" comment="当前大小"></field>
+		<field type="Integer" name="capacity" comment="容量"></field>
+		<field type="Integer" name="energyType" comment="魔法类型"></field>
+	</macro>
+
+	<macro id="MagicInfo" comment="魔法信息">
+		<field type="Integer" name="initValue" comment="初始值"></field>
+		<field type="Integer" name="maxValue" comment="最大值 "></field>
+		<field type="Integer" name="addValue" comment="加成值"></field>
+		<field type="Integer" name="energyType" comment="魔法类型"></field>
+	</macro>
+
+	<macro id="StageSimpleInfo" comment="关卡简单信息">
+		<field type="Integer" name="stageId" comment="关卡id"></field>
+		<field type="Integer" name="x" comment="x位置"></field>
+		<field type="Integer" name="y" comment="y位置"></field>
+		<field type="String" name="stageName" comment="关卡名称"></field>
+		<field type="String" name="stageDesc" comment="关卡描述"></field>
+		<field type="Integer" name="minLevel" comment="关卡等级"></field>
+		<field type="Boolean" name="pass" comment="关卡是否已经通过"></field>
+		<field type="Integer" name="monsterIcon" comment="怪物icon"></field>
+		<field type="Integer" name="mapId" comment="地图id"></field>
+		<field type="Integer" name="star" comment="关卡星级"></field>
+		<field type="Boolean" name="autoBattle" comment="是否可以自动战斗"></field>
+		<field type="String" name="monsterName" comment="怪物名称"></field>
+		<field type="Integer" name="monsterLevel" comment="怪物等级"></field>
+		<field type="Integer" name="monsterOccupation" comment="怪物职业"></field>
+		<field type="Integer" name="rewardExperience" comment="经验值"></field>
+		<field type="Short" name="rewardCurrencyType" comment="货币类型"></field>
+		<field type="Integer" name="rewardCurrencyNum" comment="货币数量"></field>
+		<field type="Integer" name="monsterFirstAttack" comment="怪物先攻"></field>
+	</macro>
+
+	<macro id="MapStrongholdInfo" comment="地圖据点单信息">
+		<field type="Integer" name="strongholdId" comment="据点id"></field>
+		<field type="Integer" name="bgId" comment="据点剧情背景id"></field>
+		<field type="Integer" name="resourceId" comment="据点资源id"></field>
+		<field type="Integer" name="x" comment="据点x坐标"></field>
+		<field type="Integer" name="y" comment="据点y坐标"></field>
+		<field type="String" name="name" comment="据点名称"></field>
+		<field type="String" name="desc" comment="据点剧情描述"></field>
+		<field type="Boolean" name="isOpen" comment="据点是否开启"></field>
+	</macro>
+
+	<macro id="StageInfo" comment="关卡详细信息">
+		<field type="Integer" name="stageId" comment="关卡id"></field>
+		<field type="Integer" name="x" comment="x位置"></field>
+		<field type="Integer" name="y" comment="y位置"></field>
+		<field type="String" name="stageName" comment="关卡名称"></field>
+		<field type="String" name="stageDesc" comment="关卡描述"></field>
+		<field type="Integer" name="minLevel" comment="关卡等级"></field>
+		<field type="Integer" name="monsterId" comment="怪物id"></field>
+		<field type="String" name="monsterName" comment="怪物名称"></field>
+		<field type="Integer" name="monsterLevel" comment="怪物等级"></field>
+		<field type="Integer" name="rewardExperience" comment="经验值"></field>
+		<field type="Short" name="rewardCurrencyType" comment="货币类型"></field>
+		<field type="Integer" name="rewardCurrencyNum" comment="货币数量"></field>
+		<field type="String" name="itemName" comment="掉落物品名称" ></field>
+		<field type="Integer" name="monsterOccupation" comment="怪物职业"></field>
+	</macro>
+
+	<macro id="StageMapInfo" comment="关卡地图信息">
+		<field type="Integer" name="mapId" comment="地图id"></field>
+		<field type="String" name="mapName" comment="地图名称"></field>
+		<field type="String" name="mapDesc" comment="地图描述"></field>
+		<field type="Integer" name="icon" comment="地图icon"></field>
+		<field type="Integer" name="passCount" comment="通关数量"></field>
+		<field type="Integer" name="totalCount" comment="所有关卡数量"></field>
+		<field type="Integer" name="simpleIcon" comment="地图小icon"></field>
+		<field type="String" name="chapter" comment="章节"></field>
+		<field type="Integer" name="mapState" comment="地图状态"></field>
+	</macro>
+
+	<macro id="StageDramaInfo" comment="关卡剧情信息">
+		<field type="Integer" name="stageId" comment="关卡id"></field>
+		<field type="Integer" name="order" comment="剧情顺序"></field>
+		<field type="Integer" name="dramaType" comment="剧情类型(1:对话;2:旁白;)"></field>
+		<field type="String" name="content" comment="对话内容"></field>
+		<field type="String" name="name" comment="任务名称"></field>
+		<field type="Integer" name="icon" comment="头像图标"></field>
+		<field type="Integer" name="positionType" comment="头像位置(1:左;2:右)"></field>
+	</macro>
+
+	<macro id="MagicChangeData" comment="魔法变化信息">
+		<field type="Integer" name="changeRed" comment="红魔变化" />
+		<field type="Integer" name="changeYellow" comment="黄魔变化" />
+		<field type="Integer" name="changeBlue" comment="蓝魔变化" />
+		<field type="Integer" name="changeGreen" comment="绿魔变化" />
+		<field type="Integer" name="changePurple" comment="紫魔变化" />
+	</macro>
+
+	<macro id="BuffInfo" comment="buff信息">
+		<field type="Integer" name="buffId" comment="当前buff的唯一标识" />
+		<field type="Integer" name="buffType" comment="buff类型" />
+		<field type="Integer" name="buffResourceId" comment="buff资源id" />
+		<field type="String" name="buffName" comment="buff名称" />
+		<field type="String" name="buffDesc" comment="buff描述" />
+		<field type="Integer" name="buffSelfType" comment="buff自身类型(buff or debuff)" />
+		<field type="Integer" name="round" comment="持续的回合数" />
+	</macro>
+
+	<macro id="TurntableRewardInfo" comment="转盘奖励信息">
+		<field type="Integer" name="id" comment="id"></field>
+		<field type="String" name="roleName" comment="角色名称"></field>
+		<field type="String" name="rewardName" comment="奖品名称"></field>
+	</macro>
+
+	<macro id="LoginRewardInfo" comment="连续登陆奖励翻牌数据">
+		<field type="Integer" name="index" comment="奖励显示位置"></field>
+		<field type="com.hifun.soul.gameserver.item.assist.SimpleCommonItem"
+			name="commonItem" comment="奖励物品" clientType="SimpleCommonItemData"
+			macro="SimpleCommonItem">
+		</field>
+	</macro>
+
+	<macro id="LoginRewardTimeInfo" comment="连续登陆奖励翻牌次数信息">
+		<field type="Integer" name="days" comment="连续登陆天数"></field>
+		<field type="Integer" name="times" comment="抽奖次数"></field>
+	</macro>
+
+	<macro id="SpecialLoginRewardInfo" comment="连续登陆特殊奖励翻牌数据">
+		<field type="Integer" name="days" comment="连续登陆奖励天数"></field>
+		<field type="com.hifun.soul.gameserver.item.assist.SimpleCommonItem"
+			name="reward" comment="奖励物品" clientType="SimpleCommonItemData" macro="SimpleCommonItem">
+		</field>
+		<field type="Integer" name="state" comment="登陆奖励领取状态"></field>
+	</macro>
+
+	<macro id="CostNotifyInfo" comment="消费提醒设置信息">
+		<field type="Integer" name="costNotifyType" comment="消费提醒类型"></field>
+		<field type="Boolean" name="open" comment="开启状态"></field>
+		<field type="String" name="name" comment="名称"></field>
+		<field type="String" name="desc" comment="描述"></field>
+	</macro>
+
+	<macro id="ArenaMember" comment="竞技场成员信息">
+		<field type="Integer" name="rank" comment="排名信息"></field>
+		<field type="Long" name="roleId" comment="角色id"></field>
+		<field type="Integer" name="icon" comment="图标"></field>
+		<field type="String" name="name" comment="名称"></field>
+		<field type="Integer" name="level" comment="等级"></field>
+		<field type="Long" name="legionId" comment="军团id"></field>
+		<field type="String" name="legionName" comment="军团名称"></field>
+		<field type="Integer" name="rankRewardId" comment="奖励id"></field>
+		<field type="Integer" name="rankRewardState" comment="奖励领取状态"></field>
+		<field type="Integer" name="occupation" comment="职业"></field>
+		<field type="Integer" name="yellowVipLevel" comment="黄钻等级"></field>
+		<field type="Boolean" name="isYearYellowVip" comment="是否为年费黄钻用户"></field>
+		<field type="Boolean" name="isYellowHighVip" comment="是否为豪华黄钻用户"></field>
+	</macro>
+
+	<macro id="ArenaNotice" comment="竞技场提示信息">
+		<field type="Long" name="roleId" comment="角色id"></field>
+		<field type="String" name="roleName" comment="角色名称"></field>
+		<field type="Long" name="otherRoleId" comment="角色id"></field>
+		<field type="String" name="otherRoleName" comment="角色名称"></field>
+		<field type="Boolean" name="win" comment="是否是赢家"></field>
+		<field type="Integer" name="timeInterval" comment="时间间隔 "></field>
+		<field type="Boolean" name="isChallenger" comment="是否是挑战者"></field>
+		<field type="Integer" name="rank" comment="排名"></field>
+		<field type="Boolean" name="isUpFiveAndHigherVsLower" comment="是否是前5名，且高排名挑战低排名"></field>
+	</macro>
+
+	<macro id="FriendBattleInfo" comment="好友切磋信息">
+		<field type="Long" name="roleId" comment="角色id"></field>
+		<field type="String" name="roleName" comment="角色名称"></field>
+		<field type="Long" name="otherRoleId" comment="角色id"></field>
+		<field type="String" name="otherRoleName" comment="角色名称"></field>
+		<field type="Boolean" name="win" comment="是否是赢家"></field>
+		<field type="Integer" name="timeInterval" comment="时间间隔 "></field>
+		<field type="Boolean" name="isChallenger" comment="是否是挑战者"></field>
+	</macro>
+
+	<macro id="EmbedGemInfo" comment="镶嵌的宝石信息">
+		<field type="Integer" name="index" comment="宝石位置"></field>
+		<field type="com.hifun.soul.gameserver.item.assist.CommonItem"
+			name="commonItem" comment="物品的基础属性信息" macro="CommonItem">
+		</field>
+	</macro>
+
+	<macro id="SkillSlot" comment="技能栏数据">
+		<field type="Integer" name="slotIndex" comment="栏位索引"></field>
+		<field type="Integer" name="state" comment="状态"></field>
+		<field type="Integer" name="needHumanLevel" comment="开启需要的角色等级"></field>
+		<field type="Integer" name="costCoin" comment="消耗金币"></field>
+		<field type="Integer" name="costCrystal" comment="消耗魔晶"></field>
+		<field type="Integer" name="openTitle" comment="开启军衔等级"></field>
+		<field type="String" name="openTitleName" comment="开启军衔名称"></field>
+	</macro>
+
+	<macro id="BossInfo" comment="boss信息">
+		<field type="Integer" name="bossId" comment="bossId"></field>
+		<field type="String" name="name" comment="名称"></field>
+		<field type="Integer" name="icon" comment="图标"></field>
+		<field type="Integer" name="level" comment="boss等级"></field>
+		<field type="Integer" name="bossState" comment="boss状态"></field>
+		<field type="Integer" name="remainBlood" comment="剩余血量"></field>
+		<field type="Integer" name="totalBlood" comment="总血量"></field>
+		<field type="Integer" name="joinPeopleNum" comment="参与人数"></field>
+	</macro>
+
+	<macro id="StargazerInfo" comment="boss信息">
+		<field type="Integer" name="stargazerId" comment="占星师id"></field>
+		<field type="String" name="name" comment="名称"></field>
+		<field type="String" name="desc" comment="描述"></field>
+		<field type="Integer" name="icon" comment="图标"></field>
+		<field type="Short" name="costCurrencyType" comment="占星需要花费的货币类型"></field>
+		<field type="Integer" name="costCurrencyNum" comment="占星需要花费的货币数量"></field>
+		<field type="Boolean" name="open" comment="是否开启"></field>
+	</macro>
+
+	<macro id="HoroscopeSoulInfo" comment="运魂装备位信息">
+		<field type="Integer" name="horoscopeSoulType" comment="运魂位置"></field>
+		<field type="String" name="desc" comment="描述"></field>
+		<field type="Boolean" name="open" comment="是否开启"></field>
+		<field type="Integer" name="level" comment="开启等级"></field>
+	</macro>
+
+	<macro id="CommonActionCounter" comment="操作计数器信息">
+		<field type="Integer" name="totalCount" comment="总共的次数" />
+		<field type="Integer" name="remainCount" comment="剩余次数" />
+		<field type="Integer" name="currencyType" comment="当前操作花费货币类型" />
+		<field type="Integer" name="currencyNum" comment="当前操作花费货币数量" />
+	</macro>
+
+	<macro id="EliteStageInfo" comment="精英副本信息">
+		<field type="Integer" name="stageId" comment="关卡id" />
+		<field type="String" name="monsterName" comment="怪物名称" />
+		<field type="Integer" name="monsterIconId" comment="怪物图标id" />
+		<field type="Integer" name="openLevel" comment="开启等级" />
+		<field type="Integer" name="openState" comment=" 开启状态：0表示未开启，1表示已开启，2表示锁定可见" />
+		<field type="Boolean" name="challengeState" comment="是否已挑战：true表示已挑战，false表示未挑战" />
+		<field type="Integer" name="coinNum" comment="奖励金币" />
+		<field type="Integer" name="exp" comment="奖励经验" />
+		<field type="Integer" name="techPoint" comment="奖励科技点" />
+		<field type="String" list="true" name="itemNames" comment="奖励物品名称" />
+		<field type="Integer" name="energyNum" comment="消耗体力值" />
+		<field type="Integer" name="star" comment="关卡评星" />
+		<field type="Boolean" name="passState" comment="是否战胜过该关卡" />
+		<field type="com.hifun.soul.gameserver.elitestage.model.EliteStageTypeInfo"
+			clientType="EliteStageTypeInfo" macro="EliteStageTypeInfo" name="typeInfo" comment="副本类型信息">			
+		</field>
+	</macro>
+	
+	<macro id="EliteStageTypeInfo" comment="精英副本类型信息">
+		<field type="Integer" name="stageType" comment="副本类型" />
+		<field type="String" name="typeName" comment="副本名称" />
+		<field type="Integer" name="openLevel" comment="开启等级" />
+	</macro>
+
+	<macro id="ActivityBaseInfo" comment="活动基础信息">
+		<field type="Integer" name="id" comment="活动Id(或分类id)" />
+		<field type="Integer" name="activityType" comment="活动类型：0表示该对象是一个分类" />
+		<field type="Integer" name="iconId" comment="图标id" />
+		<field type="String" name="name" comment="名称" />
+		<field type="Integer" name="state" comment="活动状态：参见ActivityState枚举" />
+	</macro>
+
+	<macro id="GmQuestionInfo" comment="gm问答信息">
+		<field type="Long" name="questionId" comment="问题id" />
+		<field type="String" name="name" comment="提问玩家姓名" />
+		<field type="String" name="content" comment="内容" />
+	</macro>
+
+	<macro id="RewardBaseInfo" comment="奖励信息">
+		<field type="Integer" name="id" comment="奖励id"></field>
+		<field type="String" name="name" comment="奖励名称"></field>
+		<field type="Integer" name="icon" comment="奖励图标"></field>
+	</macro>
+
+	<macro id="MagicStoneInfo" comment="魔法石">
+		<field type="Integer" name="id" comment="魔法石id" />
+		<field type="Integer" name="icon" comment="魔法石图标" />
+		<field type="Boolean" name="collected" comment="是否已经选中" />
+		<field type="Integer" name="targetIndex" comment="目标中的索引" />
+	</macro>
+
+	<macro id="MineFieldInfo" comment="矿坑信息">
+		<field type="Integer" name="index" comment="位置索引" />
+		<field type="Integer" name="type" comment="矿坑类型id" />
+		<field type="String" name="name" comment="矿坑类型名称" />
+		<field type="String" name="desc" comment="矿坑类型描述" />
+		<field type="Integer" name="picId" comment="矿坑图片id" />
+		<field type="Boolean" name="isBadMineField" comment="是否为贫矿" />
+	</macro>
+
+	<macro id="SpecialShopItem" comment="神秘商店物品">
+		<field type="Integer" name="id" comment="神秘商店物品id"></field>
+		<field type="Integer" name="itemId" comment="物品id"></field>
+		<field type="Integer" name="itemNum" comment="物品数量"></field>
+		<field type="Integer" name="currencyType" comment="购买货币类型"></field>
+		<field type="Integer" name="currencyNum" comment="购买货币数量"></field>
+		<field type="Boolean" name="isBuy" comment="是否已经购买"></field>
+		<field type="com.hifun.soul.gameserver.item.assist.CommonItem"
+			name="commonItem" comment="物品的基础属性信息" macro="CommonItem">
+		</field>
+	</macro>
+
+	<macro id="SpecialShopNotify" comment="神秘商店物品公告">
+		<field type="Integer" name="id" comment="数据库自动生成,自增id"></field>
+		<field type="String" name="roleName" comment="角色名称"></field>
+		<field type="String" name="itemName" comment="物品名称"></field>
+		<field type="Integer" name="itemNum" comment="物品数量"></field>
+	</macro>
+
+	<macro id="FunctionInfo" comment="功能开放信息">
+		<field type="Integer" name="id" comment="功能ID"></field>
+		<field type="Integer" name="openLevel" comment="开启等级"></field>
+	</macro>
+	
+	<macro id="FuncNotifyInfo" comment="功能提示信息">
+		<field type="Integer" name="funcType" comment="功能类型"></field>
+		<field type="Boolean" name="notify" comment="是否提示" />
+	</macro>
+
+	<macro id="HelpInfo" comment="小助手信息">
+		<field type="Integer" name="helpType" comment="类型"></field>
+		<field type="Integer" name="state" comment="状态"></field>
+		<field type="Integer" name="usedTimes" comment="已经用的次数"></field>
+		<field type="Integer" name="totalTimes" comment="最大次数"></field>
+	</macro>
+
+	<macro id="BattlePopInfo" comment="战斗pop">
+		<field type="Long" name="roleId" comment="角色ID"></field>
+		<field type="String" name="words" comment="pop内容" list="true"></field>
+	</macro>
+
+	<macro id="StageStarRewardItem" comment="关卡评星奖励物品信息">
+		<field type="Integer" name="itemId" comment="道具Id"></field>
+		<field type="Integer" name="itemNum" comment="道具数量"></field>
+		<field type="com.hifun.soul.gameserver.item.assist.CommonItem"
+			name="commonItem" comment="物品的基础属性信息" macro="CommonItem">
+		</field>
+	</macro>
+
+	<macro id="MeditationFriendAssistInfo" comment="好友协助冥想信息">
+		<field type="Integer" name="index" comment="位置id" />
+		<field type="com.hifun.soul.gameserver.friend.FriendInfo"
+			clientType="FriendInfoData" name="friendInfo" comment="好友信息" macro="FriendInfo">
+		</field>
+		<field type="Integer" name="assistRate" comment="协助加成比例" />
+		<field type="Integer" name="totalTechPoint" comment="最高科技点数" />
+	</macro>
+
+	<macro id="PerfectMapRewardStateInfo" comment="完美通关奖励状态信息">
+		<field type="Integer" name="mapId" comment="地图id" />
+		<field type="Integer" name="perfectRewardState" comment="完美通关奖励状态" />
+	</macro>
+	
+	<macro id="GiftInfo" comment="天赋信息">
+		<field type="Integer" name="id" comment="天赋id" />
+		<field type="Integer" name="type" comment="天赋类型" />
+		<field type="String" name="name" comment="天赋名称" />
+		<field type="Integer" name="icon" comment="图标" />
+		<field type="Integer" name="currentPropertyId" comment="当前属性id" />
+		<field type="Integer" name="currentPropertyValue" comment="当前属性值" />
+		<field type="Integer" name="propertyValueType" comment="加成方式（1整数显示，2百分比显示）" />
+		<field type="Integer" name="costGiftPoint" comment="激活需要的天赋点" />
+		<field type="Integer" name="activeState" comment="激活状态（0未解锁，1可激活，2已激活）" />
+		<field type="String" name="desc" comment="天赋描述" />
+		<field type="Integer" name="currentLevel" comment="当前等级" />
+		<field type="Integer" name="maxLevel" comment="最大等级" />
+		<field type="Integer" name="openLevel" comment="开启等级" />
+		<field type="Integer" name="nextPropertyId" comment="下级属性id" />
+		<field type="Integer" name="nextPropertyValue" comment="下级属性id" />
+		<field type="com.hifun.soul.gameserver.item.assist.CommonItem"
+			name="costItem" comment="消耗道具" clientType="CommonItemData"
+			macro="CommonItem">
+		</field>
+		<field type="Integer" name="costItemNum" comment="消耗物品数量" />
+		<field type="Integer" name="bagItemNum" comment="背包中物品数量" />
+		<field type="Integer" name="upgradeNeedLevel" comment="升级需要角色等级" />
+	</macro>
+
+	<macro id="GemAttribute" comment="属性区间">
+		<field type="Integer" name="propKey" comment="属性id" />
+		<field type="Integer" name="propValue" comment="属性最小值" />
+		<field type="Integer" name="propMaxValue" comment="属性最大值" />
+	</macro>
+
+	<macro id="RefineMapInfo" comment="试炼地图信息">
+		<field type="Integer" name="mapId" comment="试炼地图id" />
+		<field type="String" name="mapName" comment="试炼地图名称" />
+		<field type="Integer" name="mapOpenLevel" comment="试炼地图开放等级" />
+		<field type="Integer" name="mapStageNum" comment="试炼地图关卡数量" />
+		<field type="Boolean" name="mapActivated" comment="试炼地图是否激活" />
+	</macro>
+
+	<macro id="RefineStageInfo" comment="试炼关卡信息">
+		<field type="Integer" name="mapId" comment="试炼地图id" />
+		<field type="String" name="mapName" comment="试炼地图名称" />
+		<field type="Integer" name="stageId" comment="关卡id" />
+		<field type="Integer" name="monsterId" comment="怪物id" />
+		<field type="String" name="monsterName" comment="怪物名称" />
+		<field type="Integer" name="monsterLevel" comment="怪物等级" />
+		<field type="Integer" name="monsterIcon" comment="怪物图标" />
+		<field type="com.hifun.soul.gameserver.item.assist.CommonItem"
+			name="commonItem" comment="试炼奖励物品" macro="CommonItem">
+		</field>
+		<field type="Integer" name="rewardNum" comment="奖励物品数量" />
+		<field type="Integer" name="attackState" comment="攻打状态" />
+		<field type="Boolean" name="getted" comment="是否之前战胜过" />
+		<field type="Integer" name="rewardAnima" comment="奖励灵气" />
+	</macro>
+
+	<macro id="MatchBattleRoleInfo" comment="匹配战角色信息">
+		<field type="Long" name="roleId" comment="角色id" />
+		<field type="String" name="roleName" comment="角色名称" />
+		<field type="Integer" name="battleState" comment="参战状态" />
+	</macro>
+
+	<macro id="MatchBattleRankRoleInfo" comment="匹配战排行榜角色信息">
+		<field type="Long" name="roleId" comment="角色id" />
+		<field type="String" name="roleName" comment="角色名称" />
+		<field type="Integer" name="occupation" comment="职业" />
+		<field type="Integer" name="level" comment="等级" />
+		<field type="Integer" name="consecutiveWinCount" comment="连胜场数" />
+	</macro>
+
+	<macro id="SkillDevelopInfo" comment="技能发展类型信息">
+		<field type="Integer" name="skillDevelopType" comment="技能发展类型" />
+		<field type="Integer" name="icon" comment="图标" />
+		<field type="Integer" name="recommendPointType" comment="推荐加点" />
+		<field type="Integer" name="mainCostMagic" comment="主要消耗魔法" />
+		<field type="String" name="assistCostMagic" comment="辅助消耗魔法(分号隔开)" />
+	</macro>
+	<macro id="TitleInfo" comment="军衔列表">
+		<field type="Integer" name="titleId" comment="军衔id" />
+		<field type="String" name="titleName" comment="军衔名称" />
+		<field type="Integer" name="needPrestige" comment="升级所需威望" />
+		<field type="Integer" name="maxHonor" comment="荣誉上限" />
+		<field type="Integer" name="titleSalary" comment="每日俸禄" />
+		<field type="Integer" name="titleSkillNum" comment="携带技能数量" />
+		<field type="com.hifun.soul.gameserver.title.template.HumanTitleProperty"
+			clientType="TitlePropertyInfoData" name="titleProperties" list="true"
+			comment="获得的属性加成">
+			<field type="Integer" name="propertyId" comment="属性id" />
+			<field type="Integer" name="amendType" comment="属性加成方式" />
+			<field type="Integer" name="propertyValue" comment="属性加成值" />
+		</field>
+	</macro>
+	<macro id="OwnLegionInfo" comment="所在军团信息">
+		<field type="String" name="legionName" comment="军团名称" />
+		<field type="String" name="commanderName" comment="团长名称" />
+		<field type="String" name="notice" comment="公告" />
+		<field type="Integer" name="legionLevel" comment="军团等级" />
+		<field type="Integer" name="memberLimit" comment="军团人数限制" />
+		<field type="Integer" name="memberNum" comment="军团当前人数" />
+		<field type="Integer" name="experience" comment="经验值" />
+		<field type="Integer" name="levelMaxExperience" comment="升级所需经验值" />
+		<field type="Integer" name="donateGetLegionExp" comment="捐献1魔晶获得军团经验" />
+		<field type="Integer" name="donateGetSelfContri" comment="捐献1魔晶获得个人贡献" />
+		<field type="Integer" name="donateGetMedal" comment="捐献1魔晶获得军团勋章" />
+	</macro>
+	<macro id="LegionInfo" comment="军团列表信息">
+		<field type="Long" name="legionId" comment="军团ID" />
+		<field type="String" name="legionName" comment="军团名称" />
+		<field type="String" name="commanderName" comment="团长名称" />
+		<field type="Integer" name="legionLevel" comment="军团等级" />
+		<field type="Integer" name="memberLimit" comment="成员人数限制" />
+		<field type="Integer" name="memberNum" comment="成员数量" />
+		<field type="Integer" name="applyButtonStatus" comment="申请按钮状态" />
+	</macro>
+	<macro id="LegionMemberInfo" comment="军团成员列表信息">
+		<field type="Long" name="memberId" comment="成员ID" />
+		<field type="String" name="memberName" comment="成员名称" />
+		<field type="Integer" name="level" comment="成员等级" />
+		<field type="Integer" name="arenaRank" comment="竞技排名" />
+		<field type="String" name="positionName" comment="职位名称" />
+		<field type="Integer" name="todayContribution" comment="今日贡献" />
+		<field type="Integer" name="totalContribution" comment="总贡献" />
+		<field type="Integer" name="offLineTimeInterval" comment="最后在线距离现在时间间隔" />
+		<field type="Boolean" name="transferButtonVisible" comment="转让按钮是否可见" />
+		<field type="Boolean" name="removeButtonVisible" comment="移除按钮是否可见" />
+	</macro>
+	<macro id="LegionApplyInfo" comment="军团申请列表信息">
+		<field type="Long" name="applyHumanId" comment="申请人ID" />
+		<field type="String" name="applyHumanName" comment="申请人名称" />
+		<field type="Integer" name="applyHumanLevel" comment="申请人等级" />
+		<field type="Integer" name="applyArenaRank" comment="申请人竞技排名" />
+		<field type="Boolean" name="checkButtionVisible" comment="审核按钮是否可见" />
+	</macro>
+	<macro id="LegionLogInfo" comment="军团日志列表信息">
+		<field type="String" name="content" comment="日志内容" />
+	</macro>
+	<macro id="LegionFuncInfo" comment="军团子功能开启列表信息">
+		<field type="Integer" name="buildingType" comment="建筑类型" />
+		<field type="Integer" name="openLegionLevel" comment="开启军团等级" />
+	</macro>
+	<macro id="GuideStepInfo" comment="引导">
+		<field type="Integer" name="maskColorInt" comment="蒙板颜色" />
+		<field type="Short" name="maskAlpha" comment="蒙板透明度" />
+		<field type="String" name="guideText" comment="引导文字" />
+		<field type="Short" name="textPosX" comment="引导文字 X 坐标位置" />
+		<field type="Short" name="textPosY" comment="引导文字 Y 坐标位置" />
+		<field type="Short" name="textMode" comment="引导文字方式" />
+		<field type="Short" name="highlite1PosX" comment="高亮区域 1 X 坐标位置" />
+		<field type="Short" name="highlite1PosY" comment="高亮区域 1 Y 坐标位置" />
+		<field type="Short" name="highlite1Width" comment="高亮区域 1 宽度" />
+		<field type="Short" name="highlite1Height" comment="高亮区域 1 高度" />
+		<field type="Integer" name="highlite1BorderColor" comment="高亮区域 1 边框颜色" />
+		<field type="Short" name="highlite1BorderThickness" comment="高亮区域 1 边框厚度" />
+		<field type="Short" name="highlite2PosX" comment="高亮区域 2 X 坐标位置" />
+		<field type="Short" name="highlite2PosY" comment="高亮区域 2 Y 坐标位置" />
+		<field type="Short" name="highlite2Width" comment="高亮区域 2 宽度" />
+		<field type="Short" name="highlite2Height" comment="高亮区域 2 高度" />
+		<field type="Integer" name="highlite2BorderColor" comment="高亮区域 2 边框颜色" />
+		<field type="Short" name="highlite2BorderThickness" comment="高亮区域 2 边框厚度" />
+		<field type="Short" name="highlite3PosX" comment="高亮区域 3 X 坐标位置" />
+		<field type="Short" name="highlite3PosY" comment="高亮区域 3 Y 坐标位置" />
+		<field type="Short" name="highlite3Width" comment="高亮区域 3 宽度" />
+		<field type="Short" name="highlite3Height" comment="高亮区域 3 高度" />
+		<field type="Integer" name="highlite3BorderColor" comment="高亮区域 3 边框颜色" />
+		<field type="Short" name="highlite3BorderThickness" comment="高亮区域 3 边框厚度" />
+		<field type="Short" name="highlite4PosX" comment="高亮区域 4 X 坐标位置" />
+		<field type="Short" name="highlite4PosY" comment="高亮区域 4 Y 坐标位置" />
+		<field type="Short" name="highlite4Width" comment="高亮区域 4 宽度" />
+		<field type="Short" name="highlite4Height" comment="高亮区域 4 高度" />
+		<field type="Integer" name="highlite4BorderColor" comment="高亮区域 4 边框颜色" />
+		<field type="Short" name="highlite4BorderThickness" comment="高亮区域 4 边框厚度" />
+		<field type="Short" name="highlite5PosX" comment="高亮区域 5 X 坐标位置" />
+		<field type="Short" name="highlite5PosY" comment="高亮区域 5 Y 坐标位置" />
+		<field type="Short" name="highlite5Width" comment="高亮区域 5 宽度" />
+		<field type="Short" name="highlite5Height" comment="高亮区域 5 高度" />
+		<field type="Integer" name="highlite5BorderColor" comment="高亮区域 5 边框颜色" />
+		<field type="Short" name="highlite5BorderThickness" comment="高亮区域 5 边框厚度" />
+		<field type="Short" name="arrow1PosX" comment="箭头 1 X 坐标位置" />
+		<field type="Short" name="arrow1PosY" comment="箭头 1 Y 坐标位置" />
+		<field type="Short" name="arrow2PosX" comment="箭头 2 X 坐标位置" />
+		<field type="Short" name="arrow2PosY" comment="箭头 2 Y 坐标位置" />
+		<field type="Short" name="arrow3PosX" comment="箭头 3 X 坐标位置" />
+		<field type="Short" name="arrow3PosY" comment="箭头 3 Y 坐标位置" />
+		<field type="Short" name="operationalPosX" comment="可操作区域 X 坐标位置" />
+		<field type="Short" name="operationalPosY" comment="可操作区域 Y 坐标位置" />
+		<field type="Short" name="operationalWidth" comment="可操作区域宽度" />
+		<field type="Short" name="operationalHeight" comment="可操作区域高度" />
+		<field type="Integer" name="operationalBorderColor" comment="可操作区域边框颜色" />
+		<field type="Short" name="operationalBorderThickness" comment="可操作区域边框厚度" />
+		<field type="String" name="event" comment="事件" />
+		<field type="String" name="controlName" comment="控件名称" />
+		<field type="String" name="movie" comment="动画资源名称" />
+		<field type="Integer" name="autoCommit" comment="在指定延迟时间后自动提交并转入下一步引导" />
+		<field type="Integer" name="sceneType" comment="场景类型" />
+		<field type="Integer" name="skillId" comment="技能id" />
+		<field type="Short" name="row1" comment="可以消除第一个宝石的row位置 " />
+		<field type="Short" name="col1" comment="可以消除的第一个宝石的col位置 " />
+		<field type="Short" name="row2" comment="可以消除第二个宝石的row位置 " />
+		<field type="Short" name="col2" comment="可以消除的第二个宝石的col位置 " />
+		<field type="Integer" name="guideIcon" comment="引导图标" />
+		<field type="Integer" name="guideIconX" comment="引导图标x" />
+		<field type="Integer" name="guideIconY" comment="引导图标y" />
+	</macro>
+	<macro id="EquipBitInfo" comment="神魄装备位信息">
+		<field type="Integer" name="equipBitType" comment="装备位类型" />
+		<field type="Integer" name="currentLevel" comment="当前等级" />
+		<field type="Integer" name="currentEffect" comment="当前效果" />
+		<field type="Integer" name="nextEffect" comment="强化效果" />
+		<field type="Integer" name="needCrystalNum" comment="增加成功率需要的魔镜数量" />
+		<field type="Integer" name="successRate" comment="成功率" />
+		<field type="Integer" name="amendSuccessRate" comment="增加成功率" />
+		<field type="Integer" name="needCoin" comment="需要金币" />
+		<field type="Integer" name="needHumanLevel" comment="需要等级" />
+		<field type="Boolean" name="isMaxLevel" comment="是否是满级" />
+	</macro>
+	<macro id="MagicPaperInfo" comment="神魄灵图信息">
+		<field type="Integer" name="paperId" comment="灵图ID" />
+		<field type="Integer" name="currentLevel" comment="当前等级" />
+		<field type="Integer" name="propertyId" comment="属性ID" />
+		<field type="Integer" name="currentEffect" comment="当前效果" />
+		<field type="Integer" name="currentEquipBitMaxLevel" comment="当前装备位等级上限" />
+		<field type="Integer" name="nextEffect" comment="升级效果" />
+		<field type="Integer" name="nextEquipBitMaxLevel" comment="升级后装备位等级上限" />
+		<field type="com.hifun.soul.gameserver.item.assist.CommonItem"
+			name="costItem" comment="消耗道具" clientType="CommonItemData"
+			macro="CommonItem">
+		</field>
+		<field type="Integer" name="costItemNum" comment="消耗道具数量" />
+		<field type="Boolean" name="isMaxLevel" comment="是否是满级" />
+		<field type="Integer" name="hasItemNum" comment="拥有道具数量" />
+	</macro>
+	<macro id="GodsoulBuffInfo" comment="神魄buff信息">
+		<field type="Integer" name="buffId" comment="buffID" />
+		<field type="Integer" name="needUpgradeLevel" comment="需要强化等级" />
+		<field type="Integer" name="propertyId" comment="属性ID" />
+		<field type="Integer" name="amendEffect" comment="加成效果" />
+		<field type="Boolean" name="valid" comment="是否激活" />
+	</macro>
+	<macro id="PrisonerInfo" comment="战俘营角色信息">
+		<field type="Long" name="humanId" comment="角色id" />
+		<field type="String" name="humanName" comment="角色名称" />
+		<field type="Integer" name="humanLevel" comment="角色等级" />
+		<field type="Integer" name="identityType" comment="身份类型" />
+		<field type="Long" name="legionId" comment="军团id" />
+		<field type="String" name="legionName" comment="军团名称" />
+		<field type="Integer" name="occupationType" comment="职业类型" />
+	</macro>
+	<macro id="HelperInfo" comment="求救信息">
+		<field type="Long" name="humanId" comment="角色id" />
+		<field type="String" name="humanName" comment="角色名称" />
+		<field type="Integer" name="humanLevel" comment="角色等级" />
+		<field type="Integer" name="identityType" comment="身份类型" />
+		<field type="Long" name="legionId" comment="军团id" />
+		<field type="String" name="legionName" comment="军团名称" />
+		<field type="Boolean" name="isForHelped" comment="是否已求救" />
+		<field type="Integer" name="occupationType" comment="职业类型" />
+	</macro>
+	<macro id="SlaveInfo" comment="战俘营奴隶信息">
+		<field type="Long" name="humanId" comment="角色id" />
+		<field type="String" name="humanName" comment="角色名称" />
+		<field type="Integer" name="humanLevel" comment="角色等级" />
+		<field type="Integer" name="identityType" comment="身份类型" />
+		<field type="Long" name="legionId" comment="军团id" />
+		<field type="String" name="legionName" comment="军团名称" />
+		<field type="Integer" name="currentExperience" comment="当前经验" />
+		<field type="Integer" name="totalExperience" comment="全部经验" />
+		<field type="Integer" name="slaveTimeDiff" comment="奴隶剩余时间" />
+		<field type="Integer" name="beInteractedTimeDiff" comment="主人与奴隶互动剩余时间" />
+		<field type="Integer" name="occupationType" comment="职业类型" />
+	</macro>
+	<macro id="MasterInfo" comment="战俘营主人信息">
+		<field type="Long" name="humanId" comment="角色id" />
+		<field type="String" name="humanName" comment="角色名称" />
+		<field type="Integer" name="humanLevel" comment="角色等级" />
+		<field type="Integer" name="identityType" comment="身份类型" />
+		<field type="Long" name="legionId" comment="军团id" />
+		<field type="String" name="legionName" comment="军团名称" />
+		<field type="Integer" name="occupationType" comment="职业类型" />
+		<field type="Integer" name="interactTimeDiff" comment="互动剩余时间" />
+	</macro>
+	<macro id="ArrestRoomInfo" comment="战俘营抓捕房间信息">
+		<field type="Integer" name="roomId" comment="房间id" />
+		<field type="Integer" name="unlockNeedCrytalNum" comment="解锁需要魔晶数量" />
+	</macro>
+	<macro id="PrisonLogInfo" comment="战俘营日志信息">
+		<field type="Integer" name="logType" comment="日志类型" />
+		<field type="Long" name="firstId" comment="第一角色" />
+		<field type="String" name="firstName" comment="第一角色名称" />
+		<field type="Long" name="secondId" comment="第二角色" />
+		<field type="String" name="secondName" comment="第二角色名称" />
+		<field type="Long" name="thirdId" comment="第三角色" />
+		<field type="String" name="thirdName" comment="第三角色名称" />
+		<field type="Integer" name="result" comment="结果" />
+		<field type="Integer" name="interactType" comment="互动类型" />
+	</macro>
+	<macro id="WrestlerInfo" comment="角斗场个人信息">
+		<field type="Integer" name="titleId" comment="军衔等级" />
+		<field type="String" name="titleName" comment="军衔名称" />
+		<field type="Integer" name="currentPrestige" comment="当前威望" />
+		<field type="Integer" name="maxPrestige" comment="升衔所需威望" />
+		<field type="Integer" name="roomId" comment="房间号" />
+		<field type="String" name="roomName" comment="房间名称" />
+		<field type="Integer" name="remainWrestleNum" comment="剩余角斗次数" />
+		<field type="Integer" name="remainTime" comment="剩余时间" />
+		<field type="Integer" name="revenue" comment="收益" />
+		<field type="Integer" name="totalRevenue" comment="累积收益" />
+		<field type="Integer" name="nextBuyNumCost" comment="下次购买次数消费" />
+		<field type="Integer" name="roomPageIndex" comment="所在房间页" />
+	</macro>
+	<macro id="AbattoirRoomInfo" comment="角斗场房间信息">
+		<field type="Integer" name="roomId" comment="房间号" />
+		<field type="String" name="roomName" comment="房间名称" />
+		<field type="Integer" name="revenue" comment="收益" />
+		<field type="Long" name="ownerId" comment="房主ID" />
+		<field type="Integer" name="ownerOccupationType" comment="房主职业类型" />
+		<field type="Integer" name="ownerType" comment="房主类型" />
+		<field type="String" name="ownerName" comment="房主名称" />
+		<field type="Integer" name="ownerLevel" comment="房主等级" />
+		<field type="Integer" name="protectTime" comment="保护时间" />
+	</macro>
+	<macro id="AbattoirEnemyInfo" comment="角斗场敌人信息">
+		<field type="Long" name="enemyId" comment="敌人ID" />
+		<field type="String" name="enemyName" comment="敌人名称" />
+		<field type="Integer" name="enemyLevel" comment="敌人等级" />
+		<field type="Integer" name="lootTimeInterval" comment="抢夺时间间隔" />
+	</macro>
+	<macro id="BloodTempleRoomInfo" comment="嗜血神殿房间信息">
+		<field type="Integer" name="roomId" comment="房间号" />
+		<field type="String" name="roomName" comment="房间名称" />
+		<field type="Integer" name="revenue" comment="收益" />
+		<field type="Long" name="ownerId" comment="房主ID" />
+		<field type="Integer" name="ownerOccupationType" comment="房主职业类型" />
+		<field type="Integer" name="ownerType" comment="房主类型" />
+		<field type="String" name="ownerName" comment="房主名称" />
+		<field type="Integer" name="ownerLevel" comment="房主等级" />
+		<field type="Integer" name="ownerTitleId" comment="房主军衔等级" />
+		<field type="String" name="ownerTitleName" comment="房主军衔名称" />
+		<field type="Long" name="ownerLegionId" comment="房主军团ID" />
+		<field type="String" name="ownerLegionName" comment="房主军团名称" />
+		<field type="Integer" name="protectTime" comment="保护时间" />
+	</macro>
+	<macro id="BloodTempleEnemyInfo" comment="嗜血神殿敌人信息">
+		<field type="Long" name="enemyId" comment="敌人ID" />
+		<field type="String" name="enemyName" comment="敌人名称" />
+		<field type="Integer" name="enemyLevel" comment="敌人等级" />
+		<field type="Integer" name="lootTimeInterval" comment="抢夺时间间隔" />
+	</macro>
+	<macro id="MarsFieldInfo" comment="战神之巅场别信息">
+		<field type="String" name="fieldName" comment="场别名称" />
+		<field type="Integer" name="startLevel" comment="起始等级" />
+		<field type="Integer" name="endLevel" comment="结束等级" />
+	</macro>
+	<macro id="MarsRoomInfo" comment="战神之巅房间信息">
+		<field type="Integer" name="roomType" comment="房间类型" />
+		<field type="Integer" name="isLocked" comment="是否锁定" />
+		<field type="Integer" name="produceStarSoul" comment="产生星魂" />
+		<field type="Integer" name="produceKillValue" comment="产生杀戮值" />
+		<field type="com.hifun.soul.gameserver.mars.msg.info.MarsPlayerInfo"
+			clientType="MarsPlayerInfoData" name="ownerInfo" comment="房主信息"
+			macro="MarsPlayerInfo">
+		</field>
+		<field type="com.hifun.soul.gameserver.mars.msg.info.MarsBetInfo"
+			list="true" clientType="MarsBetInfoData" name="betInfos" comment="加倍信息"
+			macro="MarsBetInfo">
+		</field>
+	</macro>
+	<macro id="MarsBetInfo" comment="战神之巅房间加倍信息">
+		<field type="Integer" name="multiple" comment="倍数" />
+		<field type="Integer" name="costNum" comment="花费数量" />
+		<field type="Boolean" name="visible" comment="是否可见" />
+	</macro>
+	<macro id="MarsPlayerInfo" comment="战神之巅玩家信息">
+		<field type="Long" name="playerId" comment="玩家ID" />
+		<field type="String" name="playerName" comment="玩家名称" />
+		<field type="Integer" name="playerLevel" comment="玩家等级" />
+		<field type="Integer" name="occupationType" comment="职业类型" />
+		<field type="Integer" name="todayKillValue" comment="今日杀戮值" />
+	</macro>
+	<macro id="MarsSelfInfo" comment="战神之巅个人信息">
+		<field type="Integer" name="remainKillNum" comment="剩余技术次数" />
+		<field type="Integer" name="totalKillNum" comment="总击杀次数" />
+		<field type="Integer" name="remainMultipleNum" comment="剩余加倍次数" />
+		<field type="Integer" name="buyMultipleNumCost" comment="购买加倍次数花费" />
+		<field type="Integer" name="totalMultipleNum" comment="总加倍次数" />
+		<field type="Integer" name="todayKillValue" comment="今日杀戮值" />
+		<field type="Integer" name="rewardCoin" comment="奖励金币" />
+	</macro>
+	<macro id="TargetInfo" comment="个人目标信息">
+		<field type="Integer" name="targetId" comment="目标ID" />
+		<field type="Integer" name="targetIcon" comment="目标图标" />
+		<field type="String" name="targetName" comment="目标名称" />
+		<field type="String" name="targetDesc" comment="目标描述" />
+		<field type="String" name="targetTaskDesc" comment="目标任务描述" />
+		<field type="Integer" name="targetType" comment="目标类型" />
+		<field type="Integer" name="targetParam" comment="目标参数" />
+		<field type="Integer" name="rewardState" comment="目标奖励状态" />
+		<field type="com.hifun.soul.gameserver.target.msg.info.TargetRewardInfo"
+			list="true" clientType="TargetRewardInfoData" name="rewardInfos"
+			comment="奖励信息">
+			<field type="Integer" name="itemNum" comment="物品数量" />
+			<field type="com.hifun.soul.gameserver.item.assist.SimpleCommonItem"
+				name="commonItem" comment="奖励物品" clientType="SimpleCommonItemData"
+				macro="SimpleCommonItem">
+				<field type="String" name="UUID"
+					comment="道具实例uuid，目前用于客户端实现快捷栏，不可以放入快捷栏的和道具此属性为空"></field>
+				<field type="Integer" name="itemId" comment="道具Id"></field>
+				<field type="String" name="name" comment="道具名称"></field>
+				<field type="String" name="desc" comment="道具描述"></field>
+				<field type="Integer" name="icon" comment="道具的图标"></field>
+			</field>
+		</field>
+	</macro>
+	<macro id="LegionBossInfo" comment="军团boss信息">
+		<field type="Integer" name="bossId" comment="bossId"></field>
+		<field type="String" name="name" comment="名称"></field>
+		<field type="Integer" name="icon" comment="图标"></field>
+		<field type="Integer" name="level" comment="boss等级"></field>
+		<field type="Integer" name="bossState" comment="boss状态"></field>
+		<field type="Integer" name="remainBlood" comment="剩余血量"></field>
+		<field type="Integer" name="totalBlood" comment="总血量"></field>
+		<field type="Integer" name="joinPeopleNum" comment="参与人数"></field>
+	</macro>
+	<macro id="LegionMineInfo" comment="军团矿堆信息">
+		<field type="Integer" name="mineIndex" comment="矿堆索引"></field>
+		<field type="Boolean" name="canBattle" comment="是否可战斗"></field>
+		<field type="Boolean" name="canMove" comment="是否可移动"></field>
+		<field type="Boolean" name="canDisturb" comment="是否可干扰"></field>
+		<field type="Integer" name="joinLegionType" comment="占领军团类型"></field>
+		<field type="Integer" name="surroundState" comment="包围状态"></field>
+		<field type="Integer" name="occupyNum" comment="占领人数"></field>
+		<field type="Boolean" name="occupyNumVisible" comment="占领人数是否可见"></field>
+		<field type="Boolean" name="isDouble" comment="收益是否加倍"></field>
+		<field type="Boolean" name="isRedMine" comment="是否是红矿"></field>
+		<field type="Boolean" name="isSelf" comment="是否是自己所在的矿"></field>
+		<field type="Integer" name="mineType" comment="矿位类型"></field>
+	</macro>
+	<macro id="JoinLegionInfo" comment="矿战军团信息">
+		<field type="Long" name="legionId" comment="军团ID"></field>
+		<field type="String" name="legionName" comment="军团名称"></field>
+		<field type="Integer" name="occupyValue" comment="占领值"></field>
+		<field type="Integer" name="joinLegionType" comment="占领军团类型"></field>
+	</macro>
+	<macro id="LegionBufInfo" comment="矿战军团buf信息">
+		<field type="Integer" name="legionBufType" comment="军团buf类型" />
+		<field type="Integer" name="bufIcon" comment="buf图标" />
+		<field type="String" name="bufDesc" comment="buf描述" />
+	</macro>
+	<macro id="SelfBufInfo" comment="矿战个人buf信息">
+		<field type="Integer" name="selfBufType" comment="个人buf类型" />
+		<field type="Integer" name="bufIcon" comment="buf图标" />
+		<field type="String" name="bufDesc" comment="buf描述" />
+		<field type="Boolean" name="using" comment="是否正在使用" />
+	</macro>
+	<macro id="NostrumInfo" comment="矿战个人buf信息">
+		<field type="Integer" name="propertyId" comment="秘药加成属性ID" />
+		<field type="Integer" name="propertyAmendRate" comment="秘药属性加成比例" />
+		<field type="String" name="endTime" comment="秘药结束时间" />
+	</macro>
+	<macro id="LegionPrayInfo" comment="押运军团祈福信息">
+		<field type="String" name="prayMemberName" comment="祈福成员名称" />
+		<field type="Integer" name="prayRemainTime" comment="祈福剩余时间" />
+		<field type="Integer" name="prayRevenue" comment="祈福收益" />
+	</macro>
+	<macro id="EscortAmendInfo" comment="押运收益加成信息">
+		<field type="String" name="amendDesc" comment="加成描述" />
+		<field type="Integer" name="remainTime" comment="加成剩余时间" />
+	</macro>
+	<macro id="EscortInfo" comment="押运信息">
+		<field type="Long" name="escortId" comment="押运ID" />
+		<field type="Integer" name="monsterModelId" comment="怪物模型ID" />
+		<field type="Integer" name="monsterType" comment="怪物类型" />
+		<field type="Long" name="ownerId" comment="押运者ID" />
+		<field type="String" name="ownerName" comment="押运者名称" />
+		<field type="Integer" name="ownerLevel" comment="押运者等级" />
+		<field type="String" name="ownerLegionName" comment="押运者所在军团名称" />
+		<field type="Long" name="helperId" comment="协助者ID" />
+		<field type="String" name="helperName" comment="协助者名称" />
+		<field type="Integer" name="helperLevel" comment="协助者等级" />
+		<field type="Integer" name="remainBeRobbedNum" comment="剩余被拦截次数" />
+		<field type="Integer" name="maxBeRobbedNum" comment="最大被拦截次数" />
+		<field type="Integer" name="escortRemainTime" comment="押运剩余时间" />
+		<field type="Integer" name="encourageRate" comment="鼓舞加成" />
+		<field type="Integer" name="escortRewardCoin" comment="押运奖励金币" />
+		<field type="Integer" name="helpRewardCoin" comment="护送奖励金币" />
+		<field type="Integer" name="robRewardCoin" comment="拦截奖励金币" />
+		<field type="Integer" name="escortTime" comment="押运所需时间" />
+	</macro>
+	<macro id="EscortMonsterInfo" comment="押运怪物信息">
+		<field type="Integer" name="escortTime" comment="押运时间" />
+		<field type="Integer" name="monsterType" comment="怪物类型" />
+		<field type="Integer" name="escortRewardCoin" comment="押运奖励金币" />
+		<field type="Integer" name="monsterIconId" comment="怪物图标ID" />
+		<field type="String" name="monsterName" comment="怪物名称" />
+	</macro>
+	<macro id="EscortFriendInfo" comment="护送好友信息">
+		<field type="Long" name="friendId" comment="护送好友ID" />
+		<field type="String" name="friendName" comment="好友名称" />
+		<field type="Integer" name="friendLevel" comment="好友等级" />
+		<field type="Integer" name="remainHelpNum" comment="剩余协助次数" />
+		<field type="Integer" name="maxHelpNum" comment="最大协助次数" />
+	</macro>
+	<macro id="RobRankInfo" comment="拦截榜信息">
+		<field type="Integer" name="rank" comment="护送好友ID" />
+		<field type="String" name="robberName" comment="拦截者名称" />
+		<field type="Integer" name="robCoin" comment="拦截金币" />
+		<field type="Integer" name="rewardCoin" comment="奖励金币" />
+	</macro>
+	<macro id="LegionBuildingInfo" comment="军团建筑信息">
+		<field type="Integer" name="currentNum" comment="当前数量" />
+		<field type="Integer" name="nextNum" comment="下一级数量" />
+		<field type="Integer" name="buildingLevel" comment="建筑等级" />
+		<field type="Integer" name="needLegionCoin" comment="需要军团资金" />
+		<field type="Integer" name="currentLegionCoin" comment="当前军团资金" />
+	</macro>
+	<macro id="LegionMeditationInfo" comment="军团冥想殿信息">
+		<field type="Integer" name="meditationType" comment="冥想类型" />
+		<field type="String" name="meditationName" comment="冥想名称" />
+		<field type="Integer" name="vipLevel" comment="vip开启等级" />
+		<field type="Integer" name="currencyType" comment="货币类型" />
+		<field type="Integer" name="currencyNum" comment="货币数量" />
+		<field type="Integer" name="meditation" comment="冥想力" />
+		<field type="Integer" name="medal" comment="勋章" />
+	</macro>
+	<macro id="LegionShopItemInfo" comment="军团商品信息">
+		<field type="com.hifun.soul.gameserver.item.assist.CommonItem"
+				name="commonItem" comment="物品信息" clientType="CommonItemData"
+				macro="CommonItem">
+		</field>
+		<field type="Integer" name="itemType" comment="物品标签类型" />
+		<field type="Integer" name="needMedal" comment="需要勋章" />
+		<field type="Integer" name="maxNum" comment="最大数量" />
+		<field type="Integer" name="remainNum" comment="剩余数量" />
+	</macro>
+	<macro id="LegionTitleInfo" comment="军团头衔信息">
+		<field type="Integer" name="titleId" comment="头衔ID" />
+		<field type="String" name="titelName" comment="头衔名称" />
+		<field type="Integer" name="iconId" comment="图片ID" />
+		<field type="Integer" name="colorId" comment="品质颜色ID" />
+		<field type="String" name="needPositionName" comment="需要最低职位名称" />
+		<field type="Integer" name="maxNum" comment="最大数量" />
+		<field type="Integer" name="remainNum" comment="剩余数量" />
+		<field type="Integer" name="needMedal" comment="需要勋章" />
+		<field type="Boolean" name="isAllProperty" comment="是否是全属性加成" />
+		<field type="Integer" name="propertyId" comment="属性ID" />
+		<field type="Integer" name="propertyRate" comment="属性加成" />
+		<field type="Integer" name="validDays" comment="有效时间" />
+		<field type="Integer" name="needBuildingLevel" comment="需要建筑等级" />
+	</macro>
+	<macro id="LegionTechnologyInfo" comment="军团科技信息">
+		<field type="Integer" name="technologyType" comment="科技类型" />
+		<field type="String" name="technologyName" comment="科技名称" />
+		<field type="Integer" name="iconId" comment="图片ID" />
+		<field type="String" name="amendDesc" comment="加成描述" />
+		<field type="Integer" name="technologyLevel" comment="科技等级" />
+		<field type="Integer" name="upNeedCoin" comment="升级所需金币" />
+		<field type="Integer" name="upCurrentCoin" comment="当前金币" />
+		<field type="Integer" name="amendEffect" comment="加成效果值" />
+		<field type="Integer" name="amendMethod" comment="加成方式" />
+	</macro>
+	<macro id="LegionTaskInfo" comment="军团任务信息">
+		<field type="Integer" name="taskId" comment="任务ID" />
+		<field type="String" name="taskTheme" comment="任务名称" />
+		<field type="Integer" name="iconId" comment="图标ID" />
+		<field type="Integer" name="colorId" comment="颜色ID" />
+		<field type="Integer" name="rewardMedal" comment="奖励勋章" />
+		<field type="Integer" name="rewardLegionExperience" comment="奖励军团经验" />
+		<field type="Boolean" name="hasTaskReward" comment="是否有任务奖励" />
+		<field type="Integer" name="remainTime" comment="剩余时间(ms)" />
+		<field type="Integer" name="needTime" comment="需要时间(min)" />
+	</macro>
+	<macro id="LegionTaskRankInfo" comment="军团任务排行信息">
+		<field type="Integer" name="rank" comment="排行" />
+		<field type="String" name="humanName" comment="角色名称" />
+		<field type="Integer" name="humanLevel" comment="" /> 
+		<field type="Integer" name="score" comment="积分" />
+		<field type="Integer" name="rewardMedal" comment="奖励勋章" />
+	</macro>
+	<macro id="HumanLegionTitleInfo" comment="军团头衔信息">
+		<field type="Integer" name="titleId" comment="头衔ID" />
+		<field type="String" name="titelName" comment="头衔名称" />
+		<field type="Boolean" name="isAllProperty" comment="是否是全属性加成" />
+		<field type="Integer" name="propertyId" comment="属性ID" />
+		<field type="Integer" name="propertyRate" comment="属性加成" />
+		<field type="String" name="endTime" comment="到期时间" />
+		<field type="Boolean" name="valid" comment="是否有效" />
+	</macro>
+	<macro id="PredictInfo" comment="预见信息">
+		<field type="Integer" name="predictId" comment="预见ID" />
+		<field type="Integer" name="activateNeedLevel" comment="激活需要等级" />
+		<field type="Boolean" name="activated" comment="是否激活" />
+		<field type="Integer" name="functions" list="true" comment="开启功能" />
+		<field type="Integer" name="x" comment="x坐标" />
+		<field type="Integer" name="y" comment="y坐标" />
+	</macro>
+</macros>

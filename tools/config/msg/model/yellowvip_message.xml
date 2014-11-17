@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="yellowvip">
+	
+	<message type="CG_OPEN_YELLOW_VIP_REWARD_PANEL" comment="更新黄钻新手礼包领取状态">
+	</message>
+	
+	<message type="GC_OPEN_YELLOW_VIP_REWARD_PANEL" comment="更新黄钻新手礼包领取状态">
+		<field type="Integer" name="onceRewardState" comment="新手礼包领取状态(0不可领取,1可领取，2已领取)"></field>
+		<field type="Integer" name="dailyRewardState" comment="每日礼包领取状态(0不可领取,1可领取，2已领取)"></field>
+		<field type="Integer" name="levelUpRewardState" list="true" comment="升级礼包领取状态(0不可领取,1可领取，2已领取)"></field>
+		<field type="Integer" name="yearVipRewardState" comment="年费黄钻礼包领取状态(0不可领取,1可领取，2已领取)"></field>
+	</message>
+	
+	<message type="CG_RECEIVE_YELLOW_VIP_REWARD" comment="领取黄钻礼包请求">
+		<field type="Integer" name="rewardType" comment="领取奖励类型"></field>
+	</message>
+	
+	<message type="CG_RECEIVE_YELLOW_VIP_LEVEL_UP_REWARD" comment="领取黄钻升级礼包请求">
+		<field type="Integer" name="rewardIndex" comment="升级奖励索引"></field>
+	</message>
+	
+	<message type="GC_UPDATE_YELLOW_VIP_REWARD_STATE" comment="更新黄钻礼包领取状态">
+		<field type="Integer" name="rewardType" comment="领取奖励类型"></field>
+		<field type="Integer" name="rewardState" list="true"  comment="领取状态(0不可领取,1可领取，2已领取)"></field>
+	</message>
+</messages>

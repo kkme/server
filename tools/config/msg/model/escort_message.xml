@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="escort">
+
+	<message type="CG_OPEN_ESCORT_PANEL" comment="请求打开押运面板">
+	</message>
+	
+	<message type="GC_UPDATE_ESCORT_PANEL" comment="通知客户端更新押运面板">
+		<field type="Integer" name="remainEscortNum" comment="剩余押运次数"/>
+		<field type="Integer" name="remainRobNum" comment="剩余抢劫次数" />
+		<field type="Integer" name="buyRobNumCost" comment="购买拦截次数消费"/>
+		<field type="Integer" name="remainHelpNum" comment="剩余协助护送次数" />
+		<field type="Boolean" name="hasEscortReward" comment="是否有押运奖励" />
+		<field type="Boolean" name="hasHelpReward" comment="是否有协助护送奖励" />
+		<field type="com.hifun.soul.gameserver.escort.info.LegionPrayInfo" macro="LegionPrayInfo"
+			name="prayInfo" comment="军团祈福信息" clientType="LegionPrayInfoData">
+		</field>
+		<field type="com.hifun.soul.gameserver.escort.info.EscortInfo"
+			name="escortInfos" list="true" comment="押运信息" macro="EscortInfo"
+			clientType="EscortInfoData">
+		</field>
+		<field type="Integer" name="pageMonsterSize" comment="每页显示怪物数" />
+		<field type="Integer" name="pageRoadNum" comment="每页显示跑道数" />
+		<field type="String" name="robLogs" list="true" comment="拦截日志" />
+		<field type="Integer" name="legionPrayCost" comment="军团祈福魔晶消耗" />
+		<field type="com.hifun.soul.gameserver.escort.info.EscortAmendInfo" macro="EscortAmendInfo"
+			name="escortAmendInfo" comment="押运收益加成信息" clientType="EscortAmendInfoData">
+		</field>
+	</message>
+
+	<message type="CG_CLOSE_ESCORT_PANEL" comment="请求关闭押运面板">
+	</message>
+	
+	<message type="CG_SHOW_MONSTER_TAB" comment="请展示怪物标签页">
+	</message>
+
+	<message type="GC_SHOW_MONSTER_TAB" comment="响应展示怪物标签页">
+		<field type="Integer" name="defaultMonsterType" comment="默认怪物类型"/>
+		<field type="com.hifun.soul.gameserver.escort.info.EscortMonsterInfo" macro="EscortMonsterInfo"
+			name="monsterInfos" list="true" comment="押运怪物信息" clientType="EscortMonsterInfoData">
+		</field>
+		<field type="Boolean" name="canCall" comment="是否可召唤" />
+		<field type="Integer" name="callMonsterCost" comment="召唤怪物消费" />
+		<field type="Integer" name="refreshMonsterCost" comment="刷新怪物消费" />
+		<field type="Integer" name="encourageCost" comment="鼓舞消费" />
+		<field type="Integer" name="encourageAttackRate" comment="鼓舞攻击力加成" />
+		<field type="Integer" name="encourageHpRate" comment="鼓舞生命值加成" />
+		<field type="com.hifun.soul.gameserver.escort.info.EscortFriendInfo" macro="EscortFriendInfo"
+			name="friendInfos" list="true" comment="护送好友信息" clientType="EscortFriendInfoData">
+		</field>
+		<field type="Integer" name="inviteFriendState" comment="邀请好友协助状态" />
+		<field type="Integer" name="inviteRemainTime" comment="邀请有效时间" />
+	</message>
+
+	<message type="CG_SHOW_ESCORT_TAB" comment="请求展示押运标签页 ">
+		<field type="Long" name="escortId" comment="押运ID" />
+	</message>
+
+	<message type="GC_SHOW_ESCORT_TAB" comment="响应展示押运标签页">
+		<field type="com.hifun.soul.gameserver.escort.info.EscortInfo"
+			name="escortInfo" comment="押运信息" macro="EscortInfo"
+			clientType="EscortInfoData">
+		</field>
+	</message>
+
+	<message type="CG_ROB_ESCROT" comment="拦截押运">
+		<field type="Long" name="escortId" comment="押运ID" />
+	</message>
+
+	<message type="CG_ESCORT_REFRESH_MONSTER" comment="请求刷新押运怪物 ">
+	</message>
+
+	<message type="GC_ESCORT_REFRESH_MONSTER" comment="响应刷新押运怪物">
+		<field type="Integer" name="defaultMonsterType" comment="押运怪物类型" />
+		<field type="Integer" name="refreshMonsterCost" comment="刷新怪物消费" />
+	</message>
+
+	<message type="CG_ESCORT_CALL_MONSTER" comment="请求召唤最高品质怪物 ">
+	</message>
+
+	<message type="GC_ESCORT_CALL_MONSTER" comment="响应召唤最高品质怪物">
+		<field type="Integer" name="defaultMonsterType" comment="押运怪物类型" />
+	</message>
+	
+	<message type="CG_ESCORT_INVITE_FRIEND" comment="请求邀请护送好友 ">
+		<field type="Long" name="inviteFriendId" comment="邀请好友ID" />
+	</message>
+
+	<message type="GC_ESCORT_INVITE_FRIEND" comment="响应邀请护送好友">
+		<field type="Integer" name="inviteFriendState" comment="邀请状态" />
+	</message>
+	
+	<message type="GC_ESCORT_INVITE_FRIEND_APPLY" comment="向好友发送邀请申请">
+		<field type="Long" name="applyHumanGuid" comment="申请角色ID" />
+		<field type="String" name="applyHumanName" comment="申请角色名称" />
+	</message>
+	
+	<message type="CG_ESCORT_ABORT_INVITE" comment="请求撤销邀请 ">
+	</message>
+
+	<message type="GC_ESCORT_ABORT_INVITE" comment="响应撤销邀请">
+		<field type="Integer" name="inviteFriendState" comment="邀请状态" />
+	</message>
+	
+	<message type="CG_ESCORT_AGREE_INVITE" comment="请求同意邀请 ">
+		<field type="Long" name="inviteId" comment="邀请ID" />
+	</message>
+
+	<message type="GC_ESCORT_AGREE_INVITE" comment="响应同意邀请">
+		<field type="Integer" name="inviteFriendState" comment="邀请状态" />
+		<field type="Integer" name="inviteRemainTime" comment="邀请有效时间" />
+	</message>
+	
+	<message type="CG_ESCORT_REJECT_INVITE" comment="请求拒绝邀请 ">
+		<field type="Long" name="inviteId" comment="邀请ID" />
+	</message>
+
+	<message type="GC_ESCORT_REJECT_INVITE" comment="响应拒绝邀请">
+		<field type="Integer" name="inviteFriendState" comment="邀请状态" />
+	</message>
+	
+	<message type="CG_START_ESCORT" comment="请求开始押运 ">
+		<field type="Boolean" name="isEncouraged" comment="是否鼓舞" />
+	</message>
+
+	<message type="GC_START_ESCORT" comment="响应开始押运">
+	</message>
+	
+	<message type="CG_ESCORT_LEGION_PRAY" comment="请求军团祈福 ">
+	</message>
+
+	<message type="GC_ESCORT_LEGION_PRAY" comment="响应军团祈福">
+		<field type="com.hifun.soul.gameserver.escort.info.LegionPrayInfo" macro="LegionPrayInfo"
+			name="prayInfo" comment="军团祈福信息" clientType="LegionPrayInfoData">
+		</field>
+	</message>
+	
+	<message type="CG_SHOW_ROB_RANK_TAB" comment="请求展示拦截榜">
+	</message>
+
+	<message type="GC_SHOW_ROB_RANK_TAB" comment="响应展示拦截榜">
+		<field type="com.hifun.soul.gameserver.escort.info.RobRankInfo" macro="RobRankInfo"
+			name="yesterdayRanks" list="true" comment="昨日拦截榜" clientType="RobRankInfoData">
+		</field>
+		<field type="com.hifun.soul.gameserver.escort.info.RobRankInfo" macro="RobRankInfo"
+			name="todayRanks" list="true" comment="今日拦截榜" clientType="RobRankInfoData">
+		</field>
+		<field type="Integer" name="yesterdaySelfRobCoin" comment="昨日个人拦截金币"/>
+		<field type="Integer" name="todaySelfRobCoin" comment="今日个人拦截金币" />
+		<field type="Integer" name="yesterdaySelfRobRank" comment="昨日个人拦截排名" />
+		<field type="Integer" name="todaySelfRobRank" comment="今日个人拦截排名" />
+		<field type="Boolean" name="hasReward" comment="是否有奖励" />
+	</message>
+	
+	<message type="CG_ESCORT_GET_REWARD" comment="请求领取奖励 ">
+		<field type="Integer" name="rewardType" comment="奖励类型"/>
+	</message>
+
+	<message type="GC_ESCORT_GET_REWARD" comment="响应领取奖励">
+		<field type="Integer" name="rewardType" comment="奖励类型"/>
+		<field type="Boolean" name="hasReward" comment="是否有奖励" />
+	</message>
+	
+	<message type="CG_ESCORT_BUY_ROB_NUM" comment="请求购买拦截次数">
+	</message>
+
+	<message type="GC_ESCORT_BUY_ROB_NUM" comment="响应购买拦截次数">
+		<field type="Integer" name="remainRobNum" comment="剩余拦截次数"/>
+		<field type="Integer" name="buyRobNumCost" comment="购买拦截次数消费"/>
+	</message>
+</messages>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="human">
+	
+	<message type="GC_CHARACTER_INFO" comment="服务器给客户端下发人角色基本">
+		<field type="com.hifun.soul.common.model.human.CharacterInfo"
+			clientType="CharacterInfo" name="human" comment="玩家" macro="CharacterInfo">
+		</field>
+	</message>
+	
+	<message type="GC_CHARACTER_PROPERTIES" comment="登录时候下发角色全部属性信息">
+		<field type="Long" name="guid" comment="角色全局标识"></field>
+		<field type="com.hifun.soul.core.util.KeyValuePair&lt;Integer,Integer&gt;" 
+			   clientType="KeyValuePairIntData"
+			name="properties" list="true" comment="所有变化的属性">
+			<field type="Integer" name="key" comment="属性索引" />
+			<field type="Integer" name="value" comment="属性值" />
+		</field>
+	</message>
+	
+	<message type="CG_DISTRIBUTE_PROPERTY_POINT" comment="分配属性点">
+		<field type="Integer" name="power" comment="力量"></field>
+		<field type="Integer" name="agile" comment="敏捷"></field>
+		<field type="Integer" name="stamina" comment="体力"></field>
+		<field type="Integer" name="intelligence" comment="智力"></field>
+		<field type="Integer" name="spirit" comment="精神"></field>
+	</message>
+	
+	<message type="GC_HUMAN_LEVEL_UP" comment="角色升级事件">
+		<field type="Integer" name="currentLevel" comment="当前等级"></field>
+	</message>
+	
+	<message type="CG_CHARACTER_SHOW_INFO" comment="角色信息展示请求">
+		<field type="Long" name="humanGuid" comment="角色id"></field>
+	</message>
+	
+	<message type="GC_CHARACTER_SHOW_INFO" comment="角色信息展示">
+		<field type="Long" name="humanId" comment="角色id"></field>
+		<field type="String" name="name" comment="角色名称"></field>
+		<field type="com.hifun.soul.gameserver.item.assist.CommonItem" list="true" name="equipments" comment="穿上的装备" macro="CommonItem" clientType="CommonItemData">
+		</field>
+		<field type="com.hifun.soul.core.util.KeyValuePair&lt;Integer,Integer&gt;" 
+			   clientType="KeyValuePairIntData"
+			name="properties" list="true" comment="角色属性">
+			<field type="Integer" name="key" comment="属性索引" />
+			<field type="Integer" name="value" comment="属性值" />
+		</field>
+		<field type="com.hifun.soul.gameserver.horoscope.msg.HoroscopeInfo" 
+			clientType="HoroscopeInfoData" name="equipedHoroscopeInfos" list="true" comment="装备位置上星运列表" macro="HoroscopeInfo">
+		</field>
+	</message>
+	
+	<message type="CG_BUY_ENERGY" comment="购买体力值">
+	</message>
+	
+	<message type="CG_RECOVER_ENERGY" comment="请求恢复体力值">
+	</message>
+	
+	<message type="GC_RECOVER_ENERGY" comment="响应恢复体力值">
+		<field type="Integer" name="remainRecoverNum" comment="剩余次数" />
+	</message>
+	
+	<message type="GC_OPEN_GAME_FUNCS" comment="开放功能">
+		<field type="Integer" list="true" name="funcs" comment="开放的功能"></field>
+		<field type="Boolean" name="isNewOpen" comment="是否新开放" />
+	</message>
+	
+	<message type="GC_CLOSE_GAME_FUNCS" comment="关闭功能">
+		<field type="Integer" list="true" name="funcs" comment="关闭的功能"></field>
+	</message>
+	
+	<message type="GC_FUNCTION_INFO" comment="功能开放的信息">
+		<field type="FunctionInfo" clientType="FunctionInfoData" macro="FunctionInfo" list="true" name="functionInfos" comment="功能开放信息列表"></field>
+	</message>
+	
+	<message type="CG_SHOW_CHARACTER_PANEL" comment="为了新手引导加的一个没用的消息">
+	</message>
+	
+	<message type="CG_RESET_PROPERTY_POINT" comment="重置属性点">
+	</message>
+	
+	<message type="GC_HUMAN_LEVEL_UP_INFO" comment="角色升级信息, 通知客户端展示 ">
+		<field type="Integer" name="oldLevel" comment="原来等级"></field>
+		<field type="Integer" name="currentLevel" comment="当前等级"></field>
+		<field type="Integer" name="oldHp" comment="原来HP"></field>
+		<field type="Integer" name="currentHp" comment="当前HP"></field>
+		<field type="Integer" name="oldPropPoint" comment="原来的属性点"></field>
+		<field type="Integer" name="currentPropPoint" comment="现在的属性点"></field>
+		<field type="Integer" name="oldSkillPoint" comment="原来的的技能点"></field>
+		<field type="Integer" name="currentSkillPoint" comment="现在的技能点"></field>
+	</message>
+	
+	<message type="GC_FUNC_NOTIFIES" comment="功能提示集合">
+		<field type="com.hifun.soul.gameserver.human.msg.FuncNotifyInfo" clientType="FuncNotifyInfoData" macro="FuncNotifyInfo" 
+			list="true" name="funcNotifyInfos" comment="功能开放信息列表">
+		</field>
+	</message>
+	
+	<message type="GC_FUNC_NOTIFY" comment="单个功能提示">
+		<field type="Integer" name="funcType" comment="功能类型"></field>
+		<field type="Boolean" name="notify" comment="是否提示" />
+	</message>
+</messages>

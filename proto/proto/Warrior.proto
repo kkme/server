@@ -1,0 +1,18 @@
+package com.hifun.soul.proto.common;
+
+option java_package = "com.hifun.soul.proto.common";
+option java_outer_classname = "Warrior";
+
+//勇士之路信息
+message HumanWarriorInfo {
+	//角色id
+	required int64 humanGuid=1;
+	//当前任务id
+	optional int32 currentQuestIndex=2;
+	//当前任务id
+	optional int32 currentQuestState=3;
+	//任务奖励状态
+	optional int32 questRewardState=4;	
+	//进行中任务达成数
+	optional int32 currentQuestCompleteNum=5;
+}

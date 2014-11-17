@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="elitestage">
+
+	<message type="CG_OPEN_ELITE_STAGE_PANEL" comment="打开精英副本面板">		
+	</message>
+	
+	<message type="GC_OPEN_ELITE_STAGE_PANEL" comment="打开精英副本面板">
+		<field type="Integer" name="stageTypeId" comment="精英副本类型id"></field>
+		<field type="String" name="stageTypeDesc" comment="精英副本类型描述"></field>
+		<field type="Integer" name="currentStageId" comment="当前能进的精英副本id"></field>
+		<field type="com.hifun.soul.gameserver.elitestage.model.EliteStageInfo"
+			clientType="EliteStageInfo" macro="EliteStageInfo" name="eliteStages" comment="精英副本信息" list="true">			
+		</field>
+		<field type="Integer" name="totalStar" comment="评星总数"></field>
+		<field type="Integer" name="totalCount" comment="总共的次数" />
+		<field type="Integer" name="remainCount" comment="剩余次数" />
+		<field type="Integer" name="currencyNum" comment="当前操作花费魔晶数量" />
+	</message>
+	
+	<message type="CG_ENTER_ELITE_STAGE" comment="打开某个类型的精英副本">
+		<field type="Integer" name="stageTypeId" comment="精英副本类型id"></field>
+	</message>
+	
+	<message type="GC_ENTER_ELITE_STAGE" comment="进入精英副本">
+		<field type="Integer" name="stageTypeId" comment="精英副本类型id"></field>
+		<field type="String" name="stageTypeDesc" comment="精英副本类型描述"></field>
+		<field type="Integer" name="currentStageId" comment="当前能进的精英副本id"></field>
+		<field type="com.hifun.soul.gameserver.elitestage.model.EliteStageInfo"
+			clientType="EliteStageInfo" macro="EliteStageInfo" name="eliteStages" comment="精英副本信息" list="true">			
+		</field>
+		<field type="Integer" name="totalStar" comment="评星总数"></field>
+	</message>
+	
+	<message type="GC_ELITE_STAGE_TYPE_LIST" comment="精英副本类型列表">
+		<field type="com.hifun.soul.gameserver.elitestage.model.EliteStageTypeInfo"
+			clientType="EliteStageTypeInfo" macro="EliteStageTypeInfo" name="eliteStageTypeList" comment="精英副本类型信息" list="true">			
+		</field>
+	</message>
+	
+	<message type="CG_ATTACK_ELITE_STAGE_BATTLE" comment="精英副本进入战斗">
+		<field type="Integer" name="stageId" comment="精英副本id"></field>
+		<field type="Boolean" name="ignoreWarning" comment="是否忽略警示信息"></field>
+	</message>
+	
+	<message type="GC_ATTACK_ELITE_STAGE_WARNING" comment="进入精英副本战斗前的警告">
+		<field type="Integer" name="stageId" comment="精英副本id"></field>
+		<field type="String" name="warningInfo" comment="警示信息"></field>
+	</message>
+
+	<message type="GC_ELITE_STAGE_BATTLE_RESULT" comment="精英副本战斗结果">
+		<field type="Integer" name="stageId" comment="副本id"></field>
+		<field type="Boolean" name="battleResult" comment="战斗结果:true表示成功，false表示失败"></field>
+		<field type="Integer" name="coinNum" comment="金币"></field>
+		<field type="Integer" name="experience" comment="经验"></field>
+		<field type="Integer" name="techPoint" comment="科技点"></field>
+		<field type="com.hifun.soul.gameserver.item.assist.CommonItem" list="true" name="items" comment="奖品列表" macro="CommonItem" clientType="CommonItemData">
+		</field>
+		<field type="Integer" name="star" comment="评星"></field>
+		<field type="Integer" name="totalStar" comment="评星总数"></field>
+	</message>
+	
+	<message type="GC_NEW_ELITE_STAGE_TYPE_OPEN" comment="开启新的精英副本类型">
+		<field type="com.hifun.soul.core.util.KeyValuePair&lt;Integer,String&gt;"
+				clientType="KeyValuePairStringData" name="eliteStageType" comment="新开启的副本类型(key:副本id;value:副本名称)" list="true">
+				<field type="Integer" name="key" comment="属性" />
+				<field type="String" name="value" comment="属性值" />
+		</field>
+	</message>
+	
+	<message type="GC_UPDATE_ELITE_STAGE_CHALLENGE_COUNTER" comment="更新刷新精英副本的计数器信息">
+		<field type="Integer" name="totalCount" comment="总共的次数" />
+		<field type="Integer" name="remainCount" comment="剩余次数" />
+		<field type="Integer" name="currencyNum" comment="当前操作花费魔晶数量" />
+	</message>
+	
+	<message type="CG_REFRESH_ELITE_STAGE_CHALLENGE_STATE" comment="刷新精英副本的挑战状态">
+		<field type="Integer" name="stageTypeId" comment="精英副本类型id"></field>
+	</message>
+	
+	<message type="GC_UPDATE_ELITE_STAGE_CHALLENGE_STATE" comment="刷新精英副本的挑战状态">
+		<field type="Integer" name="changedStageIds" list="true" comment="刷新的精英副本id列表"></field>
+	</message>
+</messages>

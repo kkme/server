@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 	
+xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="warrior">	
+	
+	<message type="CG_OPEN_WARRIOR_WAY_PANEL" comment="打开勇士之路面板请求">		
+	</message>
+	
+	<message type="GC_OPEN_WARRIOR_WAY_PANEL" comment="更新勇士之路面板信息">
+		<field type="com.hifun.soul.gameserver.warrior.WarriorQuest" clientType="WarriorQuest" name="warriorQuests"
+				list="true" comment="任务列表">
+				<field type="Integer" name="id" comment="任务id" />
+				<field type="Integer" name="totalCount" comment="达成任务的数量" />
+				<field type="Integer" name="completeCount" comment="当前完成数量" />
+				<field type="Integer" name="damageHpPercent" comment="达成任务所需伤害百分数" />
+				<field type="Integer" name="questState" comment="任务状态" />			
+		</field>
+		<field type="com.hifun.soul.gameserver.warrior.WarriorQuestReward" clientType="WarriorQuestReward" name="rewards"
+				list="true" comment="奖励">
+				<field type="Integer" name="questId" comment="任务id" />
+				<field type="Integer" name="coin" comment="金币" />
+				<field type="Integer" name="exp" comment="经验" />
+				<field type="Integer" name="techPoint" comment="科技点" />
+				<field type="Integer" name="state" comment="状态" />				
+		</field>
+		<field type="Long" name="opponentId" comment="对手Id" />
+		<field type="String" name="opponentName" comment="对手名称" />
+		<field type="Integer" name="opponentOccupation" comment="对手职业" />
+		<field type="Integer" name="opponentLevel" comment="对手等级" />
+		<field type="Integer" name="opponentType" comment="对手类型" />
+		<field type="Integer" name="battleWinRewardNum" comment="战胜获得勇者之心数" />
+		<field type="com.hifun.soul.gameserver.warrior.WarriorQuestReward" clientType="WarriorQuestReward" name="allRewards"
+				list="true" comment="所有的任务奖励">
+				<field type="Integer" name="questId" comment="任务id" />
+				<field type="Integer" name="coin" comment="金币" />
+				<field type="Integer" name="exp" comment="经验" />
+				<field type="Integer" name="techPoint" comment="科技点" />								
+		</field>
+	</message>
+	
+	<message type="CG_REFRESH_OPPONENT" comment="请求刷新对手">			
+	</message>
+	
+	<message type="GC_UPDATE_OPPONENT" comment="更新对手信息">
+		<field type="Long" name="opponentId" comment="对手Id" />
+		<field type="String" name="opponentName" comment="对手名称" />
+		<field type="Integer" name="opponentOccupation" comment="对手职业" />
+		<field type="Integer" name="opponentLevel" comment="对手等级" />
+		<field type="Integer" name="opponentType" comment="对手类型" />
+		<field type="Integer" name="battleWinRewardNum" comment="战胜获得勇者之心数" />
+	</message>
+	
+	<message type="CG_START_WARRIOR_BATTLE_REQUEST" comment="客户端发送挑战请求">			
+	</message>
+	
+	<message type="GC_UPDATE_WARRIOR_QUEST" comment="更新任务">
+		<field type="com.hifun.soul.gameserver.warrior.WarriorQuest" clientType="WarriorQuest" name="warriorQuests"
+				list="true" comment="任务列表">
+				<field type="Integer" name="id" comment="任务id" />
+				<field type="Integer" name="totalCount" comment="达成任务的数量" />
+				<field type="Integer" name="completeCount" comment="当前完成数量" />
+				<field type="Integer" name="damageHpPercent" comment="达成任务所需伤害百分数" />
+				<field type="Integer" name="questState" comment="任务状态" />			
+		</field>		
+	</message>
+	
+	<message type="CG_GET_WARRIOR_QUEST_REWARD" comment="领取奖励">			
+	</message>
+	
+	<message type="GC_GET_WARRIOR_QUEST_REWARD" comment="更新所有奖励">
+		<field type="com.hifun.soul.gameserver.warrior.WarriorQuestReward" clientType="WarriorQuestReward" name="rewards"
+				list="true" comment="奖励">
+				<field type="Integer" name="questId" comment="任务id" />
+				<field type="Integer" name="coin" comment="金币" />
+				<field type="Integer" name="exp" comment="经验" />
+				<field type="Integer" name="techPoint" comment="科技点" />
+				<field type="Integer" name="state" comment="状态" />				
+		</field>			
+	</message>
+	
+	<message type="GC_UPDATE_WARRIOR_QUEST_REWARD_STATE" comment="更新当前奖励领取状态">
+		<field type="Integer" name="state" comment="状态" />
+	</message>
+	
+	<message type="GC_JOIN_WARRIOR_BATTLE_REQUEST" comment="勇者之路战斗邀请">
+		<field type="Long" name="challengerGuid" comment="挑战者GUID" />		
+		<field type="String" name="content" comment="挑战说明" />
+	</message>
+	
+	<message type="GC_WARRIOR_STATE" comment="勇者之路任务是否已经完成">
+		<field type="Boolean" name="finish" comment="勇者之路任务是否已经完成" />
+	</message>
+</messages>

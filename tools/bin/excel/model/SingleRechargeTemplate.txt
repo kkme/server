@@ -1,0 +1,2 @@
+int rechargeNum;//充值金额
+com.hifun.soul.gameserver.recharge.template.SingleRechargeReward[] rechargeRewards;[collection(4,2)] //充值奖励物品

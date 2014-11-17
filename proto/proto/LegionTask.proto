@@ -1,0 +1,18 @@
+package com.hifun.soul.proto.common;
+option java_package = "com.hifun.soul.proto.common";
+option java_outer_classname = "LegionTasks";
+
+
+// 军团任务实体
+message LegionTask {
+	// 任务ID
+	required int32 taskId = 1;
+	// 模板ID
+	required int32 templateId = 2;
+	// 结束时间
+	required int64 endTime = 3;
+	// 是否有奖
+	required bool hasReward = 4;
+	// 任务状态
+	required int32 taskState = 5;
+}

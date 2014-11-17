@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="recharge">
+	<!-- 首充 -->
+	<message type="CG_OPEN_FIRST_RECHARGE_PANEL" comment="请求打开首充面板">
+	</message>
+	<message type="GC_OPEN_FIRST_RECHARGE_PANEL" comment="响应打开首充面板">
+		<field type="Integer" name="totalPrice" comment="总价值" />
+		<field
+			type="com.hifun.soul.gameserver.recharge.msg.FirstRechargeRewardInfo"
+			name="rewardInfos" clientType="FirstRechargeRewardInfo" comment="首充奖励信息"
+			list="true">
+			<field type="Integer" name="itemNum" comment="物品数量" />
+			<field type="com.hifun.soul.gameserver.item.assist.SimpleCommonItem"
+				name="commonItem" comment="奖励物品" clientType="SimpleCommonItemData"
+				macro="SimpleCommonItem">
+			</field>
+		</field>
+	</message>
+	<message type="CG_GET_FIRST_RECHARGE_REWARD" comment="请求领取首充奖励">
+	</message>
+	<message type="GC_GET_FIRST_RECHARGE_REWARD" comment="响应领取首充奖励">
+	</message>
+	<!-- 充值活动面板 -->
+	<message type="CG_OPEN_RECHARGE_ACTIVITY_PANEL" comment="请求打开充值活动面板">
+	</message>
+	<message type="GC_OPEN_RECHARGE_ACTIVITY_PANEL" comment="响应打开充值活动面板">
+		<field type="Integer" name="rechargeActivityTypes" clientType="RechargeActivityTypeInfo"
+			comment="充值活动类型信息" list="true" />
+	</message>
+	<!-- 单笔充值 -->
+	<message type="CG_SHOW_SINGLE_RECHARGE_TAB" comment="请求打开单笔充值标签">
+	</message>
+	<message type="GC_SHOW_SINGLE_RECHARGE_TAB" comment="响应打开单笔充值标签">
+		<field type="String" name="activityDesc" comment="活动描述" />
+		<field type="String" name="startDate" comment="开始时间" />
+		<field type="String" name="endDate" comment="结束时间" />
+		<field
+			type="com.hifun.soul.gameserver.recharge.msg.SingleRechargeGradeInfo"
+			name="rewardGrades" clientType="SingleRechargeGradeInfo" comment="单笔充值档位信息"
+			list="true">
+			<field type="Integer" name="gradeId" comment="档位ID" />
+			<field type="Integer" name="rechargeNum" comment="充值金额" />
+			<field type="Integer" name="remainRewardNum" comment="领奖剩余次数" />
+			<field
+				type="com.hifun.soul.gameserver.recharge.msg.SingleRechargeRewardInfo"
+				name="rewardInfos" clientType="SingleRechargeRewardInfo" comment="单笔充值奖励信息"
+				list="true">
+				<field type="Integer" name="itemNum" comment="物品数量" />
+				<field type="com.hifun.soul.gameserver.item.assist.SimpleCommonItem"
+					name="commonItem" comment="奖励物品" clientType="SimpleCommonItemData"
+					macro="SimpleCommonItem">
+				</field>
+			</field>
+		</field>
+	</message>
+	<message type="CG_GET_SINGLE_RECHARGE_REWARD" comment="请求领取单笔充值奖励">
+		<field type="Integer" name="gradeId" comment="档位ID" />
+	</message>
+	<message type="GC_GET_SINGLE_RECHARGE_REWARD" comment="响应领取单笔充值奖励">
+	</message>
+	<!-- 累积充值 -->
+	<message type="CG_SHOW_TOTAL_RECHARGE_TAB" comment="请求打开累计充值标签">
+	</message>
+	<message type="GC_SHOW_TOTAL_RECHARGE_TAB" comment="响应打开累计充值标签">
+		<field type="String" name="activityDesc" comment="活动描述" />
+		<field type="String" name="startDate" comment="开始时间" />
+		<field type="String" name="endDate" comment="结束时间" />
+		<field type="com.hifun.soul.gameserver.recharge.msg.TotalRechargeGradeInfo"
+			name="rewardGrades" clientType="TotalRechargeGradeInfo" comment="累计充值档位信息"
+			list="true">
+			<field type="Integer" name="gradeId" comment="档位ID" />
+			<field type="Integer" name="rechargeNum" comment="充值金额" />
+			<field type="Integer" name="remainRewardNum" comment="领奖剩余次数" />
+			<field
+				type="com.hifun.soul.gameserver.recharge.msg.TotalRechargeRewardInfo"
+				name="rewardInfos" clientType="TotalRechargeRewardInfo" comment="累计充值奖励信息"
+				list="true">
+				<field type="Integer" name="itemNum" comment="物品数量" />
+				<field type="com.hifun.soul.gameserver.item.assist.SimpleCommonItem"
+					name="commonItem" comment="奖励物品" clientType="SimpleCommonItemData"
+					macro="SimpleCommonItem">
+				</field>
+			</field>
+		</field>
+	</message>
+	<message type="CG_GET_TOTAL_RECHARGE_REWARD" comment="请求领取累计充值奖励">
+		<field type="Integer" name="gradeId" comment="档位ID" />
+	</message>
+	<message type="GC_GET_TOTAL_RECHARGE_REWARD" comment="响应领取累计充值奖励">
+	</message>
+</messages>

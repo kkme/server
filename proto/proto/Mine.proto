@@ -1,0 +1,28 @@
+package com.hifun.soul.proto.common;
+
+option java_package = "com.hifun.soul.proto.common";
+option java_outer_classname = "Mine";
+
+//矿场信息
+message HumanMineInfo {
+	//角色id
+	required int64 humanGuid=1;
+	//开启的矿坑信息
+	repeated MineField mineFields=2;
+	//剩余免费开采次数
+	optional int32 remainFreeMineNum=3;	
+	//今日已购买的开采次数
+	optional int32 buyMineFieldNum=4;
+	//今日已重置矿坑次数
+	optional int32 resetMineFieldNum=5;
+	//剩余购买的开采次数
+	optional int32 remainBoughtMineNum=6;
+}
+
+//矿坑信息
+message MineField{
+	//矿坑位置索引
+	required int32 index=1;
+	//类型
+	required int32 type=2;
+}

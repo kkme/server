@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="guide">
+	
+	<message type="GC_GUIDE_INFO" comment="显示新手引导">
+		<field type="Short" name="guideType" comment="引导类型 " />
+		<field type="com.hifun.soul.gameserver.guide.msg.GuideStepInfo" name="guideStepList" 
+			list="true" comment="引导步骤列表" clientType="GuideStepInfoData" macro="GuideStepInfo">
+		</field>
+	</message>
+</messages>

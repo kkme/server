@@ -1,0 +1,44 @@
+package com.hifun.soul.proto.common;
+option java_package = "com.hifun.soul.proto.common";
+option java_outer_classname = "Sprites";
+
+// 精灵信息
+message SpriteData {
+	// 精灵模版id
+	required int32 spriteId = 1;
+	// 精灵uuid
+	required string spriteUUID = 2;
+	// 精灵等级
+	required int32 level = 3;
+	// 是否出战
+	required bool equiped = 4;
+}
+
+// 精靈套装buff
+message SpriteBuff {
+	// buffId
+	required int32 buffId = 1;
+	// 是否激活
+	required bool activated = 2;
+}
+
+// 精灵背包格子
+message SpriteBagCell {
+	/** 索引 */
+	required int32 index = 1;
+	/** 是否已经装备 */
+	required bool equiped = 2;
+	/**装备精灵的uuid */
+	optional string spriteUUID = 3;
+}
+// 精灵装备位
+message SpriteSlot {
+	/** 索引 */
+	required int32 index = 1;
+	/** 是否已经装备 */
+	required bool equiped = 2;
+	/**装备精灵的uuid */
+	optional string spriteUUID = 3;
+}
+
+

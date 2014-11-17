@@ -1,0 +1,6 @@
+message com.hifun.soul.logserver.model.HoroscopeLog(
+	int bagType;	// 星运所在包
+	int bagIndex;	// 星运所在包索引
+	int horoscopeId;	// 星运的id
+	int experience;	// 星运当前经验
+)

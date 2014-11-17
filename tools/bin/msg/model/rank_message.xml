@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="rank">
+	<message type="CG_SHOW_RANK" comment="打开排行榜">
+		<field type="Integer" name="rankType" comment="排行榜类型" />
+		<field type="Integer" name="rankPageIndex" comment="排行榜页面索引" />
+	</message>
+	<message type="GC_SHOW_LEVEL_RANK" comment="响应打开角色等级排行榜">
+		<field type="Integer" name="rankSize" comment="榜单人数" />
+		<field type="Integer" name="humanRankPosition" comment="当前角色在排行榜的位置（未入榜时为-1）" />
+		<field type="com.hifun.soul.gameserver.rank.model.HumanLevelRankData" list="true" name="rankDatas" comment="排行榜数据列表" macro="LevelRankInfo" clientType="LevelRankData">
+		</field>
+	</message>
+	<message type="GC_SHOW_TITLE_RANK" comment="响应打开角色军衔排行榜">
+		<field type="Integer" name="rankSize" comment="榜单人数" />
+		<field type="Integer" name="humanRankPosition" comment="当前角色在排行榜的位置（未入榜时为-1）" />
+		<field type="com.hifun.soul.gameserver.rank.model.HumanTitleRankData" list="true" name="rankDatas" comment="排行榜数据列表" macro="TitleRankInfo" clientType="TitleRankData">
+		</field>
+	</message>
+	<message type="GC_SHOW_HONOR_RANK" comment="响应打开角色荣誉排行榜">
+		<field type="Integer" name="rankSize" comment="榜单人数" />
+		<field type="Integer" name="humanRankPosition" comment="当前角色在排行榜的位置（未入榜时为-1）" />
+		<field type="com.hifun.soul.gameserver.rank.model.HumanHonorRankData" list="true" name="rankDatas" comment="排行榜数据列表" macro="HonorRankInfo" clientType="HonorRankData">
+		</field>
+	</message>
+	<message type="GC_SHOW_VIP_RANK" comment="响应打开角色VIP排行榜">
+		<field type="Integer" name="rankSize" comment="榜单人数" />
+		<field type="Integer" name="humanRankPosition" comment="当前角色在排行榜的位置（未入榜时为-1）" />
+		<field type="com.hifun.soul.gameserver.rank.model.HumanVipRankData" list="true" name="rankDatas" comment="排行榜数据列表" macro="VipRankInfo" clientType="VipRankData">
+		</field>
+	</message>
+	<message type="GC_SHOW_LEGION_LEVEL_RANK" comment="响应打开军团等级排行榜">
+		<field type="Integer" name="rankSize" comment="榜单个数" />
+		<field type="Integer" name="humanRankPosition" comment="当前角色所在军团在排行榜的位置（未入榜时为-1）" />
+		<field type="com.hifun.soul.gameserver.rank.model.LegionLevelRankData" list="true" name="rankDatas" comment="排行榜数据列表" macro="LegionLevelRankInfo" clientType="LegionLevelRankData">
+		</field>
+	</message>
+	<message type="GC_SHOW_LEGION_MEMBER_RANK" comment="响应打开军团成员排行榜">
+		<field type="Integer" name="rankSize" comment="榜单个数" />
+		<field type="Integer" name="humanRankPosition" comment="当前角色所在军团在排行榜的位置（未入榜时为-1）" />
+		<field type="com.hifun.soul.gameserver.rank.model.LegionMemberRankData" list="true" name="rankDatas" comment="排行榜数据列表" macro="LegionMemberRankInfo" clientType="LegionMemberRankData">
+		</field>
+	</message>
+	<message type="CG_GET_RANK_REWARD" comment="领取排行奖励">
+		<field type="Integer" name="rankType" comment="排行榜类型" />
+	</message>
+	<message type="GC_GET_LEVEL_RANK_REWARD" comment="领取排行奖励">
+		<field type="Integer" name="rewardCoinNum" comment="获得奖励的金币数" />
+	</message>
+</messages>

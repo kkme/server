@@ -1,0 +1,4 @@
+boolean isRedMine;//是否是红矿
+int mineType;//矿位类型
+String surroundIndexes;//周围的矿位索引
+String canMoveOrBattleIndexes;//可移动或战斗的矿位索引

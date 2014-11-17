@@ -1,0 +1,4 @@
+int levelLimit; //玩家等级下限
+int monsterId;[notNull=false;minValue=0] //怪物id
+int mineFieldTypeId; //矿坑类型id
+int mineFieldTypeWeight;[notNull=false;minValue=0] //矿坑类型出现的权重

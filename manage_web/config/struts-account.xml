@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="struts-account" extends="manage-base-package">
+		<!-- 查询账号 -->
+		<action name="queryAccount"
+			class="com.hifun.soul.manageweb.account.action.AccountAction" method="queryAccount">
+			<result name="accountList">/account/accountList.jsp</result>
+			<result name="accountDetail">/account/accountDetail.jsp</result>
+			<result name="accountEdit">/account/accountEdit.jsp</result>
+			<interceptor-ref name="permission"></interceptor-ref>
+		</action>
+		<!-- 查询账号转向 -->
+		<action name="queryAccountForward"
+			class="com.hifun.soul.manageweb.account.action.AccountAction" method="queryAccountForward">
+			<result name="queryMain">/account/queryAccountMain.jsp</result>
+			<interceptor-ref name="permission"></interceptor-ref>
+		</action>
+		<!-- 锁定账号转向 -->
+		<action name="lockAccountForward"
+			class="com.hifun.soul.manageweb.account.action.AccountAction" method="lockAccountForward">
+			<result name="lockAccountForward">/account/lockAccount.jsp</result>
+			<interceptor-ref name="permission"></interceptor-ref>
+		</action>
+		<!-- 锁定账号 -->
+		<action name="lockAccount"
+			class="com.hifun.soul.manageweb.account.action.AccountAction" method="lockAccount">
+			<result name="accountList" type="chain">queryAccount</result>
+			<interceptor-ref name="permission"></interceptor-ref>
+		</action>
+		<!-- 解锁账号 -->
+		<action name="unlockAccount"
+			class="com.hifun.soul.manageweb.account.action.AccountAction" method="unlockAccount">
+			<result name="accountList" type="chain">queryAccount</result>
+			<interceptor-ref name="permission"></interceptor-ref>
+		</action>
+		<!-- 更新账户信息 -->
+		<action name="updateAccountInfo"
+			class="com.hifun.soul.manageweb.account.action.AccountAction" method="updateAccountInfo">
+			<result name="success">/account/accountDetail.jsp</result>
+			<result name="error">/error.jsp</result>
+			<interceptor-ref name="defaultStack" />
+			<interceptor-ref name="permission"></interceptor-ref>
+		</action>	
+	</package>
+</struts>

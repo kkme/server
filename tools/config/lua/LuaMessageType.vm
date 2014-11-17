@@ -1,0 +1,11 @@
+-- MessageType;
+-- @author crazyjohn;
+
+MessageType = {}
+
+#foreach($key in $fieldInfos.keySet())
+	-- $key
+	MessageType.$key = $fieldInfos.get($key)
+#end
+
+return MessageType

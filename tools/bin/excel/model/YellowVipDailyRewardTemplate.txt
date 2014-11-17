@@ -1,0 +1,1 @@
+List<Integer> vipCoin; [collection(8,1)] //黄钻vip金币奖励

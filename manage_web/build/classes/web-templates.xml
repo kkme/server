@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scripts>
+	<file name="items.xls">
+		<sheet class="com.hifun.soul.gameserver.item.template.EquipItemTemplate" />
+		<sheet class="com.hifun.soul.gameserver.item.template.MaterialItemTemplate" />
+		<sheet class="com.hifun.soul.gameserver.item.template.ConsumeItemTemplate" />
+		<sheet class="com.hifun.soul.gameserver.item.template.ItemConstantIdTemplate" />
+	</file>
+	<file name="equipment.xls">
+		<sheet class="com.hifun.soul.gameserver.item.template.EquipMakeTemplate" />
+		<sheet class="com.hifun.soul.gameserver.item.template.EquipUpgradeTemplate" />
+	</file>
+	<file name="quest.xls">
+		<sheet class="com.hifun.soul.gameserver.human.quest.template.QuestTemplate" />
+		<sheet class="com.hifun.soul.gameserver.human.quest.daily.template.DailyQuestRewardTemplate" />
+	</file>
+	<file name="occupation.xls">
+		<sheet
+			class="com.hifun.soul.gameserver.human.occupation.template.CharacterOccupationTemplate" />
+		<sheet
+			class="com.hifun.soul.gameserver.human.occupation.template.CharacterOccupationInitPropTemplate" />
+		<sheet
+			class="com.hifun.soul.gameserver.human.occupation.template.CharacterPropConverterRateTemplate" />
+		<sheet class="com.hifun.soul.gameserver.human.template.HumanGemPropTemplate" />
+		<sheet class="com.hifun.soul.gameserver.human.template.HumanLevelUpTemplate" />
+		<sheet
+			class="com.hifun.soul.gameserver.skill.template.SkillOccupationTemplate" />
+	</file>
+	<file name="skill.xls">		
+		<sheet class="com.hifun.soul.gameserver.skill.template.SkillTemplate" />
+		<sheet class="com.hifun.soul.gameserver.battle.template.ComboTemplate" />
+		<sheet class="com.hifun.soul.gameserver.skill.buff.template.BuffTemplate" />
+		<sheet class="com.hifun.soul.gameserver.skill.template.SkillSlotTemplate" />
+		<sheet class="com.hifun.soul.gameserver.skill.template.SkillScrollTemplate" />
+		<sheet
+			class="com.hifun.soul.gameserver.skill.template.SkillDevelopTypeTemplate" />
+	</file>
+	<file name="mine.xls">
+		<sheet class="com.hifun.soul.gameserver.mine.template.MineFieldTypeTemplate" />
+	</file>
+	<file name="costnotify.xls">
+		<sheet class="com.hifun.soul.gameserver.costnotify.template.CostNotifyTemplate" />
+	</file>
+	<file name="gift.xls">
+		<sheet class="com.hifun.soul.gameserver.gift.template.GiftTemplate" />
+	</file>
+	<file name="simpleitem.xls">
+		<sheet class="com.hifun.soul.manageweb.template.SimpleItemTemplate" />
+	</file>
+		<file name="horoscope.xls">
+		<sheet class="com.hifun.soul.gameserver.horoscope.template.HoroscopeGambleTemplate" />
+		<sheet class="com.hifun.soul.gameserver.horoscope.template.HoroscopeTemplate" />	
+		<sheet class="com.hifun.soul.gameserver.horoscope.template.HoroscopeTypeTemplate" />
+		<sheet class="com.hifun.soul.gameserver.horoscope.template.HoroscopeIntroduceTemplate" />
+	</file>
+</scripts>

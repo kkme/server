@@ -1,0 +1,2 @@
+int energyNum; //获得的体力值
+int crystalCost; //魔晶花费

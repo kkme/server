@@ -1,0 +1,11 @@
+int stageId;[notNull=true;minValue=1] // 关卡id
+int triggerType;[notNull=true;minValue=1] // 剧情触发(1:战斗前;2:战斗胜利;3:战斗失败)
+int order;[notNull=true;minValue=1] // 剧情顺序
+int dramaType;[notNull=true;minValue=1] // 剧情类型(1:对话;2:旁白;)
+int contentLangId;[notNull=false;minValue=0] // 对话内容多语言
+String content; // 对话内容
+int nameLangId;[notNull=false;minValue=0] // 人物名称多语言
+String name; // 人物名称
+int icon;[notNull=true;minValue=1] // 头像图标
+int positionType;[notNull=true;minValue=1] // 头像位置(1:左;2:右)
+ 

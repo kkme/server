@@ -1,0 +1,1 @@
+int maxTime;[notNull=true;minValue=1] // 每天兑换次数上限

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 	
+xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="activity">	
+	
+	<message type="CG_QUERY_ACTIVITY_LIST" comment="请求获取活动列表">
+		<field type="Integer" name="activityShowType" comment="活动显示类型"/>
+	</message>
+	
+	<message type="GC_ACTIVITY_LIST" comment="更新活动列表">
+		<field type="com.hifun.soul.gameserver.activity.model.ActivityData" clientType="ActivityData" name="Activities" list ="true" comment="活动列表">
+			<field type="Integer" name="id" comment="活动id"/>
+			<field type="String" name="name" comment="活动名称"/>			
+			<field type="String" name="simpleDesc" comment="活动简单描述"/>
+			<field type="Integer" name="activityShowType" comment="活动显示类型"/>
+			<field type="Integer" name="openLevel" comment="开启等级"/>
+			<field type="String" name="activeTimeInfo" comment="活动开启时间" />
+			<field type="Integer" name="state" comment="活动状态"/>
+			<field type="Integer" name="iconId" comment="活动图标id"/>
+		</field>	
+	</message>
+	
+	<message type="GC_ALONE_ACTIVITY_LIST" comment="更新独立活动列表">
+		<field type="com.hifun.soul.gameserver.activity.model.ActivityBaseInfo" clientType="ActivityBaseData" name="activityBaseInfoList"
+				macro="ActivityBaseInfo" list="true" comment="活动列表">	
+		</field>
+	</message>
+	
+	<message type="CG_ENTER_ACTIVITY" comment="参加活动">
+		<field type="Integer" name="activityId" comment="活动Id"/>
+	</message>
+	
+	<message type="GC_UPDATE_ACTIVITY_STATE" comment="更新活动状态">
+		<field type="Integer" name="id" comment="活动Id"/>
+		<field type="Integer" name="activityType" comment="活动类型"/>
+		<field type="Integer" name="state" comment="活动状态：参见ActivityState枚举"/>
+	</message>
+</messages>

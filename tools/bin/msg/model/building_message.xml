@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="building">
+	
+	<message type="GC_BUILDING_LIST" comment="建筑列表">
+		<field type="com.hifun.soul.common.model.building.BuildingInfo" 
+			clientType="BuildingInfoData" name="buildingInfo" list="true" comment="建筑列表" macro="BuildingInfo">
+		</field>
+	</message>
+	
+	<message type="CG_CLICK_BUILDING" comment="点击建筑">
+		<field type="Integer" name="buildingType" comment="建筑类型(建筑id)"></field>
+		<field type="Long" name="UUID" comment="点击玩家的UUID"></field>
+	</message>
+	
+	<message type="GC_SHOW_BUILDING_FUNC" comment="返回建筑功能列表">
+		<field type="Integer" name="buildingType" comment="建筑类型(建筑id)"></field>
+		<field type="com.hifun.soul.gameserver.building.msg.BuildingFuncInfo"
+			clientType="BuildingInfoData" name="funcs" list="true" comment="建筑功能列表">
+			<field type="Integer" name="funcId" comment="功能id" />
+			<field type="String" name="name" comment="功能名称" />
+			<field type="String" name="desc" comment="功能描述" />
+		</field>
+	</message>
+	
+	<message type="CG_CLICK_BUILDING_FUNC" comment="点击建筑功能">
+		<field type="Integer" name="buildingType" comment="建筑类型(建筑id)"></field>
+		<field type="Integer" name="funcId" comment="功能id"></field>
+		<field type="Long" name="UUID" comment="点击玩家的UUID"></field>
+	</message>
+	
+	<message type="CG_UPGRADE_BUILDING" comment="升级建筑">
+		<field type="Integer" name="buildingType" comment="建筑类型(建筑id)"></field>
+	</message>
+	
+	<message type="GC_SHOW_BUILDING_UPGRADE_PANEL" comment="打开建筑升级面板">
+		<field type="Integer" name="buildingType" comment="建筑类型(建筑id)"></field>
+		<field type="Integer" name="funcId" comment="功能id"></field>
+		
+		<field type="Short" name="currencyType" comment="升级需要的货币类型"></field>
+		<field type="Integer" name="currencyNum" comment="升级需要的货币数量"></field>
+		<field type="Integer" name="woodNum" comment="升级需要的木材"></field>
+		<field type="Integer" name="mineNum" comment="升级需要的石矿"></field>
+		<field type="Integer" name="gemNum" comment="升级需要的宝石矿"></field>
+	</message>
+
+</messages>

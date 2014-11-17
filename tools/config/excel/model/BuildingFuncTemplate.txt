@@ -1,0 +1,3 @@
+int buildingId;[notNull=true;minValue=1] // 建筑id
+int priority;[notNull=true;minValue=1] // 显示优先级
+int level;[notNull=false;minValue=0] // 显示等级限制

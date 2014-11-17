@@ -1,0 +1,3 @@
+int needHumanLevel;[notNull=false;mainValue=0] //需要角色等级
+com.hifun.soul.gameserver.godsoul.template.EquipBitLevel[] equipBitLevels;[collection(8,1)] //装备位等级
+int successRate;[notNull=false;mainValue=0] //成功率

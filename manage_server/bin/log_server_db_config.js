@@ -1,0 +1,10 @@
+config.dbType="mysql";
+config.poolName="logServerDB";
+config.driver="com.mysql.jdbc.Driver";
+config.url="jdbc:mysql://localhost:3306/sevensoul_log?useUnicode=true&amp;characterEncoding=utf-8";
+config.dbName="sevensoul_log";
+config.user="root";
+config.password="";
+config.maxConnectionCount=10;
+config.initialSize=1;
+config.connctionTimeOut=3*60*1000;

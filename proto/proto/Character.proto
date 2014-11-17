@@ -1,0 +1,15 @@
+/**
+ * 定义通用的角色相关的message;
+ * 一般都是业务相关的定义;
+ * @aouthor crazyjohn
+ */
+
+package com.hifun.soul.proto.common;
+option java_package = "com.hifun.soul.proto.common";
+option java_outer_classname = "Character";
+
+// 角色属性定义, 键值对
+message CharProperty {
+	required int32 key = 1;
+	required int64 value = 2;
+}

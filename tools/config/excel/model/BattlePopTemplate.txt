@@ -1,0 +1,1 @@
+List<String> words; [collection(5,1);notNull=false] // pop内容

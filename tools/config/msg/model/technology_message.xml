@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="technology">
+	
+	<message type="CG_SHOW_TECHNOLOGY_PANEL" comment="打开科技面板">
+		<field type="Short" name="pageIndex" comment="页面索引" />
+	</message>
+	
+	<message type="GC_SHOW_TECHNOLOGY_PANEL" comment="打开科技面板">
+		<field type="Short" name="totalSize" comment="科技总数" />
+		<field type="Short" name="pageIndex" comment="页面索引" />
+		<field type="Integer" name="technologyNum" comment="剩余科技点数" />
+		<field type="com.hifun.soul.gameserver.technology.msg.TechnologyInfo" 
+			clientType="TechnologyInfoData" name="technologyInfos" list="true" comment="科技列表" macro="TechnologyInfo">
+		</field>
+		<field type="com.hifun.soul.gameserver.technology.msg.TechnologyDetailInfo" 
+			clientType="TechnologyDetailInfoData" name="technologyDetailInfo" comment="默认科技详细信息" macro="TechnologyDetailInfo">
+		</field>
+	</message>
+	
+	<message type="CG_SHOW_TECHNOLOGY_INFO" comment="请求查看科技信息">
+		<field type="Integer" name="technologyId" comment="科技id" />
+	</message>
+	
+	<message type="GC_SHOW_TECHNOLOGY_INFO" comment="返回科技信息">
+		<field type="com.hifun.soul.gameserver.technology.msg.TechnologyDetailInfo" 
+			clientType="TechnologyDetailInfoData" name="technologyDetailInfo" comment="默认科技详细信息" macro="TechnologyDetailInfo">
+		</field>
+	</message>
+	
+	<message type="CG_UPGRADE_TECHNOLOGY" comment="请求升级科技">
+		<field type="Integer" name="technologyId" comment="科技id" />
+	</message>
+	
+	<message type="GC_UPGRADE_TECHNOLOGY" comment="返回科技升级之后的变更信息">
+		<field type="Integer" name="technologyId" comment="科技id" />
+		<field type="Integer" name="technologyNum" comment="剩余科技点数" />
+		<field type="com.hifun.soul.gameserver.technology.msg.TechnologyDetailInfo" 
+			clientType="TechnologyDetailInfoData" name="technologyDetailInfo" comment="科技详细信息" macro="TechnologyDetailInfo">
+		</field>
+	</message>
+	
+</messages>

@@ -1,0 +1,5 @@
+String name; //副本名称
+int nameLangId; //副本名称多语言
+String desc; //副本描述
+int descLangId; //描述多语言
+int openLevel; //开启等级

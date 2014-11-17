@@ -1,0 +1,2 @@
+Short currencyType;[notNull=true;minValue=1] // 消耗货币类型
+int currencyNum;[notNull=true;minValue=1] // 消耗货币数量

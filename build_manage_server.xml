@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- 服务器打包脚本  by crazyjohn -->
+<project name="soul.build" basedir="." default="zip">
+	<!-- define all props -->
+	<tstamp>
+		<format property="build.time" pattern="yyyyMMddHHmmss"/>
+	</tstamp>
+	<property name="build.version" value="${build.time}"/>
+	<property name="root.dir" value="${basedir}"/>
+	<property name="build.dir" value="${root.dir}/build"/>
+	<property name="class.dir" value="${build.dir}/classes"/>
+	<property name="bin.dir" value="${build.dir}/bin"/>
+	<property name="config.dir" value="${bin.dir}"/>
+	<property name="lib.dir" value="${bin.dir}/lib"/>
+	<property name="proto.dir" location="${root.dir}/proto"/>
+	<property name="core.dir" value="${root.dir}/core"/>
+	<property name="ds.dir" value="${root.dir}/game_db"/>
+	<property name="ms.dir" value="${root.dir}/manage_server"/>
+	<property name="sql.dir" value="${ms.dir}/sql"/>
+	<property name="sql.manage.dir" value="F:/技术版本/db/manageserver"/>
+	<property name="version.dir" value="F:/技术版本/管理服"/>
+	<property name="version.temp.dir" value="F:/技术版本/管理服/temp"/>
+	
+	<!-- 库 -->
+	<path id="libs">
+		<pathelement path="${java.class.path}"/>
+		<fileset id="proto_lib" dir="${proto.dir}/lib" includes="*.jar"/>
+		<fileset id="core_lib" dir="${core.dir}/lib" includes="*.jar,*.zip,*.dll,*.so"/>
+	</path>
+	
+	<!-- 编译预定义 -->
+	<presetdef name="javac16">
+		<javac destdir="${class.dir}" includeAntRuntime="false" classpathref="libs" nowarn="true" encoding="UTF-8" source="1.6" target="1.6" compiler="javac1.6"/>
+	</presetdef>
+	
+	<!-- 重置  -->
+	<target name="init">
+		<delete dir="${build.dir}" failonerror="false"/>
+		<mkdir dir="${build.dir}" />
+		<mkdir dir="${class.dir}"/>
+		<mkdir dir="${bin.dir}"/>
+		<mkdir dir="${config.dir}"/>
+	</target>
+	
+	<!-- 编译 -->
+	<target name="compile" depends="init" >
+		<!--<echo message="compiling, classpath:${java.class.path}"/>-->
+		<javac16>
+			<src path="${proto.dir}/src"/>
+			<src path="${core.dir}/src"/>
+			<src path="${ds.dir}/src"/>
+			<src path="${ms.dir}/src"/>
+		</javac16>
+	</target>
+	
+	<!-- 生成jar  -->
+	<target name="pack" depends="compile">
+		<copy todir="${class.dir}">
+			<!--
+			<fileset dir="${core.dir}/config"/>
+			-->
+			<fileset dir="${core.dir}/config" excludes="*.js,*.tpl"/>
+			<fileset dir="${ms.dir}/config" excludes="*.js,*.tpl"/>
+		</copy>
+		<jar basedir="${class.dir}" jarfile="${bin.dir}/manage.jar"/>
+		<delete dir="${class.dir}" failonerror="false"/>
+	</target>
+	
+	<!-- copy jars and configs and resouces and launchScript to publish dir -->
+	<target name="copy" depends="pack">
+		<copy todir="${bin.dir}">
+			<fileset dir="${core.dir}/config" excludes="*.tpl,*.properties"/>
+			<fileset dir="${ms.dir}/config" includes="*.js,*.xml"/>
+		</copy>
+		<copy todir="${lib.dir}">
+			<fileset refid="proto_lib"/>
+			<fileset refid="core_lib"/>
+		</copy>
+		
+		<!-- i18n -->
+		<copy todir="${bin.dir}" file="${root.dir}/launch_manage.xml"/>
+		<echo message="ant -f bin\launch_manage.xml" file="${build.dir}/run.bat"/>
+	</target>
+	
+		<!-- publish to shared dir -->
+	<target name="copy_shared" depends="copy">
+		<mkdir dir="${version.temp.dir}"/>
+		<copy todir="${version.temp.dir}">
+			<fileset dir="${build.dir}"/>
+		</copy>
+	</target>
+	<!-- zip client and server -->
+	<target name="zip" depends="copy_shared">
+		<zip destfile="${version.dir}/soul_manage_version_${build.version}.zip">
+			<zipfileset dir="${version.temp.dir}" prefix="manage"/>
+		</zip>
+		<delete dir="${sql.manage.dir}"/>
+		<mkdir dir="${sql.manage.dir}"/>
+		<copy todir="${sql.manage.dir}">
+			<fileset dir="${sql.dir}"/>
+		</copy>
+		<delete dir="${version.temp.dir}" failonerror="false"/>
+	</target>
+</project>

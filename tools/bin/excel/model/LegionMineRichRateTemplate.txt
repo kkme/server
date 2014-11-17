@@ -1,0 +1,4 @@
+float lowest;[notNull=false;minValue=0]//范围下限
+float highest;[notNull=false;minValue=0]//范围上限
+String richRateDesc;//富裕度描述
+int revenueRate;//收益比例

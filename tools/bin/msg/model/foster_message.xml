@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 	
+xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="foster">	
+	
+	<message type="CG_SHOW_FOSTER_PANEL" comment="请求打开培养面板">		
+	</message>
+	<message type="GC_SHOW_FOSTER_PANEL" comment="返回培养面板所有数据">		
+		<field type="com.hifun.soul.gameserver.foster.FosterAttribute" name="attributes" comment="培养属性" list="true" clientType="FosterAttribute" >
+			<field type="Integer" name="id" comment="一级属性id" />
+			<field type="String" name="name" comment="属性名称" />
+			<field type="Integer" name="max" comment="最大值" />
+			<field type="Integer" name="current" comment="当前值" />
+		</field>
+		<field type="com.hifun.soul.gameserver.foster.FosterMode" name="fosterMode" comment="培养模式" list="true" clientType="FosterMode" >
+			<field type="Integer" name="id" comment="培养模式id" />
+			<field type="String" name="name" comment="名称" />
+			<field type="String" name="desc" comment="描述" />
+			<field type="Integer" name="type" comment="培养模式类别[1为普通培养，2为高级培养]" />
+			<field type="Integer" name="costCurrencyType" comment="所需货币类型" />
+			<field type="Integer" name="costCurrencyNum" comment="所需货币数量" />
+		</field>
+	</message>
+	<message type="CG_FOSTER" comment="培养请求所获得的数值">		
+		<field type="Integer" name="modeId" comment="培养模式id" />
+	</message>
+	<message type="GC_FOSTER" comment="返回培养所获得的数值">	
+		<field type="Integer" name="fosterAttributeNum" comment="培养获得的属性值" list="true" >			
+		</field>
+	</message>
+	<message type="CG_SAVE_FOSTER" comment="保存当前的数值">		
+	</message>
+	<message type="GC_SAVE_FOSTER" comment="保存当前的数值">	
+		<field type="com.hifun.soul.gameserver.foster.FosterAttribute" name="attributes" comment="培养属性" list="true" clientType="FosterAttribute" >
+			<field type="Integer" name="id" comment="一级属性id" />
+			<field type="String" name="name" comment="属性名称" />
+			<field type="Integer" name="max" comment="最大值" />
+			<field type="Integer" name="current" comment="当前值" />
+		</field>
+	</message>
+</messages>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="arena">
+	<message type="CG_OPEN_ARENA_PANEL" comment="打开竞技场面板">
+	</message>
+	
+	<message type="GC_OPEN_ARENA_PANEL" comment="打开竞技场面板">
+		<field type="Integer" name="rank" comment="排名"/>
+		<field type="Integer" name="currentHonor" comment="当前荣誉"/>
+		<field type="Integer" name="battleTimes" comment="剩余战斗次数"/>
+		<field type="com.hifun.soul.gameserver.arena.ArenaMember" list="true" name="arenaMembers" comment="可挑战玩家列表" macro="ArenaMember" clientType="ArenaMemberData">
+		</field>
+		<field type="com.hifun.soul.gameserver.arena.ArenaNotice" list="true" name="arenaNotices" comment="竞技场提示信息" macro="ArenaNotice" clientType="ArenaNoticeData">
+		</field>
+		<field type="Integer" name="rewardState" comment="排名奖励领取状态"/>
+		<field type="Integer" name="crystal" comment="增加挑战次数需要的花费"/>
+		<field type="Integer" name="giftCoin" comment="金币奖励"/>
+		<field type="Integer" name="giftHonor" comment="荣誉奖励"/>
+		<field type="Integer" name="giftCd" comment="礼包领取cd"/>
+		<field type="Boolean" name="honorIsFull" comment="荣誉是否已经满了"/>
+		<field type="Integer" name="maxHonor" comment="荣誉上限"/>
+	</message>
+	
+	<message type="CG_VIEW_ARENA_RANK_REWARD_INFO" comment="查看竞技场排名奖励信息">
+	</message>
+	
+	<message type="GC_VIEW_ARENA_RANK_REWARD_INFO" comment="查看竞技场排名奖励信息">
+		<field type="com.hifun.soul.gameserver.item.assist.CommonItem" list="true" name="items" comment="奖励物品列表" macro="CommonItem" clientType="CommonItemData">
+		</field>
+	</message>	
+	
+	<message type="CG_GET_ARENA_RANK_REWARD" comment="领取竞技场排名奖励">
+	</message>
+	
+	<message type="GC_GET_ARENA_RANK_REWARD" comment="领取竞技场排名奖励">
+		<field type="Integer" name="rewardState" comment="排名奖励领取状态"/>
+	</message>
+	
+	<message type="CG_ADD_ARENA_BATTLE_TIME" comment="添加竞技场战斗次数">
+	</message>
+	
+	<message type="GC_ADD_ARENA_BATTLE_TIME" comment="添加竞技场战斗次数">
+		<field type="Integer" name="times" comment="剩余挑战次数"/>
+		<field type="Integer" name="crystal" comment="增加挑战次数的花费"/>
+	</message>
+	
+	<message type="GC_SHOW_ARENA_RANK_LIST" comment="显示竞技场排名列表">
+		<field type="Integer" name="totalSize" comment="排行榜所有玩家大小"/>
+		<field type="com.hifun.soul.gameserver.arena.ArenaMember" list="true" name="arenaMembers" comment="可挑战玩家列表" macro="ArenaMember" clientType="ArenaMemberData">
+		</field>
+		<field type="Integer" name="rankPosition" comment="自己的排名位置"/>
+	</message>
+	
+	<message type="CG_ATTACK_ARENA_MEMBER" comment="攻击竞技场成员">
+		<field type="Long" name="humanGuid" comment="被攻打玩家的角色id"/>
+	</message>
+	
+	<message type="GC_ATTACK_ARENA_MEMBER" comment="攻击竞技场成员">
+	</message>
+	
+</messages>

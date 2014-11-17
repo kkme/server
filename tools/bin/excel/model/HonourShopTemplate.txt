@@ -1,0 +1,4 @@
+int itemId; // 道具ID
+int needHonour;[notNull=false;minValue=0] // 购买需要荣誉
+int itemType;[notNull=false;minValue=0] // 分页签
+int visibleLevel;[notNull=false;minValue=0]//可见等级

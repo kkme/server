@@ -1,0 +1,60 @@
+int guideTypeId;[minValue=1;notNull=true] // 引导类型
+String maskColor;[notNull=true] // 蒙板颜色
+int maskAlpha;[minValue=0;maxValue=100;notNull=false] // 蒙板透明度
+int guideTextLangId;[notNull=false;minValue=0] // 引导文字多语言 ID
+String guideText;[notNull=false;NotTranslate] // 引导文字
+int textPosX;[minValue=0;notNull=false] // 引导文字 X 坐标位置
+int textPosY;[minValue=0;notNull=false] // 引导文字 Y 坐标位置
+int textMode;[minValue=0;notNull=false] // 文字方式, 0 = 全显方式, 1 = 逐字显示
+int highlite1PosX;[minValue=0;notNull=false] // 高亮区域 X 坐标位置
+int highlite1PosY;[minValue=0;notNull=false] // 高亮区域 Y 坐标位置
+int highlite1Width;[minValue=0;notNull=false] // 高亮区域宽度
+int highlite1Height;[minValue=0;notNull=false] // 高亮区域高度
+String highlite1BorderColor;[notNull=false] // 高亮区域边框颜色
+int highlite1BorderThickness;[minValue=0;notNull=false] // 高亮区域边框厚度
+int highlite2PosX;[minValue=0;notNull=false] // 高亮区域 X 坐标位置
+int highlite2PosY;[minValue=0;notNull=false] // 高亮区域 Y 坐标位置
+int highlite2Width;[minValue=0;notNull=false] // 高亮区域宽度
+int highlite2Height;[minValue=0;notNull=false] // 高亮区域高度
+String highlite2BorderColor;[notNull=false] // 高亮区域边框颜色
+int highlite2BorderThickness;[minValue=0;notNull=false] // 高亮区域边框厚度
+int highlite3PosX;[minValue=0;notNull=false] // 高亮区域 X 坐标位置
+int highlite3PosY;[minValue=0;notNull=false] // 高亮区域 Y 坐标位置
+int highlite3Width;[minValue=0;notNull=false] // 高亮区域宽度
+int highlite3Height;[minValue=0;notNull=false] // 高亮区域高度
+String highlite3BorderColor;[notNull=false] // 高亮区域边框颜色
+int highlite3BorderThickness;[minValue=0;notNull=false] // 高亮区域边框厚度
+int highlite4PosX;[minValue=0;notNull=false] // 高亮区域 X 坐标位置
+int highlite4PosY;[minValue=0;notNull=false] // 高亮区域 Y 坐标位置
+int highlite4Width;[minValue=0;notNull=false] // 高亮区域宽度
+int highlite4Height;[minValue=0;notNull=false] // 高亮区域高度
+String highlite4BorderColor;[notNull=false] // 高亮区域边框颜色
+int highlite4BorderThickness;[minValue=0;notNull=false] // 高亮区域边框厚度
+int highlite5PosX;[minValue=0;notNull=false] // 高亮区域 X 坐标位置
+int highlite5PosY;[minValue=0;notNull=false] // 高亮区域 Y 坐标位置
+int highlite5Width;[minValue=0;notNull=false] // 高亮区域宽度
+int highlite5Height;[minValue=0;notNull=false] // 高亮区域高度
+String highlite5BorderColor;[notNull=false] // 高亮区域边框颜色
+int highlite5BorderThickness;[minValue=0;notNull=false] // 高亮区域边框厚度
+int arrow1PosX;[minValue=0;notNull=false] // 箭头 1 X 坐标位置
+int arrow1PosY;[minValue=0;notNull=false] // 箭头 1 Y 坐标位置
+int arrow2PosX;[minValue=0;notNull=false] // 箭头 2 X 坐标位置
+int arrow2PosY;[minValue=0;notNull=false] // 箭头 2 Y 坐标位置
+int arrow3PosX;[minValue=0;notNull=false] // 箭头 3 X 坐标位置
+int arrow3PosY;[minValue=0;notNull=false] // 箭头 3 Y 坐标位置
+int operationalPosX;[minValue=0;notNull=false] // 可操作区域 X 坐标位置
+int operationalPosY;[minValue=0;notNull=false] // 可操作区域 Y 坐标位置
+int operationalWidth;[minValue=0;notNull=false] // 可操作区域宽度
+int operationalHeight;[minValue=0;notNull=false] // 可操作区域高度
+String operationalBorderColor;[notNull=false] // 可操作区域边框颜色
+int operationalBorderThickness;[minValue=0;notNull=false] // 可操作区域边框厚度
+String event;[notNull=false] // 操作事件
+String controlName;[notNull=false] // 操作参数
+String movie;[notNull=false] // 动画资源名称
+int autoCommit;[minValue=0;notNull=false] // 在延时指定时间后自动进入下一步引导
+int sceneType;[minValue=0;notNull=false] // 场景
+int guideIcon;[minValue=-1;notNull=false] // 引导图标
+int guideIconX;[minValue=-1;notNull=false] // 引导图标x
+int guideIconY;[minValue=-1;notNull=false] // 引导图标y
+boolean needSetGemPos; // 是否需要设置宝石消除位置
+boolean needSetSkill; // 是否需要设置技能id

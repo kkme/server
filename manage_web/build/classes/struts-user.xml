@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="struts-user" extends="manage-base-package">
+		<!-- 登录 -->
+		<action name="login" class="com.hifun.soul.manageweb.user.action.LoginAction"
+			method="doLogin">
+			<result name="success">/main.jsp</result>
+			<result name="loginFailed">/index.jsp</result>
+		</action>
+		<!-- 获取用户列表 -->
+		<action name="getUserList" class="com.hifun.soul.manageweb.user.action.UserAction"
+			method="getUserList">
+			<result name="userList">/user/userList.jsp</result>
+			<result name="login">/index.jsp</result>
+			<interceptor-ref name="permission"></interceptor-ref>
+		</action>
+		<!-- 添加用户 -->
+		<action name="addUser" class="com.hifun.soul.manageweb.user.action.UserAction"
+			method="addUser">
+			<result name="addUserSuccess" type="chain">getUserList</result>
+			<interceptor-ref name="permission"></interceptor-ref>
+		</action>
+		<!-- 添加用户转向 -->
+		<action name="addUserForward" class="com.hifun.soul.manageweb.user.action.UserAction"
+			method="addUserForward">
+			<result name="addUserForward">/user/addUser.jsp</result>
+			<interceptor-ref name="permission"></interceptor-ref>
+		</action>
+		<!-- 刪除用戶 -->
+		<action name="deleteUser" class="com.hifun.soul.manageweb.user.action.UserAction"
+			method="deleteUser">
+			<result name="userList" type="chain">getUserList</result>
+			<interceptor-ref name="permission"></interceptor-ref>
+		</action>
+		<!-- 注销登录 -->
+		<action name="logout" class="com.hifun.soul.manageweb.user.action.UserAction"
+			method="logout">
+		</action>
+		<!-- 更新用户权限 -->
+		<action name="updateUserPermission" class="com.hifun.soul.manageweb.user.action.UserAction"
+			method="updateUserPermission">
+			<result name="userList" type="chain">getUserList</result>
+			<result name="failed">/user/updateUser.jsp</result>
+			<interceptor-ref name="permission"></interceptor-ref>
+		</action>
+		<!-- 更新用户权限转向 -->
+		<action name="updateUserPermissionForward" class="com.hifun.soul.manageweb.user.action.UserAction"
+			method="updateUserPermissionForward">
+			<result name="userList" type="chain">getUserList</result>
+			<result name="success">/user/updateUser.jsp</result>
+			<interceptor-ref name="permission"></interceptor-ref>
+		</action>
+		<!-- 更新用户密码 -->
+		<action name="updateUserPassword" class="com.hifun.soul.manageweb.user.action.UpdateUserPasswordAction"
+			method="updateUserPassword">
+			<result name="success" >/user/changePassword.jsp</result>
+			<result name="failed" >/user/changePassword.jsp</result>	
+			<interceptor-ref name="permission"></interceptor-ref>
+		</action>
+		<!-- 更新用户密码转向 -->
+		<action name="updateUserPasswordForward" class="com.hifun.soul.manageweb.user.action.UpdateUserPasswordAction"
+			method="updateUserPasswordForward">
+			<result name="success" >/user/changePassword.jsp</result>			
+			<interceptor-ref name="permission"></interceptor-ref>
+		</action>
+		<!-- 更新用户密码 -->
+		<action name="managerUpdateUserPassword" class="com.hifun.soul.manageweb.user.action.UpdateUserPasswordAction"
+			method="managerUpdateUserPassword">
+			<result name="success" type="chain">getUserList</result>
+			<result name="failed">/user/managerChangePassword.jsp</result>
+			<interceptor-ref name="permission"></interceptor-ref>
+		</action>
+		<!-- 更新用户密码转向 -->
+		<action name="managerUpdateUserPasswordForward" class="com.hifun.soul.manageweb.user.action.UpdateUserPasswordAction"
+			method="managerUpdateUserPasswordForward">
+			<result name="success" >/user/managerChangePassword.jsp</result>			
+			<interceptor-ref name="permission"></interceptor-ref>
+		</action>
+	</package>
+</struts>

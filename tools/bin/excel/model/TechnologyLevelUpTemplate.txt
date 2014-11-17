@@ -1,0 +1,6 @@
+int technologyId;[notNull=true;minValue=1] // 科技id
+int level;[notNull=false;minValue=0] // 科技等级
+int roleLevel;[notNull=false;minValue=0] // 角色等级限制
+int key;[notNull=false;minValue=0] // 属性id
+int propAddValue;[notNull=false;minValue=0] // 升级属性加成值
+int costValue;[notNull=false;minValue=0] // 升级消耗的科技点数

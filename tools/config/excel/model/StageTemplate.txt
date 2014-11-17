@@ -1,0 +1,19 @@
+int mapId;[notNull=true;minValue=1] // 地图id
+int strongholdId;[notNull=true;minValue=1] // 据点id(据点是一个大的建筑,关卡结合)
+int nextStageId;[notNull=false;minValue=0] // 后置关卡id
+int x;[minValue=0;notNull=false] // 客户端关心, 关卡在地图的x坐标
+int y;[minValue=0;notNull=false] // 客户端关心, 关卡在地图的y坐标
+int stageNameLangId;[notNull=false;minValue=0] // 多语言关卡的名字id
+String stageName; // 关卡名称
+int stageDescLangId;[notNull=false;minValue=0] // 多语言关卡的描述id
+String stageDesc; // 关卡描述
+int minLevel;[minValue=0;notNull=false] // 进入关卡的最小等级
+int monsterId;[minValue=0;notNull=false] // 怪物ID
+int rewardExperience;[minValue=0;notNull=false] // 奖励经验值
+short rewardCurrencyType;[minValue=1;notNull=true] // 奖励货币类型
+int rewardCurrencyNum;[minValue=1;notNull=true] // 奖励货币数量
+List<com.hifun.soul.gameserver.turntable.template.ItemRateData> rewardItems; [Collection(1,2);notNull=false] // 奖励物品
+int addStarOne; //加星条件1(剩余血量下限)
+int addStarTwo; //加星条件2(剩余血量下限)
+int addStarThree; //加星条件3(剩余血量下限)
+int addStarFour; //加星条件4(剩余血量下限)

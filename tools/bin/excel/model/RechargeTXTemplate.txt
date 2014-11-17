@@ -1,0 +1,7 @@
+String name; // 充值档位名称
+int nameLangId;[notNull=false;minValue=0] // 充值档位名称多语言
+String desc; // 充值档位描述
+int descLangId;[notNull=false;minValue=0] // 充值档位描述多语言
+int icon;[notNull=false;minValue=0] // 建筑图标
+int crystal;[notNull=false;minValue=0] // 魔晶数量
+int price;[notNull=true;minValue=2] // 价格(Q点)

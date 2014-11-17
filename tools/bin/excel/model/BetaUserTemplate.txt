@@ -1,0 +1,2 @@
+String passPortId; // 封测账号id
+int level;[notNull=false;minValue=0] // 封测账号等级 

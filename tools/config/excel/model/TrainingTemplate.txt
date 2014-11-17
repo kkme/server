@@ -1,0 +1,10 @@
+int roleLevel; //主角等级
+float normalTrainingExpUnit;[notNull=false;minValue=0] //普通训练单位时间内获得经验值（按分钟计）
+int normalTrainingCost1;[notNull=false;minValue=0] //普通训练1消耗的培养币数量
+int normalTrainingCost2;[notNull=false;minValue=0] //普通训练2消耗的培养币数量
+int normalTrainingCost3;[notNull=false;minValue=0] //普通训练3消耗的培养币数量
+int normalTrainingCost4;[notNull=false;minValue=0] //普通训练4消耗的培养币数量
+int vipTrainingExp1;[notNull=false;minValue=0] //vip训练1获得的经验值
+int vipTrainingExp2;[notNull=false;minValue=0] //vip训练2获得的经验值
+int vipTrainingExp3;[notNull=false;minValue=0] //vip训练3获得的经验值
+int vipTrainingExp4;[notNull=false;minValue=0] //vip训练4获得的经验值

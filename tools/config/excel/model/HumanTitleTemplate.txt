@@ -1,0 +1,6 @@
+String titleName;[notNull=false;mainValue=0] //军衔名称
+int needPrestige;[notNull=false;mainValue=0] //升至下级所需威望
+int titleSkillNum;[notNull=false;mainValue=0] //携带技能数量 
+int titleSalary;[notNull=false;mainValue=0] //每日俸禄
+com.hifun.soul.gameserver.title.template.HumanTitleProperty[] titleProperties;[collection(5,3)] // 军衔对应属性加成
+int maxHonor;[notNull=false;mainValue=0]//荣誉上限

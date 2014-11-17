@@ -1,0 +1,2 @@
+int crystal;[notNull=false;minValue=0] // 重置花费的魔晶数
+int time;[notNull=false;minValue=0] // 每次神秘商店可以魔晶刷新的次数

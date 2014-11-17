@@ -1,0 +1,13 @@
+package com.hifun.soul.proto.common;
+option java_package = "com.hifun.soul.proto.common";
+option java_outer_classname = "Cds";
+
+// cd信息
+message CdData {
+	// cd类型
+	required int32 cdType = 1;
+	// 操作次数
+	required int32 times = 2;
+	// cd结束时间
+	required int64 endTime = 3;
+}

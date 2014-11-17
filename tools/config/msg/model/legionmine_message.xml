@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="legionmine">
+
+	<message type="CG_OPEN_LEGION_MINE_WAR_PANEL" comment="请求打开军团矿战面板">
+	</message>
+
+	<message type="GC_OPEN_LEGION_MINE_WAR_PANEL" comment="响应打开军团矿战面板">
+		<field type="Integer" name="remainTime" comment="剩余时间(单位秒)"/>
+		<field type="Integer" name="meditationEncourageCost" comment="冥想力鼓舞花费" />
+		<field type="Integer" name="crystalEncourageCost" comment="魔晶鼓舞花费" />
+		<field type="Boolean" name="encourageIsFull" comment="鼓舞是否已经满" />
+		<field type="Integer" name="attackRate" comment="攻击加成百分比" />
+		<field type="Integer" name="defenseRate" comment="防御加成百分比" />
+		<field type="Integer" name="warExploit" comment="战功" />
+		<field type="Integer" name="rank" comment="排名" />
+		<field type="com.hifun.soul.gameserver.legionmine.LegionBuf" list="true" macro="LegionBufInfo"
+			name="legionBufs" comment="军团buf信息" clientType="LegionBufInfoData">
+		</field>
+		<field type="com.hifun.soul.gameserver.legionmine.SelfBuf" name="selfBufs"
+			list="true" macro="SelfBufInfo" comment="个人buf信息" clientType="SelfBufInfoData">
+		</field>
+		<field type="Integer" name="occupyMemberNum" comment="所在矿的人数" />
+		<field type="Integer" name="totalMemberNum" comment="所在矿最大人数" />
+		<field type="Integer" name="currentOccupyValue" comment="可收获占领值" />
+		<field type="Integer" name="watchCrystalCost" comment="侦查魔晶消耗" />
+		<field type="com.hifun.soul.gameserver.legionmine.msg.info.LegionMineInfo"
+			name="mineInfos" list="true" comment="军团矿堆信息" macro="LegionMineInfo"
+			clientType="LegionMineInfoData">
+		</field>
+		<field type="Integer" name="holdMineIndex" comment="所在矿堆索引" />
+		<field type="Boolean" name="isOverturn" comment="是否翻转" />
+		<field type="com.hifun.soul.gameserver.legionmine.msg.info.JoinLegionInfo"
+			name="joinLegionInfos" list="true" comment="矿战军团信息" macro="JoinLegionInfo"
+			clientType="JoinLegionInfoData">
+		</field>
+		<field type="Integer" name="watchHoldTime" comment="侦查持续时间(s)" />
+		<field type="Integer" name="rankMinOccupyValue" comment="排名需要最小占领值" />
+		<field type="String" name="richRateDesc" comment="所在矿富裕度描述" />
+		<field type="Integer" name="revenueRate" comment="所在矿收益比例" />
+	</message>
+
+	<message type="CG_LEGION_MINE_WAR_MOVE" comment="请求移动">
+		<field type="Integer" name="toIndex" comment="目标矿堆索引" />
+	</message>
+
+	<message type="CG_LEGION_MINE_WAR_WATCH" comment="请求侦查">
+	</message>
+
+	<message type="GC_UPDATE_LEGION_MINE_LIST" comment="通知客户端更新矿堆列表 ">
+		<field type="com.hifun.soul.gameserver.legionmine.msg.info.LegionMineInfo"
+			name="mineInfos" list="true" comment="军团矿堆信息" macro="LegionMineInfo"
+			clientType="LegionMineInfoData">
+		</field>
+	</message>
+
+	<message type="GC_UPDATE_LEGION_BUF_LIST" comment="通知客户端更新军团buf列表 ">
+		<field type="com.hifun.soul.gameserver.legionmine.LegionBuf" list="true" macro="LegionBufInfo"
+			name="legionBufs" comment="军团buf信息" clientType="LegionBufInfoData">
+		</field>
+	</message>
+
+	<message type="CG_USE_SELF_BUF" comment="请求使用个人buf">
+		<field type="Integer" name="selfBufType" comment="个人buf类型" />
+	</message>
+
+	<message type="GC_USE_SELF_BUF" comment="响应使用个人buf">
+		<field type="com.hifun.soul.gameserver.legionmine.SelfBuf" name="selfBufs"
+			list="true" macro="SelfBufInfo" comment="个人buf信息" clientType="SelfBufInfoData">
+		</field>
+	</message>
+	
+	<message type="CG_ABORT_SELF_BUF" comment="请求取消个人buf">
+		<field type="Integer" name="selfBufType" comment="个人buf类型" />
+	</message>
+
+	<message type="GC_ABORT_SELF_BUF" comment="响应取消个人buf">
+		<field type="Integer" name="selfBufType" comment="个人buf类型" />
+		<field type="Boolean" name="using" comment="是否正在使用" />
+	</message>
+
+	<message type="CG_LEGION_MINE_WAR_HARVEST" comment="请求收获">
+	</message>
+
+	<message type="GC_LEGION_MINE_WAR_HARVEST" comment="响应收获">
+		<field type="Integer" name="occupyValue" comment="占领值" />
+		<field type="Integer" name="rank" comment="排名" />
+		<field type="com.hifun.soul.gameserver.legionmine.msg.info.JoinLegionInfo"
+			name="joinLegionInfos" list="true" comment="矿战军团信息" macro="JoinLegionInfo"
+			clientType="JoinLegionInfoData">
+		</field>
+		<field type="Long" name="havestHumanGuid" comment="收获者ID" />
+	</message>
+
+	<message type="CG_LEGION_MINE_WAR_BATTLE" comment="请求战斗">
+		<field type="Integer" name="toIndex" comment="目标矿堆索引" />
+	</message>
+	
+	<message type="CG_LEGION_MINE_WAR_ENCOURAGE" comment="请求鼓舞">
+		<field type="Integer" name="encourageType" comment="鼓舞类型(冥想力还是魔晶)"/>
+	</message>
+	
+	<message type="GC_LEGION_MINE_WAR_ENCOURAGE" comment="响应鼓舞">
+		<field type="Integer" name="encourageRate" comment="鼓舞百分比"/>
+		<field type="Boolean" name="isFull" comment="是否已经鼓舞满"/>
+		<field type="Integer" name="attackRate" comment="攻击加成百分比" />
+	</message>
+	
+	<message type="CG_LEGION_MINE_WAR_QUIT" comment="请求退出">
+	</message>
+	
+	<message type="GC_LEGION_MINE_WAR_END" comment="活动结束通知客户端">
+	</message>
+	
+	<message type="GC_UPDATE_MINE_WAR_INFO" comment="更新矿战信息">
+		<field type="Integer" name="holdMineIndex" comment="所在矿堆索引" />
+		<field type="Integer" name="occupyNum" comment="所在矿上占领人数"/>
+		<field type="Integer" name="maxOccupyNum" comment="所在矿上最大占领人数"/>
+		<field type="Integer" name="occupyValue" comment="可收获占领值" />
+		<field type="String" name="richRateDesc" comment="所在矿富裕度描述" />
+		<field type="Integer" name="revenueRate" comment="所在矿收益比例" />
+	</message>
+</messages>

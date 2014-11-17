@@ -1,0 +1,7 @@
+int mapId;[notNull=true;minValue=1] // 地图id
+int bgId;[notNull=true;minValue=0] // 剧情背景id(client去读)
+int ressourceId;[notNull=true;minValue=0] // 据点形象资源id(client去读)
+int x;[notNull=false]// 据点x坐标(client去读)
+int y;[notNull=false]// 据点y坐标(client去读)
+String name; // 名称
+String desc; // 剧情描述

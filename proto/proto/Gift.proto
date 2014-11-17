@@ -1,0 +1,12 @@
+package com.hifun.soul.proto.common;
+
+option java_package = "com.hifun.soul.proto.common";
+option java_outer_classname = "Gifts";
+
+// 角色天赋数据
+message Gift {
+  	// 天赋ID
+	required int32 giftId = 1;
+	// 天赋等级
+	required int32 level = 2;
+}

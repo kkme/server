@@ -1,0 +1,5 @@
+float coinRatio;[notNull=false;minValue=0] //金币系数
+float expRatio;[notNull=false;minValue=0] //经验系数
+float techPointRatio;[notNull=false;minValue=0] //科技点系数
+int counter; //任务达成所需次数
+int damageHpPercent; //伤害血量百分比

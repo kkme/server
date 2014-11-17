@@ -1,0 +1,2 @@
+int damageRate;[notNull=false;minValue=0]// 伤害加成比率
+int damage;[notNull=false;minValue=0] // 连击伤害加成值

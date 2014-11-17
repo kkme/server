@@ -1,0 +1,15 @@
+int occupationType; // 职业类型(1 = 战士; 2 = 游侠; 3 = 法师)
+int nameIcon; // 职业名称图标
+int resourceId; // 职业模型ID;战斗时候使用;
+String feature; // 职业特色
+String classes; // 职业系别
+int giftIcon1; // 天赋1图标id
+String giftName1; // 天赋1名称
+String giftDesc1; // 天赋1详细文字说明
+int giftIcon2; // 天赋2图标id
+String giftName2; // 天赋2名称
+String giftDesc2; // 天赋2详细文字说明
+int giftIcon3; // 天赋3图标id
+String giftName3; // 天赋3名称
+String giftDesc3; // 天赋3详细文字说明
+int giftId; // 出生礼包id

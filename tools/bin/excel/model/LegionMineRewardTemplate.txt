@@ -1,0 +1,6 @@
+int rankLowest;//排名下限
+int rankHighest;//排名上限
+int rewarCoin;[notNull=false;minValue=0]//奖励金币
+int rewardPrestige;[notNull=false;minValue=0]//奖励威望
+int itemId;//物品ID
+int itemNum;[notNull=false;minValue=0]//物品数量

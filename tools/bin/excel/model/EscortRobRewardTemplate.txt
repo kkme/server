@@ -1,0 +1,4 @@
+int levelDiffLowest;[notNull=false;minValue=0]//等级差下限
+int levelDiffHighest;[notNull=false;minValue=0]//等级差上限
+float rewardCoinRate;//奖励金币系数
+float rewardHonorRate;[notNull=false;minValue=0]//奖励声望系数

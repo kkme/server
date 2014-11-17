@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="player">
+	
+	<message type="CG_PLAYER_LOGIN" comment="用户登录">
+		<field type="String" name="account" comment="玩家的账户"></field>
+		<field type="String" name="password" comment="玩家的密码 "></field>
+	</message>
+	
+	<message type="CG_PLAYER_COOLIE_LOGIN" comment="玩家使用cookie登录">
+		<field type="String" name="jsonValue" comment="使用json字符串传递的信息"></field>
+	</message>
+	
+	<message type="GC_PLAYER_LOGIN_RESULT" comment="用户登录结果">
+		<field type="Integer" name="resultCode" comment="登录结果码 "></field>
+	</message>
+	
+	<message type="CG_GET_CHAR_LIST" comment="玩家请求角色列表">
+	</message>
+	
+	<message type="CG_SELECT_CHAR" comment="玩家选角色">
+		<field type="Integer" name="charIndex" comment="角色索引 "></field>
+	</message>
+	
+	<message type="GC_CHAR_LIST" comment="服务器返回玩家角色列表">
+		<field type="com.hifun.soul.common.auth.LoginChar" name="charList" comment="角色列表 " list = "true" macro = "LoginChar" clientType = "LoginCharData"></field>
+	</message>
+	
+	<message type="CG_CREATE_CHAR" comment="玩家创建角色">
+		<field type="String" name="name" comment="角色名称 "></field>
+		<field type="Integer" name="occupation" comment="角色职业 "></field>
+	</message>
+	
+	<message type="GC_CREATE_CHAR_RESULT" comment="玩家创建角色结果">
+		<field type="Integer" name="resultCode" comment="创建角色结果码 "></field>
+	</message>
+	
+	<message type="GC_ENTER_SCENE" comment="通知客户端准备进入场景">
+	</message>
+	
+	<message type="CG_ENTER_SCENE_READY" comment="通知服务器已经准备好进入场景">
+	</message>
+	
+	<message type="GC_CHARACTER_TEMPLATE" comment="玩家角色职业模版">
+		<field type="com.hifun.soul.gameserver.human.occupation.template.CharacterOccupationTemplate" name="characterTemplates" list = "true" comment="用于创建角色的模版 " macro = "CharacterOccupationTemplate" clientType = "CharacterOccupationTemplateData"></field>
+	</message>
+	<message type="CG_AUTO_NAME" comment="自动生成角色名字请求">
+		<field type="Integer" name="occupation" comment="角色职业 "></field>
+	</message>
+	<message type="GC_AUTO_NAME" comment="服务器返回自动生成的角色名字">
+		<field type="String" name="roleName" comment="角色名字 "></field>
+	</message>
+	
+	<message type="GC_BATTLE_POP" comment="战斗中的战斗pop信息">
+		<field type="com.hifun.soul.gameserver.player.msg.BattlePopInfo" name="allPops" list = "true" comment="所有的战斗泡泡信息 " macro = "BattlePopInfo" clientType = "BattlePopInfoData"></field>
+		<field type="Integer" name="maxPveRound" comment="PVE最大的回合数 "></field>
+		<field type="Integer" name="maxPvpRound" comment="PVP最大回合数 "></field>
+	</message>
+	
+	<message type="GC_DIRECT_TO_AREA_SCENE" comment="通知客户端直接进征战场景">
+	</message>
+	
+	<message type="CG_PLAYER_HEART_BEAT" comment="玩家心跳包，防止长时间不活动被TGW(server)踢掉">
+	</message>
+</messages>

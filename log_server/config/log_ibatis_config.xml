@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMapConfig PUBLIC "-//iBATIS.com//DTD SQL Map Config 2.0//EN"
+          "http://www.ibatis.com/dtd/sql-map-config-2.dtd" >
+<sqlMapConfig>
+	<settings cacheModelsEnabled="true" enhancementEnabled="true"
+		lazyLoadingEnabled="true" maxRequests="64" maxSessions="30"
+		maxTransactions="100" useStatementNamespaces="false" />
+	<transactionManager type="JDBC">
+		<dataSource type="SIMPLE">
+			<property name="JDBC.Driver" value="com.mysql.jdbc.Driver" />
+			<property name="JDBC.ConnectionURL"
+				value="jdbc:mysql://127.0.0.1:3306/sevensoul_log?useUnicode=true&amp;characterEncoding=utf-8" />
+			<property name="JDBC.Username" value="root" />
+			<property name="JDBC.Password" value="" />
+			<property name="Pool.MaximumActiveConnections" value="50" />
+			<property name="Pool.MaximumIdleConnections" value="1" />
+		</dataSource>
+	</transactionManager>
+	<sqlMap resource="com/hifun/soul/logserver/model/onlinetimeextra.xml" />
+	<!-- 自动生成日志的配置开始 -->
+	<sqlMap resource="com/hifun/soul/logserver/model/basicplayer.xml" />
+	<sqlMap resource="com/hifun/soul/logserver/model/money.xml" />
+	<sqlMap resource="com/hifun/soul/logserver/model/item.xml" />
+	<sqlMap resource="com/hifun/soul/logserver/model/property.xml" />
+	<sqlMap resource="com/hifun/soul/logserver/model/gmcommand.xml" />
+	<sqlMap resource="com/hifun/soul/logserver/model/onlinetime.xml" />
+	<sqlMap resource="com/hifun/soul/logserver/model/chat.xml" />
+	<sqlMap resource="com/hifun/soul/logserver/model/battle.xml" />
+	<sqlMap resource="com/hifun/soul/logserver/model/friend.xml" />
+	<sqlMap resource="com/hifun/soul/logserver/model/horoscope.xml" />
+	<sqlMap resource="com/hifun/soul/logserver/model/quest.xml" />
+	<sqlMap resource="com/hifun/soul/logserver/model/recharge.xml" />
+	<sqlMap resource="com/hifun/soul/logserver/model/energy.xml" />
+	<sqlMap resource="com/hifun/soul/logserver/model/honour.xml" />
+	<sqlMap resource="com/hifun/soul/logserver/model/techpoint.xml" />
+	<sqlMap resource="com/hifun/soul/logserver/model/experience.xml" />
+	<sqlMap resource="com/hifun/soul/logserver/model/skillpoint.xml" />
+	<!-- 自动生成日志的配置结束 -->
+</sqlMapConfig>

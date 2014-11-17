@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="activity.question">
+	<message type="CG_OPEN_QUESTION_PANNEL" comment="客户端请求打开问答面板">		
+	</message>
+	<message type="GC_UPDATE_QUESTION_PANNEL" comment="服务器更新问答面板信息">
+		<field type="Integer" name="questionIndex" comment="当前问题序号" />
+		<field type="Integer" name="totalQuestionNum" comment="问题总数" />
+		<field type="String" name="question" comment="问题题目" />
+		<field type="com.hifun.soul.gameserver.activity.question.model.AnswerInfo" name="answers"
+				clientType="AnswerData" list="true" comment="问题答案" >
+			<field type="Integer" name="answerIndex" comment="答案id" />
+			<field type="String" name="content" comment="答案内容" />		
+		</field>		
+		<field type="Integer" name="usableBlessNum" comment="当前可以使用加成次数" />
+		<field type="Integer" name="maxUsableBlessNum" comment="可用最大加成次数" />
+		<field type="Integer" name="canBuyBlessNum" comment="可购买祈福次数" />
+		<field type="Boolean" name="onekeyAnswerOpen" comment="一键答题是否开启" />
+		<field type="Integer" name="onekeyAnswerCost" comment="一键答题花费魔晶" />
+	</message>	
+	<message type="GC_UPDATE_SCORE_EXCHANGE_PANEL" comment="更新积分兑换面板信息">
+		<field type="String" name="description" comment="活动描述" />
+		<field type="Integer" name="totalScore" comment="当前问答积分" />
+		<field type="com.hifun.soul.gameserver.activity.question.model.ExchangeScore" list="true" name="exchangeScoreList" 
+				clientType="ExchangeScoreData" comment="积分兑换列表" >
+				<field type="Integer" name="id" comment="兑换id" />
+				<field type="Integer" name="score" comment="积分线" />
+				<field type="Integer" name="exchangeState" comment="兑换状态：1表示未兑换，2表示已兑换" />
+				<field type="Integer" name="coin" comment="金币" />
+				<field type="Integer" name="exp" comment="经验" />
+				<field type="Integer" name="techPoint" comment="科技点" />
+		</field>
+	</message>
+	<message type="CG_ANSWER_SUBMIT" comment="提交问题答案">
+		<field type="Integer" name="answerIndex" comment="答案序号" />
+		<field type="Boolean" name="isBless" comment="是否使用祈福" />
+		<field type="Boolean" name="isConfirm" comment="是否确认花费金币" />
+	</message>
+	<message type="GC_ANSWER_UPDATE" comment="发放问答奖励">
+		<field type="Integer" name="score" comment="当前问答积分" />
+		<field type="Integer" name="coinNum" comment="获得的金币" />
+		<field type="Integer" name="exp" comment="获得的经验" />
+		<field type="Integer" name="technologyPoint" comment="获得的科技点" />		
+		<field type="Integer" name="totalScore" comment="当前问答积分" />
+		<field type="Boolean" name="result" comment="提交的答案是否正确" />
+	</message>
+	<message type="CG_EXCHANGE_SCORE" comment="兑换积分请求">
+		<field type="Integer" name="exchangeIndex" comment="兑换目标序号" />		
+	</message>
+	<message type="GC_EXCHANGE_SCORE" comment="兑换积分后的更新消息">
+		<field type="Integer" name="exchangeIndex" comment="兑换目标序号" />
+		<field type="Integer" name="resultCode" comment="成功(1);重复兑换(2);积分不足(3)" />
+		<field type="Integer" name="coinNum" comment="获得的金币" />
+		<field type="Integer" name="exp" comment="获得的经验" />
+		<field type="Integer" name="technologyPoint" comment="获得的科技点" />
+		<field type="Integer" name="totalScore" comment="当前问答积分" />
+	</message>
+	<message type="GC_BUY_BLESS_COST" comment="返回购买祈福花费">
+		<field type="Integer" name="answerIndex" comment="答案序号" />
+		<field type="Integer" name="currencyType" comment="花费货币类型" />	
+		<field type="Integer" name="costNum" comment="花费数量" />		
+	</message>
+	<message type="CG_ONEKEY_ANSWER_QUESTION" comment="一键答题">		
+	</message>
+</messages>

@@ -1,0 +1,3 @@
+int scoreLimit;[notNull=false;minValue=0] // 积分限制
+int rewardMoney;[notNull=false;minValue=0] // 日常奖励金币
+List<com.hifun.soul.gameserver.human.quest.daily.DailyItemReward> dailyRewardItems; [collection(3,2);notNull=false] // 日常任务物品奖励列表

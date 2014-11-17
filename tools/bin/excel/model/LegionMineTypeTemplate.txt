@@ -1,0 +1,3 @@
+int mineNum;//矿位数量
+int peopleBaseNum;//人数上限基数
+int singleRevenue;//收益

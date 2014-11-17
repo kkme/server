@@ -1,0 +1,3 @@
+int multiple;//倍数
+int costNum;[notNull=false]//消耗魔晶
+int vipLevel;[notNull=false]//vip开启等级

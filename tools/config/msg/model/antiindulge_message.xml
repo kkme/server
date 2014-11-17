@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 	
+xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="antiindulge">	
+<message type="GC_UPDATE_REVENUE_RATE_REQUEST" comment="请求更新收益倍率">
+</message>
+<message type="CG_UPDATE_REVENUE_RATE_RESPONSE" comment="客户端返回平台接口所提供的收益倍率">
+	<field type="Float" name="revenueRate" comment="收入倍率" />
+</message>
+</messages>

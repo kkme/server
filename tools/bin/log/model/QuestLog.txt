@@ -1,0 +1,3 @@
+message com.hifun.soul.logserver.model.QuestLog(
+	int questId;		// 任务id
+)

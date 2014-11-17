@@ -1,0 +1,38 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<project default="proto.generate" basedir=".">
+	<!-- 
+		1. compile protobuf sourceCode to a jar file; 
+		2. generate proto files to java code; 
+		3. @author crazyjohn
+	-->
+	<property name="proto.base" value="${basedir}/../" />
+	<property name="proto.src" value="${proto.base}/proto"/>
+	<property name="proto.classes" value="${proto.base}/classes" />
+	<property name="proto.outer" value="${proto.base}/src"/>
+	<property name="protoc.path" value="${basedir}/protoc.exe"/>
+	
+	<path id="libs">
+		<pathelement path="${java.class.path}"/>
+	</path>
+	
+	<!-- 1. compile protobuf sourceCode to a jar file -->
+	<target name="proto.compile">
+		<!-- first make dir -->
+		<mkdir dir="${proto.classes}"/>
+		<!-- compile -->
+		<javac srcdir="${proto.src}" destdir="${proto.classes}" classpath="libs"  source="1.6" compiler="javac1.6" nowarn="true" encoding="UTF-8"/>
+		<!-- make jar file -->
+		<jar destfile="protobuf-2.4.1.jar" basedir="${proto.classes}" ></jar>
+		<!-- delete classes -->
+		<delete dir="${proto.classes}"></delete>
+	</target>
+	
+	<!-- 2. generate proto files to java code -->
+	<target name="proto.generate">
+		<exec executable="${protoc.path}">
+			<arg value="--java_out=${proto.outer}"/>
+			<arg value="--proto_path=../proto"/>
+			<arg value="../proto/*.proto"/>
+		</exec>
+	</target>
+</project>

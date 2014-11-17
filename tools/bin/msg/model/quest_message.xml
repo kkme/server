@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="quest">
+	<message type="GC_QUEST_LIST" comment="用户主线任务列表">
+		<field type="com.hifun.soul.gameserver.human.quest.QuestInfo"
+			name="questList" comment="主线任务列表" clientType="QuestInfoData" macro="QuestInfo"
+			list="true" />
+	</message>
+
+	<message type="GC_DAILY_QUEST_LIST" comment="服务器返回日常任务列表">
+		<field type="Integer" name="currentStore" comment="当前积分" />
+		<field type="com.hifun.soul.gameserver.human.quest.QuestInfo"
+			name="questList" comment="日常任务列表" clientType="QuestInfoData" macro="QuestInfo"
+			list="true" />
+		<field type="com.hifun.soul.gameserver.human.quest.daily.DailyScoreRewardInfo"
+			name="dailyRewardList" comment="日常任务奖励" clientType="DailyQuestRewardBoxData" macro="DailyQuestReward"
+			list="true" />
+		<field type="Integer" name="remainFreeQuestNum" comment="剩余免费任务数量" />
+		<field type="Integer" name="totalQuestNum" comment="总任务数量" />
+		<field type="Integer" name="receiveQuestCost" comment="接受任务消费" />
+		<field type="Integer" name="refreshQuestCost" comment="刷新消费" />
+		<field type="Integer" name="remainCrystalQuestNum" comment="剩余魔晶任务数量" />
+	</message>
+
+	<message type="CG_GET_DAILY_QUEST_LIST" comment="客户端请求日常任务列表">
+
+	</message>
+
+	<message type="GC_QUEST_STATE" comment="更新任务状态">
+		<field type="Integer" name="questId" comment="任务ID" />
+		<field type="Integer" name="questState" comment="任务状态" />
+	</message>
+
+	<message type="CG_FINISH_QUEST" comment="客户端请求完成任务">
+		<field type="Integer" name="questId" comment="任务ID" />
+	</message>
+
+	<message type="GC_SINGLE_QUEST_UPDATE" comment="服务器返回的单个任务数据更新的消息">
+		<field type="com.hifun.soul.gameserver.human.quest.QuestInfo"
+			name="quest" comment="更新任务信息" clientType="QuestInfoData" macro="QuestInfo" />
+	</message>
+
+	<message type="GC_APPEND_NEW_QUESTS" comment="服务端通知追加新的任务">
+		<field type="com.hifun.soul.gameserver.human.quest.QuestInfo"
+			name="questList" comment="追加的任务列表" clientType="QuestInfoData" macro="QuestInfo"
+			list="true" />
+	</message>
+
+	<message type="GC_UPDATE_QUEST_COUNTER" comment="服务器通知客户端更新计数器">
+		<field type="Integer" name="questId" comment="任务ID" />
+		<field type="com.hifun.soul.gameserver.human.quest.QuestAimInfo"
+			name="questAims" list="true" comment="任务目标" clientType="QuestAimInfoData"
+			macro="QuestAimInfo">
+		</field>
+	</message>
+
+	<message type="GC_UPDATE_DAILY_QUEST_SCORE" comment="服务器通知客户端端更新玩家日常任务积分">
+		<field type="Integer" name="currentScore" comment="当前日常任务的积分" />
+	</message>
+
+	<message type="CG_OPEN_DAILY_QUEST_REWARD_BOX" comment="客户端请求打开日常任务奖励箱子">
+		<field type="Integer" name="boxId" comment="箱子ID" />
+	</message>
+	
+	<message type="GC_DAILY_QUEST_REWARD_BOX_STATE_UPDATE" comment="服务器通知打开日常任务奖励箱子状态积分">
+		<field type="Integer" name="boxId" comment="箱子ID" />
+		<field type="Integer" name="state" comment="箱子状态" />
+	</message>
+	
+	<message type="GC_DAILY_QUEST_STATE" comment="日常任务是否有可领取的奖励">
+		<field type="Boolean" name="hasReward" comment="是否有奖励" />
+	</message>
+
+	<message type="CG_RECEIVE_DAILY_QUEST" comment="接受日常任务">
+		<field type="Integer" name="questId" comment="任务ID" />
+	</message>
+	
+	<message type="CG_AUTO_COMPLETE_DAILY_QUEST" comment="请求自动完成日常任务">
+		<field type="Integer" name="questId" comment="任务ID" />
+	</message>
+	<message type="GC_AUTO_COMPLETE_DAILY_QUEST" comment="响应自动完成日常任务">
+		<field type="Integer" name="questId" comment="任务ID" />
+		<field type="Integer" name="questState" comment="任务状态" />
+		<field type="Integer" name="remainTime" comment="剩余时间" />
+	</message>
+	
+	<message type="CG_ABORT_DAILY_QUEST" comment="取消日常任务">
+		<field type="Integer" name="questId" comment="任务ID" />
+	</message>
+	
+	<message type="CG_APPLY_QUICKLY_COMPLETE_DAILY_QUEST" comment="申请加速完成日常任务">
+		<field type="Integer" name="questId" comment="任务ID" />
+	</message>
+	
+	<message type="GC_APPLY_QUICKLY_COMPLETE_DAILY_QUEST" comment="响应加速完成日常任务">
+		<field type="Integer" name="questId" comment="任务ID" />
+		<field type="Integer" name="costCrystal" comment="消耗魔晶" />
+	</message>
+	
+	<message type="CG_QUICKLY_COMPLETE_DAILY_QUEST" comment="请求加速完成日常任务">
+		<field type="Integer" name="questId" comment="任务ID" />
+	</message>
+	
+	<message type="CG_GET_DAILY_QUEST_REWARD" comment="请求领取日常任务奖励">
+		<field type="Integer" name="questId" comment="任务ID" />
+	</message>
+	
+	<message type="GC_GET_DAILY_QUEST_REWARD" comment="响应领取日常任务奖励">
+		<field type="Integer" name="oldQuestId" comment="任务ID" />
+		<field type="com.hifun.soul.gameserver.human.quest.QuestInfo"
+			name="newQuestInfo" comment="日常任务" clientType="QuestInfoData" macro="QuestInfo"/>
+		<field type="Integer" name="remainFreeQuestNum" comment="剩余免费任务数量" />
+		<field type="Integer" name="receiveQuestCost" comment="接受任务消费" />
+		<field type="Integer" name="remainCrystalQuestNum" comment="剩余魔晶任务数量" />
+	</message>
+	
+	<message type="CG_REFRESH_DAILY_QUEST_LIST" comment="请求刷新日常任务列表">
+	</message>
+	
+	<message type="GC_REFRESH_DAILY_QUEST_LIST" comment="响应刷新日常任务列表">
+		<field type="com.hifun.soul.gameserver.human.quest.QuestInfo"
+			name="questList" comment="日常任务列表" clientType="QuestInfoData" macro="QuestInfo"
+			list="true" />
+	</message>
+
+</messages>

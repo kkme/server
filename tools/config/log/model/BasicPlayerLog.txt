@@ -1,0 +1,8 @@
+message com.hifun.soul.logserver.model.BasicPlayerLog(
+	String ip; 			// IP地址
+	int crystal; 		// 魔晶数量
+	int coin; 			// 金币
+	int experience; 	// 经验
+	int energy; 		// 精力值
+	long online_time; 	// 在线时长
+)

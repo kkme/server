@@ -1,0 +1,25 @@
+package com.hifun.soul.proto.common;
+option java_package = "com.hifun.soul.proto.common";
+option java_outer_classname = "Refine";
+
+// 试炼地图数据
+message RefineMapData {
+	// 地图id
+	required int32 mapId = 1;
+	// 地图征战最高纪录
+	required int32 bestStageId = 2;
+}
+
+// 试炼关卡数据
+message RefineStageData {
+	// 地图id
+	required int32 mapId = 1;
+	// 试炼关卡id
+	required int32 stageId = 2;
+	// 试炼关卡状态
+	required int32 stageState = 3;
+	// 关卡是否已经领取过
+	required bool getted = 4;
+	// 地图id和关卡id的组合
+	required string refineStageKey = 5;
+}

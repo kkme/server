@@ -1,0 +1,540 @@
+package com.hifun.soul.proto.services;
+
+option java_package = "com.hifun.soul.proto.services";
+option java_outer_classname = "LogServices";
+option java_generic_services = true;
+
+
+//日志公共字段
+message BaseLogInfo{
+	optional int32 log_type=1;
+	optional int64 log_time=2;
+	optional int32 region_id=3;
+	optional int32 server_id=4;
+	optional int64 account_id=5;
+	optional string account_name=6;
+	optional int64 char_id=7;
+	optional string char_name=8;
+	optional int32 level=9;
+	optional int32 alliance_id=10;
+	optional int32 vip_level=11;
+	optional int32 reason=12;
+	optional string param=13;
+}
+
+//玩家日志
+message BasicPlayerLog{	
+	optional BaseLogInfo baseLogInfo=1;
+	optional string ip=2;
+	optional int32 crystal=3;
+	optional int32 coin=4;
+	optional int32 experience=5;
+	optional int32 energy=6;
+	optional int64 createTime=7;
+	optional int64 onlineTime=8;
+}
+
+//战斗日志
+message BattleLog{
+	optional BaseLogInfo baseLogInfo=1;
+	optional int32 stage_id=2;
+	optional int32 result=3;
+	optional string item_ids=4;
+	optional int64 createTime=5;
+}
+
+//聊天日志
+message ChatLog{
+	optional BaseLogInfo baseLogInfo=1;
+	optional int64 dest_passport_id=2;
+	optional string dest_role_name=3;
+	optional int32 chat_type=4;
+	optional string content=5;
+	optional int64 createTime=6;
+}
+
+//好友日志
+message FriendLog{
+	optional BaseLogInfo baseLogInfo=1;
+	optional int64 friend_passport_id=2;
+	optional string friend_passport_name=3;
+	optional int64 friend_role_id=4;
+	optional string friend_role_name=5;
+	optional int64 createTime=6;
+}
+
+//GM命令日志
+message GMCommandLog{
+	optional BaseLogInfo baseLogInfo=1;
+	optional string gm_command_context=2;
+	optional int64 createTime=3;
+}
+
+//占星日志
+message HoroscopeLog{
+	optional BaseLogInfo baseLogInfo=1;
+	optional int32 bag_type=2;
+	optional int32 bag_index=3;
+	optional int32 horoscope_id=4;
+	optional int32 experience=5;
+	optional int64 createTime=6;
+}
+
+//物品日志
+message ItemLog{
+	optional BaseLogInfo baseLogInfo=1;
+	optional int32 bag_type=2;
+	optional int32 bag_index=3;
+	optional int32 template_id=4;
+	optional string item_u_u_i_d=5;
+	optional int32 count=6;
+	optional int64 createTime=7;
+}
+
+//经济系统日志
+message MoneyLog{
+	optional BaseLogInfo baseLogInfo=1;
+	optional int32 currency_type=2;
+	optional int32 currency_num=3;
+	optional int32 after_num=4;
+	optional int64 createTime=5;
+}
+
+//在线时间日志
+message OnlineTimeLog{
+	optional BaseLogInfo baseLogInfo=1;
+	optional int32 minute=2;
+	optional int32 total_minute=3;
+	optional int64 last_login_time=4;
+	optional int64 last_logout_time=5;
+	optional int64 createTime=6;
+}
+
+//属性日志
+message PropertyLog{
+	optional BaseLogInfo baseLogInfo=1;
+	optional int32 property_key=2;
+	optional string property_change=3;
+	optional int64 createTime=4;
+}
+
+//任务日志
+message QuestLog{
+	optional BaseLogInfo baseLogInfo=1;
+	optional int32 quest_id=2;
+	optional int64 createTime=3;
+}
+
+//充值日志
+message RechargeLog{
+	optional BaseLogInfo baseLogInfo=1;
+	optional int32 rechargeNum=2;
+	optional int32 crystalNum=3;
+	optional int32 crystalRewardNum=4;
+	optional int32 beforeNum=5;
+	optional int32 afterNum=6;
+	optional int32 exchangeRate=7;
+	optional int64 createTime=8;
+}
+
+//体力日志
+message EnergyLog{
+	optional BaseLogInfo baseLogInfo=1;
+	optional int32 change_num=2;
+	optional int32 after_change_num=3;
+	optional int64 createTime=4;
+}
+
+//荣誉日志
+message HonourLog{
+	optional BaseLogInfo baseLogInfo=1;
+	optional int32 change_num=2;
+	optional int32 after_change_num=3;
+	optional int64 createTime=4;
+}
+
+//经验日志
+message ExperienceLog{
+	optional BaseLogInfo baseLogInfo=1;
+	optional int32 change_num=2;
+	optional int32 after_change_num=3;
+	optional int64 createTime=4;
+}
+
+//科技点日志
+message TechPointLog{
+	optional BaseLogInfo baseLogInfo=1;
+	optional int32 change_num=2;
+	optional int32 after_change_num=3;
+	optional int64 createTime=4;
+}
+
+//技能点日志
+message SkillPointLog{
+	optional BaseLogInfo baseLogInfo=1;
+	optional int32 change_num=2;
+	optional int32 after_change_num=3;
+	optional int64 createTime=4;
+}
+
+//玩家日志请求
+message QueryBasicPlayerLogRequest{
+	required int32 start=1;
+	required int32 maxResult = 2;
+	required int64 beginDate=3;
+	required int64 endDate=4;
+	optional int64 accountId=5;
+	optional string accountName=6;
+	optional int64 characterId=7;
+	optional string characterName=8;
+	optional int32 server_id=9;
+	optional int32 reason=10;
+}
+
+//玩家日志服务器响应
+message QueryBasicPlayerLogResponse{
+	repeated BasicPlayerLog basicPlayerLogs=1;
+	required int64 totalCount=2;
+}
+
+message QueryBattleLogRequest{
+	required int32 start=1;
+	required int32 maxResult = 2;
+	required int64 beginDate=3;
+	required int64 endDate=4;
+	optional int64 accountId=5;
+	optional string accountName=6;
+	optional int64 characterId=7;
+	optional string characterName=8;
+	optional int32 server_id=9;
+	optional int32 reason=10;
+}
+message QueryBattleLogResponse{
+	repeated BattleLog battleLogs=1;
+	required int64 totalCount=2;
+}
+
+message QueryChatLogRequest{
+	required int32 start=1;
+	required int32 maxResult = 2;
+	required int64 beginDate=3;
+	required int64 endDate=4;
+	optional int64 accountId=5;
+	optional string accountName=6;
+	optional int64 characterId=7;
+	optional string characterName=8;
+	optional int32 server_id=9;
+	optional int32 reason=10;
+}
+message QueryChatLogResponse{
+	repeated ChatLog chatLogs=1;
+	required int64 totalCount=2;
+}
+
+message QueryFriendLogRequest{
+	required int32 start=1;
+	required int32 maxResult = 2;
+	required int64 beginDate=3;
+	required int64 endDate=4;
+	optional int64 accountId=5;
+	optional string accountName=6;
+	optional int64 characterId=7;
+	optional string characterName=8;
+	optional int32 server_id=9;
+	optional int32 reason=10;
+}
+message QueryFriendLogResponse{
+	repeated FriendLog friendLogs=1;
+	required int64 totalCount=2;
+}
+
+message QueryGMCommandLogRequest{
+	required int32 start=1;
+	required int32 maxResult = 2;
+	required int64 beginDate=3;
+	required int64 endDate=4;
+	optional int64 accountId=5;
+	optional string accountName=6;
+	optional int64 characterId=7;
+	optional string characterName=8;
+	optional int32 server_id=9;
+	optional int32 reason=10;
+}
+message QueryGMCommandLogResponse{
+	repeated GMCommandLog gmCommandLogs=1;
+	required int64 totalCount=2;
+}
+
+message QueryHoroscopeLogRequest{
+	required int32 start=1;
+	required int32 maxResult = 2;
+	required int64 beginDate=3;
+	required int64 endDate=4;
+	optional int64 accountId=5;
+	optional string accountName=6;
+	optional int64 characterId=7;
+	optional string characterName=8;
+	optional int32 server_id=9;
+	optional int32 reason=10;
+}
+message QueryHoroscopeLogResponse{
+	repeated HoroscopeLog horoscopeLogs=1;
+	required int64 totalCount=2;
+}
+
+message QueryItemLogRequest{
+	required int32 start=1;
+	required int32 maxResult = 2;
+	required int64 beginDate=3;
+	required int64 endDate=4;
+	optional int64 accountId=5;
+	optional string accountName=6;
+	optional int64 characterId=7;
+	optional string characterName=8;
+	optional int32 server_id=9;
+	optional int32 reason=10;
+}
+message QueryItemLogResponse{
+	repeated ItemLog itemLogs=1;
+	required int64 totalCount=2;
+}
+
+message QueryMoneyLogRequest{
+	required int32 start=1;
+	required int32 maxResult = 2;
+	required int64 beginDate=3;
+	required int64 endDate=4;
+	optional int64 accountId=5;
+	optional string accountName=6;
+	optional int64 characterId=7;
+	optional string characterName=8;
+	optional int32 server_id=9;
+	optional int32 reason=10;
+	optional int32 currencyType=11;
+}
+message QueryMoneyLogResponse{
+	repeated MoneyLog moneyLogs=1;
+	required int64 totalCount=2;
+}
+
+message QueryOnlineTimeLogRequest{
+	required int32 start=1;
+	required int32 maxResult = 2;
+	required int64 beginDate=3;
+	required int64 endDate=4;
+	optional int64 accountId=5;
+	optional string accountName=6;
+	optional int64 characterId=7;
+	optional string characterName=8;
+	optional int32 server_id=9;
+	optional int32 reason=10;
+}
+message QueryOnlineTimeLogResponse{
+	repeated OnlineTimeLog onlineTimeLogs=1;
+	required int64 totalCount=2;
+}
+
+message QueryPropertyLogRequest{
+	required int32 start=1;
+	required int32 maxResult = 2;
+	required int64 beginDate=3;
+	required int64 endDate=4;
+	optional int64 accountId=5;
+	optional string accountName=6;
+	optional int64 characterId=7;
+	optional string characterName=8;
+	optional int32 server_id=9;
+	optional int32 reason=10;
+}
+message QueryPropertyLogResponse{
+	repeated PropertyLog propertyLogs=1;
+	required int64 totalCount=2;
+}
+
+message QueryQuestLogRequest{
+	required int32 start=1;
+	required int32 maxResult = 2;
+	required int64 beginDate=3;
+	required int64 endDate=4;
+	optional int64 accountId=5;
+	optional string accountName=6;
+	optional int64 characterId=7;
+	optional string characterName=8;
+	optional int32 server_id=9;
+	optional int32 reason=10;
+}
+message QueryQuestLogResponse{
+	repeated QuestLog questLogs=1;
+	required int64 totalCount=2;
+}
+
+message QueryRechargeLogRequest{
+	required int32 start=1;
+	required int32 maxResult = 2;
+	required int64 beginDate=3;
+	required int64 endDate=4;
+	optional int64 accountId=5;
+	optional string accountName=6;
+	optional int64 characterId=7;
+	optional string characterName=8;
+	optional int32 server_id=9;
+	optional int32 reason=10;
+}
+
+message QueryRechargeLogResponse{
+	repeated RechargeLog rechargeLogs=1;
+	required int64 totalCount=2;
+}
+
+
+//gm后台操作日志
+message OperationLog{
+	required int64 id=1;
+	required int32 userId=2;
+	optional string userName=3;
+	optional int32 operationType=4;
+	optional string operationText=5;
+	optional bool hasPermission=6;
+	optional string param=7;
+	optional bool result=8;
+	optional int64 operateTime=9;
+}
+
+message QueryOperationLogRequest{
+	required int32 start=1;
+	required int32 maxResult = 2;
+	required int64 beginDate=3;
+	required int64 endDate=4;
+	required int32 userId=5;
+	optional string userName=6;
+	optional int32 operationType=7;
+}
+
+message QueryOperationLogResponse{
+	repeated OperationLog operationLogs=1;
+	required int64 totalCount=2;
+}
+
+message AddOperationLogRequest{
+	required OperationLog operationLog = 1;
+}
+
+message AddOperationLogResponse{
+	optional bool result=1;
+}
+
+message QueryEnergyLogRequest{
+	required int32 start=1;
+	required int32 maxResult = 2;
+	required int64 beginDate=3;
+	required int64 endDate=4;
+	optional int64 accountId=5;
+	optional string accountName=6;
+	optional int64 characterId=7;
+	optional string characterName=8;
+	optional int32 server_id=9;
+	optional int32 reason=10;
+}
+message QueryEnergyLogResponse{
+	repeated EnergyLog logs=1;
+	required int64 totalCount=2;
+}
+
+message QueryHonourLogRequest{
+	required int32 start=1;
+	required int32 maxResult = 2;
+	required int64 beginDate=3;
+	required int64 endDate=4;
+	optional int64 accountId=5;
+	optional string accountName=6;
+	optional int64 characterId=7;
+	optional string characterName=8;
+	optional int32 server_id=9;
+	optional int32 reason=10;
+}
+message QueryHonourLogResponse{
+	repeated HonourLog logs=1;
+	required int64 totalCount=2;
+}
+
+
+message QueryExperienceLogRequest{
+	required int32 start=1;
+	required int32 maxResult = 2;
+	required int64 beginDate=3;
+	required int64 endDate=4;
+	optional int64 accountId=5;
+	optional string accountName=6;
+	optional int64 characterId=7;
+	optional string characterName=8;
+	optional int32 server_id=9;
+	optional int32 reason=10;
+}
+message QueryExperienceLogResponse{
+	repeated ExperienceLog logs=1;
+	required int64 totalCount=2;
+}
+
+
+message QueryTechPointLogRequest{
+	required int32 start=1;
+	required int32 maxResult = 2;
+	required int64 beginDate=3;
+	required int64 endDate=4;
+	optional int64 accountId=5;
+	optional string accountName=6;
+	optional int64 characterId=7;
+	optional string characterName=8;
+	optional int32 server_id=9;
+	optional int32 reason=10;
+}
+message QueryTechPointLogResponse{
+	repeated TechPointLog logs=1;
+	required int64 totalCount=2;
+}
+
+
+message QuerySkillPointLogRequest{
+	required int32 start=1;
+	required int32 maxResult = 2;
+	required int64 beginDate=3;
+	required int64 endDate=4;
+	optional int64 accountId=5;
+	optional string accountName=6;
+	optional int64 characterId=7;
+	optional string characterName=8;
+	optional int32 server_id=9;
+	optional int32 reason=10;
+}
+message QuerySkillPointLogResponse{
+	repeated SkillPointLog logs=1;
+	required int64 totalCount=2;
+}
+
+
+//日志服务
+service LogRpcService{
+	rpc queryBasicPlayerLog(QueryBasicPlayerLogRequest) returns(QueryBasicPlayerLogResponse);
+	rpc queryBattleLog(QueryBattleLogRequest) returns(QueryBattleLogResponse);
+	rpc queryChatLog(QueryChatLogRequest) returns(QueryChatLogResponse);
+	rpc queryFriendLog(QueryFriendLogRequest) returns(QueryFriendLogResponse);
+	rpc queryGMCommandLog(QueryGMCommandLogRequest) returns(QueryGMCommandLogResponse);
+	rpc queryHoroscopeLog(QueryHoroscopeLogRequest) returns(QueryHoroscopeLogResponse);
+	rpc queryItemLog(QueryItemLogRequest) returns(QueryItemLogResponse);
+	rpc queryMoneyLog(QueryMoneyLogRequest) returns(QueryMoneyLogResponse);
+	rpc queryOnlineTimeLog(QueryOnlineTimeLogRequest) returns(QueryOnlineTimeLogResponse);
+	rpc queryPropertyLog(QueryPropertyLogRequest) returns(QueryPropertyLogResponse);
+	rpc queryQuestLog(QueryQuestLogRequest) returns(QueryQuestLogResponse);	
+	rpc queryRechargeLog(QueryRechargeLogRequest) returns(QueryRechargeLogResponse);	
+	rpc queryOperationLog(QueryOperationLogRequest) returns(QueryOperationLogResponse);	
+	rpc queryEnergyLog(QueryEnergyLogRequest) returns(QueryEnergyLogResponse);	
+	rpc queryHonourLog(QueryHonourLogRequest) returns(QueryHonourLogResponse);	
+	rpc queryExperienceLog(QueryExperienceLogRequest) returns(QueryExperienceLogResponse);	
+	rpc queryTechPointLog(QueryTechPointLogRequest) returns(QueryTechPointLogResponse);	
+	rpc querySkillPointLog(QuerySkillPointLogRequest) returns(QuerySkillPointLogResponse);	
+}
+
+//gm后台日志服务  memo：在独立的线程中进行日志的添加，需要单独出来
+service ManageLogRpcService{
+	rpc addOperationLog(AddOperationLogRequest) returns(AddOperationLogResponse);
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 	
+	xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="costnotify">	
+	
+	<message type="CG_UPDATE_COST_NOTIFY" comment="更新消费提示设置">
+		<field type="com.hifun.soul.gameserver.costnotify.CostNotifyInfo"
+			list="true" name="costNotifyInfos" comment="消费提示设置信息" clientType="CostNotifyInfoData">
+			<field type="Integer" name="costNotifyType" comment="消费提醒类型"></field>
+			<field type="Boolean" name="open" comment="开启状态"></field>
+		</field>
+	</message>
+	
+	<message type="GC_UPDATE_COST_NOTIFY" comment="更新消费提示设置">
+		<field type="com.hifun.soul.gameserver.costnotify.CostNotifyInfo"
+			list="true" name="costNotifyInfos" comment="消费提示设置信息" macro="CostNotifyInfo" clientType="CostNotifyInfoData">
+		</field>
+	</message>
+	
+</messages>

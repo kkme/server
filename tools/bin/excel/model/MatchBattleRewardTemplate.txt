@@ -1,0 +1,5 @@
+int outOfTurnCoin; //轮空金币奖励
+int coinOfWin; [notNull=false;minValue=0] //胜利获得的金币
+int honorOfWin; [notNull=false;minValue=0] //胜利获得的荣誉
+int coinOfLose; [notNull=false;minValue=0] //失败获得的金币
+int honorOfLose; [notNull=false;minValue=0] //失败获得的荣誉

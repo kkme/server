@@ -1,0 +1,6 @@
+message com.hifun.soul.logserver.model.FriendLog(
+	long friendPassportId;			// 好友账号id
+	String friendPassportName; 		// 好友账号名称
+	long friendRoleId;				// 好友角色id
+	String friendRoleName;			// 好友角色名称
+)

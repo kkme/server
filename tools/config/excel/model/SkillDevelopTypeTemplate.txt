@@ -1,0 +1,6 @@
+int skillDevelopType; //技能发展类型
+int occupation; //职业
+int icon; //技能发展类型图标
+int recommendPointType;[notNull=false;minValue=0] //推荐加点类型
+int mainCostMagic;[notNull=false;minValue=0] // 主要消耗魔法
+String assistCostMagic; // 辅助消耗魔法(分号隔开)

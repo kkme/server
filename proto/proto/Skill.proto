@@ -1,0 +1,21 @@
+package com.hifun.soul.proto.common;
+
+option java_package = "com.hifun.soul.proto.common";
+option java_outer_classname = "Skills";
+
+// 物品概率数据
+message CarriedSkill {
+    // 技能ID
+	required int32 skillId = 1;
+	// 装备栏索引
+	required int32 slotIndex = 2;
+	// 技能状态
+	required int32 skillState = 3;
+}
+
+message SkillSlot {
+	// 技能栏位索引
+	required int32 slotIndex = 1;
+	// 状态
+	required int32 state = 2;
+}

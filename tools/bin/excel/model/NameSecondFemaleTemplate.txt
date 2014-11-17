@@ -1,0 +1,2 @@
+int langId; //多语言id
+String secondName; //女性玩家名字

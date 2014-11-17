@@ -1,0 +1,13 @@
+package com.hifun.soul.proto.common;
+option java_package = "com.hifun.soul.proto.common";
+option java_outer_classname = "FriendChats";
+
+// 好友留言实体
+message FriendChat {
+	required int64 id = 1;
+	required string fromRoleName = 2;
+	required int64 fromRoleId = 3;
+	required int64 toRoleId = 4;
+	required string content = 5;
+	required int64 chatDate = 6;
+}

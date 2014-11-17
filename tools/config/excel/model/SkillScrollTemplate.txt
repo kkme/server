@@ -1,0 +1,5 @@
+int skillDevelopType;[notNull=false;minValue=0] // 技能类型
+int preSkillId;[notNull=false;minValue=0] // 前置技能id
+int needSkillPoint;[notNull=false;minValue=0] // 需要的技能点
+int needSkillScrollId;[notNull=false;minValue=0] // 需要的卷轴id
+boolean defaultOpen; // 技能是否默认开启

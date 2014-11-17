@@ -1,0 +1,2 @@
+int langId; //多语言id
+String firstName; //姓氏

@@ -1,0 +1,2 @@
+int nameLangId; //分类名称多语言id
+String name; //分类名称

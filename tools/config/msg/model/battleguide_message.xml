@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 	
+	xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="battleguide">	
+	<message type="GC_BATTLE_GUIDE_CHESSBOARD" comment="战斗棋盘引导">
+		<field type="Short" name="guideType" comment="引导类型 " />
+		<field type="com.hifun.soul.gameserver.guide.msg.GuideStepInfo" name="guideStepList" 
+			list="true" comment="引导步骤列表" clientType="GuideStepInfoData" macro="GuideStepInfo">
+		</field>
+	</message>
+	
+	<message type="GC_BATTLE_GUIDE_FOUR_BOMBS" comment="战斗四连消引导">
+		<field type="Short" name="guideType" comment="引导类型 " />
+		<field type="com.hifun.soul.gameserver.guide.msg.GuideStepInfo" name="guideStepList" 
+			list="true" comment="引导步骤列表" clientType="GuideStepInfoData" macro="GuideStepInfo">
+		</field>
+	</message>
+	
+	<message type="GC_BATTLE_GUIDE_THREE_BOMBS" comment="战斗三连消引导">
+		<field type="Short" name="guideType" comment="引导类型 " />
+		<field type="com.hifun.soul.gameserver.guide.msg.GuideStepInfo" name="guideStepList" 
+			list="true" comment="引导步骤列表" clientType="GuideStepInfoData" macro="GuideStepInfo">
+		</field>
+	</message>
+	
+	<message type="GC_BATTLE_GUIDE_USE_SKILL" comment="战斗使用技能引导">
+		<field type="Short" name="guideType" comment="引导类型 " />
+		<field type="com.hifun.soul.gameserver.guide.msg.GuideStepInfo" name="guideStepList" 
+			list="true" comment="引导步骤列表" clientType="GuideStepInfoData" macro="GuideStepInfo">
+		</field>
+	</message>
+	
+	<message type="GC_BATTLE_GUIDE_SKILL_INFO" comment="战斗技能说明引导">
+		<field type="Short" name="guideType" comment="引导类型 " />
+		<field type="com.hifun.soul.gameserver.guide.msg.GuideStepInfo" name="guideStepList" 
+			list="true" comment="引导步骤列表" clientType="GuideStepInfoData" macro="GuideStepInfo">
+		</field>
+	</message>
+	
+</messages>

@@ -1,0 +1,12 @@
+int needLowestLevel;//接收任务最小等级
+int targetIcon;//任务图标
+int previousTargetId;[notNull=false;minValue=0]//前置目标ID
+int nameLanguage;//名称多语言
+String targetName;//任务名称
+int descLanguage;//描述多语言
+String targetDesc;[notNull=false]//目标描述
+int taskDescLanguage;//任务描述多语言
+String targetTaskDesc;[notNull=false]//任务描述
+int targetType;//目标类型
+int targetParam;//目标参数
+com.hifun.soul.gameserver.target.template.TargetReward[] targetRewards;[collection(4,2)] //目标奖励物品

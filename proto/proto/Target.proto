@@ -1,0 +1,12 @@
+package com.hifun.soul.proto.common;
+option java_package = "com.hifun.soul.proto.common";
+option java_outer_classname = "Targets";
+
+
+// 个人目标实体
+message Target {
+	// 目标ID
+	required int32 targetId = 1;
+	// 目标领奖状态
+	required int32 rewardState = 2;
+}

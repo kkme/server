@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="honourshop">
+	
+	<message type="CG_SHOW_HONOUR_SHOP_ITEM_LIST" comment="显示荣誉商店道具列表">
+	</message>
+
+	<message type="GC_SHOW_HONOUR_SHOP_ITEM_LIST" comment="显示荣誉商店道具列表">
+		<field type="com.hifun.soul.gameserver.honourshop.msg.HonourShopItemInfo" clientType="HonourShopItemInfo"
+			name="honourShopItemList" macro="HonourShopItemInfo" list="true" comment="荣誉商店道具列表">
+		</field>
+	</message>
+
+	<message type="CG_BUY_HONOUR_SHOP_ITEM" comment="购买选中道具">
+		<field type="Integer" name="itemId" comment="商品 Id" />
+		<field type="Integer" name="num" comment="购买数量" />
+	</message>
+	
+	<message type="GC_BUY_HONOUR_SHOP_ITEM" comment="购买选中道具结果">
+		<field type="Boolean" name="success" comment="购买结果" />
+		<field type="Integer" name="leftHonour" comment="剩余的荣誉" />
+	</message>
+
+</messages>

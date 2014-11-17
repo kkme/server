@@ -1,0 +1,5 @@
+int rankId; //排行榜id
+String rankName; //排行榜名称
+String rankDesc; //排行榜描述
+boolean hasReward; //是否有奖励
+int days;[notNull=false] //奖品领取间隔

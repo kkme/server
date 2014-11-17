@@ -1,0 +1,9 @@
+String name; //天赋名称
+int nameLangId; //天赋名称多语言id
+int nextGiftId;[notNull=false;minValue=0] //后置天赋id
+int type; //天赋类型
+int icon; //图标id
+String desc; //天赋描述
+int openLevel;//开启等级
+int previousGiftId;[notNull=false;minValue=0]//前置天赋ID
+int previousGiftLevel;[notNull=false;minValue=0]//需要前置天赋等级

@@ -1,0 +1,1 @@
+int rewardId;[notNull=true;minValue=1] // 奖励id

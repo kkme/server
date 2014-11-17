@@ -1,0 +1,57 @@
+package com.hifun.soul.proto.common;
+option java_package = "com.hifun.soul.proto.common";
+option java_outer_classname = "Stages";
+
+// 物品概率数据
+message ItemRateData {
+	// 物品id
+	required int32 itemId = 1;
+	// 物品概率
+	required int32 rate = 2;
+	// 索引
+	required int32 index = 3;
+	// 抽中的状态
+	required bool isSelected = 4;
+}
+
+// 地图状态
+message StageMapStateData {
+	// 地图id
+	required int32 mapId = 1;
+	// 地图状态
+	required int32 state = 2;
+	// 地图完美通关奖励状态
+	required int32 perfectMapRewardState = 3;
+}
+
+// 关卡剧情
+message StageDramaData {
+	// 关卡id
+	required int32 stageId = 1;
+	// 剧情状态
+	repeated StageDramaStateData dramaState = 2;
+}
+
+// 关卡剧情
+message StageDramaStateData {
+	// 剧情触发类型
+	required int32 triggerType = 1;
+	// 是否已经触发
+	required bool triggerState = 2;
+}
+
+// 关卡评级
+message StageStarData {
+	// 关卡id
+	required int32 stageId = 1;
+	// 评级
+	required int32 stageStar = 2;
+}
+
+// 关卡评级奖励信息
+message StageStarRewardData {
+	// 星星数量
+	required int32 star = 1;
+	// 奖励状态
+	required int32 rewardState = 2;
+}

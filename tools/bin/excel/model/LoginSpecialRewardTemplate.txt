@@ -1,0 +1,1 @@
+int itemId;[notNull=false;minValue=0] // 礼包Id

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="magic">
+
+	<message type="CG_OPEN_ATTACH_MAGIC_PANEL" comment="请求打开附魔面板 ">
+	</message>
+
+	<message type="GC_OPEN_ATTACH_MAGIC_PANEL" comment="打开附魔面板响应">
+		<field type="Integer" name="skillDevelopType" comment="当前的技能系类型"></field>
+		<field type="Integer" name="changeTypeCrystalCost" comment="转系的魔晶消耗"></field>
+		<field type="com.hifun.soul.gameserver.magic.model.MagicInfo"
+			clientType="MagicInfoData" name="currentMagicList" comment="当前魔法属性集合"
+			macro="MagicInfo" list="true">
+		</field>
+		<field type="com.hifun.soul.gameserver.skill.template.SkillDevelopInfo"
+			clientType="SkillDevelopInfoData" name="skillDevelopList" comment="技能系集合"
+			macro="SkillDevelopInfo" list="true">
+		</field>
+	</message>
+
+	<message type="CG_GET_MAGIC_INFO" comment="请求获取魔法信息">
+		<field type="Integer" name="skillDevelopType" comment="当前的技能系类型"></field>
+	</message>
+
+	<message type="GC_GET_MAGIC_INFO" comment="返回取魔法信息">
+		<field type="Integer" name="skillDevelopType" comment="当前的技能系类型"></field>
+		<field type="com.hifun.soul.gameserver.magic.model.MagicInfo"
+			clientType="MagicInfoData" name="currentMagicList" comment="当前魔法属性集合"
+			macro="MagicInfo" list="true">
+		</field>
+	</message>
+	
+	<message type="CG_CHANGE_SKILL_DEVELOP_TYPE" comment="请求转系">
+		<field type="Integer" name="skillDevelopType" comment="要转的系"></field>
+	</message>
+
+	<message type="GC_CHANGE_SKILL_DEVELOP_TYPE" comment="响应转系">
+		<field type="Integer" name="skillDevelopType" comment="技能系别"></field>
+	</message>
+	
+</messages>

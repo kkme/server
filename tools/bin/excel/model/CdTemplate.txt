@@ -1,0 +1,10 @@
+int nameLangId;[notNull=true;minValue=1] // cd类型名称多语言
+String name; // cd类型名称
+int cdMaxNum;[notNull=true;minValue=1] // cd上限值(分钟)
+boolean canRemove; // cd是否可以花费消除
+Short currencyType;[notNull=true;minValue=1] // 消除cd消耗金币类型
+int currencyNum;[notNull=false;minValue=0] // 消除cd消耗的金币数量
+int costMins;[notNull=true;minValue=1] // 消除CD的单位
+int cdMode; //cd类型[1可叠加，2不可叠加]
+Float tiredRatio;[notNull=true] // 疲劳度系数
+int baseCd;[notNull=false;minValue=0] // 疲劳度基础值

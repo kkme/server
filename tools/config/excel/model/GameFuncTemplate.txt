@@ -1,0 +1,9 @@
+int nameLangId;[notNull=false;minValue=0] // 多语言名称
+String name; // 名称
+int descLangId;[notNull=false;minValue=0] // 多语言描述
+String desc; // 描述
+int openLevel; // 开放等级
+int vipLevel;[notNull=false;minValue=0] // 开放vip限制
+int icon;//
+boolean showInHelper;//是否显示在小助手
+boolean showInPredict;//是否显示在预见未来

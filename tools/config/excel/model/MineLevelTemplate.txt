@@ -1,0 +1,2 @@
+int coin;//金币收益
+int trainCoin;//培养币收益

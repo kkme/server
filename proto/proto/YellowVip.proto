@@ -1,0 +1,18 @@
+package com.hifun.soul.proto.common;
+
+option java_package = "com.hifun.soul.proto.common";
+option java_outer_classname = "YellowVip";
+
+//勇士之路信息
+message HumanYellowVipRewardStateInfo {
+	// 角色id
+	required int64 humanGuid=1;
+	// 黄钻新手礼包领取状态
+	optional int32 onceRewardState=2;
+	// 黄钻每日礼包领取状态
+	optional int32 dailyRewardState=3;
+	// 年费黄钻每日礼包领取状态
+	optional int32 yearVipDailyRewardState=4;
+	// 黄钻升级礼包领取状态
+	repeated int32 levelUpRewardState=5;		
+}

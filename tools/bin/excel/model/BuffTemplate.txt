@@ -1,0 +1,8 @@
+int buffType;[notNull=true;minValue=0] // buff类型
+int buffResourceId;[notNull=false;minValue=0] // buff资源ID;
+int nameLangId;[notNull=true;minValue=0] // 名称多语言id
+String buffName; // buff名称
+int descLangId;[notNull=true;minValue=0] // 描述多语言id
+String buffDesc; // buff描述
+int buffSelfType;[notNull=true;minValue=1] // buff自身类型(buff or debuff)
+int overlyingCount;[notNull=true;minValue=1] // buff最大的叠加次数

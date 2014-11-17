@@ -1,0 +1,5 @@
+int winAura;// 灵气值收益
+int oneAura;//集齐1颗奖励
+int twoAura;//集齐2颗奖励
+int threeAura;//集齐3颗奖励
+int fourAura;//集齐4颗奖励

@@ -1,0 +1,486 @@
+package com.hifun.soul.proto.data.entity;
+
+option java_package = "com.hifun.soul.proto.data.entity";
+option java_outer_classname = "Entity";
+import "Character.proto";
+import "Item.proto";
+import "Horoscope.proto";
+import "Stargazer.proto";
+import "Technology.proto";
+import "EquipBit.proto";
+import "Quest.proto";
+import "Stage.proto";
+import "Cd.proto";
+import "Skill.proto";
+import "LoginReward.proto";
+import "CostNotify.proto";
+import "EliteStage.proto";
+import "Mine.proto";
+import "SpecialShopItem.proto";
+import "Gift.proto";
+import "Refine.proto";
+import "Warrior.proto";
+import "YellowVip.proto";
+import "Sprite.proto";
+import "Sign.proto";
+import "SingleRechargeReward.proto";
+import "TotalRechargeReward.proto";
+import "Mars.proto";
+import "Target.proto";
+import "Nostrum.proto";
+import "LegionTask.proto";
+import "MagicPaper.proto";
+import "LegionMineBattleReward.proto";
+
+/**
+ * 数据库实体相关定义;<br>
+ * 1. 注意每个实体中的字段只增不减,也就是说一个实体的某个字段以后不用了, 那就意味着它的字段号也不能用了;
+ * 2. 角色子实体中的guid一定是required, 因为这个要保证设置上,没有设置就报错。让错误在第一时间暴露, 这也是protobuf设计requried的作用.子实体代理要使用它.
+ * @author crazyjohn
+ *
+ */
+
+// 账号实体
+message Account {
+	required int64 passportId = 1;
+	required string userName = 2;
+	required string password = 3;
+	// 账号是否被锁定
+	required int32 state = 4;
+	required int32 permissionType = 5 [default=1];
+}
+
+// 角色任务详细信息
+message HumanQuestData {
+	required int64 humanGuid = 1;
+	required common.QuestStateData questStateData = 2;
+}
+
+// 角色日常任务宝箱
+message HumanDailyQuestRewardBox {
+	required int64 humanGuid = 1;
+	required common.DailyQuestRewardBox box = 2;
+}
+
+// 角色完成任务数据
+message HumanQuestFinishData {
+	required int64 humanGuid = 1;
+	required common.QuestFinishData questFinishData = 2;
+}
+
+// 角色基础属性; 玩家登陆时候选角色列表会用到; 只在玩家推出时候同步一次;
+message HumanBaseProperties {
+	// 角色guid
+	required int64 humanGuid = 1;
+	// 玩家passportId
+	required int64 passportId = 2;
+	// 角色名称
+	required string name = 3;
+	// 角色当前等级
+	required int32 level = 4;
+	// 角色职业
+	required int32 occupation = 5;
+	// 精力值
+	required int32 energy = 6;
+	// 主城等级
+	required int32 homeLevel = 7;
+	// 当前角色的金币数
+	required int32 coins = 8;
+}
+
+// 角色其它属性
+message HumanOtherProperties {
+	required int64 humanGuid = 1;
+	// 属性键值对
+	repeated common.CharProperty props = 2;
+}
+
+// 角色物品信息
+message HumanItem {
+	required int64 humanGuid = 1;
+	required int32 bagType = 2;
+	required common.Item item = 3;
+}
+
+// 角色的星运信息
+message HumanHoroscope {
+	required int64 humanGuid = 1;
+	// 星运
+	required common.Horoscope horoscope = 2;
+}
+
+// 角色的占星师信息
+message HumanStargazer {
+	required int64 humanGuid = 1;
+	// 占星师状态
+	required common.Stargazer stargazer = 2;
+}
+
+// 角色的科技信息
+message HumanTechnology {
+	required int64 humanGuid = 1;
+	// 占星师状态
+	required common.Technology technology = 2;
+}
+
+// 角色的神魄信息
+message HumanGodsoul {
+	required int64 humanGuid = 1;
+	// 装备位状态
+	required common.EquipBit equipBit = 2;
+}
+
+// 角色新手引导
+message HumanGuide {
+	required int64 humanGuid = 1;
+	// 新手引导类型
+	optional int32 guideType = 2;
+}
+
+// 角色关卡奖品信息
+message HumanStageReward {
+	required int64 humanGuid = 1;
+	// 奖品
+	optional common.ItemRateData itemRateData = 2;
+}
+
+// 角色关卡地图信息
+message HumanStageMapState {
+	required int64 humanGuid = 1;
+	// 地图
+	optional common.StageMapStateData stageMapStateData = 2;
+}
+
+// 角色关卡剧情信息
+message HumanStageDrama {
+	required int64 humanGuid = 1;
+	// 剧情
+	optional common.StageDramaData stageDramaData = 2;
+}
+
+// 角色关卡评星信息
+message HumanStageStar {
+	required int64 humanGuid = 1;
+	// 关卡评星
+	optional common.StageStarData stageStarData = 2;
+}
+
+// 角色cd信息
+message HumanCd {
+	required int64 humanGuid = 1;
+	// cd信息
+	optional common.CdData cdData = 2;
+}
+
+// 角色携带的技能信息
+message HumanCarriedSkill {
+	required int64 humanGuid = 1;
+	// 技能信息
+	optional common.CarriedSkill skill = 2;
+}
+
+message HumanSkillSlot {
+	required int64 humanGuid = 1;
+	// 栏位信息
+	optional common.SkillSlot slot = 2;
+}
+
+// 角色登陆翻牌奖励信息
+message HumanLoginReward {
+	required int64 humanGuid = 1;
+	// 翻牌奖励
+	optional common.LoginRewardData loginRewardData = 2;
+}
+
+// 角色消费提醒信息
+message HumanCostNotify {
+	required int64 humanGuid = 1;
+	// 消费提醒
+	optional common.CostNotifyData costNotifyData = 2;
+}
+
+//好友协助位信息
+message MeditationAssistFriend{
+	//协助位索引
+	optional int32 positionIndex=1;
+	//协助冥想的好友id，逗号分隔
+	optional int64 assistFriendId=2; 
+	//协助好友开始协助的时间，逗号分隔
+	optional int64 assistBeginTime=3; 
+}
+
+// 角色精灵酒馆对酒精灵信息
+
+message HumanPubSprite {
+	required int64 humanGuid = 1;
+	// 精灵id
+	required int32 spriteId = 2;
+	// 是否已经对过酒了
+	required bool pass = 3;
+}
+
+//角色冥想信息
+message HumanMeditation{
+	//角色id
+	required int64 humanGuid = 1;
+	//拥有的协助位数量
+	optional int32 assistPositionNum=2;
+	//好友协助信息
+	repeated MeditationAssistFriend assistFriends=3;
+	//冥想状态
+	optional int32 meditatiomState=4; 
+	//开始冥想时间
+	optional int64 startTime = 5;
+	//选中的冥想模式索引
+	optional int32 selectedModeIndex=6; 
+	//选中的冥想时长索引
+	optional int32 selectedTimeIndex=7; 
+}
+
+// 角色神秘商店信息
+message HumanSpecialShopItem {
+	required int64 humanGuid = 1;
+	// 神秘商店
+	optional common.SpecialShopItem specialShopItem = 2;
+}
+
+//主城相关数据信息
+message HumanMainCityInfo{
+	//角色id
+	required int64 humanGuid=1;
+	//收集目标魔法石id
+	repeated int32 collectTarget=2;
+	//已收集的魔法石id
+	repeated int32 currentCollected=3;
+	//剩余免费收集次数
+	optional int32 remainFreeCollectNum=4;
+	//花费魔晶已收集次数
+	optional int32 costCrystalCollectNum=5;
+	//税收加成
+	optional int32 levyExtraRate=6;
+}
+
+// 角色关卡评星奖励信息
+message HumanStageStarReward {
+	required int64 humanGuid = 1;
+	// 关卡评星奖励
+	optional common.StageStarRewardData stageStarRewardData = 2;
+}
+
+// 角色天赋信息
+message HumanGift {
+	required int64 humanGuid = 1;
+	// 天赋信息
+	optional common.Gift gift = 2;
+}
+
+// 角色试炼地图信息
+message HumanRefineMap {
+	required int64 humanGuid = 1;
+	// 角色试炼地图信息
+	optional common.RefineMapData refineMapData = 2;
+}
+
+// 角色试炼关卡信息
+message HumanRefineStage {
+	required int64 humanGuid = 1;
+	// 角色试炼关卡信息
+	optional common.RefineStageData refineStageData = 2;
+}
+
+// 角色登陆特殊奖励信息
+message HumanSpecialLoginReward {
+	required int64 humanGuid = 1;
+	// 特殊奖励
+	optional common.SpecialLoginRewardData specialLoginRewardData = 2;
+}
+
+// 角色精灵信息
+message HumanSprite {
+	required int64 humanGuid = 1;
+	optional common.SpriteData sprite = 2;
+}
+// 角色精灵背包格子
+message HumanSpriteBagCell {
+	required int64 humanGuid = 1;
+	optional common.SpriteBagCell cell = 2;
+}
+
+// 角色精灵装备位
+message HumanSpriteSlot {
+	required int64 humanGuid = 1;
+	optional common.SpriteSlot slot = 2;
+}
+// 角色精灵buff
+message HumanSpriteBuff {
+	required int64 humanGuid = 1;
+	optional common.SpriteBuff buff = 2;
+}
+
+// 角色星图
+message HumanStarMap {
+	required int64 humanGuid = 1;
+	optional common.StarMap starMap = 2;
+}
+
+// 角色星座
+message HumanSign {
+	required int64 humanGuid = 1;
+	optional common.Sign sign = 2;
+}
+
+// 角色充值奖励
+message HumanSingleRechargeReward {
+	required int64 humanGuid = 1;
+	optional common.SingleRechargeReward singleRechargeReward = 2;
+}
+
+// 角色累计充值奖励
+message HumanTotalRechargeReward {
+	required int64 humanGuid = 1;
+	optional common.TotalRechargeReward totalRechargeReward = 2;
+}
+
+// 角色战神之巅房间信息
+message HumanMarsRoom {
+	required int64 humanGuid = 1;
+	optional common.MarsRoom marsRoom = 2;
+}
+
+// 角色战神之巅手下败将信息
+message HumanMarsLoser {
+	required int64 humanGuid = 1;
+	optional common.MarsLoser marsLoser = 2;
+}
+
+// 角色个人目标
+message HumanTarget {
+	required int64 humanGuid = 1;
+	optional common.Target target = 2;
+}
+
+// 角色秘药
+message HumanNostrum {
+	required int64 humanGuid = 1;
+	optional common.Nostrum nostrum = 2;
+}
+
+// 军团任务
+message HumanLegionTask {
+	required int64 humanGuid = 1;
+	optional common.LegionTask legionTask = 2;
+}
+
+// 角色灵图
+message HumanMagicPaper {
+	required int64 humanGuid = 1;
+	optional common.MagicPaper magicPaper = 2;
+}
+
+// 角色军团矿战战斗奖励
+message HumanLegionMineBattleReward {
+	required int64 humanGuid = 1;
+	optional common.LegionMineBattleReward battleReward = 2;
+}
+
+// 角色实体定义
+message Human {
+	required int64 guid = 1;
+	// 角色任务数据
+	repeated HumanQuestData humanQuest = 2;
+	// 角色完成任务数据
+	repeated HumanQuestFinishData humanFinishQuest = 3;
+	// 角色基础属性
+	required HumanBaseProperties baseProperties = 4;
+	// 角色其它属性
+	required HumanOtherProperties otherProperties = 5;
+	// 物品数据
+	repeated HumanItem item = 6;
+	// 角色星运信息
+	repeated HumanHoroscope horoscope = 9;
+	// 角色占星师信息
+	repeated HumanStargazer stargazer = 10;
+	// 角色科技信息
+	repeated HumanTechnology technology = 11;
+	// 角色神魄信息
+	repeated HumanGodsoul godsoul = 12;
+	// 角色日常任务宝箱信息
+	repeated HumanDailyQuestRewardBox dailyRewardBox = 13;
+	// 角色新手引导信息
+	repeated HumanGuide guide = 14;
+	// 角色关卡奖品信息
+	repeated HumanStageReward stageReward = 15;
+	// 角色地图状态信息
+	repeated HumanStageMapState stageMapState = 16;
+	// 角色剧情状态信息
+	repeated HumanStageDrama stageDrama = 17;
+	// 角色cd信息
+	repeated HumanCd cd = 18;
+	// 角色携带的技能信息
+	repeated HumanCarriedSkill skill = 20;	
+	// 连续登陆奖励
+	repeated HumanLoginReward loginReward = 22;
+	// 角色消费提醒信息
+	repeated HumanCostNotify costNotify = 23;
+	// 角色技能栏位信息
+	repeated HumanSkillSlot slot = 24;
+	// 角色冥想相关信息
+	optional HumanMeditation meditation = 25;
+	// 精英副本相关信息
+	optional common.HumanEliteStageInfo eliteStageInfo = 26;
+	// 矿场相关信息
+	optional common.HumanMineInfo mine = 27;
+	// 角色神秘商店信息
+	repeated HumanSpecialShopItem specialShopItem = 28;
+	// 主城相关信息
+	optional HumanMainCityInfo mainCityInfo = 29;
+	// 关卡评星信息
+	repeated HumanStageStar stageStar = 30;
+	// 关卡评星奖励信息
+	repeated HumanStageStarReward stageStarReward = 31;
+	// 天赋信息
+	repeated HumanGift gift = 32;
+	// 角色试炼地图信息
+	repeated HumanRefineMap refineMap = 33;
+	// 角色试炼关卡信息
+	repeated HumanRefineStage refineStage = 34;
+	// 连续登陆特殊奖励
+	repeated HumanSpecialLoginReward specialLoginReward = 35;
+	// 勇士之路信息
+	optional common.HumanWarriorInfo warriorInfo = 36;
+	// 黄钻礼包领取状态信息
+	optional common.HumanYellowVipRewardStateInfo yellowVipRewardState = 37;
+	// 酒馆对酒精灵信息
+	repeated HumanPubSprite pubSpite = 38;
+	// 精灵信息
+	repeated HumanSprite sprite = 39;
+	// 精灵背包格子
+	repeated HumanSpriteBagCell cell = 40;
+	// 精灵装备位
+	repeated HumanSpriteSlot equipSlot = 41;
+	// 精灵buff
+	repeated HumanSpriteBuff buff = 42;
+	// 星图
+	repeated HumanStarMap starMap = 43;
+	// 星座
+	repeated HumanSign sign = 44;
+	// 充值奖励
+	repeated HumanSingleRechargeReward singleRechargeReward = 45;
+	// 累计充值奖励
+	repeated HumanTotalRechargeReward totalRechargeReward = 46;
+	// 战神之巅房间
+	repeated HumanMarsRoom marsRoom = 47;
+	// 战神之巅手下败将
+	repeated HumanMarsLoser marsLoser = 48;
+	// 个人目标
+	repeated HumanTarget target = 49;	
+	// 角色秘药
+	repeated HumanNostrum nostrum = 50;
+	// 军团任务
+	repeated HumanLegionTask legionTask = 51;
+	// 角色灵图
+	repeated HumanMagicPaper magicPaper = 52;
+	// 角色军团矿战战斗奖励
+	repeated HumanLegionMineBattleReward battleReward = 53;
+}
+

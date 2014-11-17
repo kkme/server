@@ -1,0 +1,1 @@
+List<com.hifun.soul.gameserver.item.template.RewardItemData> rewardItemList; [collection(4,2);notNull=false] // 奖励物品列表

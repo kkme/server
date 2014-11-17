@@ -1,0 +1,6 @@
+int technologyType;//军团科技类型
+int technologyLevel;//军团科技等级
+int needBuildingLevel;//需要建筑等级
+int upNeedCoin;[notNull=false;minValue=0]//升至下一级需要金币
+int amendEffect;//加成效果值
+int amendMethod;//加成方式

@@ -1,0 +1,18 @@
+package com.hifun.soul.proto.common;
+option java_package = "com.hifun.soul.proto.common";
+option java_outer_classname = "Horoscopes";
+
+
+// 星运实体
+message Horoscope {
+	// 星运包类型
+	required int32 bagType = 1;
+	// 星运包位置
+	required int32 bagIndex = 2;
+	// 星运id
+	required int32 horoscopeId = 3;
+	// 星运经验
+	required int32 experience = 4;
+	// 星运主键
+	required string horoscopeKey = 5;
+}

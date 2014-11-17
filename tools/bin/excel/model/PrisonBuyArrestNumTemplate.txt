@@ -1,0 +1,3 @@
+int costCrystal; //消耗的魔晶数
+
+	

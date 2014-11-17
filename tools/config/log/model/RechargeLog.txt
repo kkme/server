@@ -1,0 +1,8 @@
+message com.hifun.soul.logserver.model.RechargeLog(
+	int rechargeNum; // 充值数
+	int crystalNum; //充值获得的魔晶数
+	int crystalRewardNum; //获得奖励魔晶数
+	int beforeNum; //充值前的魔晶数
+	int afterNum; //充值后的魔晶数
+	int exchangeRate; //兑换比率
+)

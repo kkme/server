@@ -1,0 +1,8 @@
+int paperId; //灵图ID
+int paperLevel;[notNull=false;mainValue=0] //灵图等级
+int costItemId;[notNull=false;mainValue=0] //升至下级消耗道具
+int costItemNum;[notNull=false;mainValue=0] //升至下级消耗道具数量
+int propertyId;[notNull=false;mainValue=0] //属性ID
+int amendEffect;[notNull=false;mainValue=0] //加成效果
+int amendMethod;[notNull=false;mainValue=0] //加成方式
+int maxEquipBitLevel;[notNull=false;mainValue=0] //装备位强化等级上限

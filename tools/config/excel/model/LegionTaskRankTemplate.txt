@@ -1,0 +1,2 @@
+int rewardContribution;[notNull=false;minValue=0]//奖励贡献值
+int rewardMedal;[notNull=false;minValue=0]//奖励贡勋章

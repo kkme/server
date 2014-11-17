@@ -1,0 +1,2 @@
+int needExperience;[notNull=false;mainValue=0] //升至下级需要经验
+int memberLimit; //成员数限制

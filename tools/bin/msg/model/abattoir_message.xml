@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="abattoir">
+
+	<message type="CG_OPEN_ABATTOIR_PANEL" comment="请求打开角斗场面板">
+	</message>
+	<message type="GC_OPEN_ABATTOIR_PANEL" comment="响应打开角斗场面板">
+		<field type="com.hifun.soul.gameserver.abattoir.msg.WrestlerInfo"
+			clientType="WrestlerInfoData" name="wrestlerInfo" comment="个人信息 " macro="WrestlerInfo">
+		</field>
+		<field type="com.hifun.soul.gameserver.abattoir.msg.AbattoirRoomInfo" list="true"
+			clientType="AbattoirRoomInfoData" name="rooms" comment="角斗场房间列表 " macro="AbattoirRoomInfo">
+		</field>
+	</message>
+	<message type="CG_LOOT_ABATTOIR_ROOM" comment="请求抢夺房间">
+		<field type="Integer" name="roomId" comment="房间号" />
+	</message>
+	<message type="CG_QUIT_ABATTOIR_ROOM" comment="请求退出房间">
+	</message>
+	<message type="GC_QUIT_ABATTOIR_ROOM" comment="响应退出房间">
+	</message>
+	<message type="CG_BUY_ABATTOIR_WRESTLE_NUM" comment="请求购买角斗次数">
+	</message>
+	<message type="GC_BUY_ABATTOIR_WRESTLE_NUM" comment="响应购买角斗次数">
+		<field type="Integer" name="remainWrestleNum" comment="剩余角斗次数" />
+		<field type="Integer" name="nextBuyNumCost" comment="下次购买次数消费" />
+	</message>
+	<message type="CG_EXTRACT_ABATTOIR_HONOR" comment="请求提取威望(以前是声望)">
+	</message>
+	<message type="GC_EXTRACT_ABATTOIR_PRESTIGE" comment="响应提取威望">
+		<field type="Integer" name="currentPrestige" comment="当前威望" />
+	</message>
+	<message type="CG_SHOW_ABATTOIR_ENEMY" comment="请求展示仇人列表">
+	</message>
+	<message type="GC_SHOW_ABATTOIR_ENEMY" comment="响应展示仇人列表">
+		<field type="com.hifun.soul.gameserver.abattoir.msg.AbattoirEnemyInfo" list="true"
+			clientType="AbattoirEnemyInfoData" name="enemies" comment="角斗场仇人列表 " macro="AbattoirEnemyInfo">
+		</field>
+	</message>
+</messages>
+
+

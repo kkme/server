@@ -1,0 +1,6 @@
+int nameLangId; //职位名称多语言ID
+String positionName; //职位名称
+int qualityId; //品质ID
+int numLimit; //人数限制
+int needContribution;[notNull=false] //升职需要贡献值
+int rightId;  //权限ID

@@ -1,0 +1,9 @@
+int giftId;//天赋ID
+int giftLevel;[notNull=false;minValue=0]//天赋等级
+int needLevel;[notNull=false;minValue=0]//升到下级需要人物等级
+int propertyId;[notNull=false;minValue=0]//属性ID
+int propertyValue;[notNull=false;minValue=0]//属性值
+int amendMethod;[notNull=false;minValue=0]//加成方式
+int costGiftPoint;[notNull=false;minValue=0]//升到下级消耗天赋点
+int costItemId;//升到下级消耗道具ID
+int costItemNum;[notNull=false;minValue=0]//升到下级消耗道具数量

@@ -1,0 +1,3 @@
+int soulType;[notNull=false;minValue=0] // 消耗精魂类型
+int soulNum;[notNull=false;minValue=0] // 消耗精魂数量
+int openLevel;[notNull=false;minValue=0] // 开启角色等级

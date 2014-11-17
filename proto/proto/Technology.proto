@@ -1,0 +1,12 @@
+package com.hifun.soul.proto.common;
+option java_package = "com.hifun.soul.proto.common";
+option java_outer_classname = "Technologys";
+
+
+// 科技实体
+message Technology {
+	// 科技id
+	required int32 technologyId = 1;
+	// 科技等级
+	required int32 level = 2;
+}

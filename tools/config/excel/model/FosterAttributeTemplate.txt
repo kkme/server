@@ -1,0 +1,4 @@
+int fosterMode; //培养类型
+int level1PropertyId; // 一级属性id
+int minNumOfPerFoster;[notNull=false;minValue=0] // 单次培养成功下限
+int maxNumOfPerFoster;[notNull=false;minValue=0] // 单次培养成功上限

@@ -1,0 +1,3 @@
+String name; //培养模式名称
+int randomLowRatio; [notNull=false;minValue=0] //随机范围下限系数
+int openVipLevel; [notNull=false;minValue=0] //开启模式的vip等级

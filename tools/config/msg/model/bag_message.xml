@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 	xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="bag">	
+	<constants>
+		<constant name="背包类型">
+			1-主背包
+			2-角色装备栏
+		</constant>
+	</constants>
+
+	<message type="CG_BAG_TIDY" comment="整理背包，更新背包所有物品">
+		<field type="Short" name="bagType" comment="背包类型" />
+	</message>
+
+	<message type="GC_BAG_UPDATE" comment="更新整个背包返回结果，在打开背包和整理背包后返回该结果">
+		<field type="com.hifun.soul.gameserver.item.assist.CommonItem" list="true" name="items" comment="物品列表" macro="CommonItem" clientType="CommonItemData">
+		</field>
+	</message>
+
+	<message type="CG_REMOVE_ITEM" comment="移除物品">
+		<field type="Short" name="bagType" comment="背包类型" />
+		<field type="Integer" name="bagIndex" comment="物品在背包的位置索引" />
+	</message>
+	
+	<message type="GC_REMOVE_ITEM" comment="服务器返回移除物品结果">
+		<field type="Short" name="bagType" comment="背包类型" />
+		<field type="Integer" name="bagIndex" comment="物品在背包的位置索引" />
+	</message>
+	
+	<message type="CG_MOVE_ITEM" comment="移动物品，包括物品换位置">
+		<field type="Short" name="fromBagType" comment="来源背包类型" />
+		<field type="Integer" name="fromBagIndex" comment="来源物品在背包的位置索引" />
+		<field type="Short" name="toBagType" comment="目的背包类型" />
+		<field type="Integer" name="toBagIndex" comment="目的物品在背包的位置索引" />
+	</message>
+	
+	<message type="GC_MOVE_ITEM" comment="移动物品，包括物品换位置">
+		<field type="Short" name="fromBagType" comment="来源背包类型" />
+		<field type="Integer" name="fromBagIndex" comment="来源物品在背包的位置索引" />
+		<field type="Short" name="toBagType" comment="目的背包类型" />
+		<field type="Integer" name="toBagIndex" comment="目的物品在背包的位置索引" />
+	</message>
+
+	<message type="GC_ITEM_UPDATE" comment="更新主背包单个物品">
+		<field type="com.hifun.soul.gameserver.item.assist.CommonItem" name="item" comment="物品" macro="CommonItem" clientType="CommonItemData">
+		</field>
+	</message>
+	
+	<message type="CG_QUERY_BAG_UPGRADE_PRICE" comment="客户端查询升级背包价格">
+		<field type="Short" name="bagType" comment="背包类型" />
+		<field type="Integer" name="upgradeLevel" comment="背包提升等级" />
+	</message>
+	
+	<message type="GC_BAG_UPGRADE_PRICE" comment="服务器返回升级背包价格">
+		<field type="Short" name="currencyType" comment="货币类型" />
+		<field type="Integer" name="price" comment="货币数量" />
+	</message>
+	
+	<message type="CG_BAG_UPGRADE" comment="客户端发送背包升级请求">
+		<field type="Short" name="bagType" comment="背包类型" />
+		<field type="Integer" name="upgradeLevel" comment="背包提升等级" />		
+	</message>
+	
+	<message type="GC_BAG_UPGRADE_RESULT" comment="服务器返回背包升级结果">
+		<field type="Short" name="bagType" comment="背包类型" />
+		<field type="Integer" name="upgradeLevel" comment="背包提升等级，大于0表示升级成功，否则表示升级失败" />
+		<field type="Integer" name="levelSize" comment="每一等级所开启的背包格式数" />
+	</message>
+	
+	<message type="CG_ITEM_USE" comment="使用物品">
+		<field type="Short" name="bagType" comment="背包类型"/>
+		<field type="Integer" name="bagIndex" comment="物品所在背包索引" />
+	</message>
+
+</messages>
+
+

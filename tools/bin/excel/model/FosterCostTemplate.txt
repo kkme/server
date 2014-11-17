@@ -1,0 +1,2 @@
+int costCurrencyType; //花费货币类型
+int costNum; [notNull=false;minValue=0] //花费数量

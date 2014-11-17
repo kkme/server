@@ -1,0 +1,12 @@
+package com.hifun.soul.proto.common;
+option java_package = "com.hifun.soul.proto.common";
+option java_outer_classname = "LegionMineBattleRewards";
+
+
+// 军团矿战战斗奖励实体
+message LegionMineBattleReward {
+	// 奖励物品ID
+	required int32 itemId = 1;
+	// 奖励物品数量
+	required int32 itemNum = 2;
+}

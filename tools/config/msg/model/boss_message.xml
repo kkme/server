@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="boss">
+	
+	<message type="CG_ENTER_BOSS_WAR" comment="请求进入boss战">
+	</message>
+	
+	<message type="GC_JOIN_BOSS_WAR" comment="参与BOSS战">
+		<field type="com.hifun.soul.gameserver.boss.BossInfo" name="bossInfo" comment="boss信息" macro="BossInfo" clientType="BossInfoData">
+		</field>
+		<field type="Integer" name="encourageRate" comment="鼓舞百分比"/>
+		<field type="Integer" name="chargedstrikeRate" comment="充能百分比"/>
+		<field type="Integer" name="remainTime" comment="剩余时间(单位秒)"/>
+		<field type="String"  name="damageDesc" comment="自己对boss造成的伤害值描述"/>
+		<field type="String"  list="true" name="damageRankings" comment="boss伤害排行榜"/>
+		<field type="Boolean" name="ifFull" comment="是否已经鼓舞满"/>
+		<field type="Integer" name="coin" comment="金币鼓舞消耗的金币"/>
+		<field type="Integer" name="crystal" comment="魔晶鼓舞消耗的魔晶"/>
+		<field type="Integer" name="encourageForgeStoneCost" comment="灵石鼓舞消耗的灵石"/>
+		<field type="String" name="bossWarDesc" comment="boss战活动描述"/>
+		<field type="Integer" name="bossState" comment="boss状态"/>
+		<field type="Integer" name="waitCDTime" comment="boss战准备CD时间"/>
+		<field type="Integer" name="meditation" comment="冥想力鼓舞消耗的冥想力"/>
+	</message>
+	
+	<message type="CG_ENCOURAGE_BOSS_WAR" comment="鼓舞">
+		<field type="Integer" name="encourageType" comment="鼓舞类型(金币还是魔晶)"/>
+	</message>
+	
+	<message type="GC_ENCOURAGE_BOSS_WAR" comment="鼓舞">
+		<field type="Integer" name="encourageRate" comment="鼓舞百分比"/>
+		<field type="Boolean" name="ifFull" comment="是否已经鼓舞满"/>
+	</message>
+	
+	<message type="CG_CHARGED_BOSS_WAR" comment="充能">
+	</message>
+	
+	<message type="GC_CHARGED_BOSS_WAR" comment="充能">
+		<field type="Integer" name="chargedstrikeRate" comment="充能百分比"/>
+	</message>
+	
+	<message type="CG_CHARGED_BOSS" comment="用充能攻击">
+	</message>
+	
+	<message type="GC_CHARGED_BOSS" comment="用充能攻击">
+		<field type="Integer" name="damage" comment="充能打击造成的伤害"/>
+	</message>
+	
+	<message type="CG_ATTACK_BOSS" comment="攻击boss">
+	</message>
+	
+	<message type="CG_GET_BOSS_REWARD" comment="获取boss奖励">
+	</message>
+	
+	<message type="GC_GET_BOSS_REWARD" comment="获取boss奖励">
+	</message>
+	
+	<message type="GC_HAS_BOSS_REWARD" comment="是否有boss战奖励">
+	</message>
+</messages>

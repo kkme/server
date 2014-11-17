@@ -1,0 +1,6 @@
+String monsterName;//怪物名称
+float coinRate;//金钱获得系数
+float honorRate;[notNull=false;minValue=0]//声望获得系数
+float escortTimeRate;//押运时间系数
+int iconId;//图片ID
+int modelId;//模型ID

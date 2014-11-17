@@ -1,0 +1,4 @@
+int needLegionLevel;//升至下级需要军团等级
+int needLegionCoin;[notNull=false;minValue=0]//升至下级需要军团资金
+int amendEffect;[notNull=false;minValue=0]//加成效果
+int amendMethod;//加成方式

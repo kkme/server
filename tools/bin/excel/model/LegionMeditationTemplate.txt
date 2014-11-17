@@ -1,0 +1,7 @@
+String name;//冥想名称
+int vipLevel;[notNull=false;minValue=0]//vip开启等级
+int currencyType;//货币类型
+int costNum;//消耗数量
+int contribution;//获得贡献
+int medal;//获得勋章
+int legionCoin;//获得军团资金

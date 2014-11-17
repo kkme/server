@@ -1,0 +1,2 @@
+int icon; //魔法石图标
+boolean inTarget; //是否为目标宝石

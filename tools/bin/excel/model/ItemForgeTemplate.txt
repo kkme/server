@@ -1,0 +1,5 @@
+int itemQuality;[notNull=false;minValue=0] // 装备品质
+int lockNum;[notNull=false;minValue=0] // 锁定数量
+int crystal;[notNull=false;minValue=0] // 消耗魔晶
+int costItemId; // 消耗物品id
+int costItemNum;[notNull=false;minValue=0] // 消耗物品数量

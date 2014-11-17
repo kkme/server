@@ -1,0 +1,1 @@
+int trainCoinCostNum; //花费培养币数量

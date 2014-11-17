@@ -1,0 +1,12 @@
+int type; //类型
+String name; //名称
+int nameLangId; //名称多语言id
+String desc; //描述
+int descLangId; //描述多语言id
+int picId; //图片id
+int cdTime;[notNull=false;minValue=0] //基础收获cd时间
+int monsterRate; //怪物出现概率
+String itemIds; //产出物品id数组
+String itemNums; //产出物品数量数组
+String itemWeights; //产出物品权重数组
+String itemIcons; //产出物品的图标数组

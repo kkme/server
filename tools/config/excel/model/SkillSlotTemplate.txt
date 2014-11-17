@@ -1,0 +1,3 @@
+int humanLevel;[notNull=false;minValue=1] // 解锁角色等级
+int costCoin;[notNull=false;minValue=0] // 解锁花费金币
+int costCrystal;[notNull=false;minValue=0] // 直接解锁花费魔晶

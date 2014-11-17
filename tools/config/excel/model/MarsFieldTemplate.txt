@@ -1,0 +1,4 @@
+int startLevel;//等级下限
+int endLevel;//等级上限
+int language;//多语言
+String fieldName;//战场名称

@@ -1,0 +1,4 @@
+int langNameId; //多语言
+String name; //名称
+int langDescId; //多语言
+String desc; //名称

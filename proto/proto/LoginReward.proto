@@ -1,0 +1,19 @@
+package com.hifun.soul.proto.common;
+option java_package = "com.hifun.soul.proto.common";
+option java_outer_classname = "Rewards";
+
+// 连续登陆翻牌奖励
+message LoginRewardData {
+	// index
+	required int32 index = 1;
+	// 物品id
+	required int32 itemId = 2;
+}
+
+// 连续登陆特殊奖励
+message SpecialLoginRewardData {
+	// 天数
+	required int32 days = 1;
+	// 物品id
+	required int32 state = 2;
+}

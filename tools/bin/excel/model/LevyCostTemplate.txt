@@ -1,0 +1,1 @@
+int crystalCost; //魔晶消耗

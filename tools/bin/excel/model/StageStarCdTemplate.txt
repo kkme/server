@@ -1,0 +1,2 @@
+int reduceCd; // 减免cd时间(分钟)
+

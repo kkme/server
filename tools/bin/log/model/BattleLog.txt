@@ -1,0 +1,5 @@
+message com.hifun.soul.logserver.model.BattleLog(
+	int stageId; 		// 关卡id
+	int result; 	// 战斗结果
+	String itemIds; 	// 战斗奖励物品
+)

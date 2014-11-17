@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="bulletin">
+	<message type="GC_BULLETIN_LIST" comment="公告列表">
+		<field type="com.hifun.soul.gameserver.bulletin.assist.CommonBulletin" name="bulletins" comment="公告列表 " list = "true" macro = "CommonBulletin" clientType = "CommonBulletinData"></field>
+	</message>
+	<message type="GC_BULLETIN_STOP" comment="停播公告">
+		<field type="Integer" name="id" comment="公告id" />
+	</message>
+</messages>

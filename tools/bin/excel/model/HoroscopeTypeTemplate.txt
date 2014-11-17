@@ -1,0 +1,4 @@
+int level;[notNull=false;minValue=0] // 开启等级
+int descLangId;[notNull=true;minValue=1] // 格子说明多语言
+String desc; // 格子说明
+ 

@@ -1,0 +1,13 @@
+======================= 业务系统的开发步骤 =========================
+1. 跟client制订消息协议, 根据策划文档的具体业务需求。举例来说背包系统的移除物品业务：CGRemoveItem, GCRemoveItem;
+
+2. 相应的业务系统要有对应的client消息处理单元。举例背包系统移除物品：CGMoveItemHandler；
+
+3. 业务系统要有自己的业务管理器。举例来说背包系统业务管理器就是HumanBagManager；对应的业务管理器有各个业务的处理方法，包括处理完成
+以后是否给client一个消息回应。
+			HumanBagManager -- 对应的属性、缓存等等
+
+4. model层要有对应业务管理器的处理方法 。举例如背包系统的MainBag的移除物品方法
+           MainBag -- 对应BagUnit、Bag、Item中的业务方法
+5. 持久化 :  添加到待处理的缓存中，最后统一处理（onPersistence)
+	

@@ -1,0 +1,5 @@
+String question; //问题题目
+List<com.hifun.soul.gameserver.activity.question.template.Answer> answers;[collection(3,5)] // 问题答案
+int rightAnswerIndex;//正确答案（从1开始）
+
+

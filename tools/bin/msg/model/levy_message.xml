@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 	xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="levy">	
+	
+	<message type="CG_LEVY" comment="客户端进行征收操作">
+	</message>
+	
+	<message type="GC_LEVY" comment="返回征收结果">
+		<field type="Integer" name="remainLevyNum" comment="剩余征收次数"/>
+		<field type="Integer" name="levyRevenue" comment="当前税收收益"/>
+	</message>
+		
+	<message type="CG_OPEN_MAIN_CITY_PANEL" comment="打开主城面板">
+	</message>
+	
+	<message type="GC_UPDATE_MAIN_CITY_PANEL" comment="刷新收集信息">
+		<field type="Integer" name="remainLevyNum" comment="剩余征收次数"/>
+		<field type="Integer" name="maxLevyNum" comment="最大可征收次数"/>
+		<field type="Integer" name="levyExtraRate" comment="税收加成"/>
+		<field type="Integer" name="maxLevyExtraRate" comment="税收加成上限"/>
+		<field type="Integer" name="levyRevenue" comment="当前税收收益"/>
+		<field type="Integer" name="remainBetNum" comment="剩余押注次数"/>
+		<field type="Integer" name="maxtBetNum" comment="最大押注次数"/>
+		<field type="Integer" name="betPoints" comment="骰子点数" list="true"/>
+		<field type="Integer" name="remainCertainWinNum" comment="剩余必胜次数"/>
+		<field type="Integer" name="certainWinCost" comment="必胜消费魔晶"/>
+		<field type="com.hifun.soul.gameserver.levy.MagicStoneInfo" list="true" macro="MagicStoneInfo" clientType="MagicStoneData"
+			 name="collectTarget" comment="收集目标数组"/>
+		<field type="com.hifun.soul.gameserver.levy.MagicStoneInfo" list="true" macro="MagicStoneInfo" clientType="MagicStoneData"
+			 name="currentCollected" comment="当前已收集数组"/>
+		<field type="Integer" name="freeCollectNum" comment="免费收集次数"/>
+		<field type="Integer" name="costCrystalNum" comment="收集需要消耗的魔晶"/>
+		<field type="Integer" name="crystalCollectRemainNum" comment="魔晶拣选剩余次数"/>
+		<field type="Integer" name="recoverEnergyNum" comment="每次恢复体力点数"/>
+		<field type="Integer" name="remainRecoverNum" comment="体力恢复剩余次数"/>
+		<field type="Integer" name="maxRecoverNum" comment="每日体力恢复最大次数"/>
+	</message>
+	
+	<message type="CG_LEVY_BET" comment="请求押注">
+		<field type="Integer" name="betType" comment="押注类型"/>
+	</message>
+	
+	<message type="GC_LEVY_BET" comment="响应押注">
+		<field type="Integer" name="betPoints" comment="骰子点数" list="true"/>
+		<field type="Integer" name="result" comment="押注结果"/>
+		<field type="Integer" name="remainBetNum" comment="剩余押注次数"/>
+		<field type="Integer" name="remainCertainWinNum" comment="剩余必胜次数"/>
+		<field type="Integer" name="certainWinCost" comment="必胜消费魔晶"/>
+		<field type="Integer" name="levyExtraRate" comment="税收加成"/>
+	</message>
+	
+	<message type="CG_BATTLE_MAIN_CITY_MONSTER" comment="攻打主城怪物">
+	</message>
+	
+	<message type="CG_GET_MAIN_CITY_MONSTER_INFO" comment="请求攻城怪物信息">
+	</message>
+	<message type="GC_SEND_MAIN_CITY_MONSTER_INFO" comment="发送攻城怪物信息">
+		<field type="Integer" name="monsterLevel" comment="怪物等级"/>
+		<field type="String" name="monsterName" comment="怪物名称"/>
+		<field type="Integer" name="totalNum" comment="怪物总数"/>
+		<field type="Integer" name="remainNum" comment="剩余个数"/>
+	</message>
+	
+	<message type="CG_COLLECT_MAGIC_STONE" comment="收集魔法石">
+	</message>
+	
+	<message type="GC_COLLECT_MAGIC_STONE" comment="收集魔法石">
+		<field type="com.hifun.soul.gameserver.levy.MagicStoneInfo" list="true" macro="MagicStoneInfo" clientType="MagicStoneData"
+			 name="collected" comment="新宝石"/>
+		<field type="Integer" name="freeCollectNum" comment="免费收集次数"/>
+		<field type="Integer" name="costCrystalNum" comment="收集需要消耗的魔晶"/>
+		<field type="Integer" name="crystalCollectRemainNum" comment="魔晶拣选剩余次数"/>
+	</message>
+	
+	<message type="GC_COLLECT_MAGIC_STONE_COMPLETE" comment="收集魔法石任务完成">
+		<field type="com.hifun.soul.gameserver.levy.MagicStoneInfo" list="true" macro="MagicStoneInfo" clientType="MagicStoneData"
+			 name="collectTarget" comment="收集目标数组"/>
+		<field type="Integer" name="levyRevenue" comment="当前税收收益"/>
+		<field type="Integer" name="levyExtraRate" comment="税收加成"/>
+		<field type="Integer" name="rewardCurrencyType" comment="奖励货币类型"/>
+		<field type="Integer" name="rewardCurrencyNum" comment="奖励货币数量"/>
+	</message>
+	
+</messages>

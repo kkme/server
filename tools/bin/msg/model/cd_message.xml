@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="cd">
+
+	<message type="GC_CD_QUEUE_INFOS" comment="返回cd列表">
+		<field type="com.hifun.soul.gameserver.cd.msg.CdQueueInfo" 
+			clientType="CdQueueInfo" name="cds" list="true" comment="cd列表">
+			<field type="Integer" name="cdType" comment="cd类型" />
+			<field type="Integer" name="timeDiff" comment="时间差" />
+		</field>
+	</message>
+	
+	<message type="CG_REMOVE_CD" comment="直接消除CD">
+		<field type="Integer" name="cdType" comment="cd类型" />
+	</message>
+	
+	<message type="GC_CD_QUEUE_INFO" comment="单个cd信息">
+		<field type="com.hifun.soul.gameserver.cd.msg.CdQueueInfo" 
+			clientType="CdQueueInfo" name="cd" comment="cd列表">
+			<field type="Integer" name="cdType" comment="cd类型" />
+			<field type="Integer" name="timeDiff" comment="时间差" />			
+		</field>
+	</message>
+	
+	<message type="CG_CD_SPEED_UP" comment="cd加速，返回需要的花费">
+		<field type="Integer" name="cdType" comment="cd类型" />
+	</message>
+	
+	<message type="GC_CD_SPEED_UP" comment="cd加速">
+		<field type="Integer" name="cdType" comment="cd类型" />
+		<field type="Short" name="currencyType" comment="货币类型" />
+		<field type="Integer" name="currencyNum" comment="货币数量" />
+	</message>
+	
+</messages>

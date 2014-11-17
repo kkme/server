@@ -1,0 +1,4 @@
+int score; //积分线
+int coinNum;[notNull=false;minValue=0] //金币数
+int exp;[notNull=false;minValue=0] //经验值
+int technologyPoint;[notNull=false;minValue=0] //科技点

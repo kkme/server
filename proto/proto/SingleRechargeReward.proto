@@ -1,0 +1,12 @@
+package com.hifun.soul.proto.common;
+option java_package = "com.hifun.soul.proto.common";
+option java_outer_classname = "SingleRechargeRewards";
+
+
+// 单笔充值奖励实体
+message SingleRechargeReward {
+	// 充值档位ID
+	required int32 gradeId = 1;
+	// 剩余领奖次数
+	required int32 remainRewardNum = 2;
+}

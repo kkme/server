@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="bloodtemple">
+
+	<message type="CG_OPEN_BLOOD_TEMPLE_PANEL" comment="请求打开嗜血神殿面板">
+	</message>
+	<message type="GC_OPEN_BLOOD_TEMPLE_PANEL" comment="响应打开嗜血神殿面板">
+		<field type="com.hifun.soul.gameserver.abattoir.msg.WrestlerInfo"
+			clientType="WrestlerInfoData" name="wrestlerInfo" comment="个人信息 " macro="WrestlerInfo">
+		</field>
+		<field type="com.hifun.soul.gameserver.bloodtemple.msg.BloodTempleRoomInfo" list="true"
+			clientType="BloodTempleRoomInfoData" name="rooms" comment="嗜血神殿房间列表 " macro="BloodTempleRoomInfo">
+		</field>
+	</message>
+	<message type="CG_SHOW_BLOOD_TEMPLE_ROOM" comment="请求展示嗜血神殿房间">
+		<field type="Integer" name="pageIndex" comment="房间页码" />
+	</message>
+	<message type="GC_SHOW_BLOOD_TEMPLE_ROOM" comment="响应展示嗜血神殿房间">
+		<field type="com.hifun.soul.gameserver.bloodtemple.msg.BloodTempleRoomInfo" list="true"
+			clientType="BloodTempleRoomInfoData" name="rooms" comment="嗜血神殿房间列表 " macro="BloodTempleRoomInfo">
+		</field>
+	</message>
+	<message type="CG_LOOT_BLOOD_TEMPLE_ROOM" comment="请求抢夺房间">
+		<field type="Integer" name="roomId" comment="房间号" />
+	</message>
+	<message type="CG_QUIT_BLOOD_TEMPLE_ROOM" comment="请求退出房间">
+	</message>
+	<message type="GC_QUIT_BLOOD_TEMPLE_ROOM" comment="响应退出房间">
+	</message>
+	<message type="CG_BUY_BLOOD_TEMPLE_WRESTLE_NUM" comment="请求购买角斗次数">
+	</message>
+	<message type="GC_BUY_BLOOD_TEMPLE_WRESTLE_NUM" comment="响应购买角斗次数">
+		<field type="Integer" name="remainWrestleNum" comment="剩余角斗次数" />
+		<field type="Integer" name="nextBuyNumCost" comment="下次购买次数消费" />
+	</message>
+	<message type="CG_EXTRACT_BLOOD_TEMPLE_HONOR" comment="请求提取威望(以前是声望)">
+	</message>
+	<message type="GC_EXTRACT_BLOOD_TEMPLE_PRESTIGE" comment="响应提取威望">
+		<field type="Integer" name="currentPrestige" comment="当前威望" />
+	</message>
+	<message type="CG_SHOW_BLOOD_TEMPLE_ENEMY" comment="请求展示仇人列表">
+	</message>
+	<message type="GC_SHOW_BLOOD_TEMPLE_ENEMY" comment="响应展示仇人列表">
+		<field type="com.hifun.soul.gameserver.bloodtemple.msg.BloodTempleEnemyInfo" list="true"
+			clientType="BloodTempleEnemyInfoData" name="enemies" comment="嗜血神殿仇人列表 " macro="BloodTempleEnemyInfo">
+		</field>
+	</message>
+</messages>
+
+

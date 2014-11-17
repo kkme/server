@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="meditation">
+	<message type="CG_UPDATE_MEDITATION_PANNEL" comment="更新冥想面板消息">
+	</message>
+	<message type="GC_UPDATE_MEDITATION_PANNEL" comment="更新冥想面板消息">		
+		<field type="com.hifun.soul.gameserver.meditation.template.MeditationModeTemplate" name="meditationMode" comment="冥想模式列表" list="true" clientType="MeditationMode" >			
+			<field type="String" name="name" comment="名称" />
+			<field type="Integer" name="rate" comment="加成比例" />
+			<field type="Integer" name="currencyType" comment="所需货币类型" />
+			<field type="Integer" name="currencyNum" comment="所需货币数量" />			
+		</field>
+		<field type="com.hifun.soul.gameserver.meditation.template.MeditationInfo" name="meditationInfo" comment="冥想时长列表" list="true" clientType="MeditationInfo" >			
+			<field type="Integer" name="meditationTime" comment="时长（分钟)" />
+			<field type="Integer" name="currencyType" comment="所需货币类型" />
+			<field type="Integer" name="currencyNum" comment="所需货币数量" />
+		</field>
+		<field type="Integer" name="assistPositionNum" comment="开启的好友协助位数量" />
+		<field type="Integer" name="meditationState" comment="冥想状态：未开始0，进行中1，待收获2" />
+		<field type="Integer" name="selectedModeIndex" comment="选中的冥想模式索引" />
+		<field type="Integer" name="selectedTimeIndex" comment="选中的冥想时长模式索引" />
+		<field type="Integer" name="helpFriendTimesRemain" comment="剩余协助好友的次数" />
+		<field type="Integer" name="currentTechPoint" comment="累计获得科技点数" />
+		<field type="Integer" name="assistRate" comment="协助加成比例" />
+		<field type="Integer" name="totalTechPoint" comment="最高科技点数" />
+		<field type="Integer" name="levelLimit" comment="等级限制" />
+		<field type="Integer" name="coinLimit" comment="金币限制" />
+		<field type="Integer" name="crystalLimit" comment="魔晶限制" />
+		<field type="com.hifun.soul.gameserver.meditation.msg.MeditationFriendAssistInfo" list="true"
+			clientType="MeditationFriendAssistData" name="friendAssist" comment="好友信息" macro="MeditationFriendAssistInfo">			
+		</field>
+	</message>
+	
+	<message type="CG_ASSIST_MEDITATION_APPLY" comment="申请好友协助">
+	</message>
+	
+	<message type="GC_FRIEND_FOR_ASSIST_NOT_ENOUGH" comment="在线好友数太少">
+		<field type="Integer" name="applySendNum" comment="发出的申请数" />
+	</message>
+	
+	<message type="GC_ASSIST_MEDITATION_APPLY" comment="收到好友协助申请消息">
+		<field type="Long" name="applyHumanId" comment="申请角色id" />
+		<field type="String" name="applyHumanName" comment="申请角色名称" />
+	</message>
+	
+	<message type="CG_DEAL_ASSIST_MEDITATION_APPLY" comment="处理好友协助申请消息">
+		<field type="Boolean" name="isAccept" comment="是否接受" />
+		<field type="Long" name="applyHumanId" comment="申请角色id" />
+	</message>
+		
+	<message type="GC_UPDATE_MEDITATION_ASSIST_POSITION" comment="更新好友协助位信息">		
+		<field type="com.hifun.soul.gameserver.meditation.msg.MeditationFriendAssistInfo"
+			clientType="MeditationFriendAssistData" name="friendAssistInfo" comment="好友信息" macro="MeditationFriendAssistInfo">
+		</field>
+	</message>
+	<message type="CG_QUERY_OPEN_ASSIST_POSITION_PRICE" comment="查询开启冥想协助位价格">
+	</message>
+	<message type="GC_OPEN_ASSIST_POSITION_PRICE" comment="返回开启冥想协助位价格">
+		<field type="Integer" name="levelLimit" comment="自动开启等级" />
+		<field type="Integer" name="normalCurrencyType" comment="等级达到开启所需货币类型" />
+		<field type="Integer" name="normalcurrencyNum" comment="等级达到开启所需货币数量" />
+		<field type="Integer" name="noLimitCurrencyType" comment="提前开启所需货币类型" />
+		<field type="Integer" name="noLimitCurrencyNum" comment="提前开启所需货币数量" />
+	</message>
+	<message type="CG_OPEN_ASSIST_POSITION" comment="开启冥想协助位">
+		<field type="Boolean" name="isRichMan" comment="是否提前开启" />
+	</message>
+	
+	<message type="GC_OPEN_ASSIST_POSITION" comment="开启冥想协助位">
+		<field type="Integer" name="index" comment="开启的训练位索引" />
+		<field type="Integer" name="levelLimit" comment="等级限制" />
+		<field type="Integer" name="coinLimit" comment="金币限制" />
+		<field type="Integer" name="crystalLimit" comment="魔晶限制" />
+	</message>
+	
+	<message type="CG_START_MEDITATION" comment="开始冥想">
+		<field type="Integer" name="modeIndex" comment="冥想模式索引" />
+		<field type="Integer" name="timeIndex" comment="时长模式索引" />
+	</message>
+	
+	<message type="CG_ABORT_MEDITATION" comment="中止冥想">
+	</message>
+	
+	<message type="GC_MEDITATION_COMPLETE" comment="冥想完成">
+		<field type="Integer" name="techPoint" comment="获得科技点" />
+	</message>
+	
+	<message type="CG_QUERY_MEDITATION_POINT" comment="查询结束当前冥想可获得多少科技点">
+	</message>
+	
+	<message type="GC_QUERY_MEDITATION_POINT" comment="查询结束当前冥想可获得多少科技点">
+		<field type="Integer" name="techPoint" comment="获得科技点" />
+	</message>
+	
+	<message type="GC_START_MEDITATION" comment="开始冥想">
+		<field type="Integer" name="totalPoint" comment="冥想最大收益" />
+	</message>
+	
+	<message type="GC_UPDATE_MEDITATION_STATE" comment="更新冥想状态">
+		<field type="Integer" name="meditationState" comment="冥想状态" />
+	</message>
+	
+	<message type="CG_TOTAL_MEDITATION_POINT" comment="请求最大收获科技点">
+		<field type="Integer" name="modeIndex" comment="冥想模式索引" />
+		<field type="Integer" name="timeIndex" comment="时长模式索引" />
+	</message>
+</messages>

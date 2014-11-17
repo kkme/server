@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="predict">
+
+	<message type="CG_OPEN_PREDICT_PANEL" comment="请求打开预见面板">
+	</message>
+
+	<message type="GC_OPEN_PREDICT_PANEL" comment="响应打开预见面板">
+		<field type="Integer" name="pageIndex" comment="页码"></field>
+		<field type="Integer" name="canActivateNum" comment="可激活数量"></field>
+		<field type="Integer" name="minLevel" comment="等级下限"></field>
+		<field type="Integer" name="maxLevel" comment="等级上限"></field>
+		<field type="com.hifun.soul.gameserver.predict.msg.info.PredictInfo"
+			clientType="PredictInfoData" name="predictInfos" comment="预见列表"
+			macro="PredictInfo" list="true">
+		</field>
+		<field type="com.hifun.soul.core.util.KeyValuePair&lt;Integer,Integer&gt;" 
+			   clientType="KeyValuePairIntData"
+			name="currentProperties" list="true" comment="当前属性列表">
+			<field type="Integer" name="key" comment="属性索引" />
+			<field type="Integer" name="value" comment="属性值" />
+		</field>
+		<field type="com.hifun.soul.core.util.KeyValuePair&lt;Integer,Integer&gt;" 
+			   clientType="KeyValuePairIntData"
+			name="nextProperties" list="true" comment="下级属性列表">
+			<field type="Integer" name="key" comment="属性索引" />
+			<field type="Integer" name="value" comment="属性值" />
+		</field>
+		<field type="Boolean" name="isLastPage" comment="是否是最后一页"></field>
+	</message>
+
+	<message type="CG_SHOW_PREDICT_LIST" comment="请求展示预见列表 ">
+		<field type="Integer" name="pageIndex" comment="页码"></field>
+	</message>
+
+	<message type="GC_SHOW_PREDICT_LIST" comment="响应展示预见列表">
+		<field type="Integer" name="pageIndex" comment="页码"></field>
+		<field type="Integer" name="minLevel" comment="等级下限"></field>
+		<field type="Integer" name="maxLevel" comment="等级上限"></field>
+		<field type="com.hifun.soul.gameserver.predict.msg.info.PredictInfo"
+			clientType="PredictInfoData" name="predictInfos" comment="预见列表"
+			macro="PredictInfo" list="true">
+		</field>
+		<field type="Boolean" name="isLastPage" comment="是否是最后一页"></field>
+	</message>
+
+	<message type="CG_ACTIVATE_PREDICT" comment="激活指定预见 ">
+		<field type="Integer" name="predictId" comment="预见id"></field>
+	</message>
+	
+	<message type="GC_ACTIVATE_PREDICT" comment="响应激活预见 ">
+		<field type="Integer" name="predictId" comment="预见id"></field>
+		<field type="Boolean" name="activated" comment="是否激活"></field>
+		<field type="com.hifun.soul.core.util.KeyValuePair&lt;Integer,Integer&gt;" 
+			   clientType="KeyValuePairIntData"
+			name="currentProperties" list="true" comment="当前属性列表">
+			<field type="Integer" name="key" comment="属性索引" />
+			<field type="Integer" name="value" comment="属性值" />
+		</field>
+		<field type="com.hifun.soul.core.util.KeyValuePair&lt;Integer,Integer&gt;" 
+			   clientType="KeyValuePairIntData"
+			name="nextProperties" list="true" comment="下级属性列表">
+			<field type="Integer" name="key" comment="属性索引" />
+			<field type="Integer" name="value" comment="属性值" />
+		</field>
+		<field type="Integer" name="canActivateNum" comment="可激活数量"></field>
+	</message>
+	
+</messages>

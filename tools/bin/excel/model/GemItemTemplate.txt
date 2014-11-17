@@ -1,0 +1,3 @@
+int gemType; //宝石类型
+String gemName; //宝石名称
+String itemId;	//对应的物品Id

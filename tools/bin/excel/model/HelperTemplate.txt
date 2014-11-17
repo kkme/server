@@ -1,0 +1,3 @@
+int open;[notNull=false;minValue=0] //开关
+int nameLangId; //名称多语言id
+String name; //名称

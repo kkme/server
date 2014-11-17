@@ -1,0 +1,4 @@
+int minValue;[notNull=false;minValue=0] //随机范围低
+int maxValue;[notNull=false;minValue=0] //随机范围高
+int minRate;[notNull=false;minValue=0] //概率低
+int maxRate;[notNull=false;minValue=0] //概率高

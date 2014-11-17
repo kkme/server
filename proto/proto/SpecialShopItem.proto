@@ -1,0 +1,11 @@
+package com.hifun.soul.proto.common;
+option java_package = "com.hifun.soul.proto.common";
+option java_outer_classname = "SpecialShopItems";
+
+// 消费提醒信息
+message SpecialShopItem {
+	// 神秘商品id
+	required int32 id = 1;
+	// 购买状态
+	required bool isBuy = 2;
+}

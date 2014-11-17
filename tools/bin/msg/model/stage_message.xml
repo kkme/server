@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="stage">
+
+	<message type="CG_ENTER_BATTLE_SCENE" comment="进入征战场景">
+		<field type="Integer" name="mapId" comment="地图id"></field>
+		<field type="Boolean" name="isNeedCheckReward" comment="是否判断有没有领取的奖励"></field>
+	</message>
+	
+	<message type="GC_ENTER_BATTLE_SCENE" comment="返回征战场景信息">
+		<field type="com.hifun.soul.gameserver.stage.model.StageMapInfo"
+			clientType="StageMapInfoData" name="stageMapInfo" comment="关卡地图" macro="StageMapInfo">
+		</field>
+		<field type="com.hifun.soul.gameserver.stage.model.MapStrongHoldInfo"
+			clientType="MapStrongHoldInfoData" name="mapStrongHoldInfos" comment="地图据点信息集合" macro="MapStrongholdInfo" list="true">
+		</field>
+	</message>
+	
+	<message type="CG_ATTACK_STAGE" comment="攻打关卡">
+		<field type="Integer" name="stageId" comment="关卡id"></field>
+	</message>
+	
+	<message type="GC_ATTACK_STAGE" comment="攻打关卡结果信息">
+		<field type="Integer" name="stageId" comment="关卡id"></field>
+		<field type="Integer" name="coin" comment="金币"></field>
+		<field type="Integer" name="experience" comment="经验"></field>
+		<field type="com.hifun.soul.gameserver.item.assist.CommonItem" name="items" list="true" comment="掉落物品" macro="CommonItem" clientType="CommonItemData">
+		</field>
+		<field type="Boolean" name="result" comment="战斗结果"></field>
+		<field type="Integer" name="nextStageId" comment="下一个关卡id"></field>
+		<field type="Integer" name="star" comment="关卡评星"></field>
+	</message>
+	
+	<message type="GC_PASS_STAGE_REWARD" comment="过关奖励信息">
+		<field type="Integer" name="coin" comment="金币"></field>
+		<field type="Integer" name="mapId" comment="地图ID"></field>
+		<field type="com.hifun.soul.gameserver.item.assist.SimpleCommonItem" name="item1" comment="奖品1" macro="SimpleCommonItem" clientType="SimpleCommonItemData">
+		</field>
+		<field type="Integer" name="item1Num" comment="物品1数量"></field>
+		<field type="com.hifun.soul.gameserver.item.assist.SimpleCommonItem" name="item2" comment="奖品2" macro="SimpleCommonItem" clientType="SimpleCommonItemData">
+		</field>
+		<field type="Integer" name="item2Num" comment="物品2数量"></field>
+	</message>
+	
+	<message type="CG_GET_PASS_STAGE_REWARD" comment="领取过关奖励">
+		<field type="Integer" name="mapId" comment="地图id"></field>
+	</message>
+	
+	<message type="GC_GET_PASS_STAGE_REWARD" comment="领取过关奖励成功">
+		<field type="Boolean" name="success" comment="领取是否成功"></field>
+	</message>
+	
+	<message type="CG_STAGE_INFO" comment="查看关卡信息">
+		<field type="Integer" name="stageId" comment="关卡id"></field>
+	</message>
+	
+	<message type="GC_STAGE_INFO" comment="返回关卡信息">
+		<field type="com.hifun.soul.gameserver.stage.model.StageInfo"
+			clientType="StageInfoData" name="stageInfo" comment="关卡信息" macro="StageInfo">
+		</field>
+	</message>
+	
+	<message type="CG_AUTO_ATTACK_STAGE" comment="自动攻击关卡">
+		<field type="Integer" name="stageId" comment="关卡id"></field>
+	</message>
+	
+	<message type="GC_STAGE_DRAMA_INFO" comment="关卡剧情信息">
+		<field type="com.hifun.soul.gameserver.stage.model.StageDramaInfo"
+			clientType="StageDramaInfoData" name="stageDramaInfos" comment="关卡剧情信息" macro="StageDramaInfo" list="true">
+		</field>
+		<field type="Integer" name="stageId" comment="关卡id"></field>
+		<field type="Boolean" name="beforeBattle" comment="是否战斗前的剧情"></field>
+	</message>
+	
+	<message type="CG_CLICK_STAGE" comment="点击关卡">
+		<field type="Integer" name="stageId" comment="关卡id"></field>
+	</message>
+	
+	<message type="GC_CLICK_STAGE" comment="点击关卡返回奖励物品的信息">
+		<field type="Integer" name="stageId" comment="关卡id"></field>
+		<field type="com.hifun.soul.gameserver.item.assist.CommonItem" name="item" comment="掉落物品" macro="CommonItem" clientType="CommonItemData">
+		</field>
+	</message>
+	
+	<message type="CG_SHOW_STAGE_MAPS" comment="关卡地图选择">
+	</message>
+	
+	<message type="GC_SHOW_STAGE_MAPS" comment="关卡地图选择">
+		<field type="Integer" name="mapId" comment="当前关卡所在地图"></field>
+		<field type="com.hifun.soul.gameserver.stage.model.StageMapInfo" list="true"
+			clientType="StageMapInfoData" name="stageMapInfos" comment="关卡地图" macro="StageMapInfo">
+		</field>
+	</message>
+	
+	<message type="CG_GET_STAGE_STAR_REWARD" comment="领取关卡评星奖励">
+	</message>
+	
+	<message type="GC_GET_STAGE_STAR_REWARD" comment="领取关卡评星奖励">
+		<field type="Boolean" name="hasNextReward" comment="是否还有评星奖励"></field>
+		<field type="Integer" name="star" comment="可领取的下一级评星奖励星星数"></field>
+		<field type="Boolean" name="canGet" comment="是否可以领取下一级评星奖励"></field>
+		<field type="com.hifun.soul.gameserver.stage.model.StageStarRewardItemInfo" list="true"
+			clientType="StageStarRewardItemData" name="stageStarRewardItemInfos" comment="关卡评星奖励" macro="StageStarRewardItem">
+		</field>
+	</message>
+	
+	<message type="GC_STAR_AND_REWARD_STATE" comment="关卡星星总数变化时同步星星总数量和奖励可领取状态">
+		<field type="Integer" name="totalStar" comment="可领取的下一级评星奖励星星数"></field>
+		<field type="Boolean" name="canGet" comment="是否可以领取下一级评星奖励"></field>
+	</message>
+	
+	<message type="CG_SHOW_MAP_PERFECT_REWARD_PANEL" comment="打开地图完美通关奖励的板子">
+		<field type="Integer" name="mapId" comment="地图id"></field>
+	</message>
+	
+	<message type="GC_SHOW_MAP_PERFECT_REWARD_PANEL" comment="打开地图完美通关奖励的板子">
+		<field type="Integer" name="mapId" comment="地图id"></field>
+		<field type="Boolean" name="canGet" comment="地图完美通关奖励是否可领取"></field>
+		<field type="com.hifun.soul.gameserver.stage.model.StageStarRewardItemInfo" list="true"
+			clientType="StageStarRewardItemData" name="mapPerfectRewardItemInfos" comment="地图完美通关奖励" macro="StageStarRewardItem">
+		</field>
+		<field type="com.hifun.soul.gameserver.stage.model.StageUnPerfect" list="true"
+			clientType="StageUnPerfectData" name="unPerfectStages" comment="没有达到满分的关卡集合" macro="StageUnPerfect">
+		</field>
+	</message>
+	
+	<message type="CG_GET_MAP_PERFECT_REWARD" comment="领取地图完美通关奖励">
+		<field type="Integer" name="mapId" comment="地图id"></field>
+	</message>
+	
+	<message type="GC_GET_MAP_PERFECT_REWARD" comment="领取地图完美通关奖励">
+		<field type="Integer" name="mapId" comment="地图id"></field>
+		<field type="Integer" name="state" comment="地图完美通关奖励领取状态"></field>
+	</message>
+	
+	<message type="GC_UPDATE_PERFECT_REWARD_STATE" comment="地图完美通关奖励的状态">
+		<field type="com.hifun.soul.gameserver.stage.model.PerfectMapRewardStateInfo" list="true"
+			clientType="PerfectMapRewardStateInfo" name="perfectMapRewardStateInfos" comment="地图完美通关奖励状态" macro="PerfectMapRewardStateInfo">
+		</field>
+	</message>
+	
+	<message type="CG_ENTER_MAP_STRONGHOLD" comment="请求进入指定的地图据点">
+		<field type="Integer" name="strongholdId" comment="地图据点id"></field>
+	</message>
+	
+	<message type="GC_ENTER_MAP_STRONGHOLD" comment="服务器返回据点的信息">
+		<field type="Integer" name="strongholdId" comment="地图据点id"></field>
+		<field type="Integer" name="energy" comment="精力值"></field>
+		<field type="Integer" name="selectStageId" comment="选中的关卡id"></field>
+		<field type="com.hifun.soul.gameserver.stage.model.StageSimpleInfo"
+			clientType="StageSimpleInfoData" name="stageSimpleInfos" comment="据点关卡信息" macro="StageSimpleInfo" list="true">
+		</field>
+	</message>
+	
+	<message type="CG_CLICK_UNPERFECT_STAGE" comment="请求点击不完美关卡">
+		<field type="Integer" name="stageId" comment="关卡id"></field>
+	</message>
+	
+	<message type="GC_CLICK_UNPERFECT_STAGE" comment="响应点击不完美关卡">
+		<field type="Integer" name="stageId" comment="关卡id"></field>
+		<field type="com.hifun.soul.gameserver.stage.model.StageSimpleInfo"
+			clientType="StageSimpleInfoData" name="stageSimpleInfo" comment="据点关卡信息" macro="StageSimpleInfo">
+		</field>
+		<field type="com.hifun.soul.gameserver.item.assist.CommonItem" name="item" comment="掉落物品" macro="CommonItem" clientType="CommonItemData">
+		</field>
+	</message>
+	
+</messages>

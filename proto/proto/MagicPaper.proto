@@ -1,0 +1,12 @@
+package com.hifun.soul.proto.common;
+option java_package = "com.hifun.soul.proto.common";
+option java_outer_classname = "MagicPapers";
+
+
+// 灵图实体
+message MagicPaper {
+	// 灵图ID
+	required int32 paperId = 1;
+	// 灵图等级
+	required int32 level = 2;
+}

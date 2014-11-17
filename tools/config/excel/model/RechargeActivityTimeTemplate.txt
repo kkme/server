@@ -1,0 +1,4 @@
+int rechargeActivityType;//充值金额
+String startDate;//开始日期
+String endDate;//结束日期
+String activityDesc;//活动描述

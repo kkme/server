@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="vip">
+	<message type="CG_VIP_SHOW_PANNEL" comment="显示VIP面板信息">
+	</message>
+	<message type="GC_VIP_SHOW_PANNEL" comment="显示VIP面板信息">
+		<field type="Integer" name="currentLevel" comment="当前等级"></field>
+		<field type="Integer" name="rechargedNum" comment="目前已经充值数量"></field>
+		<field type="Integer" name="nextLevelRechargeNum" comment="达到下一等级需要满足的充值数量"></field>
+		<field type="String" name="nextLevelDesc" comment="下一等级特权描述"></field>
+		<field type="Integer" name="maxLevel" comment="vip最高等级"></field>
+	</message>
+	<message type="CG_SHOW_VIP_INFO" comment="请求显示VIP详情">
+		<field type="Integer" name="level" comment="vip等级"></field>
+	</message>
+	<message type="GC_SHOW_VIP_INFO" comment="服务器返回VIP详情">		
+		<field type="String" name="desc" comment="特权描述"></field>
+	</message>
+	<message type="GC_DISPATCH_VIP_INFO" comment="服务器返回VIP详情">
+		<field type="com.hifun.soul.gameserver.vip.model.VipPrivilege" name="vipPrivilege" clientType="VipPrivilege" comment="vip特权内容">
+			<field type="Integer" name="maxBuyAnswerBlessTimes" comment="购买问答祈福最大次数" />
+			<field type="Integer" name="maxBuyEnergyTimes" comment="购买体力值最大次数" />
+			<field type="Integer" name="maxArenaBuyTimes" comment="竞技场购买次数上限" />
+			<field type="Integer" name="maxRefreshEliteStageTimes" comment="刷新精英副本最大次数" />
+			<field type="Integer" name="maxBuyMineFieldNum" comment="购买矿坑开采权最大次数" />
+			<field type="Integer" name="maxCrystalCollectNum" comment="花费魔晶收集魔法石最大次数" />
+		</field>
+	</message>
+	<message type="CG_SHOW_CHARGE_ACTIVITY" comment="显示充值活动信息">		
+	</message>
+	<message type="GC_SHOW_CHARGE_ACTIVITY" comment="显示充值活动信息">
+		<field type="String" name="activitys" comment="充值活动信息" list="true"></field>
+	</message>
+</messages>

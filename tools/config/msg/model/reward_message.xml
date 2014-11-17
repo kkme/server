@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="reward">
+	<message type="CG_GET_COMMON_REWARD" comment="领取奖励">
+		<field type="Integer" name="id" comment="奖励id"></field>
+	</message>
+	<message type="GC_REMOVE_COMMON_REWARD" comment="从列表中移除奖励">
+		<field type="Integer" name="id" comment="奖励id"></field>
+	</message>
+	<message type="GC_ADD_COMMON_REWARD" comment="添加奖励到列表中">
+		<field type="com.hifun.soul.gameserver.reward.RewardBaseInfo" name="reward" comment="奖励信息" 
+			macro="RewardBaseInfo" clientType="RewardBasicData"></field>
+	</message>
+</messages>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<messages xmlns="http://com.hifun.soul.message" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://com.hifun.soul.message message.xsd" module="nostrum">
+
+	<message type="CG_OPEN_NOSTRUM_PANEL" comment="请求打开秘药面板">
+	</message>
+
+	<message type="GC_OPEN_NOSTRUM_PANEL" comment="响应打开秘药面板">
+		<field type="com.hifun.soul.gameserver.nostrum.msg.NostrumInfo" list="true" macro="NostrumInfo"
+			name="nostrums" comment="秘药信息" clientType="NostrumInfoData">
+		</field>
+	</message>
+</messages>

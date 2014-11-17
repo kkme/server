@@ -1,0 +1,6 @@
+String name; // buff名称
+int nameLangId;[notNull=false;minValue=0] // 多语言名称id
+int propId;[notNull=false;minValue=0] // 属性id
+int propValue;[notNull=false;minValue=0] // 属性值
+int amendType;[notNull=false;minValue=0] // 加成方式
+int quality;[notNull=false;minValue=0] // 激活星图的套装品质限制
