@@ -52,10 +52,13 @@ ${lastFieldObjectName}.${field.smallName} = data:read#bigType(${field.type})()
 	 ]]
 #end
 	local GC${module}Message = class("GC${module}Message")
-		function collectObservers()
+		function GC${module}Message:register()
+				-- register handler method
 #foreach( $msg in $msgs )
-				register(MessageType.${msg.type},${msg.type})
+				register(MessageType.${msg.type}, handler(self, self.${msg.type}))
 #end
+				-- register handler
+				GlobalHandlers:register("#upperFirstChar($module)Handler", requireNewHandler("#upperFirstChar($module)Handler"))
 		end
 #foreach( $msg in $msgs )
  
