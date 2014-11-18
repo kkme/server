@@ -26,18 +26,14 @@
 #macro( upperFirstChar $type)$type.substring(0,1).toUpperCase()$type.substring(1)
 #end
 
-package com.hifun.soul.game.net.datas
-{
-	import com.hifun.soul.framework.utils.Long;
-	public class $model.type
-	{
+-- create class
+local $model.type = class("$model.type")
+
 #foreach( $field in $model.subFields )
-		/** $field.comment */
+		--[[ $field.comment ]]
 #if($field.list)
-		public var ${field.smallName}:Array;
+		$model.type.${field.smallName} = {}
 #else
-		public var ${field.smallName}:#smallType($field.type);
+		$model.type.${field.smallName} = nil
 #end
 #end
-	}
-}
