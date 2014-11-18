@@ -235,7 +235,7 @@ public class LuaMessageGenerator {
 		context.put("modulename", module);
 		for (String templateFileName : clientMsgTemplates) {
 			String outputFileNameSuffix = null;
-			String templatePrefix = templateFileName.substring(0, 2);
+			String templatePrefix = templateFileName.substring(4, 6);
 			if (templatePrefix.equals("gc")) {
 				if (gcMsgs.size() == 0) {
 					continue;
