@@ -1,4 +1,4 @@
-package com.magicstone.tools.msg;
+package com.magicstone.stone.tools.msg;
 
 import java.io.BufferedWriter;
 import java.io.FileOutputStream;
