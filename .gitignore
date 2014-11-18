@@ -51,3 +51,5 @@ RemoteSystemsTempFiles/
 
 # tools/target/
 tools/target/
+#logs
+game_server/logs/
