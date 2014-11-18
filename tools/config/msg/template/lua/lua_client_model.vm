@@ -30,10 +30,12 @@
 local $model.type = class("$model.type")
 
 #foreach( $field in $model.subFields )
-		--[[ $field.comment ]]
+		-- $field.comment
 #if($field.list)
 		$model.type.${field.smallName} = {}
 #else
 		$model.type.${field.smallName} = nil
 #end
 #end
+
+return $model.type

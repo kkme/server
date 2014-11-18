@@ -1,0 +1,313 @@
+#macro( smallType $type)
+#if($type == "Short")short#elseif( $type == "Integer" )int#elseif( $type == "Byte" )byte#elseif( $type == "Long" )long#elseif( $type == "Float" )float#elseif( $type == "Double" )double#elseif( $type == "Boolean" )boolean#else$type#end
+#end
+#macro( upperFirstChar $type)$type.substring(0,1).toUpperCase()$type.substring(1)#end
+#macro( lowerFirstChar $type)$type.substring(0,1).toLowerCase()$type.substring(1)#end
+#macro(readField $field $lastfieldSmallName)
+#if(${field.list})
+	{
+	int subCount${field.smallName} = readShort();
+	#if ($field.type.indexOf("KeyValuePair") != -1)
+	#smallType($field.type)[] subList${field.smallName}  = com.hifun.soul.core.util.KeyValuePair.newKeyValuePairArray(subCount${field.smallName});
+	#else
+	#smallType(${field.type})[] subList${field.smallName} = new #smallType(${field.type})[subCount${field.smallName}];
+	#end
+	${lastfieldSmallName}.set${field.bigName}(subList${field.smallName});
+	for(int j${field.smallName} = 0; j${field.smallName} < subCount${field.smallName}; j${field.smallName}++){
+		#set($oldFieldName = ${field.smallName})
+		#if(${field.isNewType})
+		#smallType(${field.type}) obj${field.smallName} = new #smallType(${field.type})();
+		subList${field.smallName}[j${field.smallName}] = obj${field.smallName};
+		#foreach( ${subfield} in ${field.subFields} )
+		#if(${subfield.list} || ${subfield.isNewType})
+		#readField(${subfield} "obj${oldFieldName}")
+		#else
+		obj${oldFieldName}.set${subfield.bigName}(read${subfield.type}());
+		#end
+		#end
+		#else
+		subList${field.smallName}[j${field.smallName}] = read${field.type}();
+		#end
+	}
+	}
+#elseif(${field.isNewType})
+	{
+	#smallType(${field.type}) obj${field.smallName} = new #smallType(${field.type})();
+	${lastfieldSmallName}.set${field.bigName}(obj${field.smallName});
+	#set($oldField=${field.smallName})
+	#foreach( ${subfield} in ${field.subFields} )
+	#if(${subfield.list} || ${subfield.isNewType})
+	#readField($subfield "obj${oldField}")
+	#else
+	obj${oldField}.set${subfield.bigName}(read${subfield.type}());
+	#end
+	#end
+	}
+#else
+	${lastfieldSmallName}.set${field.bigName}(read${field.type}());
+#end	
+#end
+#macro(writeImpl $field $lastFieldSmallName)
+#if(${field.list})
+	#smallType($field.type)[] ${field.smallName}_${lastFieldSmallName}=${lastFieldSmallName}.get${subfield.bigName}();
+	writeShort(${field.smallName}_${lastFieldSmallName}.length);
+	for(int j${field.smallName}=0; j${field.smallName}<${field.smallName}_${lastFieldSmallName}.length; j${field.smallName}++){
+		#if(${field.isNewType})
+			$field.type ${field.smallName}_${lastFieldSmallName}_j${field.smallName} = ${field.smallName}_${lastFieldSmallName}[j${field.smallName}];
+			#set($lastField = "${field.smallName}_${lastFieldSmallName}_j${field.smallName}")
+			#foreach( $subfield in $field.subFields )
+			#if(${subfield.list})
+				#writeImpl($subfield ${lastField})
+			#elseif(${subfield.isNewType})
+				#writeImpl($subfield ${lastField})
+			#else
+				write${subfield.type}(${lastField}.get${subfield.bigName}());
+			#end
+			#end
+		#else
+			write${field.type}(${field.smallName}_${lastFieldSmallName}[j${field.smallName}]);
+		#end
+	}
+#elseif(${field.isNewType})
+	${field.type} ${field.smallName}_${lastFieldSmallName} = ${lastFieldSmallName}.get${field.bigName}();
+	#set($lastFieldName = "${field.smallName}_${lastFieldSmallName}")
+	#foreach( $subfield in $field.subFields )
+	#if(${subfield.list})
+		#writeImpl($subfield ${lastFieldName})
+	#elseif(${subfield.isNewType})
+		#writeImpl($subfield ${lastFieldName})
+	#else
+		write${subfield.type}(${lastFieldName}.get${subfield.bigName}());
+	#end
+	#end
+#else
+	write${field.type}(${lastFieldSmallName}.get${field.bigName}());
+#end
+#end
+#set($packageName = "com.hifun.soul.gameserver."+$message.module+".msg")
+package $packageName;
+
+import org.springframework.stereotype.Component;
+
+import com.hifun.soul.core.msg.MessageType;
+import com.hifun.soul.gameserver.common.msg.GCMessage;
+
+/**
+ * $message.comment
+ *
+ * @author SevenSoul
+ */
+@Component
+public class ${message.className} extends GCMessage{
+	
+#foreach( $field in $list )
+	/** ${field.comment} */
+#if ($field.list) 
+	private #smallType($field.type)[] ${field.smallName};
+#else
+	private #smallType($field.type) $field.smallName;
+#end
+#end	
+#foreach( $field in $message.subMsgs )
+	/** ${field.comment} */
+	private  ${field.subMsgType}[] ${field.smallName};
+#end
+
+	public $message.className (){
+	}
+	
+#if ($message.fieldSize>0)
+	public $message.className (
+#foreach( $field in $list )
+#if ($field.list) 
+			#smallType($field.type)[] ${field.smallName}#if($velocityCount != $message.fieldSize),
+#end
+#else
+			#smallType($field.type) $field.smallName#if($velocityCount != $message.fieldSize),
+#end
+#end
+#end
+#foreach( $field in $message.subMsgs )
+			${field.subMsgType}[] ${field.smallName}#if($velocityCount != $message.subMsgs.size()),
+#end
+#end ){
+#foreach( $field in $list )
+			this.${field.smallName} = ${field.smallName};
+#end	
+#foreach( $field in $message.subMsgs )
+			this.${field.smallName} = ${field.smallName};
+			if(this.${field.smallName}==null){
+				this.${field.smallName}=new $field.subMsgType[0];
+			}
+#end		
+	}
+#end
+
+	@Override
+	protected boolean readImpl() {
+#if(${message.hasListField})
+		short count=0;
+#end
+#foreach( $field in $list )
+#if (${field.list}) 
+		count = readShort();
+		count = count < 0 ? 0 : count;
+#if ($field.type.indexOf("KeyValuePair") != -1)
+		${field.smallName} = com.hifun.soul.core.util.KeyValuePair.newKeyValuePairArray(count);
+#else
+		${field.smallName} = new #smallType(${field.type})[count];
+#end
+		for(int i=0; i<count; i++){
+#set($oldFieldA = ${field.smallName})		
+#if( ${field.isNewType} )
+			${field.type} obj${field.smallName} = new ${field.type}();
+			${field.smallName}[i] = obj${field.smallName};
+#foreach( $subfield in ${field.subFields} )
+		#if(${subfield.list} || ${subfield.isNewType})
+			#readField($subfield "obj${oldFieldA}")
+		#else
+			obj${oldFieldA}.set${subfield.bigName}(read${subfield.type}());
+		#end
+#end
+#else
+			${oldFieldA}[i] = read${field.type}();
+#end
+		}
+#else 
+#if( ${field.isNewType} )
+		${field.smallName} = new ${field.type}();
+		#set($oldFieldNameA=${field.smallName})
+#foreach( ${subfield} in ${field.subFields} )
+		#if(${subfield.list} || ${subfield.isNewType})
+		#readField(${subfield} "${oldFieldNameA}")
+		#else
+		${field.smallName}.set${subfield.bigName}(read${subfield.type}());
+		#end
+#end
+#else
+		${field.smallName} = read${field.type}();
+#end
+#end
+#end
+		return true;
+	}
+	
+	@Override
+	protected boolean writeImpl() {
+#foreach( $field in $list )
+#if ($field.list) 
+	writeShort(${field.smallName}.length);
+	for(int i=0; i<${field.smallName}.length; i++){
+	${field.type} obj${field.smallName} = ${field.smallName}[i];
+	#set($lastFieldA="obj${field.smallName}")
+#if( $field.isNewType )
+#foreach( $subfield in $field.subFields )
+	#if ($subfield.list)
+		#writeImpl($subfield "${lastFieldA}")
+	#elseif($subfield.isNewType)
+		#writeImpl($subfield "${lastFieldA}")
+	#else
+		write${subfield.type}(${lastFieldA}.get${subfield.bigName}());
+	#end
+#end
+#else
+		write${field.type}(obj${field.smallName});
+#end
+}
+#elseif( $field.isNewType )
+#set($lastFieldNameA="${field.smallName}")
+#foreach( $subfield in $field.subFields )
+#if ($subfield.list)
+		#writeImpl($subfield "${lastFieldNameA}")
+#elseif($subfield.isNewType)
+		#writeImpl($subfield "${lastFieldNameA}")
+#else
+		write${subfield.type}(${lastFieldNameA}.get${subfield.bigName}());
+#end
+#end
+#else
+		write${field.type}(${field.smallName});
+#end
+#end
+#foreach( $field in $message.subMsgs )
+		writeShort(${field.smallName}.length);
+		for(int i=0;i<${field.smallName}.length;i++){
+			${field.smallName}[i].setBuffer(buf);
+			${field.smallName}[i].writeImpl();
+		}
+#end
+		return true;
+	}
+	
+	@Override
+	public short getType() {
+		return MessageType.$message.type;
+	}
+	
+	@Override
+	public String getTypeName() {
+		return "$message.type";
+	}
+#foreach( $field in $list )
+#if ($field.list)
+
+	public #smallType($field.type)[] get${field.bigName}(){
+		return ${field.smallName};
+	}
+
+	public void set${field.bigName}(#smallType($field.type)[] ${field.smallName}){
+		this.${field.smallName} = ${field.smallName};
+	}	
+#if ($field.needCreateType)
+
+	public static class $field.type{
+#foreach( $subfield in $field.subFields )
+		/** ${subfield.comment} */
+		private #smallType($subfield.type) $subfield.smallName;
+#end	
+
+		public $field.type (){}
+
+		public $field.type (
+#foreach( $subfield in $field.subFields )
+			#smallType($subfield.type) $subfield.smallName#if($velocityCount != $field.subFields.size()),
+#end	
+#end	 ){
+#foreach( $subfield in $field.subFields )
+			this.${subfield.smallName} = ${subfield.smallName};
+#end	
+		}
+#foreach( $subfield in $field.subFields )
+ 
+		public #smallType(${subfield.type}) get${subfield.bigName}(){
+			return ${subfield.smallName};
+		}
+			
+		public void set${subfield.bigName}(#smallType(${subfield.type}) ${subfield.smallName}){
+			this.${subfield.smallName} = ${subfield.smallName};
+		}
+#end
+	}
+#end	
+#else
+
+	public #smallType(${field.type}) get${field.bigName}(){
+		return ${field.smallName};
+	}
+		
+	public void set${field.bigName}(#smallType(${field.type}) ${field.smallName}){
+		this.${field.smallName} = ${field.smallName};
+	}
+#end
+#end
+#foreach( $field in $message.subMsgs )
+			
+	public ${field.subMsgType}[]  get${field.bigName}(){
+		return ${field.smallName};
+	}
+		
+	public void set${field.bigName}(${field.subMsgType}[] ${field.smallName}){
+		this.${field.smallName} = ${field.smallName};
+	}
+#end
+}
