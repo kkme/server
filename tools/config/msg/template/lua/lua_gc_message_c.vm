@@ -2,41 +2,28 @@
 
 ## smallType
 #macro( smallType $type)
-	#if($type == "Byte")
-		int
-	#elseif( $type == "Boolean" )
-		int
-	#elseif( $type == "Short" )
-		int
-	#elseif( $type == "Integer" )
-		int
-	#elseif( $type == "Long" )
-		Number
-	#elseif( $type == "Float" )
-		Number
-	#elseif( $type == "Double" )
-		Number
-	#else
-		$type
+	#if($type == "Byte")int
+	#elseif( $type == "Boolean" )int
+	#elseif( $type == "Short" )int
+	#elseif( $type == "Integer" )int
+	#elseif( $type == "Long" )Number
+	#elseif( $type == "Float" )Number
+	#elseif( $type == "Double" )Number
+	#else$type
 	#end
 #end
 
 ##bigType
 #macro( bigType $type)
-	#if( $type == "Integer" )
-		Int
-	#elseif( $type == "Boolean" )
-		Byte
-	#elseif( $type == "String" )
-		UTF
-	#else
-		$type
+	#if( $type == "Integer" )Int
+	#elseif( $type == "Boolean" )Byte
+	#elseif( $type == "String" )UTF
+	#else$type
 	#end
 #end
 
 ## upperFirstChar
-#macro( upperFirstChar $type)
-	$type.substring(0,1).toUpperCase()$type.substring(1)
+#macro( upperFirstChar $type)$type.substring(0,1).toUpperCase()$type.substring(1)
 #end
 
 ## readMsg
