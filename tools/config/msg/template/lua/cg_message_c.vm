@@ -1,0 +1,106 @@
+## CGMessage的client端模板VTL;
+
+## smallType
+#macro( smallType $type)
+	#if($type == "Byte")
+		int
+	#elseif( $type == "Boolean" )
+		int
+	#elseif( $type == "Short" )
+		int
+	#elseif( $type == "Integer" )
+		int
+	#elseif( $type == "Long" )
+		Long
+	#elseif( $type == "Float" )
+		Number
+	#elseif( $type == "Double" )
+		Number
+	#else
+		$type
+	#end
+#end
+
+## bigType
+#macro( bigType $type)
+	#if( $type == "Integer" )
+		Int
+	#elseif( $type == "Boolean" )
+		Byte
+	#elseif( $type == "String" )
+		UTF
+	#else
+		$type
+	#end
+#end
+
+## upperFirstChar
+#macro( upperFirstChar $type)
+	$type.substring(0,1).toUpperCase()$type.substring(1)
+#end
+
+package com.hifun.soul.game.net.messages {
+	import flash.utils.ByteArray;
+	
+	import com.hifun.soul.game.net.MessageType;
+	import com.hifun.soul.framework.utils.Long;
+	import com.hifun.soul.game.net.datas.*;
+	import com.hifun.soul.game.net.handlers.*;
+	import com.hifun.soul.framework.net.TCPService;
+	
+#if($constants.size()>0)
+	/**
+	 * 常量定义：
+#foreach( $constant in $constants )
+	 *	【$constant.name】$constant.desc
+#end	
+	 */
+#end
+	public class ${module}CGMessage{
+		public static var msgBody:ByteArray = new ByteArray();
+ #foreach( $msg in $msgs )
+ 
+ 		/**
+		 * $msg.comment
+#foreach( $field in $msg.fields )
+		 * @param $field.smallName $field.comment
+#end
+		 */
+		public static function ${msg.type}(#foreach( $field in $msg.fields )${field.smallName}:#if ($field.list)Array#else#smallType($field.type)#end#if($velocityCount != $msg.fields.size()),#end#end):void {
+				msgBody.length = 0;
+#if($msg.hasListField)
+				var i:int;
+#end
+#foreach( $field in $msg.fields )
+#if ($field.list) 
+				msgBody.writeShort(${field.smallName}.length);
+				for(i=0; i<${field.smallName}.length; i++){
+#if( $field.isNewType )
+#foreach( $subfield in $field.subFields )
+#if($subfield.type=="Long")
+					${field.smallName}[i].${subfield.name}.write(msgBody);			
+#else
+					msgBody.write#bigType($subfield.type)(${field.smallName}[i].${subfield.smallName});//$subfield.comment
+#end
+#end
+#else
+#if($field.type=="Long")
+					${field.smallName}[i].write(msgBody);			
+#else
+					msgBody.write#bigType($field.type)(${field.smallName}[i]);
+#end
+#end
+				}
+#else
+#if($field.type=="Long")
+				${field.smallName}.write(msgBody);		
+#else
+				msgBody.write#bigType($field.type)($field.smallName);
+#end
+#end
+#end	
+				TCPService.sendPackage(MessageType.${msg.type},msgBody);
+			}
+#end
+	}
+}
