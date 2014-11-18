@@ -2,7 +2,7 @@
 #if($type == "Byte")int#elseif( $type == "Boolean" )int#elseif( $type == "Short" )int#elseif( $type == "Integer" )int#elseif( $type == "Long" )Number#elseif( $type == "Float" )Number#elseif( $type == "Double" )Number#else$type#end
 #end
 #macro( bigType $type)
-#if( $type == "Integer" )Int#elseif( $type == "Boolean" )Byte#elseif( $type == "String" )UTF#else$type#end
+#if( $type == "Integer" )Int#elseif( $type == "Boolean" )Byte#elseif( $type == "String" )StringUShort#else$type#end
 #end
 #macro( upperFirstChar $type)$type.substring(0,1).toUpperCase()$type.substring(1)#end
 
@@ -19,7 +19,7 @@ for ${field.smallName}_${lastFieldObjectName}=1, ${lastFieldObjectName}_${field.
 	#set($fieldObjectName="${lastFieldObjectName}_${field.smallName}_obj")
 	#foreach( $subfield in $field.subFields )
 	#if($subfield.type=="Long")
-	${fieldObjectName}.${subfield.smallName} = Long.read(data)
+	${fieldObjectName}.${subfield.smallName} = data:readLong()
 	#else
 	#readMsg($subfield ${fieldObjectName})
 	#end
@@ -27,14 +27,14 @@ for ${field.smallName}_${lastFieldObjectName}=1, ${lastFieldObjectName}_${field.
 	#else
 	${lastFieldObjectName}.${field.smallName}[${field.smallName}_${lastFieldObjectName}] = data:read#bigType(${field.type})()
 	#end
-}
+end
 #elseif(${field.isNewType})
 local ${field.smallName} = requireNewProtoData("${field.type}")
 ${lastFieldObjectName}.${field.smallName} = ${field.smallName}
 #set($fieldObject="${field.smallName}")
 #foreach( $subfield in $field.subFields )
 #if($subfield.type=="Long")
-${fieldObject}.${subfield.smallName} = Long.read(data)
+${fieldObject}.${subfield.smallName} = data:readLong()
 #else
 #readMsg($subfield ${fieldObject})
 #end
@@ -76,15 +76,15 @@ ${lastFieldObjectName}.${field.smallName} = data:read#bigType(${field.type})()
 			size = data:readShort()
 			for i=1, size do
 				#if($field.type=="Long")
-				${field.smallName}[i] = Long.read(data)
+				${field.smallName}[i] = data:readLong()
 				#elseif($field.isNewType)
-				${field.smallName}[i] = new ${field.type}()
+				${field.smallName}[i] = requireNewProtoData("${field.type}")
 				local ${field.smallName}_obj = ${field.smallName}[i]
 				#set($fieldObjectNameA="${field.smallName}_obj")
 				#foreach( $subfield in $field.subFields )
 				#set($index=$velocityCount - 1)
 				#if($subfield.type=="Long")
-									${field.smallName}[i].${subfield.smallName} = Long.read(data) --$subfield.comment
+									${field.smallName}[i].${subfield.smallName} = data:readLong() --$subfield.comment
 				#else
 									#readMsg($subfield ${fieldObjectNameA})
 				#end
@@ -98,19 +98,19 @@ ${lastFieldObjectName}.${field.smallName} = data:read#bigType(${field.type})()
 			#set($fieldObjectA="${field.smallName}")
 #foreach( $subfield in $field.subFields )
 #if($subfield.type=="Long")
-			${field.smallName}.${subfield.smallName} = Long.read(data)
+			${field.smallName}.${subfield.smallName} = data:readLong()
 #else
 			#readMsg($subfield ${fieldObjectA})	
 #end
 #end			
 #elseif($field.type=="Long")
-			local ${field.smallName}:Long = Long.read(data)
+			local ${field.smallName} = data:readLong()
 #else
-			local ${field.smallName}:#smallType($field.type) = data:read#bigType($field.type)()	
+			local ${field.smallName} = data:read#bigType($field.type)()	
 #end
 #end
 #if($msg.fields.size()>0||$msg.subMsgs.size()==0)
-			#upperFirstChar($module)Handler.${msg.type}(#foreach( $field in $msg.fields )${field.smallName}#if($velocityCount != $msg.fields.size()),#end#end)
+			GlobalHandlers:getHandler("#upperFirstChar($module)Handler"):${msg.type}(#foreach( $field in $msg.fields )${field.smallName}#if($velocityCount != $msg.fields.size()),#end#end)
 #end
 #foreach( $subMsg in $msg.subMsgs )
 			local i
