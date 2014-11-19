@@ -1,24 +1,16 @@
 package com.magicstone.stone.tools.msg;
 
-import java.io.BufferedWriter;
-import java.io.FileOutputStream;
-import java.io.OutputStreamWriter;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.Properties;
 
-import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
-import org.apache.velocity.app.Velocity;
-import org.apache.velocity.app.VelocityEngine;
 
 import com.hifun.soul.core.msg.MessageType;
-import com.hifun.soul.tools.msg.GeneratorHelper;
 
 /**
- * MessageTypeGenerator;
+ * 消息类型生成器;
  * 
  * @author crazyjohn
  * 
@@ -45,13 +37,9 @@ public class LuaMessageTypeGenerator {
 				short fieldValue = 0;
 				try {
 					fieldValue = eachField.getShort(null);
-				} catch (IllegalArgumentException e) {
-					// TODO Auto-generated catch block
+				} catch (Exception e) {
 					e.printStackTrace();
-				} catch (IllegalAccessException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				} 
 				if (fieldValue <= 0) {
 					throw new RuntimeException("消息号溢出！！");
 				} else if (fieldInfos.keySet().contains(fieldValue)) {
@@ -72,25 +60,29 @@ public class LuaMessageTypeGenerator {
 		Map<String, Short> fieldInfos = generator.generateFieldsInfo();
 		VelocityContext context = new VelocityContext();
 		context.put("fieldInfos", fieldInfos);
-		VelocityEngine engine = new VelocityEngine();
-		Properties props = new Properties();
-		props.setProperty(Velocity.FILE_RESOURCE_LOADER_PATH, GeneratorHelper
-				.getBuildPath("lua"));
-		props.setProperty(Velocity.ENCODING_DEFAULT, "utf-8");
-		props.setProperty(Velocity.INPUT_ENCODING, "utf-8");
-		props.setProperty(Velocity.OUTPUT_ENCODING, "utf-8");
 		try {
-			engine.init(props);
-			Template template = engine.getTemplate("LuaMessageType.vm");
-			BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(
-					new FileOutputStream("lua/MessageType.lua"), "utf-8"));
-			template.merge(context, writer);
-			writer.flush();
-			writer.close();
+			LuaGeneratorHelper.generate(context, "LuaMessageType.vm", "target/type/MessageType.lua");
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+//		VelocityEngine engine = new VelocityEngine();
+//		Properties props = new Properties();
+//		props.setProperty(Velocity.FILE_RESOURCE_LOADER_PATH, LuaGeneratorHelper
+//				.getBuildPath(LuaMessageGenerator.TEMPLATE_DIC));
+//		props.setProperty(Velocity.ENCODING_DEFAULT, "utf-8");
+//		props.setProperty(Velocity.INPUT_ENCODING, "utf-8");
+//		props.setProperty(Velocity.OUTPUT_ENCODING, "utf-8");
+//		try {
+//			engine.init(props);
+//			Template template = engine.getTemplate("LuaMessageType.vm");
+//			BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(
+//					new FileOutputStream(new File("target/type/MessageType.lua")), "utf-8"));
+//			template.merge(context, writer);
+//			writer.flush();
+//			writer.close();
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
 		
 	}
 

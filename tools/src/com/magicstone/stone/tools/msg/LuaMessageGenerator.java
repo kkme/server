@@ -30,9 +30,9 @@ import com.hifun.soul.tools.msg.FieldObject;
 import com.hifun.soul.tools.msg.MessageObject;
 
 /**
- * 消息代码生成器
- * 
- * 
+ * 消息生成器;
+ * @author crazyjohn;
+ *
  */
 @SuppressWarnings("unchecked")
 public class LuaMessageGenerator {
@@ -236,30 +236,35 @@ public class LuaMessageGenerator {
 		for (String templateFileName : clientMsgTemplates) {
 			String outputFileNameSuffix = null;
 			String templatePrefix = templateFileName.substring(4, 6);
+			String prefix = "";
 			if (templatePrefix.equals("gc")) {
 				if (gcMsgs.size() == 0) {
 					continue;
 				}
 				context.put("msgs", gcMsgs);
-				outputFileNameSuffix = "GCMessage.lua";
+				prefix = "GC";
+				outputFileNameSuffix = "Message.lua";
 			} else if (templatePrefix.equals("cg")) {
 				if (cgMsgs.size() == 0) {
 					continue;
 				}
 				context.put("msgs", cgMsgs);
-				outputFileNameSuffix = "CGMessage.lua";
+				prefix = "CG";
+				outputFileNameSuffix = "Message.lua";
 			} 
 			context.put("constants", contants);
 			String outputFilePath; 
 			if(replaceDirectly)
 			{
 				outputFilePath = messagePath
+					+ prefix
 					+ StringUtils.upperCaseFirstCharOnly(module)
 					+ outputFileNameSuffix;
 			}
 			else
 			{
 				outputFilePath = clientRootPath + "\\" + module + "\\message\\"
+					+ prefix
 					+ StringUtils.upperCaseFirstCharOnly(module)
 					+ outputFileNameSuffix;
 			}
@@ -454,9 +459,9 @@ public class LuaMessageGenerator {
 
 
 	/**
-	 * 生成消息类型头文件
+	 * 生成AS消息类型头文件
 	 */
-	private void createClientMessageType() {
+	protected void createASClientMessageType() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("package com.hifun.soul.game.net{\r\n");
 		builder.append("\tpublic class MessageType{\r\n");
@@ -601,7 +606,9 @@ public class LuaMessageGenerator {
 		context.put("engine", generator);
 		JsScriptHelper.executeScriptFile(LuaGeneratorHelper
 				.getBuildPath("msg/message_generator.js"), context);
-		generator.createClientMessageType();
+		// generator.createClientMessageType();
+		// Lua Message Type
+		LuaMessageTypeGenerator.main(new String[0]);
 	}
 
 }
