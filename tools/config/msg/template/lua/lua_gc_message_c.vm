@@ -5,7 +5,6 @@
 #if( $type == "Integer" )Int#elseif( $type == "Boolean" )Byte#elseif( $type == "String" )StringUShort#else$type#end
 #end
 #macro( upperFirstChar $type)$type.substring(0,1).toUpperCase()$type.substring(1)#end
-
 #macro( readMsg $field $lastFieldObjectName)
 #if(${field.list})
 local ${field.smallName}_${lastFieldObjectName}
