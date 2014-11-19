@@ -22,7 +22,7 @@
 		 -- @param $field.smallName $field.comment
 #end
 		 ]]
-		function CG${module}Message:${msg.type}(#foreach( $field in $msg.fields )${field.smallName}#end)
+		function CG${module}Message:${msg.type}(#foreach( $field in $msg.fields )${field.smallName}#if($velocityCount != $msg.fields.size()),#end#end)
 #if($msg.fields.size() > 0)
 				-- bodyArray;
 				local msgBody = requireNewByteArray()

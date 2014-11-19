@@ -54,7 +54,7 @@ ${lastFieldObjectName}.${field.smallName} = data:read#bigType(${field.type})()
 		function GC${module}Message:register()
 				-- register handler method
 #foreach( $msg in $msgs )
-				register(MessageType.${msg.type}, handler(self, self.${msg.type}))
+				GlobalMessageRegistry:register(MessageType.${msg.type}, handler(self, self.${msg.type}))
 #end
 				-- register handler
 				GlobalHandlers:register("#upperFirstChar($module)Handler", requireNewHandler("#upperFirstChar($module)Handler"))
