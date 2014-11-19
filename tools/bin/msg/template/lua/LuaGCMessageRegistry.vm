@@ -1,0 +1,9 @@
+#macro( upperFirstChar $type)$type.substring(0,1).toUpperCase()$type.substring(1)#end
+-- MessageType;
+-- @author crazyjohn;
+-- register GCMessage
+
+#foreach($key in $modules)
+-- GC${key}Message
+requireNewMessage("GC#upperFirstChar(${key})Message"):register()
+#end

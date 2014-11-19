@@ -1,0 +1,9 @@
+#macro( upperFirstChar $type)$type.substring(0,1).toUpperCase()$type.substring(1)#end
+-- CGMessageRegistry;
+-- @author crazyjohn;
+-- register CGMessage
+
+#foreach($key in $modules)
+-- CG${key}Message
+CG#upperFirstChar(${key})Message = requireNewMessage("CG#upperFirstChar(${key})Message")
+#end

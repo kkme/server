@@ -189,7 +189,8 @@ public class LuaMessageGenerator {
 	private void createClientFile(List<Element> msgElements, String module,
 			List<Element> contantElements) throws Exception {
 		module = module.substring(module.lastIndexOf(".")>0?module.lastIndexOf(".")+1:0);
-
+		// add to modules
+		modules.add(module);
 		List<MessageObject> cgMsgs = new ArrayList<MessageObject>();
 		List<MessageObject> gcMsgs = new ArrayList<MessageObject>();
 		List<MessageObject> allClientMsgs = new ArrayList<MessageObject>();
@@ -585,6 +586,22 @@ public class LuaMessageGenerator {
 		}
 		return false;
 	}
+	// modules
+	private List<String> modules = new ArrayList<String>();
+	/**
+	 * 生成client端的消息注册表;
+	 */
+	private void createClientMessageRegistry() {
+		VelocityContext context = new VelocityContext();
+		context.put("modules", modules);
+		try {
+			LuaGeneratorHelper.generate(context, "LuaCGMessageRegistry.vm", "target/registry/CGMessageRegistry.lua");
+			LuaGeneratorHelper.generate(context, "LuaGCMessageRegistry.vm", "target/registry/GCMessageRegistry.lua");
+		} catch (Exception e) {
+			logger.error("Create client message registry error", e);
+		}
+		
+	}
 
 	/**
 	 * @param args
@@ -609,6 +626,9 @@ public class LuaMessageGenerator {
 		// generator.createClientMessageType();
 		// Lua Message Type
 		LuaMessageTypeGenerator.main(new String[0]);
+		// create registry
+		generator.createClientMessageRegistry();
 	}
+	
 
 }
