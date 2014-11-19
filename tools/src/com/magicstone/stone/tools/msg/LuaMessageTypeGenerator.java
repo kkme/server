@@ -6,6 +6,8 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 import org.apache.velocity.VelocityContext;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.hifun.soul.core.msg.MessageType;
 
@@ -16,6 +18,7 @@ import com.hifun.soul.core.msg.MessageType;
  * 
  */
 public class LuaMessageTypeGenerator {
+	private static Logger logger = LoggerFactory.getLogger(LuaMessageTypeGenerator.class);
 	private Map<String, Short> fieldInfos = new LinkedHashMap<String, Short>();
 	// field name min size
 	private static final int FIELD_NAME_MIN_SIZE = 3;
@@ -63,27 +66,8 @@ public class LuaMessageTypeGenerator {
 		try {
 			LuaGeneratorHelper.generate(context, "LuaMessageType.vm", "target/type/MessageType.lua");
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error("LuaMessageTypeGenerator execute error ", e);
 		}
-//		VelocityEngine engine = new VelocityEngine();
-//		Properties props = new Properties();
-//		props.setProperty(Velocity.FILE_RESOURCE_LOADER_PATH, LuaGeneratorHelper
-//				.getBuildPath(LuaMessageGenerator.TEMPLATE_DIC));
-//		props.setProperty(Velocity.ENCODING_DEFAULT, "utf-8");
-//		props.setProperty(Velocity.INPUT_ENCODING, "utf-8");
-//		props.setProperty(Velocity.OUTPUT_ENCODING, "utf-8");
-//		try {
-//			engine.init(props);
-//			Template template = engine.getTemplate("LuaMessageType.vm");
-//			BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(
-//					new FileOutputStream(new File("target/type/MessageType.lua")), "utf-8"));
-//			template.merge(context, writer);
-//			writer.flush();
-//			writer.close();
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-		
 	}
 
 }
